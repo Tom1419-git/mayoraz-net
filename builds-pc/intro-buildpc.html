@@ -172,10 +172,12 @@
     </script>
 
     
-    <!-- Lightbox Modal -->
+        <!-- Lightbox Modal -->
     <div id="imageModal" class="modal">
         <span class="modal-close" id="modalClose">&times;</span>
+        <button id="modalPrev" class="modal-nav-btn">&#10094;</button>
         <img class="modal-content" id="modalImage" alt="Image en plein &eacute;cran">
+        <button id="modalNext" class="modal-nav-btn">&#10095;</button>
     </div>
 
         <!-- Carousel Script -->
@@ -191,48 +193,20 @@
             function showSlide(index) {
                 slides.forEach(slide => slide.classList.remove('active'));
                 dots.forEach(dot => dot.classList.remove('active'));
-                
                 if (index >= slides.length) currentSlide = 0;
                 else if (index < 0) currentSlide = slides.length - 1;
                 else currentSlide = index;
-
                 slides[currentSlide].classList.add('active');
                 dots[currentSlide].classList.add('active');
             }
+            function nextSlide() { showSlide(currentSlide + 1); }
+            function prevSlide() { showSlide(currentSlide - 1); }
+            function startSlideShow() { slideInterval = setInterval(nextSlide, 3500); }
+            function resetInterval() { clearInterval(slideInterval); startSlideShow(); }
 
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-            }
-
-            function prevSlide() {
-                showSlide(currentSlide - 1);
-            }
-
-            function startSlideShow() {
-                slideInterval = setInterval(nextSlide, 3500);
-            }
-
-            function resetInterval() {
-                clearInterval(slideInterval);
-                startSlideShow();
-            }
-
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                    resetInterval();
-                });
-            });
+            nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+            prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
+            dots.forEach((dot, index) => { dot.addEventListener('click', () => { showSlide(index); resetInterval(); }); });
 
             const container = document.querySelector('.carousel-container');
             if (container) {
@@ -240,29 +214,45 @@
                 container.addEventListener('mouseleave', startSlideShow);
             }
 
-                        // Modal Logic
+            // Modal Gallery Logic
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const closeBtn = document.getElementById("modalClose");
+            const mPrevBtn = document.getElementById("modalPrev");
+            const mNextBtn = document.getElementById("modalNext");
+            const images = Array.from(document.querySelectorAll(".carousel-slide img")).map(img => img.src);
+            let currentModalIndex = 0;
 
             window.openModal = function(src) {
                 if (modal && modalImg) {
-                    modal.style.display = 'flex'; // Force display flex to override any display:none cached issues
+                    currentModalIndex = images.indexOf(src);
+                    if(currentModalIndex === -1) currentModalIndex = 0;
+                    modal.style.display = 'flex';
                     modal.classList.add("show");
-                    modalImg.src = src;
+                    modalImg.src = images[currentModalIndex];
                 }
             };
 
-            if (modal && closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal.classList.remove("show");
-                    setTimeout(() => { modal.style.display = ''; }, 300);
-                });
+            function changeModalImage(step) {
+                currentModalIndex += step;
+                if(currentModalIndex >= images.length) currentModalIndex = 0;
+                if(currentModalIndex < 0) currentModalIndex = images.length - 1;
+                modalImg.src = images[currentModalIndex];
+            }
 
+            if (modal && closeBtn) {
+                closeBtn.addEventListener('click', () => { modal.classList.remove("show"); setTimeout(() => { modal.style.display = ''; }, 300); });
                 modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.classList.remove("show");
-                        setTimeout(() => { modal.style.display = ''; }, 300);
+                    if (e.target === modal) { modal.classList.remove("show"); setTimeout(() => { modal.style.display = ''; }, 300); }
+                });
+                mPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); changeModalImage(-1); });
+                mNextBtn.addEventListener('click', (e) => { e.stopPropagation(); changeModalImage(1); });
+                
+                document.addEventListener('keydown', (e) => {
+                    if(modal.classList.contains('show')) {
+                        if(e.key === 'ArrowRight') changeModalImage(1);
+                        if(e.key === 'ArrowLeft') changeModalImage(-1);
+                        if(e.key === 'Escape') closeBtn.click();
                     }
                 });
             }
