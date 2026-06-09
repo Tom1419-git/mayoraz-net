@@ -99,6 +99,7 @@
                 <li><a href='../index.html'>Accueil</a></li>
                 <li><a href='../a-propos/a-propos.html'>À propos</a></li>
                 <li><a href='../contact/contact.html'>Contact</a></li>
+                            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
             </ul>
             <div class="burger" id="burger">
                 <span></span>
@@ -117,12 +118,12 @@
         </header>
 
         <main>
-            <section class="intro">
+            <section class="intro reveal">
                 <p>Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.</p>
             </section>
 
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-title-section">
                             <span class="project-icon">🖥️</span>
@@ -151,7 +152,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-title-section">
                             <span class="project-icon">💻</span>
@@ -187,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-title-section">
                             <span class="project-icon">📶</span>
@@ -216,7 +217,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-title-section">
                             <span class="project-icon">📊</span>
@@ -244,7 +245,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-title-section">
                             <span class="project-icon">📝</span>
@@ -352,5 +353,6 @@
             observer.observe(card);
         });
     </script>
+    <script src="../media/js/theme.js"></script>
 </body>
 </html>

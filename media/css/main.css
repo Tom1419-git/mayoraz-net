@@ -1218,3 +1218,84 @@ footer nav a:hover {
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
+
+/* ---------- Light Theme ---------- */
+:root[data-theme="light"] {
+    --bg-dark: #f8fafc;
+    --bg-gradient: radial-gradient(circle at top right, #e2e8f0 0%, #f8fafc 50%);
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --secondary: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-border-hover: rgba(2, 132, 199, 0.3);
+    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+    --bg-alt: #f1f5f9;
+    --bg-card: #ffffff;
+    --border-color: #cbd5e1;
+}
+
+/* Fix specific colors for light mode to maintain contrast */
+:root[data-theme="light"] .main-nav { background: rgba(248, 250, 252, 0.85); }
+:root[data-theme="light"] .nav-links a { color: var(--text-main); }
+:root[data-theme="light"] .burger span { background: var(--text-main); }
+:root[data-theme="light"] .project-card, 
+:root[data-theme="light"] .site-card,
+:root[data-theme="light"] .add-site-card,
+:root[data-theme="light"] .add-project-card { 
+    background: var(--glass-bg); 
+    box-shadow: var(--card-shadow); 
+}
+:root[data-theme="light"] footer { background: #e2e8f0; color: var(--text-main); border-top: 1px solid var(--border-color); }
+:root[data-theme="light"] .contact-container { background: #ffffff; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); }
+:root[data-theme="light"] .form-group input, 
+:root[data-theme="light"] .form-group textarea { 
+    background: #f8fafc; color: var(--text-main); border: 1px solid var(--border-color); 
+}
+
+/* ---------- Scroll Reveal Animations ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Theme Toggle Button ---------- */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.theme-toggle:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* ---------- Particles Canvas ---------- */
+#particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Let clicks pass through to content */
+}
+/* Ensure hero content stays above particles */
+.hero {
+    position: relative;
+    z-index: 1;
+}
