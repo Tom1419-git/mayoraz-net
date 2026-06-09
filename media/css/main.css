@@ -1139,6 +1139,8 @@ footer nav a:hover {
     padding: 80px 20px;
     background: var(--bg-alt, #0f172a);
     text-align: center;
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color, #334155);
 }
 .testimonials-section h2 {
     font-size: 2.5rem;
