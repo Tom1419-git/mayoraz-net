@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites Web - Thomas Mayoraz | Services Informatiques Lausanne</title>
+    <meta name="description" content="Mes réalisations de développement web : sites vitrines, applications et solutions digitales. Thomas Mayoraz, expert en services informatiques à Lausanne.">
+    <meta name="keywords" content="sites web, développement web, création site internet, portfolio web, thomas mayoraz, lausanne">
+    <meta name="author" content="Thomas Mayoraz">
+    <link rel="icon" href="../media/img/logo.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mayoraz-net.ch/sites-web/intro-sites-webs.html">
+    <meta property="og:title" content="Sites Web - Thomas Mayoraz | Services Informatiques Lausanne">
+    <meta property="og:description" content="Découvrez mes réalisations de développement web : sites vitrines et applications modernes.">
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/portrait.png">
+    <meta property="og:image:alt" content="Thomas Mayoraz - Développement de sites web">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Sites Web",
+        "description": "Collection de sites web développés par Thomas Mayoraz",
+        "url": "https://mayoraz-net.ch/sites-web/intro-sites-webs.html",
+        "numberOfItems": 1,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "WebSite",
+                    "name": "CTT Montriond Ouchy",
+                    "url": "https://mayoraz-net.ch/sites-web/ctt_montriond_version_club/index.html"
+                }
+            }
+        ]
+    }
+    </script>
+  <link rel="stylesheet" href="../media/css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href='/'>Accueil</a>
+        <a href='/a-propos/a-propos'>À propos</a>
+        <a class='cta-nav' href='/contact/contact'>Contact</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <a class='back-nav' href='/'>← Retour au Portfolio</a>
+            <div class="page-icon">🌐</div>
+            <h1>Sites Web</h1>
+            <p class="subtitle">Mes créations digitales et expériences web</p>
+        </header>
+
+        <main>
+            <section class="intro">
+                <p>Découvrez mes projets de développement web, des sites vitrines aux applications interactives. Chaque création reflète ma passion pour le web moderne et l'expérience utilisateur.</p>
+            </section>
+
+            <div class="navigation-info">
+                <h3>💡 Navigation</h3>
+                <p>Pour revenir à cette page depuis un site, rendez-vous en pied de page d'accueil de chaque site et cliquez sur le bouton de retour au portfolio.</p>
+            </div>
+
+            <div class="sites-grid">
+                <a class='site-card' href='/sites-web/ctt_montriond_version_club/'>
+                   
+                    <div class="site-header">
+                        <span class="site-icon">🏓</span>
+                        <div>
+                            <h3 class="site-title">CTT Montriond Ouchy</h3>
+                            <p class="site-url">Projet d'apprentissage</p>
+                            <p class="project-date">Mai 2025</p>
+                        </div>
+                    </div>
+                    <p class="site-description">
+                        Site web que j'ai développé pour mon club de ping-pong, le CTT Montriond Ouchy. Interface moderne et responsive présentant les actualités du club, les équipes, les résultats des matchs et les informations pratiques pour les membres et nouveaux joueurs.
+                    </p>
+                    <div class="site-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                </a>
+
+                <div class="add-site-card">
+                    <div class="add-icon">+</div>
+                    <p class="add-text">Prochain projet en cours...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Thomas Mayoraz • Portfolio - Sites Web</p>
+            <nav>
+                <a href='/'>Accueil</a>
+                <a href='/a-propos/a-propos'>À propos</a>
+                <a href='/contact/contact'>Contact</a>
+                <a href="../sitemap.xml">Plan du site</a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Bouton Retour en haut -->
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+    <script>
+        // Navigation active
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+
+        // Bouton retour en haut
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animation au survol des liens
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.opacity = '0.8';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0903a8ac92bdf5e',t:'MTc4MTAwOTA3Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

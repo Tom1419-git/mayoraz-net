@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background-color: #fdd;
+    
+}
+
+header {
+    color: white;
+    position: relative;
+}
+
+nav {
+    background-color: #a00;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-links {
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid white;
+    text-align: center;
+    background-color: #ff0000;
+    transition: background-color 0.2s ease;
+}
+
+.nav-links a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+/* Amélioration UX : hover sur toute la zone */
+.nav-links:hover {
+    background-color: #cc0000;
+}
+
+.nav-links a:hover {
+    text-decoration: none;
+}
+nav ul li img {
+    height: 60px;
+    border-radius: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    font-size: 120%;
+}
+
+
+  
+  h1, h2 {
+    text-align: center;
+    color: black;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 2px solid #a00;
+    border-radius: 8px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Georgia, serif;
+  }
+  
+  button[type="submit"] {
+    background-color: #a00;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  button:hover{
+    font-size: 110%;
+  }
+  
+  .contact-info {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    color: #444;
+  }
+  
+  table {
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 2px solid #a00;
+  }
+  
+  table th, table td {
+    border: 1px solid #a00;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #a00;
+    color: #fff;
+  }
+  
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .table-container table {
+        min-width: 600px; /* largeur minimale pour conserver une bonne lisibilité */
+    }
+
+  
+footer {
+    background-color: #a00;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 5%;
+    flex-wrap: wrap; 
+}
+
+footer img {
+    height: 40px;
+    border-radius: 99px;
+}
+
+footer .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
+
+footer .footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width:768px ) {
+	body {
+        font-size: 16px;    
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        padding: 6px 12px;
+        font-size: 15px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav ul li img {
+        height: 50px;
+    }
+    main{
+       margin: 0.5em; 
+    }
+    
+      /* Formulaire */
+  form {
+    width: 90%;
+    padding: 10px;
+    }
+
+    input, textarea, select {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        padding: 8px 15px;
+    }
+    /* Tableaux */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-container table {
+        min-width: 600px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    table th, table td {
+        padding: 6px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    footer .footer-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    footer .footer-links a {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    footer img {
+        height: 30px;
+    }
+}
