@@ -75,23 +75,22 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="main-nav">
-    <div class="nav-overlay" id="nav-overlay"></div>
-    <div class="nav-container">
-      <a class='logo' href='/'>Thomas Mayoraz</a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href='/'>Accueil</a></li>
-        <li><a href='/a-propos/a-propos'>À propos</a></li>
-        <li><a href='/contact/contact'>Contact</a></li>
-      </ul>
-      <div class="burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    
-    </div>
-  </nav>
+      <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href='index.html'>Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href='index.html'>Accueil</a></li>
+                <li><a href='a-propos/a-propos.html'>À propos</a></li>
+                <li><a href='contact/contact.html'>Contact</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
   <div class="container">
     <header>
@@ -119,7 +118,7 @@
         <div class="cta-banner-content">
           <h2>🚀 Besoin d'un service ou d'un devis informatique ?</h2>
           <p>Contactez-moi dès maintenant via le formulaire pour discuter de votre projet !</p>
-          <a aria-label='Contactez-moi pour vos projets informatiques' class='cta-button' href='/contact/contact'>💬 Me Contacter Maintenant</a>
+          <a aria-label='Contactez-moi pour vos projets informatiques' class='cta-button' href='contact/contact.html'>💬 Me Contacter Maintenant</a>
         </div>
       </div>
 
@@ -147,7 +146,7 @@
 
       <h2>🔥 Mes différents projets</h2>
       <div class="projects-grid">
-        <a aria-label='Voir mes projets en C#' class='project-card' href='/projets-csharp/intro-csharp'>
+        <a aria-label='Voir mes projets en C#' class='project-card' href='projets-csharp/intro-csharp.html'>
           <div class="project-header">
             <span class="project-icon">💻</span>
             <button class="fake-button">Voir →</button>
@@ -155,7 +154,7 @@
           <h3>Projets C#</h3>
           <p>Applications console et projets académiques développés en C#. Découvrez mes solutions aux défis de programmation et mes créations personnelles.</p>
         </a>
-        <a aria-label='Voir mes réalisations de sites web' class='project-card' href='/sites-web/intro-sites-webs'>
+        <a aria-label='Voir mes réalisations de sites web' class='project-card' href='sites-web/intro-sites-webs.html'>
           <div class="project-header">
             <span class="project-icon">🌐</span>
             <button class="fake-button">Voir →</button>
@@ -163,7 +162,7 @@
           <h3>Sites Web</h3>
           <p>Développement web professionnel à Lausanne. Sites responsives, applications web modernes et solutions digitales sur mesure pour votre entreprise.</p>
         </a>
-        <a aria-label='Voir mes configurations PC' class='project-card' href='/builds-pc/intro-buildpc'>
+        <a aria-label='Voir mes configurations PC' class='project-card' href='builds-pc/intro-buildpc.html'>
           <div class="project-header">
             <span class="project-icon">🔧</span>
             <button class="fake-button">Voir →</button>
@@ -171,7 +170,7 @@
           <h3>Montage PC</h3>
           <p>Assemblages personnalisés et configurations optimisées à Lausanne. Du choix des composants à la mise en service, explorez mes réalisations hardware.</p>
         </a>
-        <a aria-label='Voir mes projets divers' class='project-card' href='/autres-projets/autres-projets'>
+        <a aria-label='Voir mes projets divers' class='project-card' href='autres-projets/autres-projets.html'>
           <div class="project-header">
             <span class="project-icon">📁</span>
             <button class="fake-button">Voir →</button>
@@ -179,7 +178,7 @@
           <h3>Projets Divers</h3>
           <p>Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.</p>
         </a>
-        <a aria-label='Petit quiz sur l\'informatique' class='project-card' href='/jeu/jeu'>
+        <a aria-label='Petit quiz sur l\'informatique' class='project-card' href='jeu/jeu.html'>
           <div class="project-header">
             <span class="project-icon">❓</span>
             <button class="fake-button">Jouer →</button>
@@ -187,7 +186,7 @@
           <h3>Quiz sur l'informatique</h3>
           <p>Testez vos connaissances avec un quiz ludique sur l'informatique — rapide, instructif et parfait pour tous les niveaux !</p>
         </a>
-        <a aria-label='En savoir plus sur mon parcours' class='project-card' href='/a-propos/a-propos'>
+        <a aria-label='En savoir plus sur mon parcours' class='project-card' href='a-propos/a-propos.html'>
           <div class="project-header">
             <span class="project-icon">👨‍💻</span>
             <button class="fake-button">Découvrir →</button>
@@ -201,9 +200,9 @@
     <footer>
       <p>&copy; 2025 Thomas Mayoraz • Services Informatiques Lausanne • Portfolio professionnel</p>
       <nav style="margin-top: 15px;">
-        <a href='/'>Accueil</a>
-        <a href='/a-propos/a-propos'>À propos</a>
-        <a href='/contact/contact'>Contact</a>
+        <a href='index.html'>Accueil</a>
+        <a href='a-propos/a-propos.html'>À propos</a>
+        <a href='contact/contact.html'>Contact</a>
       </nav>
     </footer>
   </div>
@@ -283,5 +282,8 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
     
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0903a7e8f45a285',t:'MTc4MTAwOTA3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
+
+
+
