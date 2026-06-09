@@ -310,10 +310,10 @@
         }
 
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             const captchaInput = document.getElementById('captcha');
             const userAnswer = captchaInput.value;
             if (!validateCaptcha(userAnswer)) {
-                e.preventDefault();
                 const errorMsg = document.getElementById('captcha-error');
                 errorMsg.style.display = 'block';
                 attemptCount++;
@@ -330,6 +330,32 @@
                 return false;
             }
             document.getElementById('captcha-error').style.display = 'none';
+
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = 'merci.html';
+                } else {
+                    alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            }).catch(error => {
+                alert('Erreur de réseau. Veuillez vérifier votre connexion.');
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
         });
 
         // Animation des inputs au focus
