@@ -776,35 +776,3 @@ footer nav a:hover {
     
     .cta-banner { padding: 40px 20px; }
 }
-
-/* Styles pour la page merci */
-.success-container {
-    text-align: center;
-    max-width: 800px;
-    margin: 50px auto;
-}
-.success-container h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-.success-message {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-}
-.btn-merci {
-    display: inline-block;
-    padding: 15px 40px;
-    background: var(--primary);
-    color: var(--bg-dark);
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transition);
-}
-.btn-merci:hover {
-    background: var(--text-main);
-    transform: translateY(-2px);
-    color: var(--bg-dark);
-}
