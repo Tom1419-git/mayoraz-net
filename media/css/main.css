@@ -1329,10 +1329,28 @@ footer nav a:hover {
     transform: translateY(-3px);
 }
 
-/* Make sections transparent for global particles */
-section, .about, .services, .portfolio, .testimonials-section, .contact-section, .intro-section {
-    background: transparent !important;
+/* Section Backgrounds for readability over particles */
+:root {
+    --section-bg: rgba(5, 5, 5, 0.75);
+    --section-bg-alt: rgba(15, 23, 42, 0.75);
+}
+:root[data-theme="light"] {
+    --section-bg: rgba(248, 250, 252, 0.85);
+    --section-bg-alt: rgba(226, 232, 240, 0.85);
+}
+
+section, .about, .services, .portfolio, .contact-section, .intro-section {
+    background: var(--section-bg) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 .testimonials-section {
-    background: transparent !important;
+    background: var(--section-bg-alt) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
+.hero {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
