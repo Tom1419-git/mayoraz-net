@@ -12,3 +12,6 @@ desktop.ini
 # Temp
 _css_extract/
 *.log
+
+# Secret configuration files
+api/config.php
