@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Thomas Mayoraz | Services Informatiques Lausanne</title>
+    <meta name="description" content="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage. Thomas Mayoraz, expert en services informatiques.">
+    <meta name="keywords" content="contact informatique lausanne, devis site web, montage pc sur mesure, dépannage informatique, thomas mayoraz">
+    <meta name="author" content="Thomas Mayoraz">
+    <link rel="icon" href="../media/img/logo.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mayoraz-net.ch/contact/contact.html ">
+    <meta property="og:title" content="Contact - Thomas Mayoraz | Services Informatiques Lausanne">
+    <meta property="og:description" content="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage.">
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/portrait.png ">
+    <meta property="og:image:alt" content="Thomas Mayoraz - Contact pour services informatiques">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org ",
+        "@type": "ContactPage",
+        "name": "Contact Thomas Mayoraz",
+        "description": "Page de contact pour les services informatiques à Lausanne",
+        "url": "https://mayoraz-net.ch/contact/contact.html ",
+        "potentialAction": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+41-076-612-2053",
+            "email": "thomas.mayoraz@etml.educanet2.ch",
+            "areaServed": "Lausanne et région"
+        }
+    }
+    </script>
+  <link rel="stylesheet" href="../media/css/main.css">
+  <link rel="stylesheet" href="../media/css/contact.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href='/'>Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href='/'>Accueil</a></li>
+                <li><a href='/a-propos/a-propos'>À propos</a></li>
+                <li><a href='/contact/contact'>Contact</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="../media/img/portrait.png" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <div class="avatar-fallback">TM</div>
+                </div>
+                <h1>Me Contacter</h1>
+                <p class="subtitle">Discutons de votre projet</p>
+                <a class='back-nav' href='/'>← Retour au Portfolio</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-intro">
+                <h2>Parlons de votre projet</h2>
+                <p>Que ce soit pour un site web, un montage PC ou un dépannage informatique, je suis là pour vous accompagner. Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
+            </section>
+
+            <div class="contact-container">
+                <form class="contact-form" action="https://formspree.io/f/mwpbyprn " method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span class="required">*</span></label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="required">*</span></label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Type de prestation <span class="required">*</span></label>
+                        <select id="service" name="service" required>
+                            <option value="">Sélectionnez un service</option>
+                            <option value="site-web-personnel">Site web personnel</option>
+                            <option value="site-web-entreprise">Site web d'entreprise</option>
+                            <option value="montage-pc">Configuration PC sur mesure</option>
+                            <option value="depannage">Dépannage informatique</option>
+                            <option value="conseil-technique">Conseil technique</option>
+                            <option value="autre">Autre (précisez dans le message)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget approximatif (CHF)</label>
+                        <select id="budget" name="budget">
+                            <option value="">Non défini</option>
+                            <option value="0-500">0 - 500 CHF</option>
+                            <option value="500-1000">500 - 1000 CHF</option>
+                            <option value="1000-2000">1000 - 2000 CHF</option>
+                            <option value="2000-5000">2000 - 5000 CHF</option>
+                            <option value="5000+">Plus de 5000 CHF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message détaillé <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." required></textarea>
+                    </div>
+
+                    <div class="captcha-container">
+                        <div class="captcha-question" id="captcha-question">
+                            Chargement de la question de sécurité...
+                        </div>
+                        <div class="captcha-controls">
+                            <input type="text" id="captcha" name="captcha" class="captcha-input" required placeholder="Votre réponse">
+                            <button type="button" class="refresh-captcha" onclick="generateCaptcha()">
+                                🔄 Nouvelle question
+                            </button>
+                        </div>
+                        <div class="captcha-difficulty">
+                            Difficulté: <span id="difficulty-level">Moyenne</span>
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-dot" id="dot1"></div>
+                                <div class="difficulty-dot" id="dot2"></div>
+                                <div class="difficulty-dot" id="dot3"></div>
+                            </div>
+                        </div>
+                        <div class="error-message" id="captcha-error">
+                            Réponse incorrecte. Veuillez réessayer.
+                        </div>
+                        <input type="hidden" id="captcha-answer" name="captcha_answer">
+                        <input type="hidden" id="captcha-hash" name="captcha_hash">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Envoyer le message
+                    </button>
+                </form>
+
+                <div class="services-info">
+                    <h3>🛠️ Mes services en détail</h3>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <h4>Sites Web</h4>
+                            <p>Création de sites personnels, portfolios, sites vitrines pour entreprises. Design moderne et responsive.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Montage PC</h4>
+                            <p>Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Dépannage</h4>
+                            <p>Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Conseil Technique</h4>
+                            <p>Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Thomas Mayoraz • Services Informatiques Lausanne • Portfolio professionnel</p>
+            <nav style="margin-top: 15px;">
+                <a href='/'>Accueil</a>
+                <a href='/a-propos/a-propos'>À propos</a>
+                <a href='/contact/contact'>Contact</a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Bouton Retour en haut -->
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+    <script>
+        // Loader
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function () {
+                    document.getElementById('loader').style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        // Burger menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        burger.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Back to top
+        window.addEventListener('scroll', function () {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Système de captcha avancé
+        const captchaQuestions = [
+            { question: "Combien font 15 + 7 ?", answer: "22", difficulty: 1 },
+            { question: "Combien font 8 × 6 ?", answer: "48", difficulty: 2 },
+            { question: "Combien font 144 ÷ 12 ?", answer: "12", difficulty: 2 },
+            { question: "Combien font 25 - 17 ?", answer: "8", difficulty: 1 },
+            { question: "Quel est le prochain nombre dans la suite : 2, 4, 8, 16, ... ?", answer: "32", difficulty: 2 },
+            { question: "Si aujourd'hui est lundi, quel jour sera-t-il dans 10 jours ?", answer: "jeudi", difficulty: 2 },
+            { question: "Combien y a-t-il de lettres dans le mot 'INFORMATIQUE' ?", answer: "11", difficulty: 1 },
+            { question: "Dans quelle ville se trouve la Tour Eiffel ?", answer: "paris", difficulty: 1 },
+            { question: "Combien y a-t-il de minutes dans une heure ?", answer: "60", difficulty: 1 },
+            { question: "Quel est le résultat de 2³ (2 puissance 3) ?", answer: "8", difficulty: 2 },
+            { question: "Combien y a-t-il d'octets dans un kilooctet ?", answer: "1024", difficulty: 3 },
+            { question: "Que signifie 'HTML' ? (répondez en français)", answer: "langage de balisage hypertexte", difficulty: 3 },
+            { question: "Combien y a-t-il de bits dans un octet ?", answer: "8", difficulty: 2 },
+            { question: "Si vous avez 3 pommes et que vous en mangez 2, combien vous en reste-t-il ?", answer: "1", difficulty: 1 },
+            { question: "Combien font 50% de 80 ?", answer: "40", difficulty: 2 },
+            { question: "Quel âge aurez-vous dans 5 ans si vous avez 25 ans aujourd'hui ?", answer: "30", difficulty: 1 }
+        ];
+
+        let currentCaptcha = null;
+        let attemptCount = 0;
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16);
+        }
+
+        function generateCaptcha() {
+            const randomIndex = Math.floor(Math.random() * captchaQuestions.length);
+            currentCaptcha = captchaQuestions[randomIndex];
+            document.getElementById('captcha-question').textContent = currentCaptcha.question;
+            updateDifficultyIndicator(currentCaptcha.difficulty);
+            const timestamp = Date.now();
+            const hashInput = currentCaptcha.answer.toLowerCase() + timestamp;
+            const hash = simpleHash(hashInput);
+            document.getElementById('captcha-answer').value = currentCaptcha.answer.toLowerCase();
+            document.getElementById('captcha-hash').value = hash;
+            document.getElementById('captcha').value = '';
+            document.getElementById('captcha-error').style.display = 'none';
+        }
+
+        function updateDifficultyIndicator(difficulty) {
+            const levels = ['Facile', 'Moyenne', 'Difficile'];
+            document.getElementById('difficulty-level').textContent = levels[difficulty - 1];
+            for (let i = 1; i <= 3; i++) {
+                const dot = document.getElementById(`dot${i}`);
+                if (i <= difficulty) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            }
+        }
+
+        function validateCaptcha(userAnswer) {
+            if (!currentCaptcha) return false;
+            const normalizedUserAnswer = userAnswer.toLowerCase().trim();
+            const normalizedCorrectAnswer = currentCaptcha.answer.toLowerCase().trim();
+            if (normalizedUserAnswer === normalizedCorrectAnswer) return true;
+            const alternatives = {
+                'paris': ['paris', 'paris france'],
+                'langage de balisage hypertexte': ['html', 'hypertext markup language', 'langage de balisage hypertexte'],
+                'jeudi': ['jeudi', 'jeu']
+            };
+            if (alternatives[normalizedCorrectAnswer]) {
+                return alternatives[normalizedCorrectAnswer].includes(normalizedUserAnswer);
+            }
+            return false;
+        }
+
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            const captchaInput = document.getElementById('captcha');
+            const userAnswer = captchaInput.value;
+            if (!validateCaptcha(userAnswer)) {
+                e.preventDefault();
+                const errorMsg = document.getElementById('captcha-error');
+                errorMsg.style.display = 'block';
+                attemptCount++;
+                if (attemptCount >= 3) {
+                    setTimeout(() => {
+                        generateCaptcha();
+                        attemptCount = 0;
+                        errorMsg.textContent = 'Nouvelle question générée après plusieurs tentatives incorrectes.';
+                    }, 1500);
+                } else {
+                    errorMsg.textContent = `Réponse incorrecte. Tentative ${attemptCount}/3.`;
+                }
+                captchaInput.focus();
+                return false;
+            }
+            document.getElementById('captcha-error').style.display = 'none';
+        });
+
+        // Animation des inputs au focus
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.transition = 'transform 0.2s ease';
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+
+        // Génération automatique du captcha au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCaptcha();
+        });
+
+        // Régénération après inactivité
+        let inactivityTimer;
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                generateCaptcha();
+            }, 300000); // 5 minutes
+        }
+
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetInactivityTimer, true);
+        });
+
+        resetInactivityTimer();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0903a836d37c8a4',t:'MTc4MTAwOTA3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,781 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques </title>
+    <meta name="description" content="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau.">
+    <meta name="keywords" content="quiz informatique, test connaissances tech, questions programmation, quiz sécurité informatique, quiz hardware, quiz web, thomas mayoraz">
+    <meta name="author" content="Thomas Mayoraz">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mayoraz-net.ch/jeu/jeu.html">
+    <link rel="icon" href="../media/img/logo.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mayoraz-net.ch/jeu/jeu.html">
+    <meta property="og:title" content="Quiz Tech - Testez vos connaissances informatiques | Thomas Mayoraz">
+    <meta property="og:description" content="Quiz interactif avec 15 questions techniques sur la programmation, le hardware et les technologies web. Évaluez votre niveau en informatique.">
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/quiz-tech-og.jpg">
+    <meta property="og:image:alt" content="Capture d'écran du quiz informatique de Thomas Mayoraz">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mayoraz-net.ch/jeu/jeu.html">
+    <meta property="twitter:title" content="Quiz Tech - Testez vos connaissances informatiques | Thomas Mayoraz">
+    <meta property="twitter:description" content="Défi technique avec 45 questions sur l'informatique. Programmez-vous, hardware, sécurité et web. Quel sera votre score?">
+    <meta property="twitter:image" content="https://mayoraz-net.ch/media/img/quiz-tech-twitter.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": "Quiz Tech - Connaissances Informatiques",
+        "description": "Questionnaire interactif testant les connaissances en informatique, programmation et technologies web",
+        "url": "https://mayoraz-net.ch/jeu/jeu.html",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas Mayoraz",
+            "jobTitle": "Apprenti Informatique",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "ETML Lausanne"
+            }
+        },
+        "educationalLevel": "Intermediate",
+        "hasPart": {
+            "@type": "Question",
+            "name": "Question sur les technologies informatiques",
+            "question": "Qu'est-ce qu'une variable en programmation ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un conteneur pour stocker des données"
+            }
+        },
+        "datePublished": "2025-01-01",
+        "timeRequired": "PT10M"
+    }
+    </script>
+  <link rel="stylesheet" href="../media/css/main.css">
+  <link rel="stylesheet" href="../media/css/jeu.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="main-nav">
+    <a href='/'>Accueil</a>
+    <a href='/a-propos/a-propos'>À propos</a>
+    <a class='cta-nav' href='/contact/contact'>Contact</a>
+</nav>
+
+<div id="quiz-container">
+    <h1>Quiz Tech : Testez Vos Connaissances Informatiques</h1>
+    <div id="progress">Question 1/15</div>
+    <div class="question" id="question-text">Chargement des questions...</div>
+    <div class="options-container" id="options-container"></div>
+    <div id="feedback"></div>
+    <button id="next-btn">Suivant</button>
+    
+    <div id="results">
+        <div id="score"></div>
+        <div id="rank"></div>
+        <div id="comment"></div>
+        <button id="show-answers-btn">Afficher les réponses</button>
+        <button id="restart-btn">Recommencer le quiz</button>
+    </div>
+
+    <div id="all-answers"></div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Thomas Mayoraz • Services Informatiques Lausanne • Portfolio professionnel</p>
+    <nav style="margin-top: 15px;">
+        <a href='/'>Accueil</a>
+        <a href='/a-propos/a-propos'>À propos</a>
+        <a href='/contact/contact'>Contact</a>
+        <a href="../sitemap.xml">Plan du site</a>
+    </nav>
+</footer>
+<button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+<script>
+    const questions = [
+        {
+            question: "Qu'est-ce qu'une variable en programmation ?",
+            options: ["Un type de fichier", "Un conteneur pour stocker des données", "Une erreur dans le code", "Un commentaire dans le programme"],
+            answer: 1,
+            explanation: "Une variable est un conteneur qui stocke des données qui peuvent être modifiées pendant l'exécution du programme."
+        },
+        {
+            question: "Comment reconnaître un email de phishing ?",
+            options: ["L'expéditeur utilise un ton urgent ou menaçant", "Il contient des liens ou pièces jointes suspects", "L'adresse email de l'expéditeur semble inhabituelle", "Toutes ces réponses"],
+            answer: 3,
+            explanation: "Les emails de phishing utilisent souvent ces techniques pour inciter les victimes à agir rapidement sans réfléchir."
+        },
+        {
+            question: "À quoi sert la RAM dans un ordinateur ?",
+            options: ["Stockage permanent des fichiers", "Mémoire temporaire pour les programmes en cours d'exécution", "Contrôle de la carte graphique", "Alimentation électrique des composants"],
+            answer: 1,
+            explanation: "La RAM (Random Access Memory) est une mémoire volatile utilisée pour stocker temporairement les données des programmes en cours d'exécution."
+        },
+        {
+            question: "Que fait la combinaison de touches Ctrl + S dans un logiciel ?",
+            options: ["Ouvre un nouveau document", "Enregistre le document en cours", "Ferme le document", "Annule la dernière action"],
+            answer: 1,
+            explanation: "Ctrl + S est le raccourci universel pour enregistrer (Save) le document ou fichier en cours."
+        },
+        {
+            question: "Qu'est-ce qu'un système d'exploitation ?",
+            options: ["Un programme pour naviguer sur internet", "Un logiciel qui gère les ressources matérielles et logicielles de l'ordinateur", "Un type de processeur", "Un périphérique de stockage"],
+            answer: 1,
+            explanation: "Le système d'exploitation (comme Windows, macOS ou Linux) est le logiciel principal qui gère toutes les ressources de l'ordinateur."
+        },
+        {
+            question: "Que signifie l'acronyme 'URL' ?",
+            options: ["Universal Resource Locator", "Uniform Resource Locator", "Unified Resource Link", "Universal Reference Location"],
+            answer: 1,
+            explanation: "URL signifie Uniform Resource Locator, c'est l'adresse qui permet d'accéder à une ressource sur internet."
+        },
+        {
+            question: "Quelle est la fonction principale d'un pare-feu (firewall) ?",
+            options: ["Accélérer la connexion internet", "Protéger contre les logiciels malveillants", "Contrôler le trafic réseau entrant et sortant", "Améliorer les performances graphiques"],
+            answer: 2,
+            explanation: "Un pare-feu surveille et contrôle le trafic réseau selon des règles de sécurité définies."
+        },
+        {
+            question: "Que faire si votre ordinateur est anormalement lent ?",
+            options: ["Redémarrer l'ordinateur", "Vérifier les programmes en cours d'exécution", "Nettoyer l'espace disque", "Toutes ces réponses"],
+            answer: 3,
+            explanation: "Toutes ces solutions peuvent aider à améliorer les performances d'un ordinateur lent."
+        },
+        {
+            question: "Qu'est-ce qu'un VPN ?",
+            options: ["Un type de virus", "Un réseau privé virtuel", "Un programme de montage vidéo", "Un protocole de messagerie"],
+            answer: 1,
+            explanation: "Un VPN (Virtual Private Network) crée une connexion sécurisée et cryptée entre votre appareil et internet."
+        },
+        {
+            question: "Quelle est la différence entre un disque SSD et un HDD ?",
+            options: ["Les SSD sont plus rapides mais plus chers que les HDD", "Les HDD utilisent des plateaux magnétiques, les SSD de la mémoire flash", "Les SSD n'ont pas de pièces mobiles", "Toutes ces réponses"],
+            answer: 3,
+            explanation: "Les SSD sont plus rapides, plus durables mais plus chers que les HDD traditionnels."
+        },
+        {
+            question: "À quoi sert un gestionnaire de mots de passe ?",
+            options: ["Stocker et gérer de manière sécurisée vos identifiants", "Créer des mots de passe complexes", "Remplir automatiquement les formulaires de connexion", "Toutes ces réponses"],
+            answer: 3,
+            explanation: "Un gestionnaire de mots de passe offre toutes ces fonctionnalités pour une meilleure sécurité en ligne."
+        },
+        {
+            question: "Que signifie '2FA' en sécurité informatique ?",
+            options: ["Double Format d'Authentification", "Double Facteur d'Authentification", "Double Fréquence d'Accès", "Double Fichier d'Accès"],
+            answer: 1,
+            explanation: "2FA signifie Double Facteur d'Authentification, une méthode qui ajoute une couche de sécurité supplémentaire."
+        },
+        {
+            question: "Qu'est-ce qu'une sauvegarde 'cloud' ?",
+            options: ["Une sauvegarde sur un disque externe", "Une sauvegarde sur un serveur distant via internet", "Une sauvegarde sur un CD/DVD", "Une sauvegarde sur une clé USB"],
+            answer: 1,
+            explanation: "Le cloud computing permet de stocker des données sur des serveurs distants accessibles via internet."
+        },
+        {
+            question: "Quelle est la fonction principale d'un processeur (CPU) ?",
+            options: ["Stockeur des données", "Exécuter les instructions des programmes", "Afficher les images à l'écran", "Fournir de l'énergie aux composants"],
+            answer: 1,
+            explanation: "Le CPU (Central Processing Unit) est le cerveau de l'ordinateur qui exécute les instructions des programmes."
+        },
+        {
+            question: "Que signifie 'HTTPS' dans une URL ?",
+            options: ["HyperText Transfer Protocol Secure", "HyperText Transfer Protocol Standard", "HyperText Transfer Protocol System", "HyperText Transfer Protocol Service"],
+            answer: 0,
+            explanation: "HTTPS est la version sécurisée du HTTP, avec un chiffrement des données échangées."
+        },
+         {
+        question: "Que signifie l'acronyme 'HTML' ?",
+        options: ["HyperText Markdown Language", "HighText Machine Language", "HyperText Markup Language", "Hyperloop Text Management Language"],
+        answer: 2,
+        explanation: "HTML signifie HyperText Markup Language, utilisé pour structurer le contenu des pages web."
+    },
+    {
+        question: "Quelle est l'extension de fichier d'une feuille de style CSS ?",
+        options: [".style", ".css", ".html", ".scss"],
+        answer: 1,
+        explanation: "Les fichiers de feuilles de style en cascade (CSS) ont l'extension .css."
+    },
+    {
+        question: "Quel langage est principalement utilisé pour styliser une page web ?",
+        options: ["HTML", "JavaScript", "CSS", "Python"],
+        answer: 2,
+        explanation: "CSS (Cascading Style Sheets) est utilisé pour la présentation visuelle des pages web."
+    },
+    {
+        question: "Quelle balise HTML est utilisée pour insérer une image ?",
+        options: ["<image>", "<img>", "<pic>", "<src>"],
+        answer: 1,
+        explanation: "La balise <img> permet d'insérer des images dans une page HTML."
+    },
+    {
+        question: "Que fait la touche F5 dans la plupart des navigateurs web ?",
+        options: ["Ouvre les paramètres", "Actualise la page", "Ferme l'onglet", "Ouvre une nouvelle fenêtre"],
+        answer: 1,
+        explanation: "La touche F5 permet de rafraîchir ou recharger la page en cours."
+    },
+    {
+        question: "Qu'est-ce qu'une adresse IP ?",
+        options: ["Une adresse de messagerie", "Un identifiant unique pour un appareil sur un réseau", "Une partie d'un disque dur", "Un numéro de série de carte graphique"],
+        answer: 1,
+        explanation: "Une adresse IP identifie de façon unique un appareil sur un réseau."
+    },
+    {
+        question: "Quel langage est utilisé pour interagir avec des bases de données relationnelles ?",
+        options: ["HTML", "Python", "SQL", "JavaScript"],
+        answer: 2,
+        explanation: "SQL (Structured Query Language) est utilisé pour interroger et gérer les bases de données relationnelles."
+    },
+    {
+        question: "Quel est le rôle principal d'un antivirus ?",
+        options: ["Créer des sauvegardes", "Empêcher les emails indésirables", "Détecter et supprimer les logiciels malveillants", "Accélérer le démarrage de l’ordinateur"],
+        answer: 2,
+        explanation: "Un antivirus protège l'ordinateur contre les virus et logiciels malveillants."
+    },
+    {
+        question: "Qu'est-ce qu'une boucle 'for' en programmation ?",
+        options: ["Une fonction", "Une méthode de tri", "Une structure de répétition", "Une condition logique"],
+        answer: 2,
+        explanation: "La boucle 'for' permet de répéter une action un certain nombre de fois."
+    },
+    {
+        question: "Quelle entreprise développe le système d'exploitation Windows ?",
+        options: ["Apple", "Google", "IBM", "Microsoft"],
+        answer: 3,
+        explanation: "Microsoft est l'éditeur du système d'exploitation Windows."
+    },
+    {
+        question: "Quelle est la différence principale entre HTTP et HTTPS ?",
+        options: ["HTTPS est plus rapide", "HTTP est plus sécurisé", "HTTPS chiffre les données échangées", "HTTP est utilisé pour les vidéos uniquement"],
+        answer: 2,
+        explanation: "HTTPS chiffre les échanges de données, contrairement à HTTP."
+    },
+    {
+        question: "Que permet de faire un logiciel de virtualisation comme VirtualBox ?",
+        options: ["Créer des documents PDF", "Installer des pilotes de périphériques", "Exécuter plusieurs systèmes d’exploitation sur un même ordinateur", "Optimiser la connexion internet"],
+        answer: 2,
+        explanation: "VirtualBox permet d'exécuter plusieurs OS simultanément sur la même machine."
+    },
+    {
+        question: "Que signifie l'acronyme 'BIOS' ?",
+        options: ["Basic Input Output System", "Binary Integrated Operating System", "Basic Internet Operating System", "Basic Input Option System"],
+        answer: 0,
+        explanation: "BIOS signifie Basic Input Output System, il initialise le matériel à l’allumage."
+    },
+    {
+        question: "Quel composant est le plus responsable du rendu graphique dans un jeu vidéo ?",
+        options: ["Le processeur", "La RAM", "La carte graphique", "Le disque dur"],
+        answer: 2,
+        explanation: "La carte graphique (GPU) gère les calculs d’affichage et de rendu visuel."
+    },
+    {
+        question: "Que signifie le terme 'open source' ?",
+        options: ["Gratuit uniquement", "Avec code source fermé", "Avec code source librement accessible", "Uniquement pour les professionnels"],
+        answer: 2,
+        explanation: "Un logiciel open source est distribué avec un code source accessible et modifiable."
+    },
+    {
+        question: "Quel système d’exploitation est basé sur le noyau Linux ?",
+        options: ["macOS", "Windows", "Ubuntu", "Chrome"],
+        answer: 2,
+        explanation: "Ubuntu est une distribution Linux populaire et gratuite."
+    },
+    {
+        question: "Qu'est-ce qu'une clé USB ?",
+        options: ["Un programme", "Un périphérique de stockage portable", "Un navigateur", "Un raccourci clavier"],
+        answer: 1,
+        explanation: "Une clé USB permet de stocker et transférer des fichiers facilement."
+    },
+    {
+        question: "Quel navigateur a été développé par Google ?",
+        options: ["Edge", "Chrome", "Firefox", "Safari"],
+        answer: 1,
+        explanation: "Google Chrome est le navigateur développé par Google."
+    },
+    {
+        question: "Qu'est-ce qu'un algorithme ?",
+        options: ["Une application mobile", "Un virus informatique", "Une série d’instructions pour résoudre un problème", "Un composant matériel"],
+        answer: 2,
+        explanation: "Un algorithme est une suite d'étapes permettant de résoudre un problème ou effectuer une tâche."
+    },
+    {
+        question: "Quel est l'intérêt de compresser un fichier ?",
+        options: ["Le protéger contre les virus", "Réduire sa taille pour un stockage ou un envoi plus facile", "Changer son format", "Rendre son contenu illisible"],
+        answer: 1,
+        explanation: "La compression permet de réduire la taille des fichiers pour gagner de l’espace ou faciliter le transfert."
+    },
+    {
+        question: "Qu’est-ce qu’une adresse MAC ?",
+        options: ["L’adresse d’un site Apple", "Un identifiant matériel unique d’une carte réseau", "Un mot de passe réseau", "Un fichier système sur MacOS"],
+        answer: 1,
+        explanation: "L’adresse MAC est un identifiant unique attribué à une interface réseau."
+    },
+    {
+        question: "Quel est le rôle du DNS sur Internet ?",
+        options: ["Sécuriser les connexions", "Convertir les noms de domaine en adresses IP", "Accélérer le chargement des pages", "Empêcher les spams"],
+        answer: 1,
+        explanation: "Le DNS traduit les noms de domaine comme google.com en adresses IP."
+    },
+    {
+        question: "Que signifie 'responsive' en développement web ?",
+        options: ["Un site qui répond vite", "Un site qui s’adapte à tous les écrans", "Un site sécurisé", "Un site avec des animations"],
+        answer: 1,
+        explanation: "Un site responsive s’adapte automatiquement à la taille de l’écran (PC, mobile, tablette)."
+    },
+    {
+        question: "À quoi sert un fichier '.exe' sous Windows ?",
+        options: ["C’est une image", "C’est un fichier texte", "C’est un fichier exécutable", "C’est une vidéo"],
+        answer: 2,
+        explanation: "Les fichiers '.exe' sont des exécutables qui permettent de lancer des logiciels sur Windows."
+    },
+    {
+        question: "Que fait la combinaison Ctrl + Z ?",
+        options: ["Enregistre le fichier", "Annule la dernière action", "Colle du texte", "Ferme le programme"],
+        answer: 1,
+        explanation: "Ctrl + Z permet d’annuler la dernière action effectuée."
+    },
+    {
+        question: "Comment s’appelle le système de fichiers utilisé par Windows ?",
+        options: ["FAT32", "NTFS", "EXT4", "HFS+"],
+        answer: 1,
+        explanation: "Windows utilise principalement le système de fichiers NTFS."
+    },
+    {
+        question: "Qu’est-ce qu’un cookie sur un site web ?",
+        options: ["Un virus", "Un outil de tracking", "Un fichier temporaire de configuration", "Une publicité"],
+        answer: 2,
+        explanation: "Un cookie est un petit fichier permettant de stocker des informations de navigation utilisateur."
+    },
+     {
+        question: "Qu'est-ce qu'un langage de programmation compilé ?",
+        options: ["Un langage qui s'exécute directement sans transformation", "Un langage transformé en langage machine avant l'exécution", "Un langage utilisé uniquement pour le web", "Un langage qui ne peut pas contenir d'erreurs"],
+        answer: 1,
+        explanation: "Un langage compilé est transformé en code machine par un compilateur avant d'être exécuté."
+    },
+    {
+        question: "Quel langage est souvent utilisé pour développer des applications Android ?",
+        options: ["C#", "Swift", "Java", "Ruby"],
+        answer: 2,
+        explanation: "Java est l’un des principaux langages utilisés pour le développement Android."
+    },
+    {
+        question: "Qu'est-ce qu'un fichier PDF ?",
+        options: ["Un format d'image", "Un format de vidéo", "Un format de document universel", "Un format de base de données"],
+        answer: 2,
+        explanation: "PDF (Portable Document Format) est utilisé pour présenter des documents de manière fiable, quel que soit le logiciel ou appareil."
+    },
+    {
+        question: "À quoi sert Git dans un projet informatique ?",
+        options: ["Sauvegarder les fichiers sur le cloud", "Gérer l'historique des versions du code", "Compiler le code automatiquement", "Créer des interfaces utilisateur"],
+        answer: 1,
+        explanation: "Git est un système de gestion de versions permettant de suivre les modifications du code source."
+    },
+    {
+        question: "Qu’est-ce qu’une API ?",
+        options: ["Un type de fichier", "Un virus", "Une interface pour faire communiquer des logiciels", "Un périphérique réseau"],
+        answer: 2,
+        explanation: "Une API (Application Programming Interface) permet à des logiciels de communiquer entre eux."
+    },
+    {
+        question: "Quel est le rôle de la carte mère dans un ordinateur ?",
+        options: ["Alimenter l’ordinateur", "Afficher les images", "Connecter et faire communiquer tous les composants", "Protéger le disque dur"],
+        answer: 2,
+        explanation: "La carte mère est le composant central qui connecte tous les autres (CPU, RAM, GPU, etc.)."
+    },
+    {
+        question: "Quel langage est interprété côté client dans les navigateurs web ?",
+        options: ["PHP", "Python", "JavaScript", "C++"],
+        answer: 2,
+        explanation: "JavaScript est exécuté directement dans le navigateur de l'utilisateur."
+    },
+    {
+        question: "Que signifie l’acronyme 'PDF' ?",
+        options: ["Public Data File", "Printable Document Format", "Portable Document Format", "Private Digital File"],
+        answer: 2,
+        explanation: "PDF signifie Portable Document Format, un format de fichier pour l’échange de documents."
+    },
+    {
+        question: "Qu'est-ce qu'un serveur ?",
+        options: ["Un périphérique audio", "Un programme ou appareil qui fournit des services à d'autres", "Un type de réseau", "Une base de données"],
+        answer: 1,
+        explanation: "Un serveur fournit des services (site web, fichiers, mail...) à d'autres ordinateurs appelés clients."
+    },
+    {
+        question: "Quel est le rôle principal d’un routeur dans un réseau domestique ?",
+        options: ["Améliorer la qualité du signal Wi-Fi", "Connecter les appareils au réseau et à Internet", "Stocker les fichiers", "Sécuriser les ports USB"],
+        answer: 1,
+        explanation: "Un routeur connecte les appareils au réseau local et à Internet."
+    },
+    {
+        question: "Que signifie 'bug' en informatique ?",
+        options: ["Une mise à jour importante", "Une erreur ou défaillance dans un programme", "Un périphérique externe", "Un langage de programmation"],
+        answer: 1,
+        explanation: "Un bug est une erreur dans le code source qui entraîne un comportement inattendu ou incorrect."
+    },
+    {
+        question: "Que permet un câble HDMI ?",
+        options: ["Transférer uniquement l'audio", "Transférer uniquement la vidéo", "Transférer l'audio et la vidéo en haute définition", "Transférer des fichiers entre ordinateurs"],
+        answer: 2,
+        explanation: "Un câble HDMI permet de transmettre à la fois de l’audio et de la vidéo en haute définition."
+    },
+    {
+        question: "Quelle extension correspond à un fichier compressé ?",
+        options: [".jpg", ".zip", ".exe", ".txt"],
+        answer: 1,
+        explanation: ".zip est une extension utilisée pour les fichiers compressés."
+    },
+    {
+        question: "Qu’est-ce qu’un système de fichiers ?",
+        options: ["Un antivirus", "Un logiciel de traitement de texte", "Une façon d’organiser les données sur un support de stockage", "Une suite bureautique"],
+        answer: 2,
+        explanation: "Un système de fichiers définit la manière dont les données sont organisées et accédées sur un disque."
+    },
+    {
+        question: "Que signifie l'abréviation 'SSD' ?",
+        options: ["Solid State Drive", "Smart Storage Device", "Software System Data", "Super Speed Disk"],
+        answer: 0,
+        explanation: "SSD signifie Solid State Drive, un type de disque rapide et sans pièces mécaniques."
+    },
+    {
+        question: "Quel langage est majoritairement utilisé pour les scripts côté serveur web ?",
+        options: ["Java", "PHP", "JavaScript", "Bash"],
+        answer: 1,
+        explanation: "PHP est largement utilisé pour exécuter des scripts côté serveur sur les sites web."
+    },
+    {
+        question: "Que permet la commande 'ping' ?",
+        options: ["Mesurer le débit Internet", "Tester la connectivité réseau entre deux machines", "Afficher la température du processeur", "Analyser un virus"],
+        answer: 1,
+        explanation: "La commande ping permet de tester si un appareil distant est accessible sur un réseau."
+    },
+    {
+        question: "Qu'est-ce qu'un bot informatique ?",
+        options: ["Un périphérique", "Un virus", "Un programme automatisé pour exécuter des tâches", "Une extension de navigateur"],
+        answer: 2,
+        explanation: "Un bot est un logiciel qui effectue automatiquement des tâches répétitives sur Internet."
+    },
+    {
+        question: "Que fait la combinaison Ctrl + C ?",
+        options: ["Copie le texte sélectionné", "Colle le texte copié", "Annule la dernière action", "Ouvre le menu contextuel"],
+        answer: 0,
+        explanation: "Ctrl + C permet de copier une sélection dans le presse-papiers."
+    },
+    {
+        question: "Quel composant détermine principalement la fluidité des jeux vidéo ?",
+        options: ["Le disque dur", "La carte graphique", "Le clavier", "Le BIOS"],
+        answer: 1,
+        explanation: "La carte graphique (GPU) est le composant clé pour le rendu et la fluidité dans les jeux vidéo."
+    },
+    {
+        question: "Qu’est-ce qu’un QR code ?",
+        options: ["Une adresse IP", "Une image contenant du texte", "Un type de virus", "Un code visuel pouvant contenir des données lisibles par un smartphone"],
+        answer: 3,
+        explanation: "Un QR code est un code visuel qui peut contenir du texte, des liens, etc., lisibles via caméra."
+    },
+    {
+        question: "Que signifie 'cloud computing' ?",
+        options: ["Créer des programmes dans le ciel", "Utiliser un ordinateur sans Internet", "Utiliser des ressources informatiques via Internet", "Stocker ses données sur une disquette"],
+        answer: 2,
+        explanation: "Le cloud computing permet d’utiliser des services informatiques (stockage, calcul, etc.) en ligne."
+    },
+    {
+        question: "Que signifie le terme 'frontend' ?",
+        options: ["Le code qui tourne sur le serveur", "L’interface utilisateur d’un site ou logiciel", "Le matériel informatique", "Une technique de hacking"],
+        answer: 1,
+        explanation: "Le frontend désigne l’interface visible avec laquelle l’utilisateur interagit."
+    },
+    {
+        question: "Quel logiciel est utilisé pour écrire du code ?",
+        options: ["Word", "Photoshop", "Visual Studio Code", "Excel"],
+        answer: 2,
+        explanation: "Visual Studio Code est un éditeur de code source populaire pour les développeurs."
+    },
+    {
+        question: "Quel est le rôle de l’IA dans l’informatique moderne ?",
+        options: ["Remplacer Internet", "Gérer l'alimentation de l’ordinateur", "Permettre à des systèmes d’apprendre et s’adapter", "Créer des disques durs plus rapides"],
+        answer: 2,
+        explanation: "L’intelligence artificielle permet aux systèmes d’apprendre à partir de données pour accomplir des tâches automatiquement."
+    }
+    ];
+
+    // Variables globales
+    let questionsAleatoires = [];
+    let reponseUtilisateur = [];
+    let questionActuelle = 0;
+    let score = 0;
+    let reponseSelectionnee = null;
+    let quizTermine = false;
+
+    // Éléments DOM
+    const questionElement = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const progressElement = document.getElementById('progress');
+    const feedbackElement = document.getElementById('feedback');
+    const nextButton = document.getElementById('next-btn');
+    const resultsElement = document.getElementById('results');
+    const scoreElement = document.getElementById('score');
+    const rankElement = document.getElementById('rank');
+    const commentElement = document.getElementById('comment');
+    const restartButton = document.getElementById('restart-btn');
+    const showAnswersButton = document.getElementById('show-answers-btn');
+    const allAnswersElement = document.getElementById('all-answers');
+
+    function initialiserQuiz() {
+        // Mélanger et prendre 15 questions aléatoires
+        questionsAleatoires = [...questions].sort(() => 0.5 - Math.random()).slice(0, 15);
+        reponseUtilisateur = new Array(15).fill(null);
+        questionActuelle = 0;
+        score = 0;
+        quizTermine = false;
+        reponseSelectionnee = null;
+        
+        // Réinitialiser l'affichage
+        resultsElement.style.display = 'none';
+        allAnswersElement.style.display = 'none';
+        feedbackElement.style.display = 'none';
+        nextButton.textContent = 'Suivant';
+        nextButton.disabled = true;
+        
+        chargerQuestion();
+    }
+
+    function chargerQuestion() {
+        if (questionActuelle >= questionsAleatoires.length) {
+            terminerQuiz();
+            return;
+        }
+
+        const q = questionsAleatoires[questionActuelle];
+        questionElement.textContent = q.question;
+        optionsContainer.innerHTML = '';
+        
+        q.options.forEach((option, index) => {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('option');
+            optionElement.textContent = option;
+            optionElement.addEventListener('click', () => selectionnerReponse(index));
+            optionsContainer.appendChild(optionElement);
+        });
+        
+        progressElement.textContent = `Question ${questionActuelle + 1}/15`;
+        feedbackElement.style.display = 'none';
+        nextButton.disabled = true;
+        reponseSelectionnee = null;
+    }
+
+    function selectionnerReponse(index) {
+        if (quizTermine) return;
+        
+        const options = document.querySelectorAll('.option');
+        options.forEach(option => option.classList.remove('selected'));
+        options[index].classList.add('selected');
+        reponseSelectionnee = index;
+        nextButton.disabled = false;
+    }
+
+    function verifierReponse() {
+        if (reponseSelectionnee === null) return;
+        
+        const q = questionsAleatoires[questionActuelle];
+        const options = document.querySelectorAll('.option');
+        
+        // Enregistrer la réponse de l'utilisateur
+        reponseUtilisateur[questionActuelle] = reponseSelectionnee;
+        
+        // Désactiver les clics sur les options
+        options.forEach(option => {
+            option.style.cursor = 'default';
+            option.onclick = null;
+        });
+
+        // Afficher le feedback sans montrer les bonnes/mauvaises réponses
+        if (reponseSelectionnee !== q.answer) {
+            feedbackElement.textContent = `Incorrect ! La bonne réponse était : ${q.options[q.answer]}. ${q.explanation}`;
+            feedbackElement.className = 'incorrect-feedback';
+        } else {
+            score++;
+            feedbackElement.textContent = `Correct ! ${q.explanation}`;
+            feedbackElement.className = 'correct-feedback';
+        }
+
+        feedbackElement.style.display = 'block';
+        questionActuelle++;
+        
+        if (questionActuelle < questionsAleatoires.length) {
+            nextButton.textContent = 'Suivant';
+        } else {
+            nextButton.textContent = 'Voir les résultats';
+        }
+        
+        nextButton.disabled = false;
+    }
+
+    function terminerQuiz() {
+        quizTermine = true;
+        resultsElement.style.display = 'block';
+        
+        // Cacher le contenu du quiz
+        document.querySelector('#progress').style.display = 'none';
+        document.querySelector('.question').style.display = 'none';
+        document.querySelector('#options-container').style.display = 'none';
+        document.querySelector('#feedback').style.display = 'none';
+        document.querySelector('#next-btn').style.display = 'none';
+
+        const pourcentage = Math.round((score / questionsAleatoires.length) * 100);
+        scoreElement.textContent = `Score : ${score}/15 (${pourcentage}%)`;
+
+        // Système de notation
+        let niveau = "";
+        let emoji = "";
+        if (pourcentage <= 20) {
+            niveau = "Noob";
+            emoji = "😵";
+        } else if (pourcentage <= 40) {
+            niveau = "Débutant";
+            emoji = "👶";
+        } else if (pourcentage <= 60) {
+            niveau = "Amateur";
+            emoji = "🎯";
+        } else if (pourcentage <= 80) {
+            niveau = "Expert";
+            emoji = "🧠";
+        } else {
+            niveau = "Hackeur";
+            emoji = "💻🔥";
+        }
+
+        rankElement.textContent = `Rang : ${niveau} ${emoji}`;
+
+        // Commentaire selon le score
+        let commentaire = "";
+        if (pourcentage <= 20) {
+            commentaire = "Tu as encore beaucoup à apprendre ! Mais continue à chercher.";
+        } else if (pourcentage <= 40) {
+            commentaire = "C'est un début, mais il y a encore du travail à faire.";
+        } else if (pourcentage <= 60) {
+            commentaire = "Pas mal du tout ! Tu as de bonnes bases.";
+        } else if (pourcentage <= 80) {
+            commentaire = "Très bon résultat ! Tu maîtrises bien les bases.";
+        } else {
+            commentaire = "Excellent score ! Tu es vraiment calé(e) en informatique.";
+        }
+
+        commentElement.textContent = commentaire;
+    }
+
+    function afficherReponses() {
+        allAnswersElement.style.display = 'block';
+        allAnswersElement.innerHTML = '<h2 style="text-align: center; margin-bottom: 30px; color: #00d4ff;">Toutes les réponses</h2>';
+        
+        questionsAleatoires.forEach((q, index) => {
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'answer-item';
+            
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'answer-question';
+            questionDiv.textContent = `${index + 1}. ${q.question}`;
+            answerDiv.appendChild(questionDiv);
+            
+            q.options.forEach((option, optionIndex) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'answer-option';
+                optionDiv.textContent = option;
+                
+                // Colorer selon les réponses
+                if (optionIndex === q.answer) {
+                    optionDiv.classList.add('correct');
+                }
+                
+                if (reponseUtilisateur[index] === optionIndex) {
+                    if (optionIndex === q.answer) {
+                        optionDiv.classList.add('user-correct');
+                    } else {
+                        optionDiv.classList.add('user-incorrect');
+                    }
+                }
+                
+                answerDiv.appendChild(optionDiv);
+            });
+            
+            const explanationDiv = document.createElement('div');
+            explanationDiv.className = 'answer-explanation';
+            explanationDiv.textContent = `Explication : ${q.explanation}`;
+            answerDiv.appendChild(explanationDiv);
+            
+            allAnswersElement.appendChild(answerDiv);
+        });
+        
+        // Ajouter un bouton pour recommencer
+        const restartDiv = document.createElement('div');
+        restartDiv.style.textAlign = 'center';
+        restartDiv.style.marginTop = '30px';
+        const newRestartBtn = document.createElement('button');
+        newRestartBtn.textContent = 'Recommencer le quiz';
+        newRestartBtn.id = 'restart-btn-answers';
+        newRestartBtn.className = 'restart-btn';
+        newRestartBtn.style.cssText = `
+            padding: 12px 30px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        `;
+        newRestartBtn.addEventListener('click', redemarrerQuiz);
+        restartDiv.appendChild(newRestartBtn);
+        allAnswersElement.appendChild(restartDiv);
+    }
+
+    function redemarrerQuiz() {
+        // Réinitialiser l'affichage
+        document.querySelector('#progress').style.display = 'block';
+        document.querySelector('.question').style.display = 'block';
+        document.querySelector('#options-container').style.display = 'block';
+        document.querySelector('#next-btn').style.display = 'block';
+        resultsElement.style.display = 'none';
+        allAnswersElement.style.display = 'none';
+        
+        initialiserQuiz();
+    }
+
+    // Gestionnaires d'événements
+    nextButton.addEventListener('click', () => {
+        if (!quizTermine && reponseSelectionnee !== null) {
+            verifierReponse();
+            if (questionActuelle < questionsAleatoires.length) {
+                chargerQuestion();
+            } else {
+                terminerQuiz();
+            }
+        } else if (quizTermine) {
+            terminerQuiz();
+        }
+    });
+
+    restartButton.addEventListener('click', redemarrerQuiz);
+    showAnswersButton.addEventListener('click', afficherReponses);
+
+    // Initialiser le quiz au chargement
+    initialiserQuiz();
+
+        // Bouton retour en haut
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0903a92e903a285',t:'MTc4MTAwOTA3OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,14 @@
+﻿# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Temp
+_css_extract/
+*.log

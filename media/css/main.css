@@ -1,0 +1,657 @@
+/* ============================================================
+   THOMAS MAYORAZ — main.css
+   Styles communs à toutes les pages du site
+   ============================================================ */
+
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- Body ---------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #f0f0f0;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ---------- Navigation principale (version pill-buttons) ---------- */
+.main-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 10, 0.95);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00d4ff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(45deg, #00d4ff, #00b4d8);
+    color: #000 !important;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    opacity: 0.9;
+}
+
+/* Navigation version simple (pages projets) */
+.main-nav.simple {
+    padding: 15px;
+    text-align: center;
+}
+
+.main-nav.simple a {
+    margin: 0 15px;
+    color: #00d4ff;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.main-nav.simple a:hover {
+    opacity: 0.8;
+}
+
+.main-nav.simple a.active {
+    border-bottom: 2px solid #00d4ff;
+}
+
+/* ---------- Burger menu (mobile) ---------- */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+}
+
+.burger span {
+    width: 100%;
+    height: 3px;
+    background: #00d4ff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: #ff4444;
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: #ff4444;
+}
+
+/* ---------- Overlay mobile ---------- */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ---------- CTA nav button ---------- */
+.cta-nav {
+    background: linear-gradient(45deg, #00d4ff, #00b4d8);
+    color: #000 !important;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    opacity: 1 !important;
+}
+
+/* ---------- Container ---------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---------- Header / Hero ---------- */
+header {
+    padding: 60px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00d4ff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+
+/* ---------- Main ---------- */
+main {
+    padding: 80px 0;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    margin-bottom: 20px;
+}
+
+/* ---------- Back nav button ---------- */
+.back-nav {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid #00d4ff;
+    border-radius: 25px;
+    color: #00d4ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-nav:hover {
+    background: rgba(0, 212, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+/* ---------- CTA Button ---------- */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #00d4ff, #00b4d8);
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    opacity: 0.9;
+}
+
+/* ---------- Project cards (commun à toutes les pages projets) ---------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d4ff;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.project-title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.project-icon {
+    font-size: 2.5rem;
+    color: #00d4ff;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.project-type {
+    font-size: 0.9rem;
+    color: #00d4ff;
+    margin: 0;
+    font-weight: normal;
+}
+
+.project-date {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+    font-style: italic;
+}
+
+.project-status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.project-status.in-progress {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+.project-description {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-tag {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+.download-btn.green {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.download-btn.green:hover {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.download-btn.red {
+    background: linear-gradient(45deg, #dc3545, #e63946);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.download-btn.red:hover {
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+.add-project-card {
+    border: 2px dashed #333;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 250px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.add-project-card:hover {
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.add-icon {
+    font-size: 3rem;
+    color: #666;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.add-project-card:hover .add-icon {
+    color: #00d4ff;
+}
+
+.add-text {
+    color: #888;
+    font-size: 1rem;
+}
+
+.cote {
+    display: flex;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    border-top: 1px solid #333;
+    padding: 40px 0;
+    text-align: center;
+    color: #666;
+}
+
+footer nav {
+    margin-top: 20px;
+}
+
+footer nav a {
+    color: #00d4ff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+footer nav a:hover {
+    color: #ffffff;
+}
+
+footer nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00d4ff;
+    transition: width 0.3s ease;
+}
+
+footer nav a:hover::after {
+    width: 100%;
+}
+
+footer nav a:not(:last-child)::before {
+    content: '|';
+    position: absolute;
+    right: -12px;
+    color: #666;
+}
+
+/* ---------- Back to top button ---------- */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #00d4ff;
+    color: #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    transition: all 0.3s;
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+}
+
+/* ---------- Loader ---------- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #00d4ff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        padding: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        max-height: none;
+        height: calc(100vh - 60px);
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    h1 { font-size: 2rem; }
+
+    header { padding: 40px 0 30px; }
+
+    main { padding: 50px 0; }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card { padding: 25px; }
+
+    .project-actions { flex-direction: column; }
+
+    .download-btn {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .cote { flex-direction: column; }
+
+    footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    footer nav a { margin: 0 5px; }
+
+    footer nav a:not(:last-child)::before { display: none; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 15px; }
+
+    h1 { font-size: 1.8rem; }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .projects-grid { grid-template-columns: 1fr; }
+}
