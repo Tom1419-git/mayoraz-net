@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur 404 - Page Introuvable | Thomas Mayoraz</title>
+    <link rel="icon" href="media/img/logo.png">
+    <link rel="stylesheet" href="media/css/main.css">
+    <style>
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .error-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href='index.html'>Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href='index.html'>Accueil</a></li>
+                <li><a href='a-propos/a-propos.html'>À propos</a></li>
+                <li><a href='contact/contact.html'>Contact</a></li>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container error-page">
+        <canvas id="particles-bg"></canvas>
+        <div class="error-code reveal">404</div>
+        <h1 class="error-title reveal">Oups, page introuvable...</h1>
+        <p class="error-text reveal">
+            Il semble que vous soyez perdu dans le cyberespace. La page que vous cherchez a peut-être été supprimée, renommée, ou n'a tout simplement jamais existé. <br><br>
+            Avez-vous essayé de l'éteindre et de la rallumer ? 🔌
+        </p>
+        <a href="index.html" class="contact-btn reveal" style="display:inline-block">← Retour à l'accueil</a>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz • Portfolio professionnel</p>
+    </footer>
+
+    <script src="media/js/theme.js"></script>
+    <script src="media/js/particles.js"></script>
+</body>
+</html>
