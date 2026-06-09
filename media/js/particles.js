@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouse = { x: null, y: null, radius: 200 };
 
     function resize() {
-        width = canvas.width = canvas.parentElement.offsetWidth;
-        height = canvas.height = canvas.parentElement.offsetHeight;
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
     }
 
     class Particle {
@@ -104,13 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Track mouse
-    canvas.parentElement.addEventListener('mousemove', (e) => {
+    window.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
     });
 
-    canvas.parentElement.addEventListener('mouseleave', () => {
+    window.addEventListener('mouseleave', () => {
         mouse.x = null;
         mouse.y = null;
     });
