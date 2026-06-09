@@ -87,13 +87,13 @@
                 <div class="build-card">
                                         <div class="build-image carousel-container">
                         <div class="carousel-slide active">
-                            <img src="../media/img/builds-pc/pc-setup1.jpg" alt="Mon Setup Actuel - Vue 1" />
+                            <img src="../media/img/builds-pc/pc-setup1.jpg" alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="../media/img/builds-pc/pc-setup2.jpg" alt="Mon Setup Actuel - Vue 2" />
+                            <img src="../media/img/builds-pc/pc-setup2.jpg" alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="../media/img/builds-pc/pc-setup3.jpg" alt="Mon Setup Actuel - Vue 3" />
+                            <img src="../media/img/builds-pc/pc-setup3.jpg" alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)" />
                         </div>
                         <button class="carousel-btn prev-btn" aria-label="Image précédente">&#10094;</button>
                         <button class="carousel-btn next-btn" aria-label="Image suivante">&#10095;</button>
@@ -240,27 +240,29 @@
                 container.addEventListener('mouseleave', startSlideShow);
             }
 
-            // Modal Logic
+                        // Modal Logic
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const closeBtn = document.getElementById("modalClose");
-            const carouselImages = document.querySelectorAll(".carousel-slide img");
 
-            if (modal && modalImg && closeBtn) {
-                carouselImages.forEach(img => {
-                    img.addEventListener('click', () => {
-                        modal.classList.add("show");
-                        modalImg.src = img.src;
-                    });
-                });
+            window.openModal = function(src) {
+                if (modal && modalImg) {
+                    modal.style.display = 'flex'; // Force display flex to override any display:none cached issues
+                    modal.classList.add("show");
+                    modalImg.src = src;
+                }
+            };
 
+            if (modal && closeBtn) {
                 closeBtn.addEventListener('click', () => {
                     modal.classList.remove("show");
+                    setTimeout(() => { modal.style.display = ''; }, 300);
                 });
 
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
                         modal.classList.remove("show");
+                        setTimeout(() => { modal.style.display = ''; }, 300);
                     }
                 });
             }
