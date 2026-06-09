@@ -1304,24 +1304,35 @@ footer nav a:hover {
 .btn-primary {
     display: inline-block;
     padding: 15px 30px;
-    background: var(--glass-bg);
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transition);
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-    cursor: pointer;
-    text-align: center;
-}
-.btn-primary:hover {
     background: var(--primary);
     color: var(--bg-dark);
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+.btn-primary:hover {
+    background: var(--text-main);
+    color: var(--bg-dark);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
     transform: translateY(-3px);
 }
 :root[data-theme="light"] .btn-primary:hover {
-    color: #fff;
+    background: var(--text-main);
+    color: var(--bg-dark);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Make sections transparent for global particles */
+section, .about, .services, .portfolio, .testimonials-section, .contact-section, .intro-section {
+    background: transparent !important;
+}
+.testimonials-section {
+    background: transparent !important;
 }

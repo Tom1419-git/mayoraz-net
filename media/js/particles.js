@@ -13,8 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouse = { x: null, y: null, radius: 200 };
 
     function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        const dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+        
     }
 
     class Particle {
