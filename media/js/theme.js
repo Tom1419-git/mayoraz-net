@@ -22,7 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', newTheme);
             
             themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        
+    // 3. Skill Bars Animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.getAttribute('data-width');
+                observer.unobserve(bar);
+            }
         });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
+
+});
     }
 
     // 2. Scroll Reveal Animations
@@ -34,14 +51,82 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('active');
                 observer.unobserve(entry.target); // Only animate once
             }
+        
+    // 3. Skill Bars Animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.getAttribute('data-width');
+                observer.unobserve(bar);
+            }
         });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
+
+});
     }, {
         root: null,
         threshold: 0.1, // Trigger when 10% of the element is visible
         rootMargin: "0px 0px -50px 0px"
+    
+    // 3. Skill Bars Animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.getAttribute('data-width');
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
     });
+
+});
 
     reveals.forEach(reveal => {
         revealObserver.observe(reveal);
+    
+    // 3. Skill Bars Animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.getAttribute('data-width');
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
     });
+
+});
+
+    // 3. Skill Bars Animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = bar.getAttribute('data-width');
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
+
 });
