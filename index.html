@@ -83,6 +83,7 @@
                 <li><a href='index.html'>Accueil</a></li>
                 <li><a href='a-propos/a-propos.html'>À propos</a></li>
                 <li><a href='contact/contact.html'>Contact</a></li>
+                            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
             </ul>
             <div class="burger" id="burger">
                 <span></span>
@@ -116,7 +117,7 @@
 
     <main>
       
-      <section class="intro">
+      <section class="intro reveal">
         <p>Spécialisé dans les <strong>services informatiques à Lausanne</strong>, je propose des solutions sur mesure pour particuliers et entreprises.</p>
         <p>De la création de sites web au montage PC, en passant par le dépannage informatique, je suis à votre disposition pour concrétiser vos projets technologiques.</p>
       </section>
@@ -132,19 +133,19 @@
       <div class="services-highlight">
         <h3>Mes Services Informatiques dans la région de Lausanne</h3>
         <div class="services-grid">
-          <div class="service-item" aria-label="Développement de sites web">
+          <div class="service-item reveal" aria-label="Développement de sites web">
             <span>🌐</span>
             <div>Sites Web</div>
           </div>
-          <div class="service-item" aria-label="Montage d'ordinateurs sur mesure">
+          <div class="service-item reveal" aria-label="Montage d'ordinateurs sur mesure">
             <span>🔧</span>
             <div>Montage PC</div>
           </div>
-          <div class="service-item" aria-label="Dépannage informatique à domicile">
+          <div class="service-item reveal" aria-label="Dépannage informatique à domicile">
             <span>🛠️</span>
             <div>Dépannage</div>
           </div>
-          <div class="service-item" aria-label="Conseils techniques personnalisés">
+          <div class="service-item reveal" aria-label="Conseils techniques personnalisés">
             <span>💡</span>
             <div>Conseil Technique</div>
           </div>
@@ -153,7 +154,7 @@
 
       <h2>🔥 Mes différents projets</h2>
       <div class="projects-grid">
-        <a aria-label='Voir mes projets en C#' class='project-card' href='projets-csharp/intro-csharp.html'>
+        <a aria-label='Voir mes projets en C#' class='project-card reveal' href='projets-csharp/intro-csharp.html'>
           <div class="project-header">
             <span class="project-icon">💻</span>
             <button class="fake-button">Voir →</button>
@@ -161,7 +162,7 @@
           <h3>Projets C#</h3>
           <p>Applications console et projets académiques développés en C#. Découvrez mes solutions aux défis de programmation et mes créations personnelles.</p>
         </a>
-        <a aria-label='Voir mes réalisations de sites web' class='project-card' href='sites-web/intro-sites-webs.html'>
+        <a aria-label='Voir mes réalisations de sites web' class='project-card reveal' href='sites-web/intro-sites-webs.html'>
           <div class="project-header">
             <span class="project-icon">🌐</span>
             <button class="fake-button">Voir →</button>
@@ -169,7 +170,7 @@
           <h3>Sites Web</h3>
           <p>Développement web professionnel à Lausanne. Sites responsives, applications web modernes et solutions digitales sur mesure pour votre entreprise.</p>
         </a>
-        <a aria-label='Voir mes configurations PC' class='project-card' href='builds-pc/intro-buildpc.html'>
+        <a aria-label='Voir mes configurations PC' class='project-card reveal' href='builds-pc/intro-buildpc.html'>
           <div class="project-header">
             <span class="project-icon">🔧</span>
             <button class="fake-button">Voir →</button>
@@ -177,7 +178,7 @@
           <h3>Montage PC</h3>
           <p>Assemblages personnalisés et configurations optimisées à Lausanne. Du choix des composants à la mise en service, explorez mes réalisations hardware.</p>
         </a>
-        <a aria-label='Voir mes projets divers' class='project-card' href='autres-projets/autres-projets.html'>
+        <a aria-label='Voir mes projets divers' class='project-card reveal' href='autres-projets/autres-projets.html'>
           <div class="project-header">
             <span class="project-icon">📁</span>
             <button class="fake-button">Voir →</button>
@@ -185,7 +186,7 @@
           <h3>Projets Divers</h3>
           <p>Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.</p>
         </a>
-        <a aria-label='Petit quiz sur l\'informatique' class='project-card' href='jeu/jeu.html'>
+        <a aria-label='Petit quiz sur l\'informatique' class='project-card reveal' href='jeu/jeu.html'>
           <div class="project-header">
             <span class="project-icon">❓</span>
             <button class="fake-button">Jouer →</button>
@@ -193,7 +194,7 @@
           <h3>Quiz sur l'informatique</h3>
           <p>Testez vos connaissances avec un quiz ludique sur l'informatique — rapide, instructif et parfait pour tous les niveaux !</p>
         </a>
-        <a aria-label='En savoir plus sur mon parcours' class='project-card' href='a-propos/a-propos.html'>
+        <a aria-label='En savoir plus sur mon parcours' class='project-card reveal' href='a-propos/a-propos.html'>
           <div class="project-header">
             <span class="project-icon">👨‍💻</span>
             <button class="fake-button">Découvrir →</button>
@@ -207,7 +208,7 @@
       <section class="testimonials-section">
         <h2><span>💬</span> Ce que disent mes clients</h2>
         <div class="testimonials-grid">
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal">
             <div class="quote-icon">❝</div>
             <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="testimonial-text">"Travail tr&egrave;s professionnel ! Thomas a mont&eacute; mon PC gaming avec un c&acirc;blage impeccable. Tout tourne &agrave; merveille, je recommande vivement."</p>
@@ -220,7 +221,7 @@
             </div>
           </div>
           
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal">
             <div class="quote-icon">❝</div>
             <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="testimonial-text">"Intervention rapide pour un d&eacute;pannage sur mon ordinateur de travail qui refusait de d&eacute;marrer. R&eacute;paration efficace et super conseils."</p>
@@ -233,7 +234,7 @@
             </div>
           </div>
 
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal">
             <div class="quote-icon">❝</div>
             <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="testimonial-text">"Intervention rapide et tr&egrave;s professionnelle. Thomas a r&eacute;ussi &agrave; r&eacute;cup&eacute;rer toutes mes donn&eacute;es sur mon disque dur endommag&eacute; et m'a conseill&eacute; un super syst&egrave;me de sauvegarde."</p>
@@ -336,5 +337,7 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
     
   </script>
+    <script src="media/js/theme.js"></script>
+    <script src="media/js/particles.js"></script>
 </body>
 </html>
