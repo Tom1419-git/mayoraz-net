@@ -34,7 +34,6 @@
     </script>
   <link rel="stylesheet" href="../media/css/main.css">
   <link rel="stylesheet" href="../media/css/contact.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -76,7 +75,7 @@
             </section>
 
             <div class="contact-container">
-                <form class="contact-form" action="https://mailto.mayoraz-net.ch/traitement.php" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/mwpbyprn" method="POST">
                     <input type="hidden" name="_next" value="https://mayoraz-net.ch/contact/merci.html">
                     <div class="form-row">
                         <div class="form-group">
@@ -124,7 +123,31 @@
                         <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." required></textarea>
                     </div>
 
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADhc2UTooOzxGXSX" data-theme="dark" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
+                    <div class="captcha-container">
+                        <div class="captcha-question" id="captcha-question">
+                            Chargement de la question de sécurité...
+                        </div>
+                        <div class="captcha-controls">
+                            <input type="text" id="captcha" name="captcha" class="captcha-input" required placeholder="Votre réponse">
+                            <button type="button" class="refresh-captcha" onclick="generateCaptcha()">
+                                🔄 Nouvelle question
+                            </button>
+                        </div>
+                        <div class="captcha-difficulty">
+                            Difficulté: <span id="difficulty-level">Moyenne</span>
+                            <div class="difficulty-indicator">
+                                <div class="difficulty-dot" id="dot1"></div>
+                                <div class="difficulty-dot" id="dot2"></div>
+                                <div class="difficulty-dot" id="dot3"></div>
+                            </div>
+                        </div>
+                        <div class="error-message" id="captcha-error">
+                            Réponse incorrecte. Veuillez réessayer.
+                        </div>
+                        <input type="hidden" id="captcha-answer" name="captcha_answer">
+                        <input type="hidden" id="captcha-hash" name="captcha_hash">
+                    </div>
+
                     <button type="submit" class="submit-btn">
                         Envoyer le message
                     </button>
@@ -211,13 +234,102 @@
         });
 
         // Système de captcha avancé
+        const captchaQuestions = [
+            { question: "Combien font 15 + 7 ?", answer: "22", difficulty: 1 },
+            { question: "Combien font 8 × 6 ?", answer: "48", difficulty: 2 },
+            { question: "Combien font 144 ÷ 12 ?", answer: "12", difficulty: 2 },
+            { question: "Combien font 25 - 17 ?", answer: "8", difficulty: 1 },
+            { question: "Quel est le prochain nombre dans la suite : 2, 4, 8, 16, ... ?", answer: "32", difficulty: 2 },
+            { question: "Si aujourd'hui est lundi, quel jour sera-t-il dans 10 jours ?", answer: "jeudi", difficulty: 2 },
+            { question: "Combien y a-t-il de lettres dans le mot 'INFORMATIQUE' ?", answer: "11", difficulty: 1 },
+            { question: "Dans quelle ville se trouve la Tour Eiffel ?", answer: "paris", difficulty: 1 },
+            { question: "Combien y a-t-il de minutes dans une heure ?", answer: "60", difficulty: 1 },
+            { question: "Quel est le résultat de 2³ (2 puissance 3) ?", answer: "8", difficulty: 2 },
+            { question: "Combien y a-t-il d'octets dans un kilooctet ?", answer: "1024", difficulty: 3 },
+            { question: "Que signifie 'HTML' ? (répondez en français)", answer: "langage de balisage hypertexte", difficulty: 3 },
+            { question: "Combien y a-t-il de bits dans un octet ?", answer: "8", difficulty: 2 },
+            { question: "Si vous avez 3 pommes et que vous en mangez 2, combien vous en reste-t-il ?", answer: "1", difficulty: 1 },
+            { question: "Combien font 50% de 80 ?", answer: "40", difficulty: 2 },
+            { question: "Quel âge aurez-vous dans 5 ans si vous avez 25 ans aujourd'hui ?", answer: "30", difficulty: 1 }
+        ];
+
+        let currentCaptcha = null;
+        let attemptCount = 0;
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16);
+        }
+
+        function generateCaptcha() {
+            const randomIndex = Math.floor(Math.random() * captchaQuestions.length);
+            currentCaptcha = captchaQuestions[randomIndex];
+            document.getElementById('captcha-question').textContent = currentCaptcha.question;
+            updateDifficultyIndicator(currentCaptcha.difficulty);
+            const timestamp = Date.now();
+            const hashInput = currentCaptcha.answer.toLowerCase() + timestamp;
+            const hash = simpleHash(hashInput);
+            document.getElementById('captcha-answer').value = currentCaptcha.answer.toLowerCase();
+            document.getElementById('captcha-hash').value = hash;
+            document.getElementById('captcha').value = '';
+            document.getElementById('captcha-error').style.display = 'none';
+        }
+
+        function updateDifficultyIndicator(difficulty) {
+            const levels = ['Facile', 'Moyenne', 'Difficile'];
+            document.getElementById('difficulty-level').textContent = levels[difficulty - 1];
+            for (let i = 1; i <= 3; i++) {
+                const dot = document.getElementById(`dot${i}`);
+                if (i <= difficulty) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            }
+        }
+
+        function validateCaptcha(userAnswer) {
+            if (!currentCaptcha) return false;
+            const normalizedUserAnswer = userAnswer.toLowerCase().trim();
+            const normalizedCorrectAnswer = currentCaptcha.answer.toLowerCase().trim();
+            if (normalizedUserAnswer === normalizedCorrectAnswer) return true;
+            const alternatives = {
+                'paris': ['paris', 'paris france'],
+                'langage de balisage hypertexte': ['html', 'hypertext markup language', 'langage de balisage hypertexte'],
+                'jeudi': ['jeudi', 'jeu']
+            };
+            if (alternatives[normalizedCorrectAnswer]) {
+                return alternatives[normalizedCorrectAnswer].includes(normalizedUserAnswer);
+            }
+            return false;
+        }
+
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
-            if (!turnstileResponse) {
-                alert('Veuillez valider le captcha Cloudflare.');
+            const captchaInput = document.getElementById('captcha');
+            const userAnswer = captchaInput.value;
+            if (!validateCaptcha(userAnswer)) {
+                const errorMsg = document.getElementById('captcha-error');
+                errorMsg.style.display = 'block';
+                attemptCount++;
+                if (attemptCount >= 3) {
+                    setTimeout(() => {
+                        generateCaptcha();
+                        attemptCount = 0;
+                        errorMsg.textContent = 'Nouvelle question générée après plusieurs tentatives incorrectes.';
+                    }, 1500);
+                } else {
+                    errorMsg.textContent = `Réponse incorrecte. Tentative ${attemptCount}/3.`;
+                }
+                captchaInput.focus();
                 return false;
             }
+            document.getElementById('captcha-error').style.display = 'none';
 
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -258,9 +370,25 @@
             });
         });
 
+        // Génération automatique du captcha au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCaptcha();
+        });
 
+        // Régénération après inactivité
+        let inactivityTimer;
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                generateCaptcha();
+            }, 300000); // 5 minutes
+        }
 
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetInactivityTimer, true);
+        });
 
+        resetInactivityTimer();
     </script>
 </body>
 </html>
