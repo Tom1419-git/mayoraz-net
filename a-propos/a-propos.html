@@ -1,186 +1,382 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>À Propos - Thomas Mayoraz | Services Informatiques Lausanne</title>
-    <meta name="description" content="Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Thomas Mayoraz, expert en services informatiques à Lausanne."/>
-    <meta name="keywords" content="àÀ propos, parcours, compétences, formation, thomas mayoraz, services informatiques lausanne"/>
-    <meta name="author" content="Thomas Mayoraz"/>
-    <link rel="icon" href="../media/img/logo.png"/>
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://mayoraz-net.ch/a-propos/a-propos.html "/>
-    <meta property="og:title" content="À Propos - Thomas Mayoraz | Services Informatiques Lausanne"/>
-    <meta property="og:description" content="Découvrez mon parcours, mes compétences et ma passion pour l'informatique."/>
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/portrait.png "/>
-    <meta property="og:image:alt" content="Thomas Mayoraz - Expert en services informatiques"/>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org ",
-        "@type": "Person",
-        "name": "Thomas Mayoraz",
-        "jobTitle": "Apprenti Informatique",
-        "url": "https://mayoraz-net.ch ",
-        "sameAs": [],
-        "worksFor": {
-            "@type": "Organization",
-            "name": "ETML Lausanne"
-        }
-    }
-    </script>
-  <link rel="stylesheet" href="../media/css/main.css?v=6">
-  <link rel="stylesheet" href="../media/css/a-propos.css">
-</head>
-<body>
-    <canvas id="particles-bg"></canvas>
-
-    <!-- Navigation -->
-        <nav class="main-nav">
-        <div class="nav-overlay" id="nav-overlay"></div>
-        <div class="nav-container">
-            <a class='logo' href='../index.html'>Thomas Mayoraz</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href='../index.html'>Accueil</a></li>
-                <li><a href='../a-propos/a-propos.html'>À propos</a></li>
-                <li><a href='../contact/contact.html'>Contact</a></li>
-                            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
-            </ul>
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <header>
-            <div class="profile-section">
-                <div class="avatar">
-                    <img src="../media/img/portrait.png" alt="Portrait de Thomas Mayoraz" loading="lazy">
-                    <div class="avatar-fallback">TM</div>
-                </div>
-                <h1>À propos de moi</h1>
-                <p class="subtitle">Apprenti informaticien passionné</p>
-                <a class='back-nav' href='../index.html'>← Retour au Portfolio</a>
-            </div>
-        </header>
-
-        <main>
-            <section class="intro reveal">
-                <p>Bonjour ! Je m'appelle Thomas Mayoraz, j'ai 17 ans et je suis actuellement en 2ème année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</p>
-                <p>Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.</p>
-            </section>
-
-            <section class="skills">
-                <h2>Mes Compétences</h2>
-                                <div class="skills-container">
-                    <div class="skill-bar-wrapper reveal">
-                        <div class="skill-info">
-                            <span>Administration Réseau & Serveurs</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar-wrapper reveal">
-                        <div class="skill-info">
-                            <span>Hardware, Montage PC & Dépannage</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar-wrapper reveal">
-                        <div class="skill-info">
-                            <span>Systèmes d'Exploitation & Sécurité</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar-wrapper reveal">
-                        <div class="skill-info">
-                            <span>Scripting & Développement Web</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75%"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cta-banner">
-                <h2>Prêt à collaborer ?</h2>
-                <p>Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.</p>
-                <a class='cta-button' href='../contact/contact.html'>Me Contacter</a>
-            </section>
-        </main>
-
-       <footer>
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz • Services Informatiques Lausanne • Portfolio professionnel</p>
-      <nav style="margin-top: 15px;">
-        <a href='../index.html'>Accueil</a>
-        <a href='../a-propos/a-propos.html'>À propos</a>
-        <a href='../contact/contact.html'>Contact</a>
-                <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
-      </nav>
-    </footer>
-    </div>
-
-    <!-- Bouton Retour en haut -->
-    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
-
-    <script>
-        // Burger menu
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('nav-links');
-        const navOverlay = document.getElementById('nav-overlay');
-
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-             burger.classList.toggle('active'); // ← Active/désactive la croix
-        }
-
-        burger.addEventListener('click', toggleMenu);
-        navOverlay.addEventListener('click', toggleMenu);
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-
-        // Back to top button
-        window.addEventListener('scroll', function () {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
-    <script src="../media/js/theme.js?v=6"></script>
-    <script src="../media/js/particles.js?v=5"></script>
-</body>
-</html>
-
-
-
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>À Propos - Thomas Mayoraz | Services Informatiques Lausanne</title>
+
+    <meta name="description" content="Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Thomas Mayoraz, expert en services informatiques à Lausanne."/>
+
+    <meta name="keywords" content="àÀ propos, parcours, compétences, formation, thomas mayoraz, services informatiques lausanne"/>
+
+    <meta name="author" content="Thomas Mayoraz"/>
+
+    <link rel="icon" href="../media/img/logo.png"/>
+
+
+
+    <!-- Open Graph / Facebook -->
+
+    <meta property="og:type" content="website"/>
+
+    <meta property="og:url" content="https://mayoraz-net.ch/a-propos/a-propos.html "/>
+
+    <meta property="og:title" content="À Propos - Thomas Mayoraz | Services Informatiques Lausanne"/>
+
+    <meta property="og:description" content="Découvrez mon parcours, mes compétences et ma passion pour l'informatique."/>
+
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/portrait.png "/>
+
+    <meta property="og:image:alt" content="Thomas Mayoraz - Expert en services informatiques"/>
+
+
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org ",
+
+        "@type": "Person",
+
+        "name": "Thomas Mayoraz",
+
+        "jobTitle": "Apprenti Informatique",
+
+        "url": "https://mayoraz-net.ch ",
+
+        "sameAs": [],
+
+        "worksFor": {
+
+            "@type": "Organization",
+
+            "name": "ETML Lausanne"
+
+        }
+
+    }
+
+    </script>
+
+  <link rel="stylesheet" href="../media/css/main.css?v=6">
+
+  <link rel="stylesheet" href="../media/css/a-propos.css">
+
+
+  <link rel="stylesheet" href="/media/css/toast.css">
+  <link rel="stylesheet" href="/media/css/terminal.css">
+
+</head>
+
+<body>
+
+    <canvas id="particles-bg"></canvas>
+
+
+
+    <!-- Navigation -->
+
+        <nav class="main-nav">
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div class="nav-container">
+
+            <a class='logo' href='../index.html'>Thomas Mayoraz</a>
+
+            <ul class="nav-links" id="nav-links">
+
+                <li><a href='../index.html'>Accueil</a></li>
+
+                <li><a href='../a-propos/a-propos.html'>À propos</a></li>
+
+                <li><a href='../contact/contact.html'>Contact</a></li>
+
+                            <button id="lang-toggle" class="theme-toggle" aria-label="Changer de langue" style="font-weight:bold; font-size:1rem; padding:5px 10px; margin-left: 5px;">EN</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
+
+            </ul>
+
+            <div class="burger" id="burger">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <div class="container">
+
+        <header>
+
+            <div class="profile-section">
+
+                <div class="avatar">
+
+                    <img src="../media/img/portrait.png" alt="Portrait de Thomas Mayoraz" loading="lazy">
+
+                    <div class="avatar-fallback">TM</div>
+
+                </div>
+
+                <h1>À propos de moi</h1>
+
+                <p class="subtitle">Apprenti informaticien passionné</p>
+
+                <a class='back-nav' href='../index.html'>← Retour au Portfolio</a>
+
+            </div>
+
+        </header>
+
+
+
+        <main>
+
+            <section class="intro reveal">
+
+                <p>Bonjour ! Je m'appelle Thomas Mayoraz, j'ai 17 ans et je suis actuellement en 2ème année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</p>
+
+                <p>Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.</p>
+
+            </section>
+
+
+
+            <section class="skills">
+
+                <h2>Mes Compétences</h2>
+
+                                <div class="skills-container">
+
+                    <div class="skill-bar-wrapper reveal">
+
+                        <div class="skill-info">
+
+                            <span>Administration Réseau & Serveurs</span>
+
+                            <span>90%</span>
+
+                        </div>
+
+                        <div class="skill-bar">
+
+                            <div class="skill-progress" data-width="90%"></div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="skill-bar-wrapper reveal">
+
+                        <div class="skill-info">
+
+                            <span>Hardware, Montage PC & Dépannage</span>
+
+                            <span>95%</span>
+
+                        </div>
+
+                        <div class="skill-bar">
+
+                            <div class="skill-progress" data-width="95%"></div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="skill-bar-wrapper reveal">
+
+                        <div class="skill-info">
+
+                            <span>Systèmes d'Exploitation & Sécurité</span>
+
+                            <span>85%</span>
+
+                        </div>
+
+                        <div class="skill-bar">
+
+                            <div class="skill-progress" data-width="85%"></div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="skill-bar-wrapper reveal">
+
+                        <div class="skill-info">
+
+                            <span>Scripting & Développement Web</span>
+
+                            <span>75%</span>
+
+                        </div>
+
+                        <div class="skill-bar">
+
+                            <div class="skill-progress" data-width="75%"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="cta-banner">
+
+                <h2>Prêt à collaborer ?</h2>
+
+                <p>Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.</p>
+
+                <a class='cta-button' href='../contact/contact.html'>Me Contacter</a>
+
+            </section>
+
+        </main>
+
+
+
+       <footer>
+
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz • Services Informatiques Lausanne • Portfolio professionnel</p>
+
+      <nav style="margin-top: 15px;">
+
+        <a href='../index.html'>Accueil</a>
+
+        <a href='../a-propos/a-propos.html'>À propos</a>
+
+        <a href='../contact/contact.html'>Contact</a>
+
+                <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
+
+      </nav>
+
+    </footer>
+
+    </div>
+
+
+
+    <!-- Bouton Retour en haut -->
+
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+
+
+    <script>
+
+        // Burger menu
+
+        const burger = document.getElementById('burger');
+
+        const navLinks = document.getElementById('nav-links');
+
+        const navOverlay = document.getElementById('nav-overlay');
+
+
+
+        function toggleMenu() {
+
+            navLinks.classList.toggle('active');
+
+            navOverlay.classList.toggle('active');
+
+            document.body.classList.toggle('menu-open');
+
+             burger.classList.toggle('active'); // ← Active/désactive la croix
+
+        }
+
+
+
+        burger.addEventListener('click', toggleMenu);
+
+        navOverlay.addEventListener('click', toggleMenu);
+
+
+
+        navLinks.querySelectorAll('a').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                navLinks.classList.remove('active');
+
+                navOverlay.classList.remove('active');
+
+                document.body.classList.remove('menu-open');
+
+            });
+
+        });
+
+
+
+        // Back to top button
+
+        window.addEventListener('scroll', function () {
+
+            const btn = document.getElementById('backToTop');
+
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+
+        });
+
+
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        });
+
+    </script>
+
+
+
+    <script src="../media/js/theme.js?v=6"></script>
+
+    <script src="../media/js/particles.js?v=5"></script>
+
+
+    <script src="/media/js/toast.js"></script>
+    <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/lang.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
