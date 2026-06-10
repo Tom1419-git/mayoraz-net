@@ -24,10 +24,12 @@ function activateMatrixMode() {
     }
 
     // Force dark mode
-    if (!document.body.classList.contains('dark-mode')) {
-        const themeBtn = document.getElementById('theme-toggle');
-        if (themeBtn) themeBtn.click();
-    }
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+    localStorage.setItem('theme', 'dark');
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.innerText = '🌙';
 
     const canvas = document.createElement('canvas');
     canvas.id = 'matrix-canvas';
