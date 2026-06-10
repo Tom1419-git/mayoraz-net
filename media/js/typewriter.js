@@ -3,11 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const typewriterElement = document.getElementById('typewriter');
     if (!typewriterElement) return;
 
-    const phrases = [
+    const phrasesFr = [
         "Spécialiste Infrastructure Réseau",
         "Technicien Informatique (IT)",
         "Expert Hardware & Montage PC",
         "Développeur Web & Scripting"
+    ];
+
+    const phrasesEn = [
+        "Network Infrastructure Specialist",
+        "IT Technician",
+        "Hardware & PC Building Expert",
+        "Web & Scripting Developer"
     ];
     
     let currentPhraseIndex = 0;
@@ -16,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let typeSpeed = 100;
 
     function type() {
-        const fullTxt = phrases[currentPhraseIndex];
+        const isEn = document.documentElement.lang === 'en';
+        const activePhrases = isEn ? phrasesEn : phrasesFr;
+        const fullTxt = activePhrases[currentPhraseIndex];
 
         if (isDeleting) {
             txt = fullTxt.substring(0, txt.length - 1);
@@ -35,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isDeleting = true;
         } else if (isDeleting && txt === '') {
             isDeleting = false;
-            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            currentPhraseIndex = (currentPhraseIndex + 1) % activePhrases.length;
             delta = 500; // pause before next phrase
         }
 
