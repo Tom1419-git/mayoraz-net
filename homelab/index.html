@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation</title>
+    <meta name="description" content="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et monitoring via Prometheus & Grafana."/>
+    <meta name="keywords" content="homelab, docker, ubuntu server, jellyfin, radarr, prometheus, grafana, n8n, automatisation"/>
+    <meta name="author" content="Thomas Mayoraz"/>
+    <link rel="icon" href="/media/img/logo.webp"/>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://mayoraz-net.ch/homelab/"/>
+    <meta property="og:title" content="Mon Homelab - Thomas Mayoraz"/>
+    <meta property="og:description" content="Découvrez mon infrastructure personnelle, mon automatisation média et mon monitoring."/>
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/portrait.webp"/>
+
+    <link rel="stylesheet" href="/media/css/main.css?v=6">
+    <link rel="stylesheet" href="/media/css/toast.css">
+    <link rel="stylesheet" href="/media/css/terminal.css">
+    
+    <style>
+        .homelab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .hl-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hl-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+        .hl-card h3 {
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .hl-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        .hl-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .hl-tag {
+            background: rgba(30, 144, 255, 0.1);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .diagram-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .flow-box {
+            background: var(--bg-color);
+            border: 2px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href="/">Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/a-propos/">À propos</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <button id="lang-toggle" class="theme-toggle" aria-label="Changer de langue" style="font-weight:bold; font-size:1rem; padding:5px 10px; margin-left: 5px;">EN</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <h1>Mon Homelab</h1>
+                <p class="subtitle">Infrastructure Personnelle & Automatisation</p>
+                <a class='back-nav' href="/">← Retour à l'accueil</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="intro reveal">
+                <p>En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
+                <p>Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
+            </section>
+            
+            <section class="diagram-container reveal">
+                <h3 style="margin-top:0;">Architecture Média Automatisée</h3>
+                <div class="flowchart">
+                    <div class="flow-row">
+                        <div class="flow-box">👤 Utilisateur (Jellyseerr)</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-row">
+                        <div class="flow-box">🎬 Radarr / Sonarr</div>
+                        <div class="flow-arrow">↔</div>
+                        <div class="flow-box">🔍 Prowlarr</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-row">
+                        <div class="flow-box">📥 qBittorrent</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-row">
+                        <div class="flow-box">🍿 Jellyfin</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Détails Techniques</h2>
+                <div class="homelab-grid">
+                    
+                    <div class="hl-card reveal">
+                        <h3>🖥️ Le Cœur du Système</h3>
+                        <p>L'ensemble de mon infrastructure repose sur une machine virtuelle <strong>Ubuntu Server</strong>. J'ai fait le choix d'isoler chaque service dans des conteneurs <strong>Docker</strong> afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">Ubuntu Server</span>
+                            <span class="hl-tag">Docker</span>
+                            <span class="hl-tag">Docker Compose</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hl-card reveal">
+                        <h3>🍿 Automatisation Multimédia</h3>
+                        <p>J'ai déployé la fameuse stack "Arr". Les requêtes sont faites via <strong>Jellyseerr</strong>. <strong>Sonarr</strong> et <strong>Radarr</strong> s'occupent de trouver le contenu via <strong>Prowlarr</strong>, de le transmettre au client <strong>qBittorrent</strong>, et enfin de l'organiser proprement pour le serveur de streaming <strong>Jellyfin</strong>.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">Jellyfin</span>
+                            <span class="hl-tag">Radarr/Sonarr</span>
+                            <span class="hl-tag">Prowlarr</span>
+                            <span class="hl-tag">Jellyseerr</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hl-card reveal">
+                        <h3>📈 Monitoring & Alertes</h3>
+                        <p>Afin de m'assurer que le serveur n'est jamais surchargé, j'utilise <strong>Prometheus</strong> pour collecter les métriques matérielles et applicatives, et <strong>Grafana</strong> pour visualiser ces données via de beaux tableaux de bord en temps réel. <strong>Netdata</strong> complète le tout pour le monitoring natif de la VM.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">Prometheus</span>
+                            <span class="hl-tag">Grafana</span>
+                            <span class="hl-tag">Netdata</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hl-card reveal">
+                        <h3>🤖 Auto-résolution (n8n)</h3>
+                        <p>Pour aller plus loin qu'un simple monitoring, j'utilise <strong>n8n</strong> (outil d'automatisation de workflows). Si Prometheus détecte qu'un conteneur crash ou consomme trop de RAM, n8n est capable de redémarrer automatiquement le service défaillant et de m'envoyer une notification.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">n8n</span>
+                            <span class="hl-tag">Webhooks</span>
+                            <span class="hl-tag">Auto-Healing</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz • Services Informatiques Lausanne</p>
+        </footer>
+    </div>
+
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            burger.classList.toggle('active');
+        }
+
+        burger.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        window.addEventListener('scroll', function () {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <script src="/media/js/theme.js?v=6"></script>
+    <script src="/media/js/particles.js?v=5"></script>
+    <script src="/media/js/toast.js"></script>
+    <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/lang.js"></script>
+</body>
+</html>
