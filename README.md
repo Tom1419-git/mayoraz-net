@@ -46,6 +46,12 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 ├── contact/
 │   ├── index.html          # Formulaire de contact sécurisé
 │   └── merci.html          # Page de confirmation d'envoi
+├── homelab/
+│   └── index.html          # Mon infrastructure personnelle & serveur
+├── jeu/
+│   └── index.html          # Quiz informatique
+├── jeu-trex/
+│   └── index.html          # Mini-jeu caché (Admin Run)
 ├── media/
 │   ├── css/                # Feuilles de style (main.css, contact.css)
 │   ├── img/                # Images, photos de profil et logos
