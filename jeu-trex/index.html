@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin T-Rex - Thomas Mayoraz | Jeu Caché</title>
+    <meta name="description" content="Mini-jeu caché T-Rex version SysAdmin. Évitez les pannes réseau !"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="icon" href="/media/img/logo.webp"/>
+
+    <link rel="stylesheet" href="/media/css/main.css?v=6">
+    <link rel="stylesheet" href="/media/css/toast.css">
+    <link rel="stylesheet" href="/media/css/terminal.css">
+    <link rel="stylesheet" href="trex.css">
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href="/">Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/a-propos/">À propos</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <button id="lang-toggle" class="theme-toggle" aria-label="Changer de langue" style="font-weight:bold; font-size:1rem; padding:5px 10px; margin-left: 5px;">EN</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <h1>Admin Run</h1>
+                <p class="subtitle">Mission : Maintenir le serveur en ligne !</p>
+                <a class='back-nav' href="/">← Retour à l'accueil</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-section reveal">
+                <div class="game-container">
+                    <div class="score-board">
+                        <span>Score: <span id="current-score">0</span></span>
+                        <span>Record: <span id="high-score">0</span></span>
+                    </div>
+                    <canvas id="gameCanvas" width="800" height="300"></canvas>
+                    
+                    <div id="start-overlay" class="game-overlay">
+                        <h2>Prêt à courir ?</h2>
+                        <p>Appuyez sur <kbd>Espace</kbd> ou touchez l'écran pour sauter.</p>
+                        <p>Évitez les Routeurs en feu (🔥) et les Bugs (🐛) !</p>
+                        <button id="start-btn" class="cta-button">Lancer le script</button>
+                    </div>
+                    
+                    <div id="game-over-overlay" class="game-overlay hidden">
+                        <h2>⚠️ KERNEL PANIC ⚠️</h2>
+                        <p>Le serveur a crashé !</p>
+                        <p>Score final : <span id="final-score">0</span></p>
+                        <button id="restart-btn" class="cta-button">Reboot Server</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz</p>
+        </footer>
+    </div>
+
+    <script src="/media/js/theme.js?v=6"></script>
+    <script src="/media/js/particles.js?v=5"></script>
+    <script src="/media/js/toast.js"></script>
+    <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/lang.js"></script>
+    <script src="trex.js"></script>
+</body>
+</html>
