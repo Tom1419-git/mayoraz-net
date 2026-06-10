@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="media/img/logo.png" alt="Logo" width="100"/>
+  <img src="media/img/logo.webp" alt="Logo" width="100"/>
   <h1>Portfolio & Services Informatiques - Thomas Mayoraz</h1>
   <p>Mon portfolio personnel et vitrine de mes services informatiques en région lausannoise.</p>
   
@@ -14,7 +14,7 @@
 
 <!-- Remplacer le lien de l'image ci-dessous par une vraie capture d'écran une fois ajoutée au projet -->
 <div align="center">
-  <img src="preview.png" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
+  <img src="preview.webp" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 </div>
 
 <br/>
