@@ -446,7 +446,8 @@ const frToEn = {
     "Netdata Live": "Netdata Live",
     "n8n Automation": "n8n Automation",
     "Opérationnel": "Operational",
-    "🟢 System Status": "🟢 System Status"
+    "🟢 System Status": "🟢 System Status",
+    "Mon LinkedIn": "My LinkedIn"
 };
 
 const enToFr = {};
