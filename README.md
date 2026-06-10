@@ -43,6 +43,8 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 ├── index.html              # Page d'accueil (Services & Contact)
 ├── a-propos/
 │   └── index.html          # Présentation de mon parcours et CV
+├── api/
+│   └── cv.json             # Endpoint JSON (Easter Egg curl)
 ├── contact/
 │   ├── index.html          # Formulaire de contact sécurisé
 │   └── merci.html          # Page de confirmation d'envoi
@@ -52,10 +54,14 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 │   └── index.html          # Quiz informatique
 ├── jeu-trex/
 │   └── index.html          # Mini-jeu caché (Admin Run)
+├── status/
+│   └── index.html          # Page de statut des services (Status Page)
+├── tutoriels/
+│   └── index.html          # Base de connaissances et tutoriels
 ├── media/
 │   ├── css/                # Feuilles de style (main.css, contact.css)
 │   ├── img/                # Images, photos de profil et logos
-│   └── js/                 # Scripts interactifs et protection
+│   └── js/                 # Scripts (konami.js, lang.js, terminal.js)
 └── sitemap.xml             # Fichier de mapping pour les moteurs de recherche
 ```
 
