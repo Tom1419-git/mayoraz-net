@@ -10,9 +10,9 @@ const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 
 // Game constants
-const GRAVITY = 0.35;
-const JUMP_POWER = -9.5;
-let INITIAL_SPEED = 5;
+const GRAVITY = 0.6;
+const JUMP_POWER = -11;
+let INITIAL_SPEED = 4;
 
 // Variables
 let animationId;
@@ -21,6 +21,7 @@ let score = 0;
 let highScore = localStorage.getItem('adminRunHighScore') || 0;
 let obstacles = [];
 let frames = 0;
+let nextObstacleFrame = 0;
 let gameSpeed = INITIAL_SPEED;
 
 highScoreEl.innerText = highScore;
@@ -99,8 +100,11 @@ class Obstacle {
 }
 
 function handleObstacles() {
-    if (frames % Math.floor(Math.random() * 60 + 60) === 0) {
+    if (frames >= nextObstacleFrame) {
         obstacles.push(new Obstacle());
+        // Calculate safe distance based on speed
+        // Min frames = 70, Max frames = 150
+        nextObstacleFrame = frames + Math.floor(Math.random() * 80 + 70);
     }
 
     for (let i = 0; i < obstacles.length; i++) {
@@ -153,9 +157,9 @@ function updateGame() {
     
     frames++;
     
-    // Increase speed slightly
-    if (frames % 500 === 0) {
-        gameSpeed += 0.5;
+    // Increase speed slightly but slower
+    if (frames % 1000 === 0) {
+        gameSpeed += 0.2;
     }
 
     animationId = requestAnimationFrame(updateGame);
@@ -164,6 +168,7 @@ function updateGame() {
 function resetGame() {
     score = 0;
     frames = 0;
+    nextObstacleFrame = 50; // First obstacle appears after 50 frames
     gameSpeed = INITIAL_SPEED;
     obstacles = [];
     player.y = 200;
@@ -223,11 +228,11 @@ diffBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         diffBtns.forEach(b => {
             b.style.background = 'transparent';
-            b.style.color = b.dataset.speed === "7" ? '#ff4500' : '#1e90ff';
+            b.style.color = b.dataset.speed === "5.5" ? '#ff4500' : '#1e90ff';
             b.classList.remove('active');
         });
         btn.classList.add('active');
-        btn.style.background = btn.dataset.speed === "7" ? '#ff4500' : '#1e90ff';
+        btn.style.background = btn.dataset.speed === "5.5" ? '#ff4500' : '#1e90ff';
         btn.style.color = '#fff';
         INITIAL_SPEED = parseFloat(btn.dataset.speed);
     });
