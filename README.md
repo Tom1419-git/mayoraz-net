@@ -73,6 +73,11 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 
 ---
 
+> [!NOTE]
+> *Ce site web et ses fonctionnalités interactives ont été développés en partie avec l'assistance d'une Intelligence Artificielle avancée.*
+
+---
+
 <div align="center">
   <i>Développé avec passion par Thomas Mayoraz &copy; 2026</i>
 </div>
