@@ -42,9 +42,9 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 ```text
 ├── index.html              # Page d'accueil (Services & Contact)
 ├── a-propos/
-│   └── a-propos.html       # Présentation de mon parcours et CV
+│   └── index.html          # Présentation de mon parcours et CV
 ├── contact/
-│   ├── contact.html        # Formulaire de contact sécurisé
+│   ├── index.html          # Formulaire de contact sécurisé
 │   └── merci.html          # Page de confirmation d'envoi
 ├── media/
 │   ├── css/                # Feuilles de style (main.css, contact.css)
