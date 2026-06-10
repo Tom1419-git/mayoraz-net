@@ -10,9 +10,9 @@ const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 
 // Game constants
-const GRAVITY = 0.6;
-const JUMP_POWER = -12;
-const SPEED = 5;
+const GRAVITY = 0.35;
+const JUMP_POWER = -9.5;
+let INITIAL_SPEED = 5;
 
 // Variables
 let animationId;
@@ -21,7 +21,7 @@ let score = 0;
 let highScore = localStorage.getItem('adminRunHighScore') || 0;
 let obstacles = [];
 let frames = 0;
-let gameSpeed = SPEED;
+let gameSpeed = INITIAL_SPEED;
 
 highScoreEl.innerText = highScore;
 
@@ -164,7 +164,7 @@ function updateGame() {
 function resetGame() {
     score = 0;
     frames = 0;
-    gameSpeed = SPEED;
+    gameSpeed = INITIAL_SPEED;
     obstacles = [];
     player.y = 200;
     player.dy = 0;
@@ -216,6 +216,22 @@ canvas.addEventListener('touchstart', (e) => {
 
 startBtn.addEventListener('click', resetGame);
 restartBtn.addEventListener('click', resetGame);
+
+// Difficulty selection
+const diffBtns = document.querySelectorAll('.diff-btn');
+diffBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        diffBtns.forEach(b => {
+            b.style.background = 'transparent';
+            b.style.color = b.dataset.speed === "7" ? '#ff4500' : '#1e90ff';
+            b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        btn.style.background = btn.dataset.speed === "7" ? '#ff4500' : '#1e90ff';
+        btn.style.color = '#fff';
+        INITIAL_SPEED = parseFloat(btn.dataset.speed);
+    });
+});
 
 // Initial draw
 ctx.fillStyle = '#111';
