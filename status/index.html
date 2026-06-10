@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>System Status - Thomas Mayoraz</title>
+    <meta name="description" content="Statut en temps réel de mon infrastructure personnelle."/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="icon" href="/media/img/logo.webp"/>
+
+    <link rel="stylesheet" href="/media/css/main.css?v=6">
+    <link rel="stylesheet" href="/media/css/toast.css">
+    <link rel="stylesheet" href="/media/css/terminal.css">
+    
+    <style>
+        .status-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .overall-status {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #2ecc71;
+        }
+        .pulse {
+            width: 12px;
+            height: 12px;
+            background: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #2ecc71;
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+        
+        .service-group {
+            margin-bottom: 30px;
+        }
+        .service-group h3 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        .service-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .service-status {
+            color: #2ecc71;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .uptime {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href="/">Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/a-propos/">À propos</a></li>
+                <li><a href="/tutoriels/">Tutoriels</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <button id="lang-toggle" class="theme-toggle" aria-label="Changer de langue">EN</button>
+                <button id="theme-toggle" class="theme-toggle">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header style="margin-bottom: 20px;">
+            <div class="profile-section">
+                <h1>Network Status</h1>
+                <p class="subtitle">Surveillance en temps réel de l'infrastructure</p>
+                <a class='back-nav' href="/">← Retour à l'accueil</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="status-container reveal">
+                <div class="status-header">
+                    <div>
+                        <h2 style="margin: 0;">État des Systèmes</h2>
+                        <span class="uptime">Dernière vérification: Il y a quelques secondes</span>
+                    </div>
+                    <div class="overall-status">
+                        <div class="pulse"></div>
+                        Tous les systèmes sont opérationnels
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>🌐 Réseau & Sécurité</h3>
+                    <div class="service-item">
+                        <div class="service-name">Gateway Principale</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Tailscale VPN (Subnet Router)</div>
+                        <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Pi-hole DNS & AdBlock</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.98%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Cloudflare Tunnels</div>
+                        <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>🖥️ Infrastructure Core</h3>
+                    <div class="service-item">
+                        <div class="service-name">Ubuntu Server VM (Host)</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Docker Engine</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.95%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Nginx Proxy Manager</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>🍿 Services Média</h3>
+                    <div class="service-item">
+                        <div class="service-name">Jellyfin Media Server</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.90%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Jellyseerr (Requêtes)</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Stack "Arr" (Radarr, Sonarr...)</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.95%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">qBittorrent</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.92%</span></div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>📈 Monitoring & Auto-Healing</h3>
+                    <div class="service-item">
+                        <div class="service-name">Prometheus</div>
+                        <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Grafana Dashboards</div>
+                        <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">Netdata Host Metrics</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name">n8n Automation Engine</div>
+                        <div class="service-status">Opérationnel <span class="uptime">99.98%</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
+        </footer>
+    </div>
+
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+    <script src="/media/js/theme.js?v=6"></script>
+    <script src="/media/js/particles.js?v=5"></script>
+    <script src="/media/js/toast.js"></script>
+    <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/konami.js"></script>
+    <script src="/media/js/lang.js"></script>
+</body>
+</html>

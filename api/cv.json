@@ -1,0 +1,34 @@
+{
+  "name": "Thomas Mayoraz",
+  "age": 17,
+  "role": "Apprenti Informaticien (Voie Infra avec Maturité)",
+  "location": "Lausanne, VD, CH",
+  "contact": {
+    "email": "contact@mayoraz-net.ch",
+    "website": "https://mayoraz-net.ch",
+    "github": "https://github.com/Tom1419-git"
+  },
+  "education": {
+    "school": "ETML (École technique - École des métiers de Lausanne)",
+    "year": "2ème année",
+    "diploma_expected": "CFC Informaticien + Maturité Professionnelle"
+  },
+  "skills": {
+    "systems": ["Ubuntu Server", "Windows Server", "Proxmox", "Debian"],
+    "networking": ["TCP/IP", "DNS", "DHCP", "Tailscale", "Routing"],
+    "automation_and_containers": ["Docker", "Docker Compose", "n8n", "Stack Arr (Radarr, Sonarr...)"],
+    "monitoring": ["Prometheus", "Grafana", "Netdata"],
+    "development": ["HTML/CSS/JS", "Python", "C#", "Bash", "PowerShell"],
+    "hardware": ["Montage PC sur mesure", "Dépannage matériel", "Câblage"]
+  },
+  "languages": {
+    "french": "Native",
+    "english": "Technical / B2"
+  },
+  "easter_egg": {
+    "coffee_consumption": "High",
+    "favorite_editor": "VS Code",
+    "secret_skill": "Peut réparer un PC juste en le fixant intensément",
+    "message": "Félicitations, vous avez trouvé mon API cachée ! Si vous lisez ceci, on devrait probablement discuter de tech ensemble."
+  }
+}

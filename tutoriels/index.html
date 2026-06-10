@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tutoriels SysAdmin - Thomas Mayoraz</title>
+    <meta name="description" content="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média."/>
+    <link rel="icon" href="/media/img/logo.webp"/>
+
+    <link rel="stylesheet" href="/media/css/main.css?v=6">
+    <link rel="stylesheet" href="/media/css/toast.css">
+    <link rel="stylesheet" href="/media/css/terminal.css">
+    
+    <style>
+        .tuto-container {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .accordion {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 18px 25px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            outline: none;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .active, .accordion:hover {
+            background-color: rgba(30, 144, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .accordion::after {
+            content: '\002B'; /* Plus sign */
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .active::after {
+            content: "\2212"; /* Minus sign */
+        }
+        
+        .panel {
+            padding: 0 25px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-left: 2px solid var(--primary-color);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 5px;
+        }
+        
+        .panel p {
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .panel pre {
+            background: #111;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #0f0;
+            border: 1px solid #333;
+        }
+        
+        .tag {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href="/">Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/a-propos/">À propos</a></li>
+                <li><a href="/tutoriels/">Tutoriels</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <button id="lang-toggle" class="theme-toggle" aria-label="Changer de langue">EN</button>
+                <button id="theme-toggle" class="theme-toggle">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header style="margin-bottom: 20px;">
+            <div class="profile-section">
+                <h1>Tutoriels & Astuces</h1>
+                <p class="subtitle">Ma petite base de connaissances technique</p>
+                <a class='back-nav' href="/">← Retour à l'accueil</a>
+            </div>
+        </header>
+
+        <main class="tuto-container reveal">
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-color); opacity: 0.8;">
+                Voici quelques mémos techniques et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.
+            </p>
+
+            <button class="accordion"><span class="tag">Docker</span> Le fichier docker-compose parfait pour débuter</button>
+            <div class="panel">
+                <p>Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.</p>
+                <pre><code>version: "3.8"
+services:
+  app:
+    image: nginx:latest
+    container_name: web_app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./data:/usr/share/nginx/html
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"</code></pre>
+            </div>
+
+            <button class="accordion"><span class="tag">n8n</span> Auto-Healing : Redémarrer un conteneur crashé</button>
+            <div class="panel">
+                <p>Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :</p>
+                <pre><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
+                <p>Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.</p>
+            </div>
+
+            <button class="accordion"><span class="tag">Media</span> Architecture de la Stack "Arr"</button>
+            <div class="panel">
+                <p>La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :</p>
+                <ol>
+                    <li>L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.</li>
+                    <li>Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).</li>
+                    <li>Sonarr/Radarr interrogent <strong>Prowlarr</strong> pour trouver les sources via les indexers.</li>
+                    <li>Le fichier est envoyé à <strong>qBittorrent</strong>.</li>
+                    <li>Une fois téléchargé, Radarr renomme et déplace le fichier vers le dossier final.</li>
+                    <li><strong>Jellyfin</strong> scanne le dossier et affiche le média.</li>
+                </ol>
+            </div>
+
+            <button class="accordion"><span class="tag">Réseau</span> Sécuriser son accès avec Tailscale</button>
+            <div class="panel">
+                <p>Au lieu d'ouvrir les ports de mon routeur à internet (et risquer des attaques), j'utilise <strong>Tailscale</strong>. En l'installant sur ma VM Ubuntu et en l'activant en tant que <i>Subnet Router</i>, je peux accéder à toute mon infrastructure depuis mon téléphone en 4G, de manière totalement sécurisée et cryptée avec Wireguard sous le capot.</p>
+                <pre><code>sudo tailscale up --advertise-routes=192.168.1.0/24</code></pre>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
+        </footer>
+    </div>
+
+    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+    <script>
+        // Accordion script
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+
+    <script src="/media/js/theme.js?v=6"></script>
+    <script src="/media/js/particles.js?v=5"></script>
+    <script src="/media/js/toast.js"></script>
+    <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/konami.js"></script>
+    <script src="/media/js/lang.js"></script>
+</body>
+</html>
