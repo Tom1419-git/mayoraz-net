@@ -447,7 +447,10 @@ const frToEn = {
     "n8n Automation": "n8n Automation",
     "Opérationnel": "Operational",
     "🟢 System Status": "🟢 System Status",
-    "Mon LinkedIn": "My LinkedIn"
+    "Mon LinkedIn": "My LinkedIn",
+    "Une question, un projet ou besoin d'assistance ? N'hésitez pas à me contacter via le formulaire dédié. Je vous répondrai très rapidement.": "A question, a project or need assistance? Do not hesitate to contact me via the dedicated form. I will answer you very quickly.",
+    "Contacter →": "Contact →",
+    "Me Contacter": "Contact Me"
 };
 
 const enToFr = {};
