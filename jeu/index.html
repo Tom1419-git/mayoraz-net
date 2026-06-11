@@ -133,382 +133,7 @@
 </div>
 
 <footer>
-    <p>&copy; <script>
-    const questions = [
-        // Old questions
-        { question: "Qu'est-ce qu'une variable en programmation ?", options: ["Un type de fichier", "Un conteneur pour stocker des données", "Une erreur dans le code", "Un commentaire dans le programme"], answer: 1, explanation: "Une variable est un conteneur qui stocke des données." },
-        { question: "Comment reconnaître un email de phishing ?", options: ["L'expéditeur utilise un ton urgent", "Il contient des liens suspects", "L'adresse email semble inhabituelle", "Toutes ces réponses"], answer: 3, explanation: "Les emails de phishing utilisent toutes ces techniques." },
-        { question: "À quoi sert la RAM ?", options: ["Stockage permanent", "Mémoire temporaire", "Contrôle graphique", "Alimentation électrique"], answer: 1, explanation: "La RAM est une mémoire volatile temporaire." },
-        { question: "Que fait Ctrl + S ?", options: ["Ouvre un document", "Enregistre le document", "Ferme le document", "Annule l'action"], answer: 1, explanation: "Ctrl + S enregistre (Save) le document." },
-        { question: "Qu'est-ce qu'un OS ?", options: ["Un programme pour naviguer", "Un logiciel qui gère l'ordinateur", "Un processeur", "Un stockage"], answer: 1, explanation: "Le système d'exploitation gère les ressources matérielles." },
-        { question: "Que signifie URL ?", options: ["Universal Resource Locator", "Uniform Resource Locator", "Unified Resource Link", "Universal Reference Location"], answer: 1, explanation: "URL signifie Uniform Resource Locator." },
-        { question: "Quelle est la fonction d'un pare-feu ?", options: ["Accélérer internet", "Protéger contre les malwares", "Contrôler le trafic réseau", "Améliorer l'affichage"], answer: 2, explanation: "Un pare-feu filtre les connexions réseau." },
-        { question: "Qu'est-ce qu'un VPN ?", options: ["Un virus", "Un réseau privé virtuel", "Un logiciel vidéo", "Un protocole mail"], answer: 1, explanation: "Un VPN chiffre votre connexion sur internet." },
-        { question: "SSD vs HDD ?", options: ["SSD plus rapides mais chers", "HDD = plateaux, SSD = flash", "SSD sans pièces mobiles", "Toutes ces réponses"], answer: 3, explanation: "Les SSD utilisent de la mémoire flash sans mécanique." },
-        { question: "Que signifie 2FA ?", options: ["Double Format", "Double Facteur d'Authentification", "Double Fréquence", "Double Fichier"], answer: 1, explanation: "2FA ajoute une 2e couche de sécurité." },
-        { question: "Qu'est-ce que le Cloud ?", options: ["Disque externe", "Serveur distant via internet", "CD/DVD", "Clé USB"], answer: 1, explanation: "Le cloud stocke vos données sur des serveurs distants." },
-        { question: "Fonction du CPU ?", options: ["Stocker les données", "Exécuter les instructions", "Afficher l'image", "Alimenter le PC"], answer: 1, explanation: "Le processeur exécute les calculs." },
-        { question: "HTTPS ?", options: ["HyperText Transfer Protocol Secure", "HTTP Standard", "HTTP System", "HTTP Service"], answer: 0, explanation: "La version sécurisée du protocole HTTP." },
-        { question: "Que signifie HTML ?", options: ["HyperText Markdown Language", "HighText Machine Language", "HyperText Markup Language", "Hyperloop Text Management"], answer: 2, explanation: "HTML structure le web." },
-        { question: "Extension d'une feuille de style ?", options: [".style", ".css", ".html", ".scss"], answer: 1, explanation: "Le CSS (Cascading Style Sheets)." },
-        { question: "Quel langage pour interagir avec une DB ?", options: ["HTML", "Python", "SQL", "JavaScript"], answer: 2, explanation: "SQL est le langage de requête structurée." },
-        { question: "Une boucle 'for' ?", options: ["Une fonction", "Une méthode de tri", "Une structure de répétition", "Une condition"], answer: 2, explanation: "Permet d'itérer et répéter une action." },
-        { question: "Qui développe Windows ?", options: ["Apple", "Google", "IBM", "Microsoft"], answer: 3, explanation: "Microsoft." },
-        { question: "VirtualBox ?", options: ["Créer des PDF", "Installer des pilotes", "Exécuter plusieurs systèmes d'exploitation (Machines virtuelles)", "Optimiser internet"], answer: 2, explanation: "Logiciel de virtualisation." },
-        { question: "Que signifie BIOS ?", options: ["Basic Input Output System", "Binary System", "Basic Internet", "Basic Option"], answer: 0, explanation: "Basic Input Output System." },
-        { question: "Composant pour le rendu graphique ?", options: ["Processeur", "RAM", "Carte graphique (GPU)", "Disque dur"], answer: 2, explanation: "Le GPU traite l'affichage." },
-        { question: "Open source ?", options: ["Gratuit", "Code source fermé", "Code source librement accessible et modifiable", "Pour les pros"], answer: 2, explanation: "Le code est ouvert." },
-        { question: "Adresse MAC ?", options: ["Site Apple", "Identifiant matériel unique d'une carte réseau", "Mot de passe réseau", "Fichier MacOS"], answer: 1, explanation: "Adresse physique unique." },
-        { question: "Que signifie responsive ?", options: ["Répond vite", "S'adapte à tous les écrans", "Sécurisé", "Animé"], answer: 1, explanation: "Adaptation PC/Mobile." },
-        
-    {
-        question: "Que signifie DNS ?",
-        options: ["Digital Network Server", "Domain Name System", "Dynamic Node Service", "Data Network Security"],
-        answer: 1,
-        explanation: "Le DNS traduit les noms de domaine lisibles (comme google.com) en adresses IP."
-    },
-    {
-        question: "Qu'est-ce qu'une attaque DDoS ?",
-        options: ["Un virus qui supprime les fichiers", "Le vol d'un mot de passe par dictionnaire", "Rendre un serveur indisponible en le surchargeant de requêtes", "Une faille dans un réseau Wi-Fi"],
-        answer: 2,
-        explanation: "Le Déni de Service Distribué (DDoS) sature un serveur avec une multitude de connexions simultanées."
-    },
-    {
-        question: "Dans une adresse IPv4 classique (ex: 192.168.1.1), combien trouve-t-on de blocs de nombres ?",
-        options: ["3", "4", "6", "8"],
-        answer: 1,
-        explanation: "Une adresse IPv4 est constituée de 4 blocs (octets) allant de 0 à 255."
-    },
-    {
-        question: "Que fait la RAM quand l'ordinateur s'éteint ou redémarre ?",
-        options: ["Elle sauvegarde les fichiers vitaux", "Elle se vide complètement", "Elle met les données en veille", "Elle se copie sur le disque dur"],
-        answer: 1,
-        explanation: "La RAM est une mémoire volatile : elle perd toutes ses données sans alimentation électrique."
-    },
-    {
-        question: "Quel port réseau est utilisé par défaut pour le trafic sécurisé HTTPS ?",
-        options: ["21", "80", "443", "8080"],
-        answer: 2,
-        explanation: "Le port 443 est le port standard pour le protocole HTTPS (le 80 est pour le HTTP non sécurisé)."
-    },
-    {
-        question: "Que signifie LAN ?",
-        options: ["Local Area Network", "Large Access Node", "Logical Array Network", "Lightweight Application Node"],
-        answer: 0,
-        explanation: "LAN désigne un réseau local, comme celui de votre domicile ou de votre bureau."
-    },
-    {
-        question: "Qu'est-ce qu'un Ransomware ?",
-        options: ["Un logiciel pour nettoyer le PC", "Un virus qui chiffre vos données et demande une rançon", "Un bloqueur de publicités", "Un outil de diagnostic réseau"],
-        answer: 1,
-        explanation: "Le ransomware (rançongiciel) prend vos fichiers en otage en les cryptant."
-    },
-    {
-        question: "Quelle est l'unité de mesure principale de la fréquence (vitesse) d'un processeur ?",
-        options: ["Octet", "Watt", "Hertz (GHz)", "Pixel"],
-        answer: 2,
-        explanation: "La fréquence d'un CPU se mesure en Hertz (souvent en Gigahertz, GHz)."
-    },
-    {
-        question: "Lequel de ces éléments n'est PAS un système d'exploitation ?",
-        options: ["Linux", "Windows", "Oracle", "macOS"],
-        answer: 2,
-        explanation: "Oracle est principalement connu pour ses systèmes de gestion de bases de données, pas pour être un OS."
-    },
-    {
-        question: "Qu'est-ce que le 'Ping' en réseau ?",
-        options: ["Un bruit produit par la carte mère", "Le temps de réponse entre deux machines", "Un type d'adresse IP", "Un câble réseau"],
-        answer: 1,
-        explanation: "Le ping mesure la latence, c'est-à-dire le temps que met un paquet de données pour faire un aller-retour."
-    }
-
-    ];
-
-    // Variables globales
-    let pseudoJoueur = "";
-    let questionsAleatoires = [];
-    let reponseUtilisateur = [];
-    let questionActuelle = 0;
-    let score = 0;
-    let reponseSelectionnee = null;
-    let quizTermine = false;
-
-    // Éléments DOM
-    const introContainer = document.getElementById('intro-container');
-    const quizContainer = document.getElementById('quiz-container');
-    const pseudoInput = document.getElementById('pseudo-input');
-    const startBtn = document.getElementById('start-quiz-btn');
-    
-    const questionElement = document.getElementById('question-text');
-    const optionsContainer = document.getElementById('options-container');
-    const progressElement = document.getElementById('progress');
-    const feedbackElement = document.getElementById('feedback');
-    const nextButton = document.getElementById('next-btn');
-    const resultsElement = document.getElementById('results');
-    const scoreElement = document.getElementById('score');
-    const rankElement = document.getElementById('rank');
-    const commentElement = document.getElementById('comment');
-    const restartButton = document.getElementById('restart-btn');
-    const showAnswersButton = document.getElementById('show-answers-btn');
-    const allAnswersElement = document.getElementById('all-answers');
-    
-    // Leaderboard
-    const leaderboardContainer = document.getElementById('leaderboard-container');
-    const leaderboardBody = document.getElementById('leaderboard-body');
-
-    // Bots pour le faux classement journalier avec jeux de mots/humour
-    const FAKE_BOTS = ["Guy Yotine", "Paul Hémique", "Sam Ouraï", "Anne Hihilation", "Sarah Kourci", "Denis Chon", "Jacques Uze", "Momo Lesk", "Otto Matik", "Jean Bon", "Harry Cover", "Lary Boute"];
-
-    function getDailyLeaderboard() {
-        const today = new Date().toDateString();
-        let lb = JSON.parse(localStorage.getItem('quiz_leaderboard')) || { date: '', scores: [] };
-        
-        if (lb.date !== today) {
-            // Nouveau jour : générer des faux scores
-            const botsCount = 4 + Math.floor(Math.random() * 3); // 4 à 6 bots
-            const shuffledBots = FAKE_BOTS.sort(() => 0.5 - Math.random()).slice(0, botsCount);
-            let newScores = [];
-            shuffledBots.forEach(bot => {
-                const botScore = 6 + Math.floor(Math.random() * 9); // entre 6 et 14 sur 15
-                newScores.push({ pseudo: bot, score: botScore });
-            });
-            lb = { date: today, scores: newScores };
-            localStorage.setItem('quiz_leaderboard', JSON.stringify(lb));
-        }
-        return lb;
-    }
-
-    function saveUserScore(pseudo, newScore) {
-        let lb = getDailyLeaderboard();
-        // Supprimer l'ancien score du joueur s'il rejoue
-        lb.scores = lb.scores.filter(s => s.pseudo !== pseudo);
-        lb.scores.push({ pseudo: pseudo, score: newScore, isUser: true });
-        
-        // Trier du plus grand au plus petit
-        lb.scores.sort((a, b) => b.score - a.score);
-        localStorage.setItem('quiz_leaderboard', JSON.stringify(lb));
-        return lb.scores;
-    }
-
-    function afficherClassement() {
-        const scores = saveUserScore(pseudoJoueur, score);
-        leaderboardBody.innerHTML = '';
-        
-        scores.forEach((entry, index) => {
-            const tr = document.createElement('tr');
-            if (entry.isUser) {
-                tr.style.backgroundColor = 'rgba(0, 212, 255, 0.2)';
-                tr.style.fontWeight = 'bold';
-                tr.style.color = '#00d4ff';
-            }
-            
-            let rankDisplay = index + 1;
-            if (index === 0) rankDisplay = '🥇 1er';
-            else if (index === 1) rankDisplay = '🥈 2ème';
-            else if (index === 2) rankDisplay = '🥉 3ème';
-            else rankDisplay += 'ème';
-            
-            tr.innerHTML = `
-                <td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">${rankDisplay}</td>
-                <td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">${entry.pseudo}</td>
-                <td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">${entry.score}/15</td>
-            `;
-            leaderboardBody.appendChild(tr);
-        });
-        
-        leaderboardContainer.style.display = 'block';
-    }
-
-    startBtn.addEventListener('click', () => {
-        const val = pseudoInput.value.trim();
-        if (val.length < 2) {
-            showToast("Veuillez entrer un pseudo d'au moins 2 caractères", "warning"); return; // un pseudo d'au moins 2 caractères.");
-            return;
-        }
-        pseudoJoueur = val;
-        introContainer.style.display = 'none';
-        quizContainer.style.display = 'block';
-        initialiserQuiz();
-    });
-
-    function initialiserQuiz() {
-        questionsAleatoires = [...questions].sort(() => 0.5 - Math.random()).slice(0, 15);
-        reponseUtilisateur = new Array(15).fill(null);
-        questionActuelle = 0;
-        score = 0;
-        quizTermine = false;
-        reponseSelectionnee = null;
-        
-        resultsElement.style.display = 'none';
-        allAnswersElement.style.display = 'none';
-        leaderboardContainer.style.display = 'none';
-        feedbackElement.style.display = 'none';
-        nextButton.textContent = 'Suivant';
-        nextButton.disabled = true;
-        
-        chargerQuestion();
-    }
-
-    function chargerQuestion() {
-        if (questionActuelle >= questionsAleatoires.length) {
-            terminerQuiz();
-            return;
-        }
-
-        const q = questionsAleatoires[questionActuelle];
-        questionElement.textContent = q.question;
-        optionsContainer.innerHTML = '';
-        
-        q.options.forEach((option, index) => {
-            const optionElement = document.createElement('div');
-            optionElement.classList.add('option');
-            optionElement.textContent = option;
-            optionElement.addEventListener('click', () => selectionnerReponse(index));
-            optionsContainer.appendChild(optionElement);
-        });
-        
-        progressElement.textContent = `Question ${questionActuelle + 1}/15`;
-        feedbackElement.style.display = 'none';
-        nextButton.disabled = true;
-        reponseSelectionnee = null;
-    }
-
-    function selectionnerReponse(index) {
-        if (quizTermine) return;
-        
-        const options = document.querySelectorAll('.option');
-        options.forEach(option => option.classList.remove('selected'));
-        options[index].classList.add('selected');
-        reponseSelectionnee = index;
-        nextButton.disabled = false;
-    }
-
-    function verifierReponse() {
-        if (reponseSelectionnee === null) return;
-        
-        const q = questionsAleatoires[questionActuelle];
-        const options = document.querySelectorAll('.option');
-        
-        reponseUtilisateur[questionActuelle] = reponseSelectionnee;
-        
-        options.forEach(option => {
-            option.style.cursor = 'default';
-            option.onclick = null;
-        });
-
-        if (reponseSelectionnee !== q.answer) {
-            feedbackElement.textContent = `Incorrect ! La bonne réponse était : ${q.options[q.answer]}. ${q.explanation}`;
-            feedbackElement.className = 'incorrect-feedback';
-        } else {
-            score++;
-            feedbackElement.textContent = `Correct ! ${q.explanation}`;
-            feedbackElement.className = 'correct-feedback';
-        }
-
-        feedbackElement.style.display = 'block';
-        questionActuelle++;
-        
-        if (questionActuelle < questionsAleatoires.length) {
-            nextButton.textContent = 'Suivant';
-        } else {
-            nextButton.textContent = 'Voir les résultats';
-        }
-        
-        nextButton.disabled = false;
-    }
-
-    function terminerQuiz() {
-        quizTermine = true;
-        resultsElement.style.display = 'block';
-        
-        document.querySelector('#progress').style.display = 'none';
-        document.querySelector('.question').style.display = 'none';
-        document.querySelector('#options-container').style.display = 'none';
-        document.querySelector('#feedback').style.display = 'none';
-        document.querySelector('#next-btn').style.display = 'none';
-
-        const pourcentage = Math.round((score / questionsAleatoires.length) * 100);
-        scoreElement.textContent = `Score : ${score}/15 (${pourcentage}%)`;
-
-        let niveau = "";
-        let emoji = "";
-        if (pourcentage <= 20) { niveau = "Noob"; emoji = "😵"; }
-        else if (pourcentage <= 40) { niveau = "Débutant"; emoji = "👶"; }
-        else if (pourcentage <= 60) { niveau = "Amateur"; emoji = "🎯"; }
-        else if (pourcentage <= 80) { niveau = "Expert"; emoji = "🧠"; }
-        else { niveau = "Hackeur"; emoji = "💻🔥"; }
-
-        rankElement.textContent = `Rang : ${niveau} ${emoji}`;
-        
-        // Afficher le classement
-        afficherClassement();
-    }
-
-    function afficherReponses() {
-        allAnswersElement.style.display = 'block';
-        allAnswersElement.innerHTML = '<h2 style="text-align: center; margin-bottom: 30px; color: #00d4ff;">Toutes les réponses</h2>';
-        
-        questionsAleatoires.forEach((q, index) => {
-            const answerDiv = document.createElement('div');
-            answerDiv.className = 'answer-item';
-            
-            const questionDiv = document.createElement('div');
-            questionDiv.className = 'answer-question';
-            questionDiv.textContent = `${index + 1}. ${q.question}`;
-            answerDiv.appendChild(questionDiv);
-            
-            q.options.forEach((option, optionIndex) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'answer-option';
-                optionDiv.textContent = option;
-                
-                if (optionIndex === q.answer) optionDiv.classList.add('correct');
-                if (reponseUtilisateur[index] === optionIndex) {
-                    if (optionIndex === q.answer) optionDiv.classList.add('user-correct');
-                    else optionDiv.classList.add('user-incorrect');
-                }
-                answerDiv.appendChild(optionDiv);
-            });
-            
-            const explanationDiv = document.createElement('div');
-            explanationDiv.className = 'answer-explanation';
-            explanationDiv.textContent = `Explication : ${q.explanation}`;
-            answerDiv.appendChild(explanationDiv);
-            allAnswersElement.appendChild(answerDiv);
-        });
-        
-        const restartDiv = document.createElement('div');
-        restartDiv.style.textAlign = 'center';
-        restartDiv.style.marginTop = '30px';
-        const newRestartBtn = document.createElement('button');
-        newRestartBtn.textContent = 'Recommencer le quiz';
-        newRestartBtn.className = 'restart-btn btn-primary';
-        newRestartBtn.addEventListener('click', redemarrerQuiz);
-        restartDiv.appendChild(newRestartBtn);
-        allAnswersElement.appendChild(restartDiv);
-    }
-
-    function redemarrerQuiz() {
-        document.querySelector('#progress').style.display = 'block';
-        document.querySelector('.question').style.display = 'block';
-        document.querySelector('#options-container').style.display = 'block';
-        document.querySelector('#next-btn').style.display = 'block';
-        initialiserQuiz();
-    }
-
-    nextButton.addEventListener('click', () => {
-        if (!quizTermine && reponseSelectionnee !== null) {
-            verifierReponse();
-            if (questionActuelle < questionsAleatoires.length) chargerQuestion();
-            else terminerQuiz();
-        } else if (quizTermine) {
-            terminerQuiz();
-        }
-    });
-
-    restartButton.addEventListener('click', redemarrerQuiz);
-    showAnswersButton.addEventListener('click', afficherReponses);
-</script> Thomas Mayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
+    <p>&copy; 2025 Thomas Mayoraz |ayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
     <nav style="margin-top: 15px;">
         <a href="/">Accueil</a>
         <a href='..//a-propos/'>À propos</a>
@@ -946,9 +571,20 @@
     const showAnswersButton = document.getElementById('show-answers-btn');
     const allAnswersElement = document.getElementById('all-answers');
 
+    function shuffleArray(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
     function initialiserQuiz() {
-        // Mélanger et prendre 15 questions aléatoires
-        questionsAleatoires = [...questions].sort(() => 0.5 - Math.random()).slice(0, 15);
+        // Mélanger et prendre 15 questions aléatoires (Fisher-Yates)
+        let arrayCopy = [...questions];
+        questionsAleatoires = shuffleArray(arrayCopy).slice(0, 15);
         reponseUtilisateur = new Array(15).fill(null);
         questionActuelle = 0;
         score = 0;
@@ -959,7 +595,7 @@
         resultsElement.style.display = 'none';
         allAnswersElement.style.display = 'none';
         feedbackElement.style.display = 'none';
-        nextButton.textContent = 'Suivant';
+        nextButton.textContent = typeof window.t === 'function' ? window.t('Suivant') : 'Suivant';
         nextButton.disabled = true;
         
         chargerQuestion();
@@ -972,18 +608,19 @@
         }
 
         const q = questionsAleatoires[questionActuelle];
-        questionElement.textContent = q.question;
+        questionElement.textContent = typeof window.t === 'function' ? window.t(q.question) : q.question;
         optionsContainer.innerHTML = '';
         
         q.options.forEach((option, index) => {
             const optionElement = document.createElement('div');
             optionElement.classList.add('option');
-            optionElement.textContent = option;
+            optionElement.textContent = typeof window.t === 'function' ? window.t(option) : option;
             optionElement.addEventListener('click', () => selectionnerReponse(index));
             optionsContainer.appendChild(optionElement);
         });
         
-        progressElement.textContent = `Question ${questionActuelle + 1}/15`;
+        let qTxt = typeof window.t === 'function' ? window.t('Question ') : 'Question ';
+        progressElement.textContent = `${qTxt}${questionActuelle + 1}/15`;
         feedbackElement.style.display = 'none';
         nextButton.disabled = true;
         reponseSelectionnee = null;
@@ -1014,13 +651,15 @@
             option.onclick = null;
         });
 
+        const t = typeof window.t === 'function' ? window.t : text => text;
+
         // Afficher le feedback sans montrer les bonnes/mauvaises réponses
         if (reponseSelectionnee !== q.answer) {
-            feedbackElement.textContent = `Incorrect ! La bonne réponse était : ${q.options[q.answer]}. ${q.explanation}`;
+            feedbackElement.textContent = `${t('Incorrect ! La bonne réponse était : ')}${t(q.options[q.answer])}. ${t(q.explanation)}`;
             feedbackElement.className = 'incorrect-feedback';
         } else {
             score++;
-            feedbackElement.textContent = `Correct ! ${q.explanation}`;
+            feedbackElement.textContent = `${t('Correct ! ')}${t(q.explanation)}`;
             feedbackElement.className = 'correct-feedback';
         }
 
@@ -1028,9 +667,9 @@
         questionActuelle++;
         
         if (questionActuelle < questionsAleatoires.length) {
-            nextButton.textContent = 'Suivant';
+            nextButton.textContent = t('Suivant');
         } else {
-            nextButton.textContent = 'Voir les résultats';
+            nextButton.textContent = t('Voir les résultats');
         }
         
         nextButton.disabled = false;
@@ -1048,50 +687,53 @@
         document.querySelector('#next-btn').style.display = 'none';
 
         const pourcentage = Math.round((score / questionsAleatoires.length) * 100);
-        scoreElement.textContent = `Score : ${score}/15 (${pourcentage}%)`;
+        
+        const t = typeof window.t === 'function' ? window.t : text => text;
+        scoreElement.textContent = `${t('Score : ')}${score}/15 (${pourcentage}%)`;
 
         // Système de notation
         let niveau = "";
         let emoji = "";
         if (pourcentage <= 20) {
-            niveau = "Noob";
+            niveau = t("Noob");
             emoji = "😵";
         } else if (pourcentage <= 40) {
-            niveau = "Débutant";
+            niveau = t("Débutant");
             emoji = "👶";
         } else if (pourcentage <= 60) {
-            niveau = "Amateur";
+            niveau = t("Amateur");
             emoji = "🎯";
         } else if (pourcentage <= 80) {
-            niveau = "Expert";
+            niveau = t("Expert");
             emoji = "🧠";
         } else {
-            niveau = "Hackeur";
+            niveau = t("Hackeur");
             emoji = "💻🔥";
         }
 
-        rankElement.textContent = `Rang : ${niveau} ${emoji}`;
+        rankElement.textContent = `${t('Rang : ')}${niveau} ${emoji}`;
 
         // Commentaire selon le score
         let commentaire = "";
         if (pourcentage <= 20) {
-            commentaire = "Tu as encore beaucoup à apprendre ! Mais continue à chercher.";
+            commentaire = t("Tu as encore beaucoup à apprendre ! Mais continue à chercher.");
         } else if (pourcentage <= 40) {
-            commentaire = "C'est un début, mais il y a encore du travail à faire.";
+            commentaire = t("C'est un début, mais il y a encore du travail à faire.");
         } else if (pourcentage <= 60) {
-            commentaire = "Pas mal du tout ! Tu as de bonnes bases.";
+            commentaire = t("Pas mal du tout ! Tu as de bonnes bases.");
         } else if (pourcentage <= 80) {
-            commentaire = "Très bon résultat ! Tu maîtrises bien les bases.";
+            commentaire = t("Très bon résultat ! Tu maîtrises bien les bases.");
         } else {
-            commentaire = "Excellent score ! Tu es vraiment calé(e) en informatique.";
+            commentaire = t("Excellent score ! Tu es vraiment calé(e) en informatique.");
         }
 
         commentElement.textContent = commentaire;
     }
 
     function afficherReponses() {
+        const t = typeof window.t === 'function' ? window.t : text => text;
         allAnswersElement.style.display = 'block';
-        allAnswersElement.innerHTML = '<h2 style="text-align: center; margin-bottom: 30px; color: #00d4ff;">Toutes les réponses</h2>';
+        allAnswersElement.innerHTML = `<h2 style="text-align: center; margin-bottom: 30px; color: #00d4ff;">${t('Toutes les réponses')}</h2>`;
         
         questionsAleatoires.forEach((q, index) => {
             const answerDiv = document.createElement('div');
@@ -1099,13 +741,13 @@
             
             const questionDiv = document.createElement('div');
             questionDiv.className = 'answer-question';
-            questionDiv.textContent = `${index + 1}. ${q.question}`;
+            questionDiv.textContent = `${index + 1}. ${t(q.question)}`;
             answerDiv.appendChild(questionDiv);
             
             q.options.forEach((option, optionIndex) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'answer-option';
-                optionDiv.textContent = option;
+                optionDiv.textContent = t(option);
                 
                 // Colorer selon les réponses
                 if (optionIndex === q.answer) {
@@ -1125,7 +767,7 @@
             
             const explanationDiv = document.createElement('div');
             explanationDiv.className = 'answer-explanation';
-            explanationDiv.textContent = `Explication : ${q.explanation}`;
+            explanationDiv.textContent = `${t('Explication : ')}${t(q.explanation)}`;
             answerDiv.appendChild(explanationDiv);
             
             allAnswersElement.appendChild(answerDiv);
@@ -1136,7 +778,7 @@
         restartDiv.style.textAlign = 'center';
         restartDiv.style.marginTop = '30px';
         const newRestartBtn = document.createElement('button');
-        newRestartBtn.textContent = 'Recommencer le quiz';
+        newRestartBtn.textContent = t('Recommencer le quiz');
         newRestartBtn.id = 'restart-btn-answers';
         newRestartBtn.className = 'restart-btn';
         newRestartBtn.style.cssText = `
