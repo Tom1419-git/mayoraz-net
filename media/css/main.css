@@ -580,8 +580,8 @@ main {
 }
 
 .form-group select option {
-    background-color: #0f172a;
-    color: #ffffff;
+    background-color: var(--bg-card, #0f172a);
+    color: var(--text-main, #ffffff);
 }
 
 .form-group textarea {
@@ -1249,8 +1249,9 @@ footer nav a:hover {
     box-shadow: var(--card-shadow); 
 }
 :root[data-theme="light"] footer { color: var(--text-main); border-top: 1px solid var(--glass-border); }
-:root[data-theme="light"] .contact-container { background: #ffffff; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); }
+
 :root[data-theme="light"] .form-group input, 
+:root[data-theme="light"] .form-group select,
 :root[data-theme="light"] .form-group textarea { 
     background: #f8fafc; color: var(--text-main); border: 1px solid var(--border-color); 
 }
