@@ -1866,3 +1866,30 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
         transition: background-color 0.2s ease, color 0.2s ease;
     }
 }
+
+/* ========================================
+   FOOTER SYSTEM STATUS LINK
+   ======================================== */
+footer p a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+    margin-left: 5px;
+    display: inline-block;
+}
+
+footer p a:visited {
+    color: var(--text-muted);
+}
+
+footer p a:hover {
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+    transform: translateY(-1px);
+}
