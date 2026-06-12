@@ -441,7 +441,7 @@ main {
 
 .service-item {
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--glass-border);
@@ -501,7 +501,7 @@ main {
 
 .skill-card {
     background: var(--glass-bg);
-    padding: 30px;
+    padding: 40px;
     border-radius: 16px;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
@@ -1159,7 +1159,7 @@ footer nav a:hover {
 }
 .testimonial-card {
     background: var(--bg-card, #1e293b);
-    padding: 30px;
+    padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -1348,7 +1348,7 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
     -webkit-backdrop-filter: blur(8px);
     border-radius: 24px;
     margin-bottom: 40px;
-    padding: 30px;
+    padding: 40px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--card-shadow);
 }
@@ -1441,3 +1441,5 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
     border-radius: 10px;
     transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+@media (max-width: 768px) { section, .about, .services, .portfolio, .contact-section, .intro-section { padding: 20px; } }
