@@ -18,96 +18,11 @@
     <meta property="og:description" content="Découvrez mon infrastructure personnelle, mon automatisation média et mon monitoring."/>
     <meta property="og:image" content="https://mayoraz-net.ch/media/img/preview.webp"/>
 
-    <link rel="stylesheet" href="/media/css/main.css?v=8">
+    <link rel="stylesheet" href="/media/css/main.css?v=9">
     <link rel="stylesheet" href="/media/css/toast.css">
     <link rel="stylesheet" href="/media/css/terminal.css">
     
-    <style>
-        .homelab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .hl-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .hl-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-color: var(--primary);
-        }
-        .hl-card h3 {
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-        .hl-card p {
-            color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        .hl-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-        .hl-tag {
-            background: rgba(30, 144, 255, 0.1);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .diagram-container {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .flowchart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .flow-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .flow-box {
-            background: var(--bg-dark);
-            border: 2px solid var(--primary);
-            color: var(--text-main);
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .flow-arrow {
-            color: var(--primary);
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/media/css/homelab.css">
 </head>
 <body>
     <canvas id="particles-bg"></canvas>

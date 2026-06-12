@@ -1,0 +1,142 @@
+/* ============================================================
+   homelab.css — Styles page Mon Homelab
+   Utilise les variables CSS du design system (main.css)
+   ============================================================ */
+
+.homelab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Cards */
+.hl-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hl-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--primary);
+}
+
+.hl-card h3 {
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.hl-card p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* Tags */
+.hl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.hl-tag {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+/* Architecture diagram */
+.diagram-container {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.diagram-container h2 {
+    margin-bottom: 25px;
+}
+
+.flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.flow-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.flow-box {
+    background: var(--bg-dark);
+    border: 2px solid var(--primary);
+    color: var(--text-main);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.flow-arrow {
+    color: var(--primary);
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* Light mode */
+:root[data-theme="light"] .hl-card {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+:root[data-theme="light"] .flow-box {
+    background: #f8fafc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="light"] .hl-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .homelab-grid {
+        grid-template-columns: 1fr;
+    }
+    .flow-box {
+        padding: 10px 15px;
+        font-size: 0.82rem;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hl-card {
+        transition: none;
+        transform: none !important;
+    }
+}

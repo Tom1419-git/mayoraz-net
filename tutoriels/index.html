@@ -9,86 +9,11 @@
     <link rel="canonical" href="https://mayoraz-net.ch/tutoriels/">
     <link rel="icon" href="/media/img/logo.webp"/>
 
-    <link rel="stylesheet" href="/media/css/main.css?v=8">
+    <link rel="stylesheet" href="/media/css/main.css?v=9">
     <link rel="stylesheet" href="/media/css/toast.css">
     <link rel="stylesheet" href="/media/css/terminal.css">
     
-    <style>
-        .tuto-container {
-            max-width: 800px;
-            margin: 40px auto;
-        }
-        
-        .accordion {
-            background-color: var(--glass-bg);
-            color: var(--text-main);
-            cursor: pointer;
-            padding: 18px 25px;
-            width: 100%;
-            text-align: left;
-            border: 1px solid var(--border-color);
-            outline: none;
-            transition: 0.4s;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .active, .accordion:hover {
-            background-color: rgba(30, 144, 255, 0.1);
-            border-color: var(--primary);
-        }
-        
-        .accordion::after {
-            content: '\002B'; /* Plus sign */
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-        
-        .active::after {
-            content: "\2212"; /* Minus sign */
-        }
-        
-        .panel {
-            padding: 0 25px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-left: 2px solid var(--primary);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            border-radius: 0 0 8px 8px;
-            margin-bottom: 5px;
-        }
-        
-        .panel p {
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-        
-        .panel pre {
-            background: #111;
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-            color: #0f0;
-            border: 1px solid #333;
-        }
-        
-        .tag {
-            background: rgba(46, 204, 113, 0.2);
-            color: #2ecc71;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="/media/css/tutoriels.css">
 </head>
 <body>
     <canvas id="particles-bg"></canvas>
