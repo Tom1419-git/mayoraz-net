@@ -88,8 +88,6 @@
             <div class="contact-container">
                 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
-                    <input type="hidden" name="ccemail" value="contact@mayoraz-net.ch">
-                    <input type="hidden" name="redirect" value="https://mayoraz-net.ch/contact/merci.html">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="prenom">Prénom <span class="required">*</span></label>
@@ -238,12 +236,17 @@
             submitBtn.textContent = 'Envoi en cours...';
             submitBtn.disabled = true;
 
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
             fetch(form.action, {
                 method: form.method,
-                body: new FormData(form),
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                }
+                },
+                body: json
             }).then(response => {
                 if (response.ok) {
                     window.location.href = 'merci.html';
