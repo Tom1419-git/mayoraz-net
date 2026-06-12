@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://mayoraz-net.ch/tutoriels/">
     <link rel="icon" href="/media/img/logo.webp"/>
 
-    <link rel="stylesheet" href="/media/css/main.css?v=7">
+    <link rel="stylesheet" href="/media/css/main.css?v=8">
     <link rel="stylesheet" href="/media/css/toast.css">
     <link rel="stylesheet" href="/media/css/terminal.css">
     
@@ -20,8 +20,8 @@
         }
         
         .accordion {
-            background-color: var(--card-bg);
-            color: var(--text-color);
+            background-color: var(--glass-bg);
+            color: var(--text-main);
             cursor: pointer;
             padding: 18px 25px;
             width: 100%;
@@ -40,12 +40,12 @@
         
         .active, .accordion:hover {
             background-color: rgba(30, 144, 255, 0.1);
-            border-color: var(--primary-color);
+            border-color: var(--primary);
         }
         
         .accordion::after {
             content: '\002B'; /* Plus sign */
-            color: var(--primary-color);
+            color: var(--primary);
             font-size: 1.5rem;
             font-weight: bold;
             margin-left: 5px;
@@ -58,7 +58,7 @@
         .panel {
             padding: 0 25px;
             background-color: rgba(0, 0, 0, 0.2);
-            border-left: 2px solid var(--primary-color);
+            border-left: 2px solid var(--primary);
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
@@ -121,7 +121,7 @@
         </header>
 
         <main class="tuto-container reveal">
-            <p style="text-align: center; margin-bottom: 40px; color: var(--text-color); opacity: 0.8;">
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-main); opacity: 0.8;">
                 Voici quelques mémos techniques et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.
             </p>
 
@@ -174,7 +174,14 @@ services:
         </main>
 
         <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="/status/">🟢 System Status</a></p>
+            <nav>
+              <a href="/">Accueil</a>
+              <a href="/a-propos/">À propos</a>
+              <a href="/tutoriels/">Tutoriels</a>
+              <a href="/contact/">Contact</a>
+              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
+            </nav>
         </footer>
     </div>
 
@@ -196,7 +203,7 @@ services:
         }
     </script>
 
-    <script src="/media/js/theme.js?v=7"></script>
+    <script src="/media/js/theme.js?v=8"></script>
     <script src="/media/js/particles.js?v=5"></script>
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
