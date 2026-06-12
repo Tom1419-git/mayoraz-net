@@ -1,4 +1,4 @@
-// media/js/lang.js
+﻿// media/js/lang.js
 
 const frToEn = {
     "Accueil": "Home",
@@ -927,7 +927,17 @@ const frToEn = {
     "Ruby": "Ruby",
     "Quel langage est majoritairement utilisé pour les scripts côté serveur web ?": "What language is mostly used for web server-side scripting?",
     "Un langage de programmation": "A programming language",
-    "Visual Studio Code est un éditeur de code source populaire pour les développeurs.": "Visual Studio Code is a popular source code editor for developers."
+    "Visual Studio Code est un éditeur de code source populaire pour les développeurs.": "Visual Studio Code is a popular source code editor for developers."    ,"État des Systèmes": "System Status",
+    "Dernière vérification: Il y a quelques secondes": "Last check: A few seconds ago",
+    "Tous les systèmes sont opérationnels": "All systems operational",
+    "🌐 Réseau & Sécurité": "🌐 Network & Security",
+    "🖥️ Infrastructure Core": "🖥️ Core Infrastructure",
+    "🎬 Services Média": "🎬 Media Services",
+    "🩺 Monitoring & Auto-Healing": "🩺 Monitoring & Auto-Healing",
+    "Opérationnel": "Operational",
+    "Surveillance en temps réel de l'infrastructure": "Real-time infrastructure monitoring",
+    "Mon GitHub": "My GitHub",
+    "Mon LinkedIn": "My LinkedIn"
 };
 
 const enToFr = {};
