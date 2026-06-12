@@ -30,6 +30,8 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 20px;
             margin-bottom: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .overall-status {
             background: rgba(46, 204, 113, 0.1);
@@ -68,7 +70,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .service-item {
+        .status-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,10 +78,10 @@
             border-bottom: 1px solid var(--border-color);
             transition: background 0.2s;
         }
-        .service-item:hover {
+        .status-item:hover {
             background: rgba(255, 255, 255, 0.02);
         }
-        .service-item:last-child {
+        .status-item:last-child {
             border-bottom: none;
         }
         .service-name {
@@ -147,19 +149,19 @@
 
                 <div class="service-group">
                     <h3>🌐 Réseau & Sécurité</h3>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Gateway Principale</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Tailscale VPN (Subnet Router)</div>
                         <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Pi-hole DNS & AdBlock</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.98%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Cloudflare Tunnels</div>
                         <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
                     </div>
@@ -167,15 +169,15 @@
 
                 <div class="service-group">
                     <h3>🖥️ Infrastructure Core</h3>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Ubuntu Server VM (Host)</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Docker Engine</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.95%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Nginx Proxy Manager</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
                     </div>
@@ -183,19 +185,19 @@
 
                 <div class="service-group">
                     <h3>🍿 Services Média</h3>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Jellyfin Media Server</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.90%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Jellyseerr (Requêtes)</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Stack "Arr" (Radarr, Sonarr...)</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.95%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">qBittorrent</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.92%</span></div>
                     </div>
@@ -203,19 +205,19 @@
 
                 <div class="service-group">
                     <h3>📈 Monitoring & Auto-Healing</h3>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Prometheus</div>
                         <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Grafana Dashboards</div>
                         <div class="service-status">Opérationnel <span class="uptime">100%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">Netdata Host Metrics</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.99%</span></div>
                     </div>
-                    <div class="service-item">
+                    <div class="status-item">
                         <div class="service-name">n8n Automation Engine</div>
                         <div class="service-status">Opérationnel <span class="uptime">99.98%</span></div>
                     </div>
@@ -225,6 +227,12 @@
 
         <footer>
             <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="/status/" style="color:#2ecc71; text-decoration:none;">🟢 System Status</a></p>
+            <nav style="margin-top: 15px;">
+                <a href="/">Accueil</a>
+                <a href="/a-propos/">À propos</a>
+                <a href="/contact/">Contact</a>
+                <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
+            </nav>
         </footer>
     </div>
 
