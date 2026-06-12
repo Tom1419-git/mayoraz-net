@@ -1443,3 +1443,22 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
 }
 
 @media (max-width: 768px) { section, .about, .services, .portfolio, .contact-section, .intro-section { padding: 20px; } }
+
+
+/* ========================================
+   ACCESSIBILITÉ — prefers-reduced-motion
+   Respecte les préférences utilisateur
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Garder les transitions de thème fonctionnelles */
+    body {
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+}

@@ -1,0 +1,144 @@
+/* ============================================================
+   tutoriels.css — Styles page Tutoriels / Base de connaissances
+   Utilise les variables CSS du design system (main.css)
+   ============================================================ */
+
+.tuto-container {
+    max-width: 820px;
+    margin: 40px auto;
+}
+
+/* Accordion buttons */
+.accordion {
+    background: var(--glass-bg);
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 18px 25px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--glass-border);
+    outline: none;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    border-radius: 10px;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+}
+
+.accordion::after {
+    content: '\002B';
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.accordion.active,
+.accordion:hover {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-color: var(--primary);
+}
+
+.accordion.active::after {
+    content: '\2212';
+}
+
+/* Panel content */
+.panel {
+    padding: 0 25px;
+    background: color-mix(in srgb, var(--bg-dark) 60%, transparent);
+    border-left: 3px solid var(--primary);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 5px;
+}
+
+.panel p {
+    line-height: 1.7;
+    margin: 15px 0;
+    color: var(--text-muted);
+}
+
+/* Code blocks inside panels */
+.panel pre {
+    background: var(--bg-dark);
+    padding: 15px 18px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    border: 1px solid var(--glass-border);
+    margin: 15px 0;
+}
+
+.panel code {
+    color: var(--primary);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.panel pre code {
+    background: none;
+    padding: 0;
+    color: #64ffda;
+}
+
+/* Difficulty/category tags */
+.tuto-tag {
+    display: inline-block;
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+/* Light mode */
+:root[data-theme="light"] .panel {
+    background: rgba(241, 245, 249, 0.8);
+}
+
+:root[data-theme="light"] .panel pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+:root[data-theme="light"] .panel pre code {
+    color: #64ffda;
+}
+
+:root[data-theme="light"] .panel code {
+    background: rgba(2, 132, 199, 0.1);
+    color: var(--primary);
+}
+
+:root[data-theme="light"] .accordion {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+:root[data-theme="light"] .accordion.active,
+:root[data-theme="light"] .accordion:hover {
+    background: rgba(2, 132, 199, 0.08);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .accordion,
+    .panel {
+        transition: none;
+    }
+}
