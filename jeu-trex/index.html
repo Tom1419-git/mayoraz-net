@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/media/css/main.css?v=7">
     <link rel="stylesheet" href="/media/css/toast.css">
     <link rel="stylesheet" href="/media/css/terminal.css">
-    <link rel="stylesheet" href="trex.css">
+    <link rel="stylesheet" href="trex.css?v=2">
 </head>
 <body>
     <canvas id="particles-bg"></canvas>
@@ -50,7 +50,7 @@
                 <div class="game-container">
                     <div class="score-board">
                         <span>Score: <span id="current-score">0</span></span>
-                        <button id="fullscreen-btn" aria-label="Plein écran" style="background:none; border:none; color:var(--primary); cursor:pointer; display:flex; align-items:center; padding: 0 10px;" title="Plein écran"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button><span>Record: <span id="high-score">0</span></span>
+                        <div style="display: flex; gap: 15px; align-items: center;"><span>Record: <span id="high-score">0</span></span><button id="fullscreen-btn" aria-label="Plein Ã©cran" style="background:none; border:none; color:var(--primary); cursor:pointer; display:flex; align-items:center; padding: 0;" title="Plein Ã©cran (F)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button></div>
                     </div>
                     <canvas id="gameCanvas" width="800" height="300"></canvas>
                     
@@ -88,7 +88,7 @@
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
     <script src="/media/js/lang.js"></script>
-    <script src="trex.js"></script>
+    <script src="trex.js?v=2"></script>
     <script src="/media/js/konami.js"></script>
 </body>
 </html>
