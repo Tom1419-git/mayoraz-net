@@ -239,8 +239,8 @@ diffBtns.forEach(btn => {
 });
 
 // Initial draw
-ctx.fillStyle = '#111';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 drawGround();
 player.draw();
 
@@ -260,3 +260,13 @@ if (fullscreenBtn) {
     });
 }
 
+
+document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+            gameContainer.requestFullscreen().catch(err => console.error(err));
+        } else {
+            document.exitFullscreen();
+        }
+    }
+});
