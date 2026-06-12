@@ -243,3 +243,20 @@ ctx.fillStyle = '#111';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 drawGround();
 player.draw();
+
+
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+const gameContainer = document.querySelector('.game-container');
+
+if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            gameContainer.requestFullscreen().catch(err => {
+                console.error("Erreur plein ?cran: " + err.message);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    });
+}
+
