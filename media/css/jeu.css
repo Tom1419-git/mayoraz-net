@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    jeu.css — Styles spécifiques au quiz technique
    Utilise les variables CSS du design system (main.css)
    ============================================================ */
@@ -294,4 +294,86 @@
         transition: none;
         transform: none !important;
     }
+}
+
+
+/* ========================================
+   INTRO & LEADERBOARD (ajout)
+   ======================================== */
+.intro-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
+    background: var(--glass-bg);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+.intro-box h1 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.intro-box p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.pseudo-input {
+    width: 80%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+:root[data-theme="light"] .pseudo-input {
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+.pseudo-input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+    outline: none;
+}
+
+.leaderboard-box {
+    margin-top: 30px;
+    background: var(--glass-bg);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.leaderboard-box h2 {
+    color: #fbbf24;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    color: var(--text-main);
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.leaderboard-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 15px;
 }
