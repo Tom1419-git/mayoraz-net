@@ -1,5 +1,207 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700;800&display=swap');
 
+
+
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   LANG TOGGLE
+   ======================================== */
+#lang-toggle {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   BOUTONS SOCIAUX
+   ======================================== */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--card-shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    color: white;
+}
+
+.social-github {
+    background: #24292e;
+}
+
+.social-github:hover {
+    background: #2f363d;
+}
+
+.social-linkedin {
+    background: #0A66C2;
+}
+
+.social-linkedin:hover {
+    background: #004182;
+}
+
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   LANG TOGGLE
+   ======================================== */
+#lang-toggle {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 /* ============================================================
    THOMAS MAYORAZ — main.css
    Design Premium Unifié
@@ -1445,6 +1647,208 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
 @media (max-width: 768px) { section, .about, .services, .portfolio, .contact-section, .intro-section { padding: 20px; } }
 
 
+
+
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   LANG TOGGLE
+   ======================================== */
+#lang-toggle {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   BOUTONS SOCIAUX
+   ======================================== */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--card-shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    color: white;
+}
+
+.social-github {
+    background: #24292e;
+}
+
+.social-github:hover {
+    background: #2f363d;
+}
+
+.social-linkedin {
+    background: #0A66C2;
+}
+
+.social-linkedin:hover {
+    background: #004182;
+}
+
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+/* ========================================
+   LANG TOGGLE
+   ======================================== */
+#lang-toggle {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+/* ========================================
+   STYLES UTILES COMMUNS
+   ======================================== */
+.info-box {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.cli-code {
+    background: #111;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root[data-theme="light"] .cli-code {
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid var(--border-color);
+}
+
+.social-links-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 /* ========================================
    ACCESSIBILITÉ — prefers-reduced-motion
    Respecte les préférences utilisateur
