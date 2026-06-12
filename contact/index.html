@@ -237,6 +237,8 @@
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
+            formData.delete('cf-turnstile-response'); // Web3Forms Free ne supporte pas Turnstile côté serveur
+            
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
 
