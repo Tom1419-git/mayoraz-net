@@ -17,11 +17,12 @@
         .status-container {
             max-width: 800px;
             margin: 40px auto;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--section-bg, rgba(15, 23, 42, 0.8));
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--card-shadow);
         }
         .status-header {
             display: flex;
@@ -74,15 +75,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.2s;
+            padding: 20px;
+            background: var(--glass-bg, rgba(255, 255, 255, 0.03));
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
         .status-item:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .status-item:last-child {
-            border-bottom: none;
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
         }
         .service-name {
             font-weight: 600;

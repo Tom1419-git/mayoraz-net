@@ -1348,6 +1348,7 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
     -webkit-backdrop-filter: blur(8px);
     border-radius: 24px;
     margin-bottom: 40px;
+    padding: 30px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--card-shadow);
 }
