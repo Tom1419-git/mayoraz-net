@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
@@ -148,30 +148,7 @@
 
     <button id="backToTop" aria-label="Retour en haut de page">↑</button>
 
-    <script>
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('nav-links');
-        const navOverlay = document.getElementById('nav-overlay');
 
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-            burger.classList.toggle('active');
-        }
-
-        burger.addEventListener('click', toggleMenu);
-        navOverlay.addEventListener('click', toggleMenu);
-
-        window.addEventListener('scroll', function () {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 
     <script src="/media/js/theme.js?v=9"></script>
     <script src="/media/js/particles.js?v=5"></script>

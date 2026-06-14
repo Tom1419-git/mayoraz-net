@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import codecs
+import os
 
 translations = {
     "Intervention rapide et très professionnelle. Thomas a réussi à récupérer toutes mes données sur mon disque dur endommagé et m'a conseillé un super système de sauvegarde.": "Fast and very professional intervention. Thomas managed to recover all my data on my damaged hard drive and advised me on a great backup system.",
@@ -105,7 +106,7 @@ translations = {
     "pour trouver les sources via les indexers.": "to find sources via indexers."
 }
 
-file_path = r'A:\SiteWeb\media\js\lang.js'
+file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'media', 'js', 'lang.js')
 
 with codecs.open(file_path, 'r', encoding='utf-8') as f:
     content = f.read()

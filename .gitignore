@@ -1,4 +1,4 @@
-﻿# Système
+# Système
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -12,3 +12,8 @@ desktop.ini
 # Temp
 _css_extract/
 *.log
+
+# Ignore site-modification scripts at the root level
+/*.sh
+/*.ps1
+/*.bat

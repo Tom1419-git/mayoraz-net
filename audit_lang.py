@@ -43,8 +43,8 @@ def get_frToEn_keys(lang_js_path):
     return keys
 
 def main():
-    root_dir = r"A:\SiteWeb"
-    lang_js_path = r"A:\SiteWeb\media\js\lang.js"
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    lang_js_path = os.path.join(root_dir, "media", "js", "lang.js")
     
     frToEn_keys = get_frToEn_keys(lang_js_path)
     print(f"Found {len(frToEn_keys)} keys in lang.js")

@@ -23,7 +23,7 @@ def optimize_html(filepath):
     # Ensure canonical URL exists for SEO (very good practice)
     if '<link rel="canonical"' not in content and '404' not in filepath:
         # Determine URL
-        rel_path = filepath.replace(r'A:\SiteWeb', '').replace('\\', '/')
+        rel_path = filepath.replace(root_dir, '').replace('\\', '/')
         if rel_path == '/index.html':
             canonical = 'https://mayoraz-net.ch/'
         elif rel_path.endswith('/index.html'):
@@ -38,7 +38,7 @@ def optimize_html(filepath):
         f.write(content)
     return True
 
-root_dir = r"A:\SiteWeb"
+root_dir = os.path.dirname(os.path.abspath(__file__))
 count = 0
 for root, dirs, files in os.walk(root_dir):
     for file in files:

@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-root_dir = r"A:\SiteWeb"
+root_dir = os.path.dirname(os.path.abspath(__file__))
 base_url = "https://mayoraz-net.ch"
 
 # Excluded files
