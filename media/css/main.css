@@ -1449,7 +1449,8 @@ footer nav a:hover {
 }
 
 /* Fix specific colors for light mode to maintain contrast */
-:root[data-theme="light"] .main-nav { background: rgba(248, 250, 252, 0.85); }
+:root[data-theme="light"] .main-nav { background: rgba(248, 250, 252, 0.98) !important; }
+:root[data-theme="light"] .nav-overlay { background: rgba(248, 250, 252, 0.95) !important; }
 :root[data-theme="light"] .nav-links a { color: var(--text-main); }
 @media (max-width: 768px) {
     :root[data-theme="light"] .nav-links,
