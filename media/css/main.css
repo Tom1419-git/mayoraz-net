@@ -1451,6 +1451,9 @@ footer nav a:hover {
 /* Fix specific colors for light mode to maintain contrast */
 :root[data-theme="light"] .main-nav { background: rgba(248, 250, 252, 0.85); }
 :root[data-theme="light"] .nav-links a { color: var(--text-main); }
+@media (max-width: 768px) {
+    :root[data-theme="light"] .nav-links { background: rgba(248, 250, 252, 0.98); }
+}
 :root[data-theme="light"] .burger span { background: var(--text-main); }
 :root[data-theme="light"] .project-card, 
 :root[data-theme="light"] .site-card,
