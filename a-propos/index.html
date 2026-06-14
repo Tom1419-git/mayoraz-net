@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="fr">
 
@@ -301,73 +301,7 @@
 
 
 
-    <script>
 
-        // Burger menu
-
-        const burger = document.getElementById('burger');
-
-        const navLinks = document.getElementById('nav-links');
-
-        const navOverlay = document.getElementById('nav-overlay');
-
-
-
-        function toggleMenu() {
-
-            navLinks.classList.toggle('active');
-
-            navOverlay.classList.toggle('active');
-
-            document.body.classList.toggle('menu-open');
-
-             burger.classList.toggle('active'); // ← Active/désactive la croix
-
-        }
-
-
-
-        burger.addEventListener('click', toggleMenu);
-
-        navOverlay.addEventListener('click', toggleMenu);
-
-
-
-        navLinks.querySelectorAll('a').forEach(link => {
-
-            link.addEventListener('click', () => {
-
-                navLinks.classList.remove('active');
-
-                navOverlay.classList.remove('active');
-
-                document.body.classList.remove('menu-open');
-
-            });
-
-        });
-
-
-
-        // Back to top button
-
-        window.addEventListener('scroll', function () {
-
-            const btn = document.getElementById('backToTop');
-
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-
-        });
-
-
-
-        document.getElementById('backToTop').addEventListener('click', function () {
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        });
-
-    </script>
 
 
 
