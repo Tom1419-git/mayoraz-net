@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -180,47 +180,7 @@
     <button id="backToTop" aria-label="Retour en haut de page">↑</button>
 
     <script>
-        // Loader
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                document.getElementById('loader') && document.getElementById('loader').style.opacity = '0';
-                setTimeout(function () {
-                    document.getElementById('loader') && (document.getElementById('loader').style.display = 'none';
-                }, 300);
-            }, 500);
-        });
 
-        // Burger menu
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('nav-links');
-        const navOverlay = document.getElementById('nav-overlay');
-
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        }
-
-        burger.addEventListener('click', toggleMenu);
-        navOverlay.addEventListener('click', toggleMenu);
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-
-        // Back to top
-        window.addEventListener('scroll', function () {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
         // Système de captcha avancé
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
