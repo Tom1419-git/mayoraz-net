@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -88,7 +88,20 @@
         </div>
     </nav>
 
-<div id="intro-container" class="intro-box">
+    <div class="container">
+        <header style="margin-bottom: 20px;">
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
+                    <div class="avatar-fallback">TM</div>
+                </div>
+                <h1>Quiz Tech</h1>
+                <p class="subtitle">Testez vos connaissances informatiques</p>
+                <a class='back-nav' href="/">← Retour à l'accueil</a>
+            </div>
+        </header>
+
+        <div id="intro-container" class="intro-box">
     <h1>Prêt pour le défi ?</h1>
     <p>15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.</p>
     <input type="text" id="pseudo-input" class="pseudo-input" placeholder="Entrez votre pseudo..." maxlength="15">
@@ -132,6 +145,7 @@
     <div id="all-answers"></div>
 </div>
 
+</div>
 <footer>
             <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer">🟢 System Status</a></p>
             <nav>
