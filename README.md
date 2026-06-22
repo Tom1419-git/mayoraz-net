@@ -12,7 +12,6 @@
 
 <br/>
 
-<!-- Remplacer le lien de l'image ci-dessous par une vraie capture d'écran une fois ajoutée au projet -->
 <div align="center">
   <img src="media/img/preview.png" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 </div>
