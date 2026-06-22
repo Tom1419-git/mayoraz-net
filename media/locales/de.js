@@ -1,4 +1,4 @@
-﻿const frToDe = {
+const frToDe = {
     "Serveur en temps réel (Grafana)": "Echtzeit-Server (Grafana)",
     "Le fichier docker-compose parfait pour débuter": "Die perfekte docker-compose Datei für Anfänger",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Neustart eines abgestürzten Containers",
@@ -598,11 +598,7 @@
     "Webhooks": "Webhooks",
     "afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.": "um Stabilität und Sicherheit zu gewährleisten und Updates und Backups zu ermöglichen.",
     "complète le tout pour le monitoring natif de la VM.": "vervollständigt alles für die native Überwachung der VM.",
-    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id,"Thème clair activé": "Helles Design aktiviert",
-    "Thème sombre activé": "Dunkles Design aktiviert"
-}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id,"Thème clair activé": "Helles Design aktiviert",
-    "Thème sombre activé": "Dunkles Design aktiviert"
-}/restart",
+    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart",
     "curl https://mayoraz-net.ch/api/cv.json": "Locken https://mayoraz-net.ch/api/cv.json",
     "est mon laboratoire d'apprentissage continu.": "ist mein kontinuierliches Lernlabor.",
     "et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "und der lokalen Docker-API habe ich einen Workflow erstellt, der auf Webhook-Benachrichtigungen von Prometheus wartet. Wenn ein Container abstürzt, gibt n8n diesen Befehl über SSH oder Socket aus:",
@@ -986,6 +982,7 @@
     "Quel langage est majoritairement utilisé pour les scripts côté serveur web ?": "Welche Sprache wird hauptsächlich für webserverseitiges Scripting verwendet?",
     "Un langage de programmation": "Eine Programmiersprache",
     "Visual Studio Code est un éditeur de code source populaire pour les développeurs.": "Visual Studio Code ist ein beliebter Quellcode-Editor für Entwickler.",
-    "🎬 Services Média": "🎬 Mediendienste","Thème clair activé": "Helles Design aktiviert",
+    "🎬 Services Média": "🎬 Mediendienste",
+    "Thème clair activé": "Helles Design aktiviert",
     "Thème sombre activé": "Dunkles Design aktiviert"
 }
