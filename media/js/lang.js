@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyLanguage(lang) {
         if (lang === 'FR') {
             document.documentElement.lang = 'fr';
-            return; // Original text is in HTML
+            return; 
         }
 
         let dict = null;
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let node;
         while (node = walker.nextNode()) {
             const text = node.nodeValue.trim();
-            // Don't translate options inside select
             if (text && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE' && node.parentElement.tagName !== 'OPTION') {
                 let origText = node.parentElement.getAttribute('data-fr-original') || text;
                 
@@ -36,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         node.parentElement.setAttribute('data-fr-original', origText);
                     }
                     node.nodeValue = node.nodeValue.replace(text, dict[origText]);
+                } else if (lang === 'DE' && typeof frToEn !== 'undefined' && frToEn[origText]) {
+                    // Fallback to English if German is missing (optional, but prevents breaking)
                 }
             }
         }
@@ -50,9 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.placeholder = dict[origText];
             }
         });
+        
+        // Dispatch custom event to notify other scripts (like tutorials)
+        document.dispatchEvent(new Event('languageChanged'));
     }
 
-    // Set correct option in select
+    // Initialize select value
     langSelect.value = currentLang;
 
     if (currentLang !== 'FR') {
@@ -66,10 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentLang === 'FR') {
             location.reload(); 
         } else {
-            // Because translating over an already translated DOM without full reload 
-            // might miss things or double translate, it's safer to just reload on any language change.
-            // But if they change, we just reload the page and let the initialization handle it.
-            location.reload();
+            // Apply language dynamically without reload
+            applyLanguage(currentLang);
         }
     });
 });
