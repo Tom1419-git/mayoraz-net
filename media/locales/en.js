@@ -960,5 +960,15 @@
     ",
     "Le fichier docker-compose parfait pour débuter": "The perfect docker-compose file for beginners",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Restarting a crashed container",
-    "Architecture de la Stack 'Arr'": "Architecture of the 'Arr' Stack",Thème sombre activé": "Dark theme activated"
+    "Architecture de la Stack 'Arr'": "Architecture of the 'Arr' Stack",
+    "Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.": "To quickly deploy any container while keeping a clear track of configurations, I always use the following YAML structure. It integrates rotating logs to avoid saturating the VM's disk.",
+    "Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "Thanks to <strong>n8n</strong> and the local Docker API, I created a workflow that listens for Prometheus webhook alerts. If a container goes down, n8n runs this command via SSH or Socket:",
+    "Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.": "The system then sends me a message on Telegram to notify me of the incident and its automatic resolution.",
+    "La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :": "The multimedia automation stack can be complex to connect. Here is the flow direction:",
+    "L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.": "The user makes a request on <strong>Jellyseerr</strong>.",
+    "Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).": "Jellyseerr sends the request to <strong>Sonarr</strong> (Series) or <strong>Radarr</strong> (Movies).",
+    "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr queries the indexers via <strong>Prowlarr</strong> to find the best file.",
+    "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "The torrent is sent to <strong>qBittorrent</strong> for downloading.",
+    "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Once completed, Radarr cleanly moves and renames the file in the <strong>MergerFS</strong> pool.",
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> detects the new file and adds it to the library.",,Thème sombre activé": "Dark theme activated"
 };
