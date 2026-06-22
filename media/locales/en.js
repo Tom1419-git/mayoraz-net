@@ -1,4 +1,4 @@
-// media/js/lang.js
+const frToEn = // media/js/lang.js
 
 {
     "Accueil": "Home",
@@ -938,4 +938,4 @@
     "Surveillance en temps réel de l'infrastructure": "Real-time infrastructure monitoring",
     "Mon GitHub": "My GitHub",
     "Mon LinkedIn": "My LinkedIn"
-}
+};
