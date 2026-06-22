@@ -1,17 +1,14 @@
 // media/js/lang.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const langBtn = document.getElementById('lang-toggle');
-    if (!langBtn) return;
+    const langSelect = document.getElementById('lang-select');
+    if (!langSelect) return;
 
-    // Available languages
-    const languages = ['FR', 'EN', 'DE'];
     let currentLang = localStorage.getItem('site_lang') || 'FR';
 
     function applyLanguage(lang) {
         if (lang === 'FR') {
             document.documentElement.lang = 'fr';
-            langBtn.textContent = 'EN'; // Next lang to toggle
             return; // Original text is in HTML
         }
 
@@ -26,16 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.documentElement.lang = lang.toLowerCase();
         
-        // The button shows the NEXT language
-        const nextLang = languages[(languages.indexOf(lang) + 1) % languages.length];
-        langBtn.textContent = nextLang;
-        
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
         let node;
         while (node = walker.nextNode()) {
             const text = node.nodeValue.trim();
-            if (text && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE') {
-                // If it's already translated, we need the original text
+            // Don't translate options inside select
+            if (text && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE' && node.parentElement.tagName !== 'OPTION') {
                 let origText = node.parentElement.getAttribute('data-fr-original') || text;
                 
                 if (dict[origText]) {
@@ -59,22 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Set correct option in select
+    langSelect.value = currentLang;
+
     if (currentLang !== 'FR') {
         applyLanguage(currentLang);
-    } else {
-        // Just set the button to EN
-        langBtn.textContent = 'EN';
     }
 
-    langBtn.addEventListener('click', () => {
-        const nextIdx = (languages.indexOf(currentLang) + 1) % languages.length;
-        currentLang = languages[nextIdx];
+    langSelect.addEventListener('change', (e) => {
+        currentLang = e.target.value;
         localStorage.setItem('site_lang', currentLang);
         
         if (currentLang === 'FR') {
-            location.reload(); // Reload to clear DOM from translations
+            location.reload(); 
         } else {
-            applyLanguage(currentLang);
+            // Because translating over an already translated DOM without full reload 
+            // might miss things or double translate, it's safer to just reload on any language change.
+            // But if they change, we just reload the page and let the initialization handle it.
+            location.reload();
         }
     });
 });
