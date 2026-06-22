@@ -598,9 +598,9 @@
     "Webhooks": "Webhooks",
     "afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.": "um Stabilität und Sicherheit zu gewährleisten und Updates und Backups zu ermöglichen.",
     "complète le tout pour le monitoring natif de la VM.": "vervollständigt alles für die native Überwachung der VM.",
-    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id    "Thème clair activé": "Helles Design aktiviert",
+    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id,"Thème clair activé": "Helles Design aktiviert",
     "Thème sombre activé": "Dunkles Design aktiviert"
-}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id    "Thème clair activé": "Helles Design aktiviert",
+}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id,"Thème clair activé": "Helles Design aktiviert",
     "Thème sombre activé": "Dunkles Design aktiviert"
 }/restart",
     "curl https://mayoraz-net.ch/api/cv.json": "Locken https://mayoraz-net.ch/api/cv.json",
@@ -986,7 +986,6 @@
     "Quel langage est majoritairement utilisé pour les scripts côté serveur web ?": "Welche Sprache wird hauptsächlich für webserverseitiges Scripting verwendet?",
     "Un langage de programmation": "Eine Programmiersprache",
     "Visual Studio Code est un éditeur de code source populaire pour les développeurs.": "Visual Studio Code ist ein beliebter Quellcode-Editor für Entwickler.",
-    "🎬 Services Média": "🎬 Mediendienste"
-    "Thème clair activé": "Helles Design aktiviert",
+    "🎬 Services Média": "🎬 Mediendienste","Thème clair activé": "Helles Design aktiviert",
     "Thème sombre activé": "Dunkles Design aktiviert"
 }
