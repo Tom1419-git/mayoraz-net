@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    homelab.css — Styles page Mon Homelab
    Utilise les variables CSS du design system (main.css)
    ============================================================ */
@@ -90,6 +90,25 @@
     gap: 20px;
 }
 
+.flow-grid-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+.flow-grid-row .center-box {
+    margin: 0 auto;
+}
+
+.flow-side-branch {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    justify-self: start;
+}
+
 .flow-box {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -176,6 +195,20 @@
     .flow-box {
         padding: 10px 15px;
         font-size: 0.82rem;
+    }
+    .flow-grid-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .flow-side-branch {
+        flex-direction: column;
+        padding-left: 0;
+        justify-self: center;
+        gap: 15px;
+    }
+    .flow-side-branch .flow-arrow.horizontal {
+        animation: bounce-arrow-vertical 2s infinite ease-in-out;
+        transform: rotate(90deg);
     }
 }
 
