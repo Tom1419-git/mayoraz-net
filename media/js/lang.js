@@ -1,4 +1,4 @@
-// media/js/lang.js
+﻿// media/js/lang.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const langSelects = document.querySelectorAll('.lang-select');
@@ -77,9 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (localStorage.getItem('lang_just_changed') === 'true') {
-        if (typeof showToast === 'function') {
+        setTimeout(() => {
+            if (typeof showToast === 'function') {
             showToast('Langue : ' + currentLang, 'success');
-        }
+            }
+        }, 100);
         localStorage.removeItem('lang_just_changed');
     }
 
