@@ -969,5 +969,11 @@ const frToEn = // media/js/lang.js
     "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr queries the indexers via <strong>Prowlarr</strong> to find the best file.",
     "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "The torrent is sent to <strong>qBittorrent</strong> for downloading.",
     "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Once completed, Radarr cleanly moves and renames the file in the <strong>MergerFS</strong> pool.",
-    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> detects the new file and adds it to the library."
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> detects the new file and adds it to the library.",
+    "En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.": "As a passionate system and network administrator, I host and maintain my own home infrastructure. This <strong>Homelab</strong> is my continuous learning laboratory.",
+    "Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.": "My entire environment runs in an optimized and isolated manner, allowing me to explore enterprise technologies like virtualization with Proxmox, containerization, advanced monitoring, and process automation.",
+    "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
+    "Architecture Média Automatisée": "Automated Media Architecture",
+    "👤 Utilisateur (Jellyseerr)": "👤 User (Jellyseerr)",
+    "Nginx (Interne)": "Nginx (Internal)"
 };
