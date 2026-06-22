@@ -1132,6 +1132,7 @@ footer {
 
 footer p {
     font-size: 0.9rem;
+    word-break: break-word;
 }
 
 footer nav {
@@ -1139,6 +1140,7 @@ footer nav {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 footer nav a {
