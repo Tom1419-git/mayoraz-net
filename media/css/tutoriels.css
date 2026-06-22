@@ -96,14 +96,14 @@
 /* Difficulty/category tags */
 .tuto-tag {
     display: inline-block;
-    background: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
     padding: 3px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 10px;
-    border: 1px solid rgba(46, 204, 113, 0.3);
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
 /* Light mode */
@@ -122,7 +122,7 @@
 }
 
 :root[data-theme="light"] .panel code {
-    background: rgba(2, 132, 199, 0.1);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
     color: var(--primary);
 }
 
@@ -132,7 +132,7 @@
 
 :root[data-theme="light"] .accordion.active,
 :root[data-theme="light"] .accordion:hover {
-    background: rgba(2, 132, 199, 0.08);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
 /* Reduced motion */

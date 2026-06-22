@@ -123,7 +123,7 @@
 
 /* Light mode */
 :root[data-theme="light"] .status-item {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     border-color: var(--glass-border);
 }
 
