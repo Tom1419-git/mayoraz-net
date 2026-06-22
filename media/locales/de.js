@@ -1014,5 +1014,10 @@ const frToDe = {
     "Serveur en temps réel (Grafana)": "Echtzeit-Server (Grafana)",
     "Architecture Média Automatisée": "Automatisierte Medienarchitektur",
     "👤 Utilisateur (Jellyseerr)": "👤 Benutzer (Jellyseerr)",
-    "Nginx (Interne)": "Nginx (Intern)"
+    "Nginx (Interne)": "Nginx (Intern)",
+    "🤫 Secrets & Easter Eggs": "🤫 Geheimnisse & Easter Eggs",
+    "Ce site cache quelques secrets pour les plus curieux :": "Diese Seite birgt einige Geheimnisse für die Neugierigen:",
+    "<strong>Konami Code :</strong> Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A (Lance un jeu caché)": "<strong>Konami Code:</strong> Oben, Oben, Unten, Unten, Links, Rechts, Links, Rechts, B, A (Startet ein verstecktes Spiel)",
+    "<strong>Terminal caché :</strong> Appuyez sur <code>Shift + F10</code> n'importe où sur le site": "<strong>Verstecktes Terminal:</strong> Drücken Sie überall auf der Seite <code>Shift + F10</code>",
+    "<strong>API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code> (déjà mentionné plus haut !)": "<strong>API:</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code> (bereits oben erwähnt!)"
 };
