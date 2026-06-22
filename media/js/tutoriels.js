@@ -1,4 +1,4 @@
-// Liste des articles (idéalement générée côté serveur, mais ici codée en dur pour GitHub Pages)
+﻿// Liste des articles (idéalement générée côté serveur, mais ici codée en dur pour GitHub Pages)
 const articles = [
     { title: "Le fichier docker-compose parfait pour débuter", tag: "Docker", file: "docker.md" },
     { title: "Auto-Healing : Redémarrer un conteneur crashé", tag: "n8n", file: "n8n.md" },
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Création du bouton (Accordéon)
             const btn = document.createElement('button');
             btn.className = 'accordion';
-            btn.innerHTML = `<span class="tag">${article.tag}</span> ${article.title}`;
+            btn.innerHTML = `<span class="tag">${article.tag}</span> <span>${article.title}</span>`;
             container.appendChild(btn);
 
             // Création du panel
@@ -55,4 +55,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error("Erreur lors de l'initialisation de l'article", error);
         }
     }
+    if (typeof updateText === 'function') updateText();
 });

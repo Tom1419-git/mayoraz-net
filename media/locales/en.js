@@ -957,5 +957,8 @@
     "Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.": "The server is monitored in real time by <strong>Prometheus</strong> and <strong>Grafana</strong> (hardware/application metrics). To go further, I use <strong>n8n</strong> (automation tool). If Prometheus detects a container crashing or spiraling out of control, n8n is capable of interacting with the Docker API to automatically restart the failing service (Auto-Healing) and alert me.",
     "Nginx (Interne)": "Nginx (Internal)",
     "virtualisation avec Proxmox, la": "virtualization with Proxmox, ",
-    "Thème sombre activé": "Dark theme activated"
+    ",
+    "Le fichier docker-compose parfait pour débuter": "The perfect docker-compose file for beginners",
+    "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Restarting a crashed container",
+    "Architecture de la Stack 'Arr'": "Architecture of the 'Arr' Stack",Thème sombre activé": "Dark theme activated"
 };
