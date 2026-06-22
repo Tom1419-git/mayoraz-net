@@ -1784,35 +1784,35 @@ footer p a:hover {
    SKILLS MATRIX
    ========================================================== */
 .skills-matrix {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
 .skill-category {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
-    padding: 25px;
+    padding: 15px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .skill-category h3 {
     margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-size: 1rem;
     color: var(--primary);
     text-align: center;
     border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 10px;
     justify-items: center;
 }
 
@@ -1820,9 +1820,9 @@ footer p a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 15px 5px;
-    border-radius: 10px;
+    gap: 6px;
+    padding: 10px 5px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
@@ -1831,12 +1831,12 @@ footer p a:hover {
 
 .skill-item:hover {
     background: color-mix(in srgb, var(--primary) 10%, transparent);
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .skill-icon {
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     transition: all 0.3s ease;
     filter: drop-shadow(0 0 2px rgba(255,255,255,0.1));
 }
@@ -1847,7 +1847,7 @@ footer p a:hover {
 }
 
 .skill-name {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-align: center;
     color: var(--text-main);
