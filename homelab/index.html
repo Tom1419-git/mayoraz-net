@@ -65,6 +65,43 @@
                 <p>Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
             </section>
             
+            <section class="live-stats-container reveal">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps r&eacute;el</h3>
+                    <div id="homelab-status-dot" class="status-dot online"></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>CPU</span>
+                            <span id="stat-cpu-val">--%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" id="stat-cpu-bar" style="width: 0%"></div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>RAM</span>
+                            <span id="stat-ram-val">--%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" id="stat-ram-bar" style="width: 0%"></div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Stockage</span>
+                            <span id="stat-disk-val">--%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" id="stat-disk-bar" style="width: 0%"></div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Uptime</span>
+                            <span id="stat-uptime-val" style="font-size: 0.9em; font-family: monospace;">-- jours</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: right; font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Derni&egrave;re mise &agrave; jour: <span id="stat-last-update">--:--:--</span></p>
+            </section>
+
             <section class="diagram-container reveal">
                 <h3 style="margin-top:0;">Architecture Média Automatisée</h3>
                 <div class="flowchart">
@@ -158,6 +195,7 @@
     <script src="/media/js/particles.js?v=5"></script>
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
+    <script src="/media/js/homelab-stats.js"></script>
     <script src="/media/js/lang.js?v=2"></script>
     <script src="/media/js/konami.js"></script>
 </body>
