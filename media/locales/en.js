@@ -1,4 +1,4 @@
-﻿const frToEn = // media/js/lang.js
+const frToEn = // media/js/lang.js
 
 {
         "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
@@ -943,7 +943,7 @@
     "Mon GitHub": "My GitHub",
     "Mon LinkedIn": "My LinkedIn",
     "Thème clair activé": "Light theme activated",
-    ",
+    "Thème sombre activé": "Dark theme activated",
     "Détails Techniques de l'Infrastructure": "Technical Details of the Infrastructure",
     "🖥️ Hyperviseur & Matériel": "🖥️ Hypervisor & Hardware",
     "Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.": "My physical infrastructure runs on a type 1 hypervisor, <strong>Proxmox VE</strong>, powered by an <strong>Intel Core i5-2400 @ 3.10GHz (4 cores)</strong> processor with <strong>12 GB of RAM</strong>. This PVE node allows me to virtualize my main environment: a large <strong>Ubuntu Server</strong> virtual machine to which I allocated 11 GB of RAM to run all my Docker services.",
@@ -957,7 +957,6 @@
     "Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.": "The server is monitored in real time by <strong>Prometheus</strong> and <strong>Grafana</strong> (hardware/application metrics). To go further, I use <strong>n8n</strong> (automation tool). If Prometheus detects a container crashing or spiraling out of control, n8n is capable of interacting with the Docker API to automatically restart the failing service (Auto-Healing) and alert me.",
     "Nginx (Interne)": "Nginx (Internal)",
     "virtualisation avec Proxmox, la": "virtualization with Proxmox, ",
-    ",
     "Le fichier docker-compose parfait pour débuter": "The perfect docker-compose file for beginners",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Restarting a crashed container",
     "Architecture de la Stack 'Arr'": "Architecture of the 'Arr' Stack",
@@ -970,5 +969,5 @@
     "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr queries the indexers via <strong>Prowlarr</strong> to find the best file.",
     "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "The torrent is sent to <strong>qBittorrent</strong> for downloading.",
     "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Once completed, Radarr cleanly moves and renames the file in the <strong>MergerFS</strong> pool.",
-    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> detects the new file and adds it to the library.",,Thème sombre activé": "Dark theme activated"
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> detects the new file and adds it to the library."
 };
