@@ -331,7 +331,6 @@
     "💡 Navigation": "💡 Navigation",
     "[email protected]": "[email protected]",
     "Processeur": "Prozessor",
-    "Conseil technique": "Technische Beratung",
     "Stockage": "Lagerung",
     "Adresse :": "Adresse:",
     "Votre demande a bien été envoyée et je vous en remercie.": "Ihre Anfrage wurde gesendet und ich danke Ihnen.",
@@ -369,7 +368,6 @@
     "Message détaillé": "Detaillierte Nachricht",
     "2ème ligue Hommes Groupe 2, Tours 1&2": "2. Liga Männer Gruppe 2, Runden 1&2",
     "Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.": "Verschiedene Projekte, darunter technische Berichte, praktische Leitfäden, Dokumentationen und andere Kreationen. Eine Sammlung vielfältiger Werke und nützlicher Ressourcen.",
-    "Conseil Technique": "Technische Beratung",
     "EN": "IM",
     "Demande d'information": "Informationsanfrage",
     "Entraîneur des jeunes": "Jugendtrainer",
@@ -599,7 +597,7 @@
     "afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.": "um Stabilität und Sicherheit zu gewährleisten und Updates und Backups zu ermöglichen.",
     "complète le tout pour le monitoring natif de la VM.": "vervollständigt alles für die native Überwachung der VM.",
     "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart",
-    "curl https://mayoraz-net.ch/api/cv.json": "curl https://mayoraz-net.ch/api/cv.json",
+    "curl https://mayoraz-net.ch/api/cv.json": "Locken https://mayoraz-net.ch/api/cv.json",
     "est mon laboratoire d'apprentissage continu.": "ist mein kontinuierliches Lernlabor.",
     "et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "und der lokalen Docker-API habe ich einen Workflow erstellt, der auf Webhook-Benachrichtigungen von Prometheus wartet. Wenn ein Container abstürzt, gibt n8n diesen Befehl über SSH oder Socket aus:",
     "n8n": "n8n",
@@ -984,7 +982,7 @@
     "Visual Studio Code est un éditeur de code source populaire pour les développeurs.": "Visual Studio Code ist ein beliebter Quellcode-Editor für Entwickler.",
     "🎬 Services Média": "🎬 Mediendienste",
     "Thème clair activé": "Helles Design aktiviert",
-    ",
+    "Thème sombre activé": "Dunkles Design aktiviert",
     "Détails Techniques de l'Infrastructure": "Technische Details der Infrastruktur",
     "🖥️ Hyperviseur & Matériel": "🖥️ Hypervisor & Hardware",
     "Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.": "Meine physische Infrastruktur läuft auf einem Typ-1-Hypervisor, <strong>Proxmox VE</strong>, angetrieben von einem <strong>Intel Core i5-2400 @ 3.10GHz (4 Kerne)</strong> Prozessor mit <strong>12 GB RAM</strong>. Dieser PVE-Knoten ermöglicht es mir, meine Hauptumgebung zu virtualisieren: eine große <strong>Ubuntu Server</strong> virtuelle Maschine, der ich 11 GB RAM zugewiesen habe, um alle meine Docker-Dienste auszuführen.",
@@ -998,7 +996,6 @@
     "Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.": "Der Server wird in Echtzeit von <strong>Prometheus</strong> und <strong>Grafana</strong> überwacht (Hardware-/Anwendungsmetriken). Um noch weiter zu gehen, verwende ich <strong>n8n</strong> (Automatisierungstool). Wenn Prometheus erkennt, dass ein Container abstürzt oder außer Kontrolle gerät, kann n8n mit der Docker-API interagieren, um den fehlerhaften Dienst automatisch neu zu starten (Auto-Healing) und mich zu warnen.",
     "Nginx (Interne)": "Nginx (Intern)",
     "virtualisation avec Proxmox, la": "Virtualisierung mit Proxmox, ",
-    ",
     "Le fichier docker-compose parfait pour débuter": "Die perfekte docker-compose Datei für Anfänger",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Neustart eines abgestürzten Containers",
     "Architecture de la Stack 'Arr'": "Architektur des 'Arr'-Stacks",
@@ -1011,5 +1008,5 @@
     "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr fragt die Indexer über <strong>Prowlarr</strong> ab, um die beste Datei zu finden.",
     "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "Der Torrent wird zum Herunterladen an <strong>qBittorrent</strong> gesendet.",
     "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Sobald der Vorgang abgeschlossen ist, verschiebt Radarr die Datei sauber in den <strong>MergerFS</strong>-Pool und benennt sie um.",
-    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> erkennt die neue Datei und fügt sie der Bibliothek hinzu.",,Thème sombre activé": "Dunkles Design aktiviert"
-}
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> erkennt die neue Datei und fügt sie der Bibliothek hinzu."
+};
