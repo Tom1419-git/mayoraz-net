@@ -1,4 +1,4 @@
-const frToDe = {
+﻿const frToDe = {
     "Serveur en temps réel (Grafana)": "Echtzeit-Server (Grafana)",
     "Le fichier docker-compose parfait pour débuter": "Die perfekte docker-compose Datei für Anfänger",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Neustart eines abgestürzten Containers",
@@ -1020,4 +1020,18 @@ const frToDe = {
     "<strong>Konami Code :</strong> Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A": "<strong>Konami Code:</strong> Oben, Oben, Unten, Unten, Links, Rechts, Links, Rechts, B, A",
     "<strong>Terminal caché :</strong> Appuyez sur <code>Shift + F10</code> n'importe où sur le site": "<strong>Verstecktes Terminal:</strong> Drücken Sie überall auf der Seite <code>Shift + F10</code>",
     "<strong>API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>": "<strong>API:</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>"
+    ,"Ma Stack Technique": "Mein Tech-Stack",
+    "Infra & Virtualisation": "Infra & Virtualisierung",
+    "Monitoring & Auto.": "Überwachung & Autom.",
+    "Services & Hébergement": "Dienste & Hosting",
+    "Virtualisation de mes serveurs et gestion de l'infrastructure.": "Server-Virtualisierung und Infrastruktur-Management.",
+    "Conteneurisation et déploiement de tous mes services.": "Containerisierung und Bereitstellung aller meiner Dienste.",
+    "Administration serveur quotidienne en ligne de commande.": "Tägliche Serveradministration über die Kommandozeile.",
+    "Surveillance en temps réel des métriques système.": "Echtzeit-Überwachung der Systemmetriken.",
+    "Collecte et centralisation des alertes serveur.": "Erfassung und Zentralisierung von Server-Warnungen.",
+    "Création de workflows d'auto-healing et notifications.": "Erstellung von Auto-Healing-Workflows und Benachrichtigungen.",
+    "Versionnage de mes configurations (IaC basique).": "Versionierung meiner Konfigurationen (grundlegendes IaC).",
+    "Automatisation complète de la gestion multimédia.": "Komplette Automatisierung der Medienverwaltung.",
+    "Gestion des accès externes sécurisés et redirections.": "Verwaltung sicherer externer Zugänge und Weiterleitungen.",
+    "Sécurisation DNS, cache, certificats SSL et tunnels.": "DNS-Sicherheit, Caching, SSL-Zertifikate und Tunnel."
 };
