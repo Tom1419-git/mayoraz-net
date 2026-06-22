@@ -1,4 +1,4 @@
-﻿const frToEn = // media/js/lang.js
+const frToEn = // media/js/lang.js
 
 {
         "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
@@ -547,11 +547,7 @@
     "Webhooks": "Webhooks",
     "afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.": "to ensure stability, security, and facilitate updates and backups.",
     "complète le tout pour le monitoring natif de la VM.": "completes everything for native VM monitoring.",
-    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id    "Thème clair activé": "Light theme activated",
-    "Thème sombre activé": "Dark theme activated"
-}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id    "Thème clair activé": "Light theme activated",
-    "Thème sombre activé": "Dark theme activated"
-}/restart",
+    "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart",
     "curl https://mayoraz-net.ch/api/cv.json": "curl https://mayoraz-net.ch/api/cv.json",
     "est mon laboratoire d'apprentissage continu.": "is my continuous learning laboratory.",
     "et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "and the local Docker API, I created a workflow that listens to Prometheus webhook alerts. If a container goes down, n8n runs this command via SSH or Socket:",
