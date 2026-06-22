@@ -1,4 +1,4 @@
-const frToEn = // media/js/lang.js
+﻿const frToEn = // media/js/lang.js
 
 {
         "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
@@ -981,4 +981,18 @@ const frToEn = // media/js/lang.js
     "<strong>Konami Code :</strong> Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A": "<strong>Konami Code:</strong> Up, Up, Down, Down, Left, Right, Left, Right, B, A",
     "<strong>Terminal caché :</strong> Appuyez sur <code>Shift + F10</code> n'importe où sur le site": "<strong>Hidden Terminal:</strong> Press <code>Shift + F10</code> anywhere on the site",
     "<strong>API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>": "<strong>API:</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>"
+    ,"Ma Stack Technique": "My Tech Stack",
+    "Infra & Virtualisation": "Infra & Virtualization",
+    "Monitoring & Auto.": "Monitoring & Automation",
+    "Services & Hébergement": "Services & Hosting",
+    "Virtualisation de mes serveurs et gestion de l'infrastructure.": "Server virtualization and infrastructure management.",
+    "Conteneurisation et déploiement de tous mes services.": "Containerization and deployment of all my services.",
+    "Administration serveur quotidienne en ligne de commande.": "Daily server administration via command line.",
+    "Surveillance en temps réel des métriques système.": "Real-time monitoring of system metrics.",
+    "Collecte et centralisation des alertes serveur.": "Collection and centralization of server alerts.",
+    "Création de workflows d'auto-healing et notifications.": "Creation of auto-healing workflows and notifications.",
+    "Versionnage de mes configurations (IaC basique).": "Versioning of my configurations (basic IaC).",
+    "Automatisation complète de la gestion multimédia.": "Complete automation of media management.",
+    "Gestion des accès externes sécurisés et redirections.": "Management of secure external access and redirects.",
+    "Sécurisation DNS, cache, certificats SSL et tunnels.": "DNS security, caching, SSL certificates, and tunnels."
 };
