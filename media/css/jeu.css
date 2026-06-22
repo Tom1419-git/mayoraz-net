@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    jeu.css — Styles spécifiques au quiz technique
    Utilise les variables CSS du design system (main.css)
    ============================================================ */
@@ -261,7 +261,7 @@
 
 /* ---- Light mode overrides ---- */
 :root[data-theme="light"] #quiz-container {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.7);
     border-color: var(--glass-border);
 }
 
@@ -271,9 +271,9 @@
 
 :root[data-theme="light"] .panel pre,
 :root[data-theme="light"] code {
-    background: #f1f5f9;
-    color: #0f172a;
-    border-color: var(--border-color);
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
 }
 
 /* ---- Responsive ---- */
@@ -341,7 +341,7 @@
 
 .pseudo-input:focus {
     transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+    box-shadow: 0 0 10px rgba(58, 126, 255, 0.3);
     outline: none;
 }
 
