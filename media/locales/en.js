@@ -1,7 +1,11 @@
 const frToEn = // media/js/lang.js
 
 {
-    "Accueil": "Home",
+        "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
+    "Le fichier docker-compose parfait pour débuter": "The perfect docker-compose file for beginners",
+    "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Restart a crashed container",
+    "Architecture de la Stack 'Arr'": "Architecture of the 'Arr' Stack",
+"Accueil": "Home",
     "À propos": "About",
     "Contact": "Contact",
     "Mes Projets": "My Projects",
