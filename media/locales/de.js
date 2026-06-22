@@ -599,7 +599,7 @@ const frToDe = {
     "afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.": "um Stabilität und Sicherheit zu gewährleisten und Updates und Backups zu ermöglichen.",
     "complète le tout pour le monitoring natif de la VM.": "vervollständigt alles für die native Überwachung der VM.",
     "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart": "curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart",
-    "curl https://mayoraz-net.ch/api/cv.json": "Locken https://mayoraz-net.ch/api/cv.json",
+    "curl https://mayoraz-net.ch/api/cv.json": "curl https://mayoraz-net.ch/api/cv.json",
     "est mon laboratoire d'apprentissage continu.": "ist mein kontinuierliches Lernlabor.",
     "et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "und der lokalen Docker-API habe ich einen Workflow erstellt, der auf Webhook-Benachrichtigungen von Prometheus wartet. Wenn ein Container abstürzt, gibt n8n diesen Befehl über SSH oder Socket aus:",
     "n8n": "n8n",
