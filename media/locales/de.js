@@ -1,4 +1,4 @@
-﻿const frToDe = {
+const frToDe = {
     "Serveur en temps réel (Grafana)": "Echtzeit-Server (Grafana)",
     "Le fichier docker-compose parfait pour débuter": "Die perfekte docker-compose Datei für Anfänger",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Neustart eines abgestürzten Containers",
@@ -1008,5 +1008,11 @@
     "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr fragt die Indexer über <strong>Prowlarr</strong> ab, um die beste Datei zu finden.",
     "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "Der Torrent wird zum Herunterladen an <strong>qBittorrent</strong> gesendet.",
     "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Sobald der Vorgang abgeschlossen ist, verschiebt Radarr die Datei sauber in den <strong>MergerFS</strong>-Pool und benennt sie um.",
-    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> erkennt die neue Datei und fügt sie der Bibliothek hinzu."
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> erkennt die neue Datei und fügt sie der Bibliothek hinzu.",
+    "En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.": "Als leidenschaftlicher System- und Netzwerkadministrator hoste und warte ich meine eigene Heiminfrastruktur. Dieses <strong>Homelab</strong> ist mein ständiges Lernlabor.",
+    "Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.": "Meine gesamte Umgebung läuft optimiert und isoliert, was es mir ermöglicht, Unternehmenstechnologien wie Virtualisierung mit Proxmox, Containerisierung, erweitertes Monitoring und Prozessautomatisierung zu erkunden.",
+    "Serveur en temps réel (Grafana)": "Echtzeit-Server (Grafana)",
+    "Architecture Média Automatisée": "Automatisierte Medienarchitektur",
+    "👤 Utilisateur (Jellyseerr)": "👤 Benutzer (Jellyseerr)",
+    "Nginx (Interne)": "Nginx (Intern)"
 };
