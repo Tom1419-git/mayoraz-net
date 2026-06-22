@@ -1780,3 +1780,121 @@ footer p a:hover {
     color: var(--text-primary);
     padding: 10px;
 }
+/* ==========================================================
+   SKILLS MATRIX
+   ========================================================== */
+.skills-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.skill-category {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.skill-category h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--primary);
+    text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+}
+
+.skill-item:hover {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.1));
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px var(--primary));
+}
+
+.skill-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.skill-tooltip {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background: color-mix(in srgb, var(--bg-dark) 90%, black);
+    color: var(--text-main);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    width: max-content;
+    max-width: 220px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.skill-item:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(100%) translateY(10px);
+}
+
+/* Light mode adjustments */
+:root[data-theme="light"] .skill-tooltip {
+    background: color-mix(in srgb, var(--bg-light) 95%, white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+    .skill-tooltip {
+        width: 140px;
+        font-size: 0.75rem;
+        white-space: normal;
+        left: 50%;
+    }
+}
