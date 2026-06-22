@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lang === 'DE') dict = typeof frToDe !== 'undefined' ? frToDe : null;
 
         if (!dict) {
-            console.error(Dictionary for \ is not loaded.);
+            console.error('Dictionary for ' + lang + ' is not loaded.');
             return;
         }
 
