@@ -106,15 +106,7 @@ h2 {
 }
 
 h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    border-radius: 2px;
+    display: none;
 }
 
 h3 {
@@ -345,10 +337,15 @@ p {
 
 /* --- Back Navigation --- */
 .back-nav {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 40px;
-    padding: 8px 16px;
-    color: var(--primary);
+    padding: 12px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     text-decoration: none;
@@ -356,8 +353,10 @@ p {
 }
 
 .back-nav:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
     transform: translateX(-5px);
-    color: var(--secondary);
 }
 
 /* --- Social Buttons --- */
@@ -483,7 +482,7 @@ main {
 /* ==========================================================
    8. SECTIONS (Glass panels over particles)
    ========================================================== */
-section, .about, .services, .portfolio, .contact-section, .intro-section {
+.about, .services, .portfolio, .contact-section, .intro-section {
     background: var(--section-bg) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -1710,7 +1709,7 @@ footer p a:hover {
         padding: 40px 20px;
     }
 
-    section, .about, .services, .portfolio, .contact-section, .intro-section {
+    .about, .services, .portfolio, .contact-section, .intro-section {
         padding: 20px;
     }
 
