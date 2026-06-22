@@ -17,3 +17,6 @@ _css_extract/
 /*.sh
 /*.ps1
 /*.bat
+
+# Scripting files
+*.py
