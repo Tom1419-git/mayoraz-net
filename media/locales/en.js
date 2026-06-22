@@ -1,4 +1,4 @@
-const frToEn = // media/js/lang.js
+﻿const frToEn = // media/js/lang.js
 
 {
         "Serveur en temps réel (Grafana)": "Real-time Server (Grafana)",
@@ -943,5 +943,18 @@ const frToEn = // media/js/lang.js
     "Mon GitHub": "My GitHub",
     "Mon LinkedIn": "My LinkedIn",
     "Thème clair activé": "Light theme activated",
-    "Thème sombre activé": "Dark theme activated"
+    ",
+    "Détails Techniques de l'Infrastructure": "Technical Details of the Infrastructure",
+    "🖥️ Hyperviseur & Matériel": "🖥️ Hypervisor & Hardware",
+    "Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.": "My physical infrastructure runs on a type 1 hypervisor, <strong>Proxmox VE</strong>, powered by an <strong>Intel Core i5-2400 @ 3.10GHz (4 cores)</strong> processor with <strong>12 GB of RAM</strong>. This PVE node allows me to virtualize my main environment: a large <strong>Ubuntu Server</strong> virtual machine to which I allocated 11 GB of RAM to run all my Docker services.",
+    "💾 Stockage & Pool MergerFS": "💾 Storage & MergerFS Pool",
+    "Pour la VM, j'utilise un disque OS de <strong>150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.": "For the VM, I use a <strong>150 GB OS disk on LVM</strong>. For data, I "passthrough" 4 physical disks (including 2x 2TB and 2x 500GB) directly to the VM. I then use <strong>MergerFS</strong> to transparently pool the space, creating a <strong>4 TB pool</strong> dedicated to storing my movies and series, thus optimizing space without RAID complexity.",
+    "🌐 Réseau, Proxy & Sécurité": "🌐 Network, Proxy & Security",
+    "L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.": "Access to services is managed by an <strong>Nginx Reverse Proxy</strong> for transparent local DNS resolution (internal domain names). For secure external access without opening ports on my router, I use a <strong>Cloudflare Tunnel</strong>. This guarantees me secure HTTPS access from anywhere in the world for my exposed services.",
+    "🛡️ Résilience & Sauvegardes (Backups)": "🛡️ Resilience & Backups",
+    "Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.": "To prevent data loss, I perform a <strong>full VM backup</strong> once a week. These backups are outsourced to the cloud (Google Drive) via the <strong>rclone</strong> tool. I deliberately exclude the 4 TB mount point (the media) from this backup to only save vital configuration (OS and Docker configs) and avoid exceeding my Cloud quota.",
+    "📈 Monitoring & Auto-résolution": "📈 Monitoring & Auto-Healing",
+    "Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.": "The server is monitored in real time by <strong>Prometheus</strong> and <strong>Grafana</strong> (hardware/application metrics). To go further, I use <strong>n8n</strong> (automation tool). If Prometheus detects a container crashing or spiraling out of control, n8n is capable of interacting with the Docker API to automatically restart the failing service (Auto-Healing) and alert me.",
+    "Nginx (Interne)": "Nginx (Internal)",
+    "virtualisation avec Proxmox, la": "virtualization with Proxmox, ",Thème sombre activé": "Dark theme activated"
 };
