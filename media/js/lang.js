@@ -1,8 +1,8 @@
 // media/js/lang.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const langSelect = document.getElementById('lang-select');
-    if (!langSelect) return;
+    const langSelects = document.querySelectorAll('.lang-select');
+    if (langSelects.length === 0) return;
 
     let currentLang = localStorage.getItem('site_lang') || 'FR';
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     node.nodeValue = node.nodeValue.replace(text, dict[origText]);
                 } else if (lang === 'DE' && typeof frToEn !== 'undefined' && frToEn[origText]) {
-                    // Fallback to English if German is missing (optional, but prevents breaking)
+                    // Fallback to English if German is missing
                 }
             }
         }
@@ -52,26 +52,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Dispatch custom event to notify other scripts (like tutorials)
         document.dispatchEvent(new Event('languageChanged'));
     }
 
-    // Initialize select value
-    langSelect.value = currentLang;
+    // Initialize select values
+    langSelects.forEach(select => {
+        select.value = currentLang;
+    });
 
     if (currentLang !== 'FR') {
         applyLanguage(currentLang);
     }
 
-    langSelect.addEventListener('change', (e) => {
-        currentLang = e.target.value;
-        localStorage.setItem('site_lang', currentLang);
-        
-        if (currentLang === 'FR') {
-            location.reload(); 
-        } else {
-            // Apply language dynamically without reload
-            applyLanguage(currentLang);
-        }
+    langSelects.forEach(select => {
+        select.addEventListener('change', (e) => {
+            currentLang = e.target.value;
+            localStorage.setItem('site_lang', currentLang);
+            
+            // Sync all selects
+            langSelects.forEach(s => { s.value = currentLang; });
+
+            if (currentLang === 'FR') {
+                location.reload(); 
+            } else {
+                applyLanguage(currentLang);
+                if (typeof showToast === 'function') {
+                    showToast('Langue changée : ' + currentLang, 'success');
+                }
+            }
+        });
     });
 });
