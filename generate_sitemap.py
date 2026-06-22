@@ -20,9 +20,11 @@ for root, dirs, files in os.walk(root_dir):
                 continue
             
             url = f"{base_url}/{rel_path}"
-            # Clean up index.html from URL for better SEO
+            # Clean up index.html and .html from URL for better SEO
             if url.endswith('/index.html'):
                 url = url[:-10]
+            elif url.endswith('.html'):
+                url = url[:-5]
                 
             priority = "1.0" if url == base_url + "/" else "0.8"
             if 'ctt_montriond' in url:
