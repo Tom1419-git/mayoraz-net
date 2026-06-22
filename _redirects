@@ -1,0 +1,22 @@
+# Redirections suite à la restructuration du portfolio et aux URLs propres (Clean URLs)
+
+# Redirection des anciens fichiers HTML du portfolio (avant qu'ils ne deviennent des dossiers /index.html)
+/a-propos/a-propos.html /a-propos/ 301
+/jeu/jeu.html /jeu/ 301
+/jeu/jeu /jeu/ 301
+/autres-projets/autres-projets.html /autres-projets/ 301
+/projets-csharp/intro-csharp.html /projets-csharp/ 301
+/contact/contact.html /contact/ 301
+/builds-pc/intro-buildpc.html /builds-pc/ 301
+/sites-web/index.html /sites-web/ 301
+/homelab/index.html /homelab/ 301
+/tutoriels/index.html /tutoriels/ 301
+/jeu-trex/index.html /jeu-trex/ 301
+
+# Redirection des pages du club de ping-pong (retrait du .html pour correspondre aux clean URLs)
+/sites-web/ctt_montriond_version_club/index.html /sites-web/ctt_montriond_version_club/ 301
+/sites-web/ctt_montriond_version_club/entrainements.html /sites-web/ctt_montriond_version_club/entrainements 301
+/sites-web/ctt_montriond_version_club/acces.html /sites-web/ctt_montriond_version_club/acces 301
+/sites-web/ctt_montriond_version_club/equipes.html /sites-web/ctt_montriond_version_club/equipes 301
+/sites-web/ctt_montriond_version_club/contact.html /sites-web/ctt_montriond_version_club/contact 301
+/sites-web/ctt_montriond_version_club/a-propos.html /sites-web/ctt_montriond_version_club/a-propos 301
