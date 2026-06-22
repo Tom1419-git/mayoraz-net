@@ -945,7 +945,7 @@
     "Opérationnel": "Operational",
     "Surveillance en temps réel de l'infrastructure": "Real-time infrastructure monitoring",
     "Mon GitHub": "My GitHub",
-    "Mon LinkedIn": "My LinkedIn"
+    "Mon LinkedIn": "My LinkedIn",
     "Thème clair activé": "Light theme activated",
     "Thème sombre activé": "Dark theme activated"
 };
