@@ -1,4 +1,4 @@
-// media/js/particles.js
+﻿// media/js/particles.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('particles-bg');
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            // Theme dependent color: let's use a subtle cyan/white
+            // Theme dependent color: Electric Blue (Azentos palette)
             const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            ctx.fillStyle = isLight ? 'rgba(2, 132, 199, 0.4)' : 'rgba(0, 212, 255, 0.4)';
+            ctx.fillStyle = isLight ? 'rgba(37, 99, 235, 0.4)' : 'rgba(58, 126, 255, 0.4)';
             ctx.fill();
         }
     }
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Theme dependent line color
                     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
                     let opacity = 1 - (distance / connectionDistance);
-                    ctx.strokeStyle = isLight ? `rgba(2, 132, 199, ${opacity * 0.2})` : `rgba(0, 212, 255, ${opacity * 0.2})`;
+                    ctx.strokeStyle = isLight ? `rgba(37, 99, 235, ${opacity * 0.2})` : `rgba(58, 126, 255, ${opacity * 0.2})`;
                     ctx.lineWidth = 1;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
