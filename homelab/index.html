@@ -63,15 +63,15 @@
             </div>
         </header>
 
-        <main>
+                <main>
             <section class="intro reveal">
                 <p>En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
-                <p>Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
+                <p>Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
             </section>
             
             <section class="live-stats-container reveal">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps r&eacute;el (Grafana)</h3>
+                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps réel (Grafana)</h3>
                     <div class="status-dot online"></div>
                 </div>
                 
@@ -111,46 +111,56 @@
             </section>
 
             <section>
-                <h2>Détails Techniques</h2>
+                <h2>Détails Techniques de l'Infrastructure</h2>
                 <div class="homelab-grid">
                     
                     <div class="hl-card reveal">
-                        <h3>🖥️ Le Cœur du Système</h3>
-                        <p>L'ensemble de mon infrastructure repose sur une machine virtuelle <strong>Ubuntu Server</strong>. J'ai fait le choix d'isoler chaque service dans des conteneurs <strong>Docker</strong> afin de garantir la stabilité, la sécurité et faciliter les mises à jour et les sauvegardes.</p>
+                        <h3>🖥️ Hyperviseur & Matériel</h3>
+                        <p>Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Ubuntu Server</span>
-                            <span class="hl-tag">Docker</span>
-                            <span class="hl-tag">Docker Compose</span>
+                            <span class="hl-tag">Proxmox VE</span>
+                            <span class="hl-tag">Intel i5-2400</span>
+                            <span class="hl-tag">12GB RAM</span>
+                            <span class="hl-tag">Ubuntu Server VM</span>
+                        </div>
+                    </div>
+
+                    <div class="hl-card reveal">
+                        <h3>💾 Stockage & Pool MergerFS</h3>
+                        <p>Pour la VM, j'utilise un disque OS de <strong>150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">LVM (150Go)</span>
+                            <span class="hl-tag">Passthrough Disks</span>
+                            <span class="hl-tag">MergerFS (4To Pool)</span>
+                        </div>
+                    </div>
+
+                    <div class="hl-card reveal">
+                        <h3>🌐 Réseau, Proxy & Sécurité</h3>
+                        <p>L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">Nginx (Interne)</span>
+                            <span class="hl-tag">Cloudflare Tunnel</span>
+                            <span class="hl-tag">HTTPS/SSL</span>
+                        </div>
+                    </div>
+
+                    <div class="hl-card reveal">
+                        <h3>🛡️ Résilience & Sauvegardes (Backups)</h3>
+                        <p>Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
+                        <div class="hl-tags">
+                            <span class="hl-tag">Full VM Backup</span>
+                            <span class="hl-tag">rclone</span>
+                            <span class="hl-tag">Google Drive</span>
                         </div>
                     </div>
                     
                     <div class="hl-card reveal">
-                        <h3>🍿 Automatisation Multimédia</h3>
-                        <p>J'ai déployé la fameuse stack "Arr". Les requêtes sont faites via <strong>Jellyseerr</strong>. <strong>Sonarr</strong> et <strong>Radarr</strong> s'occupent de trouver le contenu via <strong>Prowlarr</strong>, de le transmettre au client <strong>qBittorrent</strong>, et enfin de l'organiser proprement pour le serveur de streaming <strong>Jellyfin</strong>.</p>
+                        <h3>📈 Monitoring & Auto-résolution</h3>
+                        <p>Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Jellyfin</span>
-                            <span class="hl-tag">Radarr/Sonarr</span>
-                            <span class="hl-tag">Prowlarr</span>
-                            <span class="hl-tag">Jellyseerr</span>
-                        </div>
-                    </div>
-                    
-                    <div class="hl-card reveal">
-                        <h3>📈 Monitoring & Alertes</h3>
-                        <p>Afin de m'assurer que le serveur n'est jamais surchargé, j'utilise <strong>Prometheus</strong> pour collecter les métriques matérielles et applicatives, et <strong>Grafana</strong> pour visualiser ces données via de beaux tableaux de bord en temps réel. <strong>Netdata</strong> complète le tout pour le monitoring natif de la VM.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">Prometheus</span>
-                            <span class="hl-tag">Grafana</span>
-                            <span class="hl-tag">Netdata</span>
-                        </div>
-                    </div>
-                    
-                    <div class="hl-card reveal">
-                        <h3>🤖 Auto-résolution (n8n)</h3>
-                        <p>Pour aller plus loin qu'un simple monitoring, j'utilise <strong>n8n</strong> (outil d'automatisation de workflows). Si Prometheus détecte qu'un conteneur crash ou consomme trop de RAM, n8n est capable de redémarrer automatiquement le service défaillant et de m'envoyer une notification.</p>
-                        <div class="hl-tags">
+                            <span class="hl-tag">Prometheus & Grafana</span>
                             <span class="hl-tag">n8n</span>
-                            <span class="hl-tag">Webhooks</span>
                             <span class="hl-tag">Auto-Healing</span>
                         </div>
                     </div>
@@ -180,9 +190,10 @@
     <script src="/media/js/particles.js?v=5"></script>
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
-    <script src="/media/locales/en.js?v=5"></script>
-    <script src="/media/locales/de.js?v=6"></script>
+    <script src="/media/locales/en.js?v=7"></script>
+    <script src="/media/locales/de.js?v=7"></script>
     <script src="/media/js/lang.js?v=3"></script>
     <script src="/media/js/konami.js"></script>
+    <script src="/media/js/transitions.js"></script>
 </body>
 </html>
