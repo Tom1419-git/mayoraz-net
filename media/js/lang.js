@@ -21,6 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Create a cleaned dictionary that maps both the exact key and a stripped key
+        // (without leading emojis or symbols) to the translation.
+        let cleanedDict = {};
+        for (let key in dict) {
+            let cleanKey = key.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
+            cleanedDict[key.trim()] = dict[key];
+            if (cleanKey) {
+                cleanedDict[cleanKey] = dict[key];
+            }
+        }
+
         document.documentElement.lang = lang.toLowerCase();
         
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
@@ -28,27 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
         while (node = walker.nextNode()) {
             const text = node.nodeValue.trim();
             if (text && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE' && node.parentElement.tagName !== 'OPTION') {
-                let origText = node.parentElement.getAttribute('data-fr-original') || text;
-                
-                if (dict[origText]) {
-                    if (!node.parentElement.hasAttribute('data-fr-original')) {
-                        node.parentElement.setAttribute('data-fr-original', origText);
+                if (cleanedDict[text]) {
+                    node.nodeValue = node.nodeValue.replace(text, cleanedDict[text]);
+                } else {
+                    let cleanText = text.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
+                    if (cleanText && cleanedDict[cleanText]) {
+                        // Replace only the text part, keeping emojis if they are in the text node
+                        node.nodeValue = node.nodeValue.replace(cleanText, cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim());
                     }
-                    node.nodeValue = node.nodeValue.replace(text, dict[origText]);
-                } else if (lang === 'DE' && typeof frToEn !== 'undefined' && frToEn[origText]) {
-                    // Fallback to English if German is missing
                 }
             }
         }
 
         const inputs = document.querySelectorAll('input[placeholder], textarea[placeholder]');
         inputs.forEach(input => {
-            let origText = input.getAttribute('data-fr-placeholder') || input.placeholder.trim();
-            if (dict[origText]) {
-                if (!input.hasAttribute('data-fr-placeholder')) {
-                    input.setAttribute('data-fr-placeholder', origText);
+            const text = input.placeholder.trim();
+            if (cleanedDict[text]) {
+                input.placeholder = cleanedDict[text];
+            } else {
+                let cleanText = text.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
+                if (cleanText && cleanedDict[cleanText]) {
+                    input.placeholder = cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
                 }
-                input.placeholder = dict[origText];
             }
         });
         
@@ -64,22 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
         applyLanguage(currentLang);
     }
 
+    if (localStorage.getItem('lang_just_changed') === 'true') {
+        if (typeof showToast === 'function') {
+            showToast('Langue : ' + currentLang, 'success');
+        }
+        localStorage.removeItem('lang_just_changed');
+    }
+
     langSelects.forEach(select => {
         select.addEventListener('change', (e) => {
             currentLang = e.target.value;
             localStorage.setItem('site_lang', currentLang);
-            
-            // Sync all selects
-            langSelects.forEach(s => { s.value = currentLang; });
-
-            if (currentLang === 'FR') {
-                location.reload(); 
-            } else {
-                applyLanguage(currentLang);
-                if (typeof showToast === 'function') {
-                    showToast('Langue changée : ' + currentLang, 'success');
-                }
-            }
+            localStorage.setItem('lang_just_changed', 'true');
+            location.reload(); 
         });
     });
 });
