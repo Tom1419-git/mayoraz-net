@@ -48,8 +48,8 @@
     --glass-border: rgba(0, 0, 0, 0.08);
     --glass-border-hover: rgba(37, 99, 235, 0.3);
     --card-bg: #FFFFFF;
-    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.08);
-    --border-color: #D1D5DB;
+    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.05);
+    --border-color: #E2E8F0;
     --bg-alt: #EDE9E3;
     --bg-card: #FFFFFF;
     --section-bg: rgba(245, 243, 238, 0.9);
@@ -622,25 +622,27 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
 /* --- Service Item --- */
 .services-highlight {
     margin: 80px 0;
-    padding: 60px 40px;
-    background: var(--glass-bg);
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
+    padding: 0;
+}
+
+.services-highlight h3 {
+    text-align: center;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    margin-bottom: 50px;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
-    margin-top: 40px;
 }
 
 .service-item {
     text-align: center;
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 16px;
     background: var(--card-bg);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--border-color);
     transition: var(--transition);
 }
 
@@ -651,9 +653,10 @@ section, .about, .services, .portfolio, .contact-section, .intro-section {
 }
 
 .service-item span {
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: block;
     margin-bottom: 20px;
+    filter: grayscale(20%) drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
 .service-item div, .service-item h4 {
