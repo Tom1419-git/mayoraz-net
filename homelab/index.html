@@ -67,39 +67,20 @@
             
             <section class="live-stats-container reveal">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps r&eacute;el</h3>
-                    <div id="homelab-status-dot" class="status-dot online"></div>
+                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps r&eacute;el (Grafana)</h3>
+                    <div class="status-dot online"></div>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span>CPU</span>
-                            <span id="stat-cpu-val">--%</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" id="stat-cpu-bar" style="width: 0%"></div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span>RAM</span>
-                            <span id="stat-ram-val">--%</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" id="stat-ram-bar" style="width: 0%"></div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span>Stockage</span>
-                            <span id="stat-disk-val">--%</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" id="stat-disk-bar" style="width: 0%"></div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <span>Uptime</span>
-                            <span id="stat-uptime-val" style="font-size: 0.9em; font-family: monospace;">-- jours</span>
-                        </div>
-                    </div>
+                
+                <div class="grafana-grid">
+                    <iframe src="http://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=2" frameborder="0"></iframe>
+                    <iframe src="http://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=3" frameborder="0"></iframe>
+                    <iframe src="http://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=4" frameborder="0"></iframe>
+                    <iframe src="http://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=7" frameborder="0"></iframe>
                 </div>
-                <p style="text-align: right; font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Derni&egrave;re mise &agrave; jour: <span id="stat-last-update">--:--:--</span></p>
+                
+                <div class="grafana-chart">
+                    <iframe src="http://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=11" frameborder="0"></iframe>
+                </div>
             </section>
 
             <section class="diagram-container reveal">
@@ -195,7 +176,6 @@
     <script src="/media/js/particles.js?v=5"></script>
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
-    <script src="/media/js/homelab-stats.js"></script>
     <script src="/media/locales/en.js"></script>
     <script src="/media/js/lang.js?v=2"></script>
     <script src="/media/js/konami.js"></script>
