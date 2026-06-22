@@ -978,7 +978,7 @@ const frToEn = // media/js/lang.js
     "Nginx (Interne)": "Nginx (Internal)",
     "🤫 Secrets & Easter Eggs": "🤫 Secrets & Easter Eggs",
     "Ce site cache quelques secrets pour les plus curieux :": "This site hides a few secrets for the curious:",
-    "<strong>Konami Code :</strong> Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A (Lance un jeu caché)": "<strong>Konami Code:</strong> Up, Up, Down, Down, Left, Right, Left, Right, B, A (Launches a hidden game)",
+    "<strong>Konami Code :</strong> Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A": "<strong>Konami Code:</strong> Up, Up, Down, Down, Left, Right, Left, Right, B, A",
     "<strong>Terminal caché :</strong> Appuyez sur <code>Shift + F10</code> n'importe où sur le site": "<strong>Hidden Terminal:</strong> Press <code>Shift + F10</code> anywhere on the site",
-    "<strong>API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code> (déjà mentionné plus haut !)": "<strong>API:</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code> (already mentioned above!)"
+    "<strong>API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>": "<strong>API:</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code>"
 };
