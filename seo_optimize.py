@@ -20,19 +20,25 @@ def optimize_html(filepath):
             meta_robots = '<meta name="robots" content="index, follow">'
             content = re.sub(r'(<title>.*?</title>)', r'\1\n    ' + meta_robots, content)
 
-    # Ensure canonical URL exists for SEO (very good practice)
-    if '<link rel="canonical"' not in content and '404' not in filepath:
-        # Determine URL
+    # Ensure canonical URL is CORRECT and exists for SEO
+    if '404' not in filepath:
         rel_path = filepath.replace(root_dir, '').replace('\\', '/')
         if rel_path == '/index.html':
             canonical = 'https://mayoraz-net.ch/'
         elif rel_path.endswith('/index.html'):
             canonical = f'https://mayoraz-net.ch{rel_path.replace("index.html", "")}'
+        elif rel_path.endswith('.html'):
+            canonical = f'https://mayoraz-net.ch{rel_path.replace(".html", "")}'
         else:
             canonical = f'https://mayoraz-net.ch{rel_path}'
             
         canonical_tag = f'<link rel="canonical" href="{canonical}">'
-        content = re.sub(r'(<meta name="description".*?>)', r'\1\n    ' + canonical_tag, content)
+        
+        # If a canonical tag already exists, update it
+        if '<link rel="canonical"' in content:
+            content = re.sub(r'<link rel="canonical" href="[^"]+">', canonical_tag, content)
+        else:
+            content = re.sub(r'(<meta name="description".*?>)', r'\1\n    ' + canonical_tag, content)
 
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(content)
