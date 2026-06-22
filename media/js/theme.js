@@ -1,4 +1,4 @@
-﻿// media/js/theme.js
+// media/js/theme.js
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Dark/Light Theme Logic
@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (themeToggle) {
             themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
         }
+
+        // Initial Grafana sync
+        document.querySelectorAll('iframe').forEach(iframe => {
+            if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
+                iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + currentTheme);
+            }
+        });
     }
 
     if (themeToggle) {
@@ -24,13 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
             themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
 
             if (typeof showToast === 'function') {
-                                let baseMsg = newTheme === 'light' ? 'Thème clair activé' : 'Thème sombre activé';
+                let baseMsg = newTheme === 'light' ? 'Thème clair activé' : 'Thème sombre activé';
                 let msg = baseMsg;
                 let lang = localStorage.getItem('site_lang') || 'FR';
                 if (lang === 'EN' && typeof frToEn !== 'undefined' && frToEn[baseMsg]) msg = frToEn[baseMsg];
                 if (lang === 'DE' && typeof frToDe !== 'undefined' && frToDe[baseMsg]) msg = frToDe[baseMsg];
                 showToast(msg, 'success');
             }
+
+            // Sync Grafana iframes
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
+                    iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + newTheme);
+                }
+            });
         });
     }
 

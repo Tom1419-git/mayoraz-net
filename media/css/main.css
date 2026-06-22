@@ -1577,6 +1577,10 @@ footer p a:hover {
     background: rgba(245, 243, 238, 0.95) !important;
 }
 
+:root[data-theme="light"] .logo {
+    color: var(--text-main) !important;
+}
+
 :root[data-theme="light"] .nav-overlay {
     background: rgba(245, 243, 238, 0.95) !important;
 }
