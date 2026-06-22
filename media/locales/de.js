@@ -1001,5 +1001,15 @@
     ",
     "Le fichier docker-compose parfait pour débuter": "Die perfekte docker-compose Datei für Anfänger",
     "Auto-Healing : Redémarrer un conteneur crashé": "Auto-Healing: Neustart eines abgestürzten Containers",
-    "Architecture de la Stack 'Arr'": "Architektur des 'Arr'-Stacks",Thème sombre activé": "Dunkles Design aktiviert"
+    "Architecture de la Stack 'Arr'": "Architektur des 'Arr'-Stacks",
+    "Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.": "Um schnell einen Container bereitzustellen und dabei die Konfigurationen klar im Blick zu behalten, verwende ich immer die folgende YAML-Struktur. Sie integriert rotierende Protokolle, um eine Überlastung der VM-Festplatte zu vermeiden.",
+    "Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "Dank <strong>n8n</strong> und der lokalen Docker-API habe ich einen Workflow erstellt, der auf Prometheus-Webhook-Benachrichtigungen hört. Wenn ein Container ausfällt, führt n8n diesen Befehl über SSH oder Socket aus:",
+    "Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.": "Das System sendet mir dann eine Nachricht über Telegram, um mich über den Vorfall und dessen automatische Behebung zu informieren.",
+    "La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :": "Der Multimedia-Automatisierungs-Stack kann komplex zu verbinden sein. Hier ist die Flussrichtung:",
+    "L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.": "Der Benutzer stellt eine Anfrage auf <strong>Jellyseerr</strong>.",
+    "Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).": "Jellyseerr sendet die Anfrage an <strong>Sonarr</strong> (Serien) oder <strong>Radarr</strong> (Filme).",
+    "Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.": "Radarr fragt die Indexer über <strong>Prowlarr</strong> ab, um die beste Datei zu finden.",
+    "Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.": "Der Torrent wird zum Herunterladen an <strong>qBittorrent</strong> gesendet.",
+    "Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.": "Sobald der Vorgang abgeschlossen ist, verschiebt Radarr die Datei sauber in den <strong>MergerFS</strong>-Pool und benennt sie um.",
+    "<strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.": "<strong>Jellyfin</strong> erkennt die neue Datei und fügt sie der Bibliothek hinzu.",,Thème sombre activé": "Dunkles Design aktiviert"
 }

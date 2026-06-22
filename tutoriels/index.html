@@ -57,12 +57,55 @@
             </div>
         </header>
 
-        <main class="tuto-container reveal">
+                <main class="tuto-container reveal">
             <p style="text-align: center; margin-bottom: 40px; color: var(--text-main); opacity: 0.8;">
                 Voici quelques mémos techniques et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.
             </p>
 
-                        <div id="tutorials-container"></div>
+            <div id="tutorials-container">
+                <!-- Tuto 1 -->
+                <button class="accordion"><span class="tag">Docker</span> <span class="tuto-title">Le fichier docker-compose parfait pour débuter</span></button>
+                <div class="panel">
+                    <p>Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.</p>
+                    <pre><code>version: "3.8"
+services:
+  app:
+    image: nginx:latest
+    container_name: web_app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./data:/usr/share/nginx/html
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"</code></pre>
+                </div>
+
+                <!-- Tuto 2 -->
+                <button class="accordion"><span class="tag">n8n</span> <span class="tuto-title">Auto-Healing : Redémarrer un conteneur crashé</span></button>
+                <div class="panel">
+                    <p>Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :</p>
+                    <pre><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
+                    <p>Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.</p>
+                </div>
+
+                <!-- Tuto 3 -->
+                <button class="accordion"><span class="tag">Media</span> <span class="tuto-title">Architecture de la Stack 'Arr'</span></button>
+                <div class="panel">
+                    <p>La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :</p>
+                    <ol style="color: var(--text-muted); line-height: 1.7; margin: 15px 0 15px 25px;">
+                        <li>L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.</li>
+                        <li>Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).</li>
+                        <li>Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.</li>
+                        <li>Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.</li>
+                        <li>Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.</li>
+                        <li><strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.</li>
+                    </ol>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -100,10 +143,8 @@
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
     <script src="/media/js/konami.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="/media/js/tutoriels.js?v=3"></script>
-    <script src="/media/locales/en.js?v=9"></script>
-    <script src="/media/locales/de.js?v=9"></script>
+    <script src="/media/locales/en.js?v=10"></script>
+    <script src="/media/locales/de.js?v=10"></script>
     <script src="/media/js/lang.js?v=3"></script>
 </body>
 </html>
