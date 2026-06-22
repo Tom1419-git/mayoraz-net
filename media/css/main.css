@@ -1898,3 +1898,5 @@ footer p a:hover {
         left: 50%;
     }
 }
+
+.skill-icon { max-width: 32px !important; max-height: 32px !important; object-fit: contain; flex-shrink: 0; }
