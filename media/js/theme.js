@@ -189,3 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStatus();
     setInterval(updateStatus, 60000);
 });
+
+// Copier l'email au clic tout en gardant l'ouverture de l'app de messagerie
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="mailto:"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const email = this.getAttribute('href').replace('mailto:', '');
+            navigator.clipboard.writeText(email).then(() => {
+                if (typeof showToast === 'function') {
+                    let msg = document.documentElement.lang === 'en' ? 'Email copied to clipboard!' : (document.documentElement.lang === 'de' ? 'E-Mail in die Zwischenablage kopiert!' : 'Email copié dans le presse-papier !');
+                    showToast(msg, 'success');
+                }
+            });
+            // On ne fait pas e.preventDefault() pour que l'app mail s'ouvre normalement !
+        });
+    });
+});
