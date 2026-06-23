@@ -1921,9 +1921,7 @@ footer p a:hover {
     clip-path: circle(150% at 85% 5%);
   }
 }
-/* === Page Transitions === */
-body {
-    opacity: 0; /* Caché au début */
+/* Caché au début */
 }
 body.fade-in {
     animation: fadeInPage 0.2s ease-out forwards;
@@ -1952,4 +1950,7 @@ body.fade-out {
         opacity: 0;
         transform: translateY(-5px);
     }
+}
+@view-transition {
+  navigation: auto;
 }
