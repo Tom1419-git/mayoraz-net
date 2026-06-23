@@ -113,5 +113,114 @@
 
     <script src="/media/js/konami.js"></script>
 <script src="/media/js/transitions.js?v=2"></script>
+    <script>
+        const canvas = document.getElementById('snake-game');
+        const ctx = canvas.getContext('2d');
+        const overlay = document.getElementById('snake-overlay');
+        
+        let gridSize = 20;
+        let snake = [];
+        let food = {x: 0, y: 0};
+        let dx = gridSize;
+        let dy = 0;
+        let score = 0;
+        let gameLoop;
+        let gamePlaying = false;
+
+        function resetGame() {
+            snake = [
+                {x: 160, y: 160},
+                {x: 140, y: 160},
+                {x: 120, y: 160}
+            ];
+            dx = gridSize;
+            dy = 0;
+            score = 0;
+            spawnFood();
+        }
+
+        function spawnFood() {
+            food.x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
+            food.y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
+        }
+
+        function drawGame() {
+            ctx.fillStyle = '#111';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Bug (food)
+            ctx.fillStyle = '#ff4757';
+            ctx.fillRect(food.x, food.y, gridSize - 2, gridSize - 2);
+
+            // Draw Snake
+            snake.forEach((part, index) => {
+                ctx.fillStyle = index === 0 ? 'var(--primary)' : 'rgba(0, 212, 255, 0.7)';
+                ctx.fillRect(part.x, part.y, gridSize - 2, gridSize - 2);
+            });
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.font = '16px monospace';
+            ctx.fillText('Bugs corrigés: ' + score, 10, 20);
+        }
+
+        function update() {
+            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+
+            // Wall collision
+            if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+                gameOver();
+                return;
+            }
+
+            // Self collision
+            for (let i = 0; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    gameOver();
+                    return;
+                }
+            }
+
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                spawnFood();
+            } else {
+                snake.pop();
+            }
+
+            drawGame();
+        }
+
+        function gameOver() {
+            clearInterval(gameLoop);
+            gamePlaying = false;
+            overlay.style.display = 'flex';
+            overlay.innerHTML = '<p style="color: #ff4757; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">Kernel Panic !</p><p style="color: #fff;">Score: ' + score + '</p><p style="color: #aaa; font-size: 0.8rem; margin-top: 5px;">Cliquez pour relancer</p>';
+        }
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            resetGame();
+            gamePlaying = true;
+            gameLoop = setInterval(update, 100);
+        });
+
+        window.addEventListener('keydown', e => {
+            if (!gamePlaying) return;
+            // Prevent scrolling when playing
+            if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) {
+                e.preventDefault();
+            }
+            if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -gridSize; }
+            if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = gridSize; }
+            if (e.key === 'ArrowLeft' && dx === 0) { dx = -gridSize; dy = 0; }
+            if (e.key === 'ArrowRight' && dx === 0) { dx = gridSize; dy = 0; }
+        });
+
+        // Initial draw
+        resetGame();
+        drawGame();
+    </script>
 </body>
 </html>
