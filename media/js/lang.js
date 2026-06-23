@@ -1,4 +1,4 @@
-﻿// media/js/lang.js
+// media/js/lang.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const langSelects = document.querySelectorAll('.lang-select');
@@ -59,8 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 let cleanText = text.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
                 if (cleanText && cleanedDict[cleanText]) {
-                    input.placeholder = cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
+                    input.placeholder = input.placeholder.replace(cleanText, cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim());
                 }
+            }
+        });
+
+        // NOUVEAU: Support pour les traductions contenant du HTML (data-i18n-html)
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (dict[key]) {
+                el.innerHTML = dict[key];
+            }
+        });
+
+        // NOUVEAU: Support pour le texte simple avec attribut (data-i18n) - plus robuste pour le widget status
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                el.textContent = dict[key];
             }
         });
         
