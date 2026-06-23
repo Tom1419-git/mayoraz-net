@@ -1034,4 +1034,18 @@
     "Automatisation complète de la gestion multimédia.": "Komplette Automatisierung der Medienverwaltung.",
     "Gestion des accès externes sécurisés et redirections.": "Verwaltung sicherer externer Zugänge und Weiterleitungen.",
     "Sécurisation DNS, cache, certificats SSL et tunnels.": "DNS-Sicherheit, Caching, SSL-Zertifikate und Tunnel."
+    ,"Une collection de petites commandes, scripts et configurations que j'utilise fréquemment au quotidien sur mon infrastructure.": "Eine Sammlung kleiner Befehle, Skripte und Konfigurationen, die ich täglich auf meiner Infrastruktur verwende.",
+    "Snippets & Astuces": "Snippets & Tipps",
+    "Bouts de code et commandes pratiques": "Code-Snippets und praktische Befehle",
+    "Nettoyage Complet Docker": "Vollständige Docker-Bereinigung",
+    "Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.": "Um Ihren Docker-Server gründlich zu bereinigen und Speicherplatz freizugeben, indem gestoppte Container, ungenutzte Netzwerke, ungebundene Images und der Build-Cache entfernt werden.",
+    "Mise à jour rapide Ubuntu (Alias)": "Schnelles Ubuntu-Update (Alias)",
+    "Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.": "Fügen Sie diesen Alias zu Ihrer Datei <code>~/.bashrc</code> hinzu, um alles mit einem einzigen schnellen Befehl zu aktualisieren.",
+    "Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.": "Nach dem Hinzufügen laden Sie Ihr Terminal mit <code>source ~/.bashrc</code> neu.",
+    "Redirection HTTP vers HTTPS (Nginx)": "HTTP zu HTTPS Weiterleitung (Nginx)",
+    "Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).": "Ein minimalistischer Server-Block, um alle HTTP-Anfragen (Port 80) von all Ihren Domains auf ihr HTTPS-Äquivalent (Port 443) umzuleiten.",
+    "Vérification des systèmes...": "Systeme werden überprüft...",
+    "Tous les systèmes sont opérationnels": "Alle Systeme sind betriebsbereit",
+    "Incident en cours...": "Vorfall im Gange...",
+    "Statut indisponible": "Status nicht verfügbar"
 };

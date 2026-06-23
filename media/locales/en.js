@@ -995,4 +995,18 @@
     "Automatisation complète de la gestion multimédia.": "Complete automation of media management.",
     "Gestion des accès externes sécurisés et redirections.": "Management of secure external access and redirects.",
     "Sécurisation DNS, cache, certificats SSL et tunnels.": "DNS security, caching, SSL certificates, and tunnels."
+    ,"Une collection de petites commandes, scripts et configurations que j'utilise fréquemment au quotidien sur mon infrastructure.": "A collection of small commands, scripts, and configurations that I frequently use daily on my infrastructure.",
+    "Snippets & Astuces": "Snippets & Tips",
+    "Bouts de code et commandes pratiques": "Code snippets and practical commands",
+    "Nettoyage Complet Docker": "Complete Docker Cleanup",
+    "Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.": "To deeply clean your Docker server and free up disk space by removing stopped containers, unused networks, dangling images, and build cache.",
+    "Mise à jour rapide Ubuntu (Alias)": "Quick Ubuntu Update (Alias)",
+    "Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.": "Add this alias to your <code>~/.bashrc</code> file to update everything with a single quick command.",
+    "Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.": "After adding it, reload your terminal with <code>source ~/.bashrc</code>.",
+    "Redirection HTTP vers HTTPS (Nginx)": "HTTP to HTTPS Redirect (Nginx)",
+    "Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).": "A minimalist server block to force all HTTP requests (port 80) from all your domains to their HTTPS equivalent (port 443).",
+    "Vérification des systèmes...": "Checking systems...",
+    "Tous les systèmes sont opérationnels": "All systems operational",
+    "Incident en cours...": "Incident in progress...",
+    "Statut indisponible": "Status unavailable"
 };
