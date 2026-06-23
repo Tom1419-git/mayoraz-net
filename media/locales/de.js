@@ -80,5 +80,4 @@
     "Tous les systèmes opérationnels": "Alle Systeme sind betriebsbereit",
     "Incident en cours...": "Vorfall im Gange...",
     "Statut indisponible": "Status nicht verfügbar"
-    "Télécharger ma VCard": "Meine VCard herunterladen"
 };
