@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    THOMAS MAYORAZ — main.css
    Azentos-Inspired Premium Dark Theme
    Zero duplication · CSS Custom Properties · Mobile-first
@@ -1900,3 +1900,24 @@ footer p a:hover {
 }
 
 .skill-icon { max-width: 32px !important; max-height: 32px !important; object-fit: contain; flex-shrink: 0; }
+
+/* === View Transitions pour le thème === */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: themeReveal 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 9999;
+}
+
+@keyframes themeReveal {
+  from {
+    clip-path: circle(0% at 85% 5%); /* Position typique du bouton de thème */
+  }
+  to {
+    clip-path: circle(150% at 85% 5%);
+  }
+}
