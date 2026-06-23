@@ -13,7 +13,7 @@
 <br/>
 
 <div align="center">
-  <img src="media/img/og_banner.png?v=3" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
+  <img src="media/img/og_banner.png?v=4" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 </div>
 
 <br/>
