@@ -25,7 +25,7 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 ### ✨ Fonctionnalités clés
 * **Design moderne** : Interface sombre (Dark mode), design responsive, et animations fluides.
 * **Portfolio intégré** : Présentation détaillée de mes projets personnels et scolaires.
-* **Formulaire de contact sécurisé** : Protection anti-spam propulsée par Cloudflare Turnstile intégrée au frontend, avec soumission AJAX via Formspree.
+* **Formulaire de contact sécurisé** : Protection anti-spam propulsée par Cloudflare Turnstile intégrée au frontend, avec soumission AJAX via Web3Forms.
 * **SEO optimisé** : Balises Open Graph pour le partage sur les réseaux sociaux et sitemap XML.
 
 ## 🛠️ Technologies Utilisées
@@ -34,7 +34,7 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 * **Polices & Icônes** : Google Fonts (Inter)
 * **Sécurité** : Cloudflare Turnstile
 * **Hébergement** : GitHub Pages
-* **Backend de messagerie** : Formspree
+* **Backend de messagerie** : Web3Forms
 
 ## 📂 Structure du projet
 
