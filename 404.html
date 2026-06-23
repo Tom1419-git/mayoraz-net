@@ -81,14 +81,26 @@
         </div>
     </nav>
 
-    <div class="container error-page">
+        <div class="container error-page" style="margin-top: 50px;">
         <div class="error-code reveal">404</div>
         <h1 class="error-title reveal">Oups, page introuvable...</h1>
         <p class="error-text reveal">
             Il semble que vous soyez perdu dans le cyberespace. La page que vous cherchez a peut-être été supprimée, renommée, ou n'a tout simplement jamais existé. <br><br>
             Avez-vous essayé de l'éteindre et de la rallumer ? 🔌
         </p>
-        <a href="/index.html" class="btn-primary reveal" style="display:inline-block">&#x2190; Retour à l'accueil</a>
+        
+        <!-- Snake Game Container -->
+        <div id="snake-container" class="reveal" style="margin-top: 20px; background: rgba(0, 0, 0, 0.5); border: 2px solid var(--primary); border-radius: 10px; padding: 10px; box-shadow: 0 0 15px rgba(0, 212, 255, 0.2); position: relative; display: inline-block;">
+            <canvas id="snake-game" width="400" height="300" style="display: block; background: #111; border-radius: 5px;"></canvas>
+            <div id="snake-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0,0,0,0.7); border-radius: 10px; cursor: pointer;">
+                <p style="color: var(--primary); font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">SysAdmin Snake</p>
+                <p style="color: #fff; font-size: 0.9rem;">Cliquez pour jouer !</p>
+                <p style="color: #aaa; font-size: 0.8rem; margin-top: 5px;">(Flèches pour vous diriger)</p>
+            </div>
+        </div>
+        <br><br>
+
+        <a href="/" class="btn-primary reveal" style="display:inline-block">&#x2190; Retour à l'accueil</a>
     </div>
 
     <footer>
