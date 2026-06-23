@@ -85,6 +85,7 @@
                 <li><a href="/">Accueil</a></li>
                 <li><a href='/a-propos/'>À propos</a></li>
                 <li><a href="/tutoriels/">Tutoriels</a></li>
+                <li><a href="/snippets/">Snippets</a></li>
                 <li><a href='/contact/'>Contact</a></li>
                             <select id="lang-select" class="lang-select" aria-label="Changer de langue">
     <option value="FR">FR</option>
@@ -125,6 +126,12 @@
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
                 Mon LinkedIn
+            </a>
+        </div>
+        <div id="live-status-widget" style="margin-top: 20px; display: flex; justify-content: center;">
+            <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: flex; align-items: center; gap: 10px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 8px 18px; border-radius: 25px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1); backdrop-filter: blur(5px);">
+                <span id="status-indicator" style="width: 12px; height: 12px; border-radius: 50%; background-color: #555; box-shadow: 0 0 10px transparent; transition: all 0.5s ease;"></span>
+                <span id="status-text" data-i18n="Vérification des systèmes...">Vérification des systèmes...</span>
             </a>
         </div>
       </div>
@@ -386,9 +393,46 @@
     <script src="/media/js/typewriter.js?v=5"></script>
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
-    <script src="/media/locales/en.js?v=14"></script>
-    <script src="/media/locales/de.js?v=14"></script>
+    <script src="/media/locales/en.js?v=15"></script>
+    <script src="/media/locales/de.js?v=15"></script>
     <script src="/media/js/lang.js?v=3"></script>
     <script src="/media/js/konami.js"></script>
+    <script>
+      async function updateStatus() {
+        try {
+          let res = await fetch('https://status.mayoraz-net.ch/api/status-page/home');
+          if(!res.ok) throw new Error('API failed');
+          let data = await res.json();
+          let indicator = document.getElementById('status-indicator');
+          let text = document.getElementById('status-text');
+          if(data.incident === null) {
+            indicator.style.backgroundColor = '#2ecc71';
+            indicator.style.boxShadow = '0 0 10px #2ecc71';
+            text.textContent = 'Tous les systèmes sont opérationnels';
+            text.setAttribute('data-i18n', 'Tous les systèmes sont opérationnels');
+          } else {
+            indicator.style.backgroundColor = '#f39c12';
+            indicator.style.boxShadow = '0 0 10px #f39c12';
+            text.textContent = 'Incident en cours...';
+            text.setAttribute('data-i18n', 'Incident en cours...');
+          }
+          // Re-trigger translation if needed
+          if (typeof document.dispatchEvent === 'function') {
+             // Let lang.js pick it up by refreshing translations manually
+             const event = new Event('DOMContentLoaded');
+             document.dispatchEvent(event);
+          }
+        } catch(e) {
+          let indicator = document.getElementById('status-indicator');
+          let text = document.getElementById('status-text');
+          indicator.style.backgroundColor = '#e74c3c';
+          indicator.style.boxShadow = '0 0 10px #e74c3c';
+          text.textContent = 'Statut indisponible';
+          text.setAttribute('data-i18n', 'Statut indisponible');
+        }
+      }
+      updateStatus();
+      setInterval(updateStatus, 60000);
+    </script>
 </body>
 </html>

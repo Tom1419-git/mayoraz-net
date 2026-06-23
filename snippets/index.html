@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Tutoriels SysAdmin - Thomas Mayoraz</title>
+    <title>Snippets & Astuces - Thomas Mayoraz</title>
     <meta name="robots" content="index, follow">
-    <meta name="description" content="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média."/>
-    <link rel="canonical" href="https://mayoraz-net.ch/tutoriels/">
+    <meta name="description" content="Une collection de petites commandes, scripts et configurations utiles au quotidien."/>
+    <link rel="canonical" href="https://mayoraz-net.ch/snippets/">
     <link rel="icon" href="/media/img/logo.webp"/>
 
     <link rel="stylesheet" href="/media/css/main.css?v=22">
@@ -49,59 +49,43 @@
                     <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
-                <h1>Tutoriels & Astuces</h1>
-                <p class="subtitle">Ma petite base de connaissances technique</p>
+                <h1>Snippets & Astuces</h1>
+                <p class="subtitle">Bouts de code et commandes pratiques</p>
                 <a class='back-nav' href="/">&#x2190; Retour à l'accueil</a>
             </div>
         </header>
 
                 <main class="tuto-container reveal">
             <p style="text-align: center; margin-bottom: 40px; color: var(--text-main); opacity: 0.8;">
-                Voici quelques mémos techniques et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.
+                Une collection de petites commandes, scripts et configurations que j'utilise fréquemment au quotidien sur mon infrastructure.
             </p>
 
             <div id="tutorials-container">
-                <!-- Tuto 1 -->
-                <button class="accordion"><span class="tag">Docker</span> <span class="tuto-title">Le fichier docker-compose parfait pour débuter</span></button>
+                <!-- Snippet 1 -->
+                <button class="accordion"><span class="tag">Docker</span> <span class="tuto-title">Nettoyage Complet Docker</span></button>
                 <div class="panel">
-                    <p>Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.</p>
-                    <pre><code>version: "3.8"
-services:
-  app:
-    image: nginx:latest
-    container_name: web_app
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    volumes:
-      - ./data:/usr/share/nginx/html
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"</code></pre>
+                    <p>Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.</p>
+                    <pre><code>docker system prune -a --volumes -f</code></pre>
                 </div>
 
-                <!-- Tuto 2 -->
-                <button class="accordion"><span class="tag">n8n</span> <span class="tuto-title">Auto-Healing : Redémarrer un conteneur crashé</span></button>
+                <!-- Snippet 2 -->
+                <button class="accordion"><span class="tag">Linux</span> <span class="tuto-title">Mise à jour rapide Ubuntu (Alias)</span></button>
                 <div class="panel">
-                    <p>Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :</p>
-                    <pre><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
-                    <p>Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.</p>
+                    <p>Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.</p>
+                    <pre><code>alias updateall='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'</code></pre>
+                    <p>Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.</p>
                 </div>
 
-                <!-- Tuto 3 -->
-                <button class="accordion"><span class="tag">Media</span> <span class="tuto-title">Architecture de la Stack 'Arr'</span></button>
+                <!-- Snippet 3 -->
+                <button class="accordion"><span class="tag">Nginx</span> <span class="tuto-title">Redirection HTTP vers HTTPS (Nginx)</span></button>
                 <div class="panel">
-                    <p>La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :</p>
-                    <ol style="color: var(--text-muted); line-height: 1.7; margin: 15px 0 15px 25px;">
-                        <li>L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.</li>
-                        <li>Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).</li>
-                        <li>Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.</li>
-                        <li>Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.</li>
-                        <li>Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.</li>
-                        <li><strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.</li>
-                    </ol>
+                    <p>Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).</p>
+                    <pre><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    return 301 https://$host$request_uri;
+}</code></pre>
                 </div>
             </div>
         </main>
