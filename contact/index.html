@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@
     </script>
   <link rel="stylesheet" href="/media/css/main.css?v=22">
   <link rel="stylesheet" href="/media/css/contact.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback" async defer></script>
 
   <link rel="stylesheet" href="/media/css/toast.css">
   <link rel="stylesheet" href="/media/css/terminal.css">
@@ -139,7 +139,7 @@
                         <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." required></textarea>
                     </div>
 
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADhc2UTooOzxGXSX" data-theme="dark" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
+                    <div id="cf-turnstile-container" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
                     <button type="submit" class="submit-btn">
                         Envoyer le message
                     </button>
@@ -256,5 +256,36 @@
     <script src="/media/js/lang.js?v=3"></script>
 
     <script src="/media/js/konami.js"></script>
+    <script>
+        let turnstileWidgetId = null;
+
+        window.onloadTurnstileCallback = function () {
+            renderTurnstile();
+        };
+
+        function renderTurnstile() {
+            if (typeof turnstile === 'undefined') return;
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            
+            if (turnstileWidgetId !== null) {
+                turnstile.remove(turnstileWidgetId);
+            }
+            
+            turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
+                sitekey: '0x4AAAAAADhc2UTooOzxGXSX',
+                theme: currentTheme
+            });
+        }
+
+        // Observer pour détecter quand le bouton thème est cliqué
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'data-theme') {
+                    renderTurnstile();
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+    </script>
 </body>
 </html>
