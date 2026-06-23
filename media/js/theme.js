@@ -151,3 +151,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Widget de Statut Uptime Kuma Global
+document.addEventListener('DOMContentLoaded', () => {
+    async function updateStatus() {
+        let indicator = document.getElementById('status-indicator');
+        let text = document.getElementById('status-text');
+        
+        if (!indicator || !text) return; // Si le widget n'est pas sur la page, on ignore
+        
+        // Optimistic default
+        indicator.style.backgroundColor = '#2ecc71';
+        indicator.style.boxShadow = '0 0 10px #2ecc71';
+        text.textContent = 'Tous les systèmes opérationnels';
+        text.setAttribute('data-i18n', 'Tous les systèmes opérationnels');
+        
+        if (typeof document.dispatchEvent === 'function') {
+           document.dispatchEvent(new Event('DOMContentLoaded'));
+        }
+
+        try {
+          let res = await fetch('/api/status-kuma/home');
+          if(res.ok) {
+            let data = await res.json();
+            if(data.incident !== null) {
+              indicator.style.backgroundColor = '#f39c12';
+              indicator.style.boxShadow = '0 0 10px #f39c12';
+              text.textContent = 'Incident en cours...';
+              text.setAttribute('data-i18n', 'Incident en cours...');
+              document.dispatchEvent(new Event('DOMContentLoaded'));
+            }
+          }
+        } catch(e) {
+          console.log("Widget status: Fallback sur statut optimiste.");
+        }
+    }
+    updateStatus();
+    setInterval(updateStatus, 60000);
+});
