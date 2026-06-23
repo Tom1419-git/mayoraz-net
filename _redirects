@@ -1,4 +1,4 @@
-# Redirections suite à la restructuration du portfolio et aux URLs propres (Clean URLs)
+﻿# Redirections suite à la restructuration du portfolio et aux URLs propres (Clean URLs)
 
 # Redirection des anciens fichiers HTML du portfolio (avant qu'ils ne deviennent des dossiers /index.html)
 /a-propos/a-propos.html /a-propos/ 301
@@ -20,3 +20,6 @@
 /sites-web/ctt_montriond_version_club/equipes.html /sites-web/ctt_montriond_version_club/equipes 301
 /sites-web/ctt_montriond_version_club/contact.html /sites-web/ctt_montriond_version_club/contact 301
 /sites-web/ctt_montriond_version_club/a-propos.html /sites-web/ctt_montriond_version_club/a-propos 301
+
+# Proxy vers Uptime Kuma pour le widget de statut (contournement CORS)
+/api/status-kuma/* https://status.mayoraz-net.ch/api/status-page/:splat 200
