@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
   <img src="media/img/logo.webp" alt="Logo" width="100"/>
   <h1>Portfolio & Services Informatiques - Thomas Mayoraz</h1>
   <p>Mon portfolio personnel et vitrine de mes services informatiques en région lausannoise.</p>
@@ -13,7 +13,7 @@
 <br/>
 
 <div align="center">
-  <img src="media/img/preview.png" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
+  <img src="media/img/og_banner.png" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 </div>
 
 <br/>
