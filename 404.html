@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erreur 404 - Page Introuvable | Thomas Mayoraz</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://mayoraz-net.ch/"/>
+    <meta property="og:title" content="Erreur 404 - Page Introuvable | Thomas Mayoraz"/>
+    <meta property="og:description" content="Expert en services informatiques basé à Lausanne."/>
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/preview.png"/>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://mayoraz-net.ch/"/>
+    <meta property="twitter:title" content="Erreur 404 - Page Introuvable | Thomas Mayoraz"/>
+    <meta property="twitter:description" content="Expert en services informatiques basé à Lausanne."/>
+    <meta property="twitter:image" content="https://mayoraz-net.ch/media/img/preview.png"/>
     <link rel="icon" href="/media/img/logo.webp">
     <link rel="stylesheet" href="/media/css/main.css?v=22">
     <style>
@@ -38,6 +50,7 @@
         }
     </style>
 
+  <link rel="stylesheet" href="/jeu-trex/trex.css?v=3">
   <link rel="stylesheet" href="/media/css/toast.css">
   <link rel="stylesheet" href="/media/css/terminal.css">
 
@@ -71,12 +84,45 @@
 
     <div class="container error-page">
         <div class="error-code reveal">404</div>
-        <h1 class="error-title reveal">Oups, page introuvable...</h1>
+                <h1 class="error-title reveal">Oups, page introuvable...</h1>
         <p class="error-text reveal">
-            Il semble que vous soyez perdu dans le cyberespace. La page que vous cherchez a peut-être été supprimée, renommée, ou n'a tout simplement jamais existé. <br><br>
-            Avez-vous essayé de l'éteindre et de la rallumer ? 🔌
+            Il semble que vous soyez perdu dans le cyberespace. Mais ne partez pas tout de suite !<br><br>
+            Aidez-nous à maintenir le serveur principal en ligne en évitant les pannes réseau :
         </p>
-        <a href="/index.html" class="btn-primary reveal" style="display:inline-block">&#x2190; Retour à l'accueil</a>
+        
+        <section class="game-section reveal">
+                <div class="game-container">
+                    <div class="score-board">
+                        <span>Score: <span id="current-score">0</span></span>
+                        <div style="display: flex; gap: 15px; align-items: center;"><span>Record: <span id="high-score">0</span></span><button id="fullscreen-btn" aria-label="Plein écran" style="background:none; border:none; color:var(--primary); cursor:pointer; display:flex; align-items:center; padding: 0;" title="Plein écran (F)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button></div>
+                    </div>
+                    <canvas id="gameCanvas" width="800" height="300"></canvas>
+                    
+                    <div id="start-overlay" class="game-overlay">
+                        <h2>Prêt à courir ?</h2>
+                        <p>Appuyez sur <kbd>Espace</kbd> ou touchez l'écran pour sauter.</p>
+                        <p>Évitez les Routeurs en feu (🔥) et les Bugs (🐛) !</p>
+                        
+                        <div class="difficulty-selector" style="margin: 15px 0; display: flex; gap: 10px; justify-content: center;">
+                            <button class="diff-btn" data-speed="3" style="padding: 5px 15px; border-radius: 5px; border: 1px solid #1e90ff; background: transparent; color: #1e90ff; cursor: pointer;">Lent</button>
+                            <button class="diff-btn active" data-speed="4" style="padding: 5px 15px; border-radius: 5px; border: 1px solid #1e90ff; background: #1e90ff; color: #fff; cursor: pointer;">Normal</button>
+                            <button class="diff-btn" data-speed="5.5" style="padding: 5px 15px; border-radius: 5px; border: 1px solid #ff4500; background: transparent; color: #ff4500; cursor: pointer;">Rapide</button>
+                        </div>
+
+                        <button id="start-btn" class="cta-button">Lancer le script</button>
+                    </div>
+                    
+                    <div id="game-over-overlay" class="game-overlay hidden">
+                        <h2>⚠️ KERNEL PANIC ⚠️</h2>
+                        <p>Le serveur a crashé !</p>
+                        <p>Score final : <span id="final-score">0</span></p>
+                        <button id="restart-btn" class="cta-button">Reboot Server</button>
+                    </div>
+                </div>
+            </section>
+        
+        <br><br>
+        <a href="/" class="btn-primary reveal" style="display:inline-block">&#x2190; Fuyons vers l'accueil</a>
     </div>
 
     <footer>
@@ -99,6 +145,8 @@
     <script src="/media/locales/de.js?v=16"></script>
     <script src="/media/js/lang.js?v=4"></script>
 
+    <script src="/jeu-trex/trex.js?v=3"></script>
     <script src="/media/js/konami.js"></script>
+<script src="/media/js/transitions.js?v=1"></script>
 </body>
 </html>

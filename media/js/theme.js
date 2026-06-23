@@ -1,4 +1,4 @@
-// media/js/theme.js
+﻿// media/js/theme.js
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Dark/Light Theme Logic
