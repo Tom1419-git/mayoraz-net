@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -400,7 +400,7 @@
     <script>
       async function updateStatus() {
         try {
-          let res = await fetch('https://status.mayoraz-net.ch/api/status-page/home');
+          let res = await fetch('/api/status-kuma/home');
           if(!res.ok) throw new Error('API failed');
           let data = await res.json();
           let indicator = document.getElementById('status-indicator');
