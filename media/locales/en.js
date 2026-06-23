@@ -80,5 +80,4 @@
     "Tous les systèmes opérationnels": "All systems operational",
     "Incident en cours...": "Incident ongoing...",
     "Statut indisponible": "Status unavailable"
-    "Télécharger ma VCard": "Download my VCard"
 };
