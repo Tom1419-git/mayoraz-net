@@ -95,12 +95,12 @@ services:
                 <div class="panel">
                     <p>La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :</p>
                     <ol style="color: var(--text-muted); line-height: 1.7; margin: 15px 0 15px 25px;">
-                        <li>L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.</li>
-                        <li>Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).</li>
-                        <li>Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.</li>
-                        <li>Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.</li>
-                        <li>Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.</li>
-                        <li><strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.</li>
+                        <li data-i18n-html="tuto_arr_1">L'utilisateur fait une demande sur <strong>Jellyseerr</strong>.</li>
+                        <li data-i18n-html="tuto_arr_2">Jellyseerr envoie la requête à <strong>Sonarr</strong> (Séries) ou <strong>Radarr</strong> (Films).</li>
+                        <li data-i18n-html="tuto_arr_3">Radarr interroge les indexers via <strong>Prowlarr</strong> pour trouver le meilleur fichier.</li>
+                        <li data-i18n-html="tuto_arr_4">Le torrent est envoyé à <strong>qBittorrent</strong> pour téléchargement.</li>
+                        <li data-i18n-html="tuto_arr_5">Une fois terminé, Radarr déplace et renomme le fichier proprement dans le pool <strong>MergerFS</strong>.</li>
+                        <li data-i18n-html="tuto_arr_6"><strong>Jellyfin</strong> détecte le nouveau fichier et l'ajoute à la bibliothèque.</li>
                     </ol>
                 </div>
 
@@ -116,9 +116,9 @@ services:
                 <!-- Snippet 2 -->
                 <button class="accordion"><span class="tag">Linux</span> <span class="tuto-title">Mise à jour rapide Ubuntu (Alias)</span></button>
                 <div class="panel">
-                    <p>Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.</p>
+                    <p data-i18n-html="tuto_alias_1">Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.</p>
                     <pre><code>alias updateall='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'</code></pre>
-                    <p>Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.</p>
+                    <p data-i18n-html="tuto_alias_2">Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.</p>
                 </div>
 
                 <!-- Snippet 3 -->
