@@ -1,4 +1,4 @@
-// media/js/theme.js
+﻿// media/js/theme.js
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Dark/Light Theme Logic
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         text.setAttribute('data-i18n', 'Tous les systèmes opérationnels');
         
         if (typeof document.dispatchEvent === 'function') {
-           document.dispatchEvent(new Event('DOMContentLoaded'));
+           
         }
 
         try {
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
               indicator.style.boxShadow = '0 0 10px #f39c12';
               text.textContent = 'Incident en cours...';
               text.setAttribute('data-i18n', 'Incident en cours...');
-              document.dispatchEvent(new Event('DOMContentLoaded'));
+              
             }
           }
         } catch(e) {
