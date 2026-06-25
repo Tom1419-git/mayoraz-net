@@ -1,6 +1,6 @@
 // media/js/lang.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     const langSelects = document.querySelectorAll('.lang-select');
     if (langSelects.length === 0) return;
 

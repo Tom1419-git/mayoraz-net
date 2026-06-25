@@ -1,5 +1,5 @@
 // media/js/typewriter.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     const typewriterElement = document.getElementById('typewriter');
     if (!typewriterElement) return;
 

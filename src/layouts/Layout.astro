@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 export interface Props {
 	title: string;
 	description?: string;
@@ -32,6 +34,7 @@ const {
     {cssFile && <link rel="stylesheet" href={cssFile} />}
     <link rel="stylesheet" href="/media/css/toast.css">
     <link rel="stylesheet" href="/media/css/terminal.css">
+    <ClientRouter />
     
     <!-- Analytics -->
     <script type="text/javascript" is:inline>

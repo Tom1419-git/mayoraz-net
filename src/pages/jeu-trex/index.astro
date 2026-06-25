@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -6,7 +8,7 @@ import Layout from '../../layouts/Layout.astro';
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Admin Run</h1>
