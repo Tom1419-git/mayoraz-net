@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    THOMAS MAYORAZ — main.css
    Azentos-Inspired Premium Dark Theme
    Zero duplication · CSS Custom Properties · Mobile-first
@@ -535,14 +535,33 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+}
+
+/* Effet Glow dynamique interne */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-card:hover::before {
+    left: 150%;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--glass-border-hover);
-    box-shadow: 0 20px 40px -10px rgba(58, 126, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px -10px rgba(58, 126, 255, 0.15), 0 0 20px rgba(58, 126, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .project-header {

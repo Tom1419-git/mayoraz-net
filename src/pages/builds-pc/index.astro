@@ -1,99 +1,17 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Builds PC - Thomas Mayoraz | Services Informatiques Lausanne</title>
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Mes configurations PC personnalisées : gaming, workstation et home server. Thomas Mayoraz, expert en services informatiques à Lausanne.">
-    <link rel="canonical" href="https://mayoraz-net.ch/builds-pc/">
-    <meta name="keywords" content="build pc, configuration pc, montage pc, gaming pc, workstation pc, home server, thomas mayoraz, lausanne">
-    <meta name="author" content="Thomas Mayoraz">
-    <link rel="icon" href="/media/img/logo.webp">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mayoraz-net.ch/builds-pc/">
-    <meta property="og:title" content="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne">
-    <meta property="og:description" content="Découvrez mes configurations PC personnalisées : gaming, workstation et home server.">
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
-    <meta property="og:image:alt" content="Thomas Mayoraz - Configurations PC personnalisées">
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Builds PC",
-        "description": "Collection de configurations PC assemblées par Thomas Mayoraz",
-        "url": "https://mayoraz-net.ch/builds-pc/",
-        "numberOfItems": 2,
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "Thing",
-                    "name": "PC Gaming",
-                    "description": "Configuration haut de gamme pour le gaming"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "Thing",
-                    "name": "Workstation",
-                    "description": "Station de travail pour développement et création"
-                }
-            }
-        ]
-    }
-    </script>
-  <link rel="stylesheet" href="/media/css/main.css?v=1782221779">
-
-  <link rel="stylesheet" href="/media/css/toast.css">
-  <link rel="stylesheet" href="/media/css/terminal.css">
-
-</head>
-<body>
-  <!-- Loader -->
-    <canvas id="particles-bg"></canvas>
-    <!-- Navigation -->
-        <nav class="main-nav">
-        <div class="nav-overlay" id="nav-overlay"></div>
-        <div class="nav-container">
-            <a class='logo' href="/">Thomas Mayoraz</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href='/a-propos/'>À propos</a></li>
-                <li><a href="/tutoriels/">Tutoriels</a></li>
-                <li><a href='/contact/'>Contact</a></li>
-                            <select id="lang-select" class="lang-select" aria-label="Changer de langue">
-    <option value="FR">FR</option>
-    <option value="EN">EN</option>
-    <option value="DE">DE</option>
-</select>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
-            </ul>
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-                <header style="margin-bottom: 20px;">
+<Layout title="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes configurations PC personnalisées : gaming, workstation et home server. Thomas Mayoraz, expert en services informatiques à Lausanne.">
+    <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Mes Builds PC</h1>
                 <p class="subtitle">Configurations personnalisées et optimisées</p>
-                <a class='back-nav' href="/">&#x2190; Retour au Portfolio</a>
+                <a class="back-nav" href="/">← Retour au Portfolio</a>
             </div>
         </header>
 
@@ -107,16 +25,16 @@
                 <div class="build-card">
                                         <div class="build-image carousel-container">
                         <div class="carousel-slide active">
-                            <img src="/media/img/builds-pc/pc-setup1.webp" alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)" />
+                            <img src="/media/img/builds-pc/pc-setup1.webp" alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)">
                         </div>
                         <div class="carousel-slide">
-                            <img src="/media/img/builds-pc/pc-setup2.webp" alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)" />
+                            <img src="/media/img/builds-pc/pc-setup2.webp" alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)">
                         </div>
                         <div class="carousel-slide">
-                            <img src="/media/img/builds-pc/pc-setup3.webp" alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)" />
+                            <img src="/media/img/builds-pc/pc-setup3.webp" alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)">
                         </div>
-                        <button class="carousel-btn prev-btn" aria-label="Image précédente">&#10094;</button>
-                        <button class="carousel-btn next-btn" aria-label="Image suivante">&#10095;</button>
+                        <button class="carousel-btn prev-btn" aria-label="Image précédente">❮</button>
+                        <button class="carousel-btn next-btn" aria-label="Image suivante">❯</button>
                         <div class="carousel-dots">
                             <span class="dot active" data-slide="0"></span>
                             <span class="dot" data-slide="1"></span>
@@ -148,23 +66,39 @@
             </div>
 
         </main>
-
-        <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
-            <nav>
-              <a href="/">Accueil</a>
-              <a href="/a-propos/">À propos</a>
-              <a href="/tutoriels/">Tutoriels</a>
-              <a href="/contact/">Contact</a>
-              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
-            </nav>
-        </footer>
-    </div>
-
-    <!-- Bouton Retour en haut -->
-    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
-
-    <script>
+    
+    <Fragment slot="scripts">
+        <script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Builds PC",
+        "description": "Collection de configurations PC assemblées par Thomas Mayoraz",
+        "url": "https://mayoraz-net.ch/builds-pc/",
+        "numberOfItems": 2,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "Thing",
+                    "name": "PC Gaming",
+                    "description": "Configuration haut de gamme pour le gaming"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "Thing",
+                    "name": "Workstation",
+                    "description": "Station de travail pour développement et création"
+                }
+            }
+        ]
+    }
+    </script>
+<script is:inline>
         // Navigation active
         document.querySelectorAll('.main-nav a').forEach(link => {
             if (link.href === window.location.href) {
@@ -191,18 +125,7 @@
             });
         });
     </script>
-
-    
-        <!-- Lightbox Modal -->
-    <div id="imageModal" class="modal">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <button id="modalPrev" class="modal-nav-btn">&#10094;</button>
-        <img class="modal-content" id="modalImage" alt="Image en plein &eacute;cran">
-        <button id="modalNext" class="modal-nav-btn">&#10095;</button>
-    </div>
-
-        <!-- Carousel Script -->
-    <script>
+<script is:inline>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.carousel-slide');
             const dots = document.querySelectorAll('.dot');
@@ -281,15 +204,5 @@
             startSlideShow();
         });
     </script>
-    <script src="/media/js/theme.js?v=1782221779"></script>
-    <script src="/media/js/particles.js?v=1782221779"></script>
-
-    <script src="/media/js/toast.js"></script>
-    <script src="/media/js/terminal.js"></script>
-    <script src="/media/locales/en.js?v=1782221779"></script>
-    <script src="/media/locales/de.js?v=1782221779"></script>
-    <script src="/media/js/lang.js?v=1782221779"></script>
-
-    <script src="/media/js/konami.js"></script>
-</body>
-</html>
+    </Fragment>
+</Layout>
