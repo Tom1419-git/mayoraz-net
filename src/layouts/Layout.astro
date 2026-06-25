@@ -53,10 +53,10 @@ const {
         <div class="nav-container">
             <a class='logo' href="/">Thomas Mayoraz</a>
             <ul class="nav-links" id="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href='/a-propos/'>À propos</a></li>
-                <li><a href="/tutoriels/">Tutoriels</a></li>
-                <li><a href='/contact/'>Contact</a></li>
+                <li><a href="/" data-i18n="Accueil">Accueil</a></li>
+                <li><a href='/a-propos/' data-i18n="À propos">À propos</a></li>
+                <li><a href="/tutoriels/" data-i18n="Tutoriels">Tutoriels</a></li>
+                <li><a href='/contact/' data-i18n="Contact">Contact</a></li>
                 <select id="lang-select" class="lang-select" aria-label="Changer de langue">
                     <option value="FR">FR</option>
                     <option value="EN">EN</option>
@@ -76,10 +76,10 @@ const {
         <footer>
             <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
             <nav>
-              <a href="/">Accueil</a>
-              <a href="/a-propos/">À propos</a>
-              <a href="/tutoriels/">Tutoriels</a>
-              <a href="/contact/">Contact</a>
+              <a href="/" data-i18n="Accueil">Accueil</a>
+              <a href="/a-propos/" data-i18n="À propos">À propos</a>
+              <a href="/tutoriels/" data-i18n="Tutoriels">Tutoriels</a>
+              <a href="/contact/" data-i18n="Contact">Contact</a>
               <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
             </nav>
         </footer>
