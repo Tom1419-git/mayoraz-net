@@ -1973,3 +1973,8 @@ body.fade-out {
 @view-transition {
   navigation: auto;
 }
+/* Personnalisation de la durée des View Transitions (Astro) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
