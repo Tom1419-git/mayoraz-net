@@ -11,51 +11,51 @@ import Layout from '../../layouts/Layout.astro';
                     <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
-                <h1>Quiz Tech</h1>
-                <p class="subtitle">Testez vos connaissances informatiques</p>
+                <h1 data-i18n="Quiz Tech">Quiz Tech</h1>
+                <p class="subtitle" data-i18n="Testez vos connaissances informatiques">Testez vos connaissances informatiques</p>
                 <a class="back-nav" href="/">← Retour à l'accueil</a>
             </div>
         </header>
 
         <div id="intro-container" class="intro-box">
-    <h1>Prêt pour le défi ?</h1>
-    <p>15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.</p>
+    <h1 data-i18n="Prêt pour le défi ?">Prêt pour le défi ?</h1>
+    <p data-i18n="15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.">15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.</p>
     <input type="text" id="pseudo-input" class="pseudo-input" placeholder="Entrez votre pseudo..." maxlength="15">
     <br>
-    <button id="start-quiz-btn" class="btn-primary" style="width: 80%; display: inline-block;">Commencer le Quiz</button>
+    <button id="start-quiz-btn" class="btn-primary" style="width: 80%; display: inline-block;" data-i18n="Commencer le Quiz">Commencer le Quiz</button>
 </div>
 
 <div id="quiz-container" style="display: none;">
-    <h1>Quiz Tech : Testez Vos Connaissances Informatiques</h1>
+    <h1 data-i18n="Quiz Tech : Testez Vos Connaissances Informatiques">Quiz Tech : Testez Vos Connaissances Informatiques</h1>
     <div id="progress">Question 1/15</div>
-    <div class="question" id="question-text">Chargement des questions...</div>
+    <div class="question" id="question-text" data-i18n="Chargement des questions...">Chargement des questions...</div>
     <div class="options-container" id="options-container"></div>
     <div id="feedback"></div>
-    <button id="next-btn">Suivant</button>
+    <button id="next-btn" data-i18n="Suivant">Suivant</button>
     
     <div id="results">
         <div id="score"></div>
         <div id="rank"></div>
         <div id="comment"></div>
-        <button id="show-answers-btn">Afficher les réponses</button>
-        <button id="restart-btn">Recommencer le quiz</button>
+        <button id="show-answers-btn" data-i18n="Afficher les réponses">Afficher les réponses</button>
+        <button id="restart-btn" data-i18n="Recommencer le quiz">Recommencer le quiz</button>
     </div>
 
     
     <div id="leaderboard-container" class="leaderboard-box" style="display: none;">
-        <h2>🏆 Classement du Jour</h2>
+        <h2 data-i18n="🏆 Classement du Jour">🏆 Classement du Jour</h2>
         <table class="leaderboard-table">
             <thead>
                 <tr>
-                    <th>Rang</th>
-                    <th>Pseudo</th>
-                    <th>Score</th>
+                    <th data-i18n="Rang">Rang</th>
+                    <th data-i18n="Pseudo">Pseudo</th>
+                    <th data-i18n="Score">Score</th>
                 </tr>
             </thead>
             <tbody id="leaderboard-body">
             </tbody>
         </table>
-        <p class="leaderboard-footer">Le classement se réinitialise tous les jours à minuit.</p>
+        <p class="leaderboard-footer" data-i18n="Le classement se réinitialise tous les jours à minuit.">Le classement se réinitialise tous les jours à minuit.</p>
     </div>
 
     <div id="all-answers"></div>
