@@ -119,32 +119,5 @@ import Layout from '../../layouts/Layout.astro';
         ]
     }
     </script>
-<script is:inline>
-        // Navigation active
-        document.querySelectorAll('.main-nav a').forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-
-        // Bouton retour en haut
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-        });
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Animation au survol des liens
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.opacity = '0.8';
-            });
-            link.addEventListener('mouseleave', function() {
-                this.style.opacity = '1';
-            });
-        });
-    </script>
     </Fragment>
 </Layout>
