@@ -86,39 +86,39 @@ import Layout from '../../layouts/Layout.astro';
                         <h3>💾 Stockage &amp; Pool MergerFS</h3>
                         <p>Pour la VM, j'utilise un disque OS de <strong>150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">LVM (150Go)</span>
-                            <span class="hl-tag">Passthrough Disks</span>
-                            <span class="hl-tag">MergerFS (4To Pool)</span>
+                            <span class="hl-tag" data-i18n="LVM (150Go)">LVM (150Go)</span>
+                            <span class="hl-tag" data-i18n="Passthrough Disks">Passthrough Disks</span>
+                            <span class="hl-tag" data-i18n="MergerFS (4To Pool)">MergerFS (4To Pool)</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
                         <h3>🌐 Réseau, Proxy &amp; Sécurité</h3>
-                        <p>L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
+                        <p data-i18n-html="L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.">L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Nginx (Interne)</span>
+                            <span class="hl-tag" data-i18n="Nginx (Interne)">Nginx (Interne)</span>
                             <span class="hl-tag">Cloudflare Tunnel</span>
-                            <span class="hl-tag">HTTPS/SSL</span>
+                            <span class="hl-tag" data-i18n="HTTPS/SSL">HTTPS/SSL</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
                         <h3>🛡️ Résilience &amp; Sauvegardes (Backups)</h3>
-                        <p>Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
+                        <p data-i18n-html="Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.">Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Full VM Backup</span>
+                            <span class="hl-tag" data-i18n="Full VM Backup">Full VM Backup</span>
                             <span class="hl-tag">rclone</span>
-                            <span class="hl-tag">Google Drive</span>
+                            <span class="hl-tag" data-i18n="Google Drive">Google Drive</span>
                         </div>
                     </div>
                     
                     <div class="hl-card reveal">
                         <h3>📈 Monitoring &amp; Auto-résolution</h3>
-                        <p>Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
+                        <p data-i18n-html="Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.">Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">Prometheus &amp; Grafana</span>
                             <span class="hl-tag">n8n</span>
-                            <span class="hl-tag">Auto-Healing</span>
+                            <span class="hl-tag" data-i18n="Auto-Healing">Auto-Healing</span>
                         </div>
                     </div>
                     
