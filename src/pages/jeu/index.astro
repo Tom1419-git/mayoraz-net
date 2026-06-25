@@ -94,6 +94,7 @@ import Layout from '../../layouts/Layout.astro';
     </script>
 <script is:inline>document.write(new Date().getFullYear())</script>
 <script is:inline>
+    document.addEventListener('astro:page-load', () => {
     const questions = [
         {
             question: "Qu'est-ce qu'une variable en programmation ?",
@@ -776,16 +777,24 @@ import Layout from '../../layouts/Layout.astro';
     showAnswersButton.addEventListener('click', afficherReponses);
 
     // Initialiser le quiz au chargement
-    initialiserQuiz();
+    const quizContainer = document.querySelector('.quiz-container');
+    if (quizContainer) {
+        initialiserQuiz();
+    }
 
-        // Bouton retour en haut
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
-        });
-        document.getElementById('backToTop').addEventListener('click', function() {
+    // Bouton retour en haut
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('backToTop');
+        if (btn) btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+    });
+    
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    }
+    }); // Close astro:page-load
 </script>
     </Fragment>
 </Layout>
