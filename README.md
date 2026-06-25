@@ -1,5 +1,5 @@
-﻿<div align="center">
-  <img src="media/img/logo.webp" alt="Logo" width="100"/>
+<div align="center">
+  <img src="public/media/img/logo.webp" alt="Logo" width="100"/>
   <h1>Portfolio & Services Informatiques - Thomas Mayoraz</h1>
   <p>Mon portfolio personnel et vitrine de mes services informatiques en région lausannoise.</p>
   
@@ -13,7 +13,7 @@
 <br/>
 
 <div align="center">
-  <img src="media/img/og_banner.png?v=4" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
+  <img src="public/media/img/og_banner.png?v=4" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 </div>
 
 <br/>
@@ -36,32 +36,24 @@ Ce projet est le code source de mon site personnel et portfolio professionnel. I
 * **Hébergement** : GitHub Pages
 * **Backend de messagerie** : Web3Forms
 
-## 📂 Structure du projet
+## 📂 Structure du projet (Astro)
 
 ```text
-├── index.html              # Page d'accueil (Services & Contact)
-├── a-propos/
-│   └── index.html          # Présentation de mon parcours et CV
-├── api/
-│   └── cv.json             # Endpoint JSON (Easter Egg curl)
-├── contact/
-│   ├── index.html          # Formulaire de contact sécurisé
-│   └── merci.html          # Page de confirmation d'envoi
-├── homelab/
-│   └── index.html          # Mon infrastructure personnelle & serveur
-├── jeu/
-│   └── index.html          # Quiz informatique
-├── jeu-trex/
-│   └── index.html          # Mini-jeu caché (Admin Run)
-├── status/
-│   └── index.html          # Page de statut des services (Status Page)
-├── tutoriels/
-│   └── index.html          # Base de connaissances et tutoriels
-├── media/
-│   ├── css/                # Feuilles de style (main.css, contact.css)
-│   ├── img/                # Images, photos de profil et logos
-│   └── js/                 # Scripts (konami.js, lang.js, terminal.js)
-└── sitemap.xml             # Fichier de mapping pour les moteurs de recherche
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro    # Modèle principal (Header, Footer, Transitions)
+│   └── pages/
+│       ├── index.astro     # Page d'accueil (Services)
+│       ├── contact/        # Formulaire de contact sécurisé
+│       ├── tutoriels/      # Base de connaissances
+│       └── ...             # Autres pages
+├── public/
+│   ├── media/
+│   │   ├── css/            # Feuilles de style (main.css...)
+│   │   ├── img/            # Images, logos, bannières
+│   │   └── js/             # Scripts (thème, captcha...)
+│   └── ...                 # Fichiers statiques (sitemap, etc.)
+└── .github/workflows/      # Action de déploiement automatique
 ```
 
 ## 📬 Me contacter
