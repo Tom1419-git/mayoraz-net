@@ -1,66 +1,17 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation</title>
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et monitoring via Prometheus & Grafana."/>
-    <link rel="canonical" href="https://mayoraz-net.ch/homelab/">
-    <meta name="keywords" content="homelab, docker, ubuntu server, jellyfin, radarr, prometheus, grafana, n8n, automatisation"/>
-    <meta name="author" content="Thomas Mayoraz"/>
-    <link rel="icon" href="/media/img/logo.webp"/>
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://mayoraz-net.ch/homelab/"/>
-    <meta property="og:title" content="Mon Homelab - Thomas Mayoraz"/>
-    <meta property="og:description" content="Découvrez mon infrastructure personnelle, mon automatisation média et mon monitoring."/>
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
-
-    <link rel="stylesheet" href="/media/css/main.css?v=1782221779">
-    <link rel="stylesheet" href="/media/css/toast.css">
-    <link rel="stylesheet" href="/media/css/terminal.css">
-    
-    <link rel="stylesheet" href="/media/css/homelab.css?v=1782221779">
-</head>
-<body>
-  <!-- Loader -->
-    <canvas id="particles-bg"></canvas>
-
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-overlay" id="nav-overlay"></div>
-        <div class="nav-container">
-            <a class='logo' href="/">Thomas Mayoraz</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/a-propos/">À propos</a></li>
-                <li><a href="/tutoriels/">Tutoriels</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <select id="lang-select" class="lang-select" aria-label="Changer de langue">
-    <option value="FR">FR</option>
-    <option value="EN">EN</option>
-    <option value="DE">DE</option>
-</select>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">☀️</button>
-            </ul>
-            <div class="burger" id="burger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-                <header style="margin-bottom: 20px;">
+<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et monitoring via Prometheus & Grafana." cssFile="/media/css/homelab.css?v=1782221779">
+    <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Mon Homelab</h1>
-                <p class="subtitle">Infrastructure Personnelle & Automatisation</p>
-                <a class='back-nav' href="/">&#x2190; Retour à l'accueil</a>
+                <p class="subtitle">Infrastructure Personnelle &amp; Automatisation</p>
+                <a class="back-nav" href="/">← Retour à l'accueil</a>
             </div>
         </header>
 
@@ -77,14 +28,14 @@
                 </div>
                 
                 <div class="grafana-grid">
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=2" frameborder="0"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=3" frameborder="0"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=4" frameborder="0"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=7" frameborder="0"></iframe>
+                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=2" frameborder="0"></iframe>
+                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=3" frameborder="0"></iframe>
+                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=4" frameborder="0"></iframe>
+                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=7" frameborder="0"></iframe>
                 </div>
                 
                 <div class="grafana-chart">
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&theme=dark&refresh=10s&panelId=11" frameborder="0"></iframe>
+                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=11" frameborder="0"></iframe>
                 </div>
             </section>
 
@@ -119,7 +70,7 @@
                 <div class="homelab-grid">
                     
                     <div class="hl-card reveal">
-                        <h3>🖥️ Hyperviseur & Matériel</h3>
+                        <h3>🖥️ Hyperviseur &amp; Matériel</h3>
                         <p>Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">Proxmox VE</span>
@@ -130,7 +81,7 @@
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>💾 Stockage & Pool MergerFS</h3>
+                        <h3>💾 Stockage &amp; Pool MergerFS</h3>
                         <p>Pour la VM, j'utilise un disque OS de <strong>150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">LVM (150Go)</span>
@@ -140,7 +91,7 @@
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>🌐 Réseau, Proxy & Sécurité</h3>
+                        <h3>🌐 Réseau, Proxy &amp; Sécurité</h3>
                         <p>L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">Nginx (Interne)</span>
@@ -150,7 +101,7 @@
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>🛡️ Résilience & Sauvegardes (Backups)</h3>
+                        <h3>🛡️ Résilience &amp; Sauvegardes (Backups)</h3>
                         <p>Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">Full VM Backup</span>
@@ -160,10 +111,10 @@
                     </div>
                     
                     <div class="hl-card reveal">
-                        <h3>📈 Monitoring & Auto-résolution</h3>
+                        <h3>📈 Monitoring &amp; Auto-résolution</h3>
                         <p>Le serveur est surveillé en temps réel par <strong>Prometheus</strong> et <strong>Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong>n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Prometheus & Grafana</span>
+                            <span class="hl-tag">Prometheus &amp; Grafana</span>
                             <span class="hl-tag">n8n</span>
                             <span class="hl-tag">Auto-Healing</span>
                         </div>
@@ -173,30 +124,5 @@
             </section>
 
         </main>
-
-        <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
-            <nav>
-              <a href="/">Accueil</a>
-              <a href="/a-propos/">À propos</a>
-              <a href="/tutoriels/">Tutoriels</a>
-              <a href="/contact/">Contact</a>
-              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
-            </nav>
-        </footer>
-    </div>
-
-    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
-
-
-
-    <script src="/media/js/theme.js?v=1782221779"></script>
-    <script src="/media/js/particles.js?v=1782221779"></script>
-    <script src="/media/js/toast.js"></script>
-    <script src="/media/js/terminal.js"></script>
-    <script src="/media/locales/en.js?v=1782221779"></script>
-    <script src="/media/locales/de.js?v=1782221779"></script>
-    <script src="/media/js/lang.js?v=1782221779"></script>
-    <script src="/media/js/konami.js"></script>
-</body>
-</html>
+    
+</Layout>

@@ -1,108 +1,17 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques </title>
-    <meta name="description" content="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau.">
-    <meta name="keywords" content="quiz informatique, test connaissances tech, questions programmation, quiz sécurité informatique, quiz hardware, quiz web, thomas mayoraz">
-    <meta name="author" content="Thomas Mayoraz">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mayoraz-net.ch/jeu/">
-    <link rel="icon" href="/media/img/logo.webp">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mayoraz-net.ch/jeu/">
-    <meta property="og:title" content="Quiz Tech - Testez vos connaissances informatiques | Thomas Mayoraz">
-    <meta property="og:description" content="Quiz interactif avec 15 questions techniques sur la programmation, le hardware et les technologies web. Évaluez votre niveau en informatique.">
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/quiz-tech-og.jpg">
-    <meta property="og:image:alt" content="Capture d'écran du quiz informatique de Thomas Mayoraz">
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mayoraz-net.ch/jeu/">
-    <meta property="twitter:title" content="Quiz Tech - Testez vos connaissances informatiques | Thomas Mayoraz">
-    <meta property="twitter:description" content="Défi technique avec 45 questions sur l'informatique. Programmez-vous, hardware, sécurité et web. Quel sera votre score?">
-    <meta property="twitter:image" content="https://mayoraz-net.ch/media/img/quiz-tech-twitter.jpg">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Quiz",
-        "name": "Quiz Tech - Connaissances Informatiques",
-        "description": "Questionnaire interactif testant les connaissances en informatique, programmation et technologies web",
-        "url": "https://mayoraz-net.ch/jeu/",
-        "author": {
-            "@type": "Person",
-            "name": "Thomas Mayoraz",
-            "jobTitle": "Apprenti Informatique",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "ETML Lausanne"
-            }
-        },
-        "educationalLevel": "Intermediate",
-        "hasPart": {
-            "@type": "Question",
-            "name": "Question sur les technologies informatiques",
-            "question": "Qu'est-ce qu'une variable en programmation ?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Un conteneur pour stocker des données"
-            }
-        },
-        "datePublished": "2025-01-01",
-        "timeRequired": "PT10M"
-    }
-    </script>
-  <link rel="stylesheet" href="/media/css/main.css?v=1782221779">
-  <link rel="stylesheet" href="/media/css/jeu.css">
-
-  <link rel="stylesheet" href="/media/css/toast.css">
-  <link rel="stylesheet" href="/media/css/terminal.css">
-
-</head>
-<body>
-  <!-- Loader -->
-    <canvas id="particles-bg"></canvas>
-
-<!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-overlay" id="nav-overlay"></div>
-        <div class="nav-container">
-            <a class='logo' href="/">Thomas Mayoraz</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href='/a-propos/'>À propos</a></li>
-                <li><a href="/tutoriels/">Tutoriels</a></li>
-                <li><a href='/contact/'>Contact</a></li>
-                            <select id="lang-select" class="lang-select" aria-label="Changer de langue">
-    <option value="FR">FR</option>
-    <option value="EN">EN</option>
-    <option value="DE">DE</option>
-</select>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th&egrave;me">☀️</button>
-            </ul>
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <header style="margin-bottom: 20px;">
+<Layout title="Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques " description="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau." cssFile="/media/css/jeu.css">
+    <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Quiz Tech</h1>
                 <p class="subtitle">Testez vos connaissances informatiques</p>
-                <a class='back-nav' href="/">&#x2190; Retour à l'accueil</a>
+                <a class="back-nav" href="/">← Retour à l'accueil</a>
             </div>
         </header>
 
@@ -149,21 +58,40 @@
 
     <div id="all-answers"></div>
 </div>
-
-</div>
-<footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
-            <nav>
-              <a href="/">Accueil</a>
-              <a href="/a-propos/">À propos</a>
-              <a href="/tutoriels/">Tutoriels</a>
-              <a href="/contact/">Contact</a>
-              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
-            </nav>
-        </footer>
-<button id="backToTop" aria-label="Retour en haut de page">↑</button>
-
-<script>
+    
+    <Fragment slot="scripts">
+        <script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": "Quiz Tech - Connaissances Informatiques",
+        "description": "Questionnaire interactif testant les connaissances en informatique, programmation et technologies web",
+        "url": "https://mayoraz-net.ch/jeu/",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas Mayoraz",
+            "jobTitle": "Apprenti Informatique",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "ETML Lausanne"
+            }
+        },
+        "educationalLevel": "Intermediate",
+        "hasPart": {
+            "@type": "Question",
+            "name": "Question sur les technologies informatiques",
+            "question": "Qu'est-ce qu'une variable en programmation ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un conteneur pour stocker des données"
+            }
+        },
+        "datePublished": "2025-01-01",
+        "timeRequired": "PT10M"
+    }
+    </script>
+<script is:inline>document.write(new Date().getFullYear())</script>
+<script is:inline>
     const questions = [
         {
             question: "Qu'est-ce qu'une variable en programmation ?",
@@ -857,16 +785,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 </script>
-
-    <script src="/media/js/theme.js?v=1782221779"></script>
-    <script src="/media/js/particles.js?v=1782221779"></script>
-
-    <script src="/media/js/toast.js"></script>
-    <script src="/media/js/terminal.js"></script>
-    <script src="/media/locales/en.js?v=1782221779"></script>
-    <script src="/media/locales/de.js?v=1782221779"></script>
-    <script src="/media/js/lang.js?v=1782221779"></script>
-
-    <script src="/media/js/konami.js"></script>
-</body>
-</html>
+    </Fragment>
+</Layout>

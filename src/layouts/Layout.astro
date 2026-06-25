@@ -1,0 +1,97 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+	cssFile?: string;
+}
+
+const { 
+	title, 
+	description = "Services informatiques professionnels à Lausanne : développement web, montage PC et dépannage.", 
+	cssFile 
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{title}</title>
+    <meta name="description" content={description}/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="icon" href="/media/img/logo.webp"/>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/media/css/main.css">
+    {cssFile && <link rel="stylesheet" href={cssFile} />}
+    <link rel="stylesheet" href="/media/css/toast.css">
+    <link rel="stylesheet" href="/media/css/terminal.css">
+    
+    <!-- Analytics -->
+    <script type="text/javascript" is:inline>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "sesu01ppfw");
+    </script>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="nav-container">
+            <a class='logo' href="/">Thomas Mayoraz</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href='/a-propos/'>À propos</a></li>
+                <li><a href="/tutoriels/">Tutoriels</a></li>
+                <li><a href='/contact/'>Contact</a></li>
+                <select id="lang-select" class="lang-select" aria-label="Changer de langue">
+                    <option value="FR">FR</option>
+                    <option value="EN">EN</option>
+                    <option value="DE">DE</option>
+                </select>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">☀️</button>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <slot />
+
+        <footer>
+            <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
+            <nav>
+              <a href="/">Accueil</a>
+              <a href="/a-propos/">À propos</a>
+              <a href="/tutoriels/">Tutoriels</a>
+              <a href="/contact/">Contact</a>
+              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
+            </nav>
+        </footer>
+    </div>
+
+    <button id="backToTop" aria-label="Retour en haut de page">&#8593;</button>
+
+    <script is:inline src="/media/js/theme.js" is:inline></script>
+    <script is:inline src="/media/js/particles.js" defer is:inline></script>
+    <script is:inline src="/media/js/toast.js" defer is:inline></script>
+    <script is:inline src="/media/js/terminal.js" defer is:inline></script>
+    <script is:inline src="/media/locales/en.js" is:inline></script>
+    <script is:inline src="/media/locales/de.js" is:inline></script>
+    <script is:inline src="/media/js/lang.js" is:inline></script>
+    <script is:inline src="/media/js/konami.js" defer is:inline></script>
+    <slot name="scripts" />
+</body>
+</html>
