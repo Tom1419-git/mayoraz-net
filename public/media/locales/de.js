@@ -80,5 +80,30 @@ const frToDe = {
     "Tous les systèmes opérationnels": "Alle Systeme sind betriebsbereit",
     "Incident en cours...": "Vorfall im Gange...",
     "Statut indisponible": "Status nicht verfügbar",
-    "Télécharger ma VCard": "Meine VCard herunterladen"
+    "Télécharger ma VCard": "Meine VCard herunterladen",
+
+    // Form
+    "Prénom": "Vorname",
+    "Nom": "Nachname",
+    "Email": "E-Mail",
+    "Téléphone": "Telefon",
+    "Type de prestation": "Art der Dienstleistung",
+    "Sélectionnez un service": "Wählen Sie einen Service",
+    "Site web personnel": "Persönliche Website",
+    "Site web d'entreprise": "Unternehmenswebsite",
+    "Configuration PC sur mesure": "Maßgeschneiderter PC-Bau",
+    "Dépannage informatique": "IT-Fehlerbehebung",
+    "Conseil technique": "Technische Beratung",
+    "Autre (précisez dans le message)": "Andere (im Text angeben)",
+    "Budget approximatif (CHF)": "Ungefähres Budget (CHF)",
+    "Non défini": "Nicht definiert",
+    "Plus de 5000 CHF": "Mehr als 5000 CHF",
+    "Message détaillé": "Detaillierte Nachricht",
+    "Décrivez votre projet, vos besoins, vos attentes...": "Beschreiben Sie Ihr Projekt, Ihre Bedürfnisse, Ihre Erwartungen...",
+    "Envoyer le message": "Nachricht senden",
+    "form_nom": "Nachname <span class=\"required\">*</span>",
+    "form_prenom": "Vorname <span class=\"required\">*</span>",
+    "form_email": "E-Mail <span class=\"required\">*</span>",
+    "form_service": "Art der Dienstleistung <span class=\"required\">*</span>",
+    "form_message": "Detaillierte Nachricht <span class=\"required\">*</span>"
 };

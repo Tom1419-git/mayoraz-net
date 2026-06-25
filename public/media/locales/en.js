@@ -80,5 +80,30 @@ const frToEn = {
     "Tous les systèmes opérationnels": "All systems operational",
     "Incident en cours...": "Incident ongoing...",
     "Statut indisponible": "Status unavailable",
-    "Télécharger ma VCard": "Download my VCard"
+    "Télécharger ma VCard": "Download my VCard",
+
+    // Form
+    "Prénom": "First Name",
+    "Nom": "Last Name",
+    "Email": "Email",
+    "Téléphone": "Phone",
+    "Type de prestation": "Service type",
+    "Sélectionnez un service": "Select a service",
+    "Site web personnel": "Personal website",
+    "Site web d'entreprise": "Business website",
+    "Configuration PC sur mesure": "Custom PC build",
+    "Dépannage informatique": "IT Troubleshooting",
+    "Conseil technique": "Technical advice",
+    "Autre (précisez dans le message)": "Other (specify in message)",
+    "Budget approximatif (CHF)": "Approximate budget (CHF)",
+    "Non défini": "Undefined",
+    "Plus de 5000 CHF": "More than 5000 CHF",
+    "Message détaillé": "Detailed message",
+    "Décrivez votre projet, vos besoins, vos attentes...": "Describe your project, your needs, your expectations...",
+    "Envoyer le message": "Send message",
+    "form_nom": "Last Name <span class=\"required\">*</span>",
+    "form_prenom": "First Name <span class=\"required\">*</span>",
+    "form_email": "Email <span class=\"required\">*</span>",
+    "form_service": "Service type <span class=\"required\">*</span>",
+    "form_message": "Detailed message <span class=\"required\">*</span>"
 };

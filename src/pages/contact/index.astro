@@ -34,52 +34,52 @@ import Layout from '../../layouts/Layout.astro';
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="prenom">Prénom <span class="required">*</span></label>
+                            <label for="prenom" data-i18n-html="form_prenom">Prénom <span class="required">*</span></label>
                             <input type="text" id="prenom" name="prenom" required="">
                         </div>
                         <div class="form-group">
-                            <label for="nom">Nom <span class="required">*</span></label>
+                            <label for="nom" data-i18n-html="form_nom">Nom <span class="required">*</span></label>
                             <input type="text" id="nom" name="nom" required="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
+                        <label for="email" data-i18n-html="form_email">Email <span class="required">*</span></label>
                         <input type="email" id="email" name="email" required="">
                     </div>
                     <div class="form-group">
-                        <label for="telephone">Téléphone</label>
+                        <label for="telephone" data-i18n="Téléphone">Téléphone</label>
                         <input type="tel" id="telephone" name="telephone">
                     </div>
                     <div class="form-group">
-                        <label for="service">Type de prestation <span class="required">*</span></label>
+                        <label for="service" data-i18n-html="form_service">Type de prestation <span class="required">*</span></label>
                         <select id="service" name="service" required="">
-                            <option value="">Sélectionnez un service</option>
-                            <option value="site-web-personnel">Site web personnel</option>
-                            <option value="site-web-entreprise">Site web d'entreprise</option>
-                            <option value="montage-pc">Configuration PC sur mesure</option>
-                            <option value="depannage">Dépannage informatique</option>
-                            <option value="conseil-technique">Conseil technique</option>
-                            <option value="autre">Autre (précisez dans le message)</option>
+                            <option value="" data-i18n="Sélectionnez un service">Sélectionnez un service</option>
+                            <option value="site-web-personnel" data-i18n="Site web personnel">Site web personnel</option>
+                            <option value="site-web-entreprise" data-i18n="Site web d'entreprise">Site web d'entreprise</option>
+                            <option value="montage-pc" data-i18n="Configuration PC sur mesure">Configuration PC sur mesure</option>
+                            <option value="depannage" data-i18n="Dépannage informatique">Dépannage informatique</option>
+                            <option value="conseil-technique" data-i18n="Conseil technique">Conseil technique</option>
+                            <option value="autre" data-i18n="Autre (précisez dans le message)">Autre (précisez dans le message)</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="budget">Budget approximatif (CHF)</label>
+                        <label for="budget" data-i18n="Budget approximatif (CHF)">Budget approximatif (CHF)</label>
                         <select id="budget" name="budget">
-                            <option value="">Non défini</option>
+                            <option value="" data-i18n="Non défini">Non défini</option>
                             <option value="0-500">0 - 500 CHF</option>
                             <option value="500-1000">500 - 1000 CHF</option>
                             <option value="1000-2000">1000 - 2000 CHF</option>
                             <option value="2000-5000">2000 - 5000 CHF</option>
-                            <option value="5000+">Plus de 5000 CHF</option>
+                            <option value="5000+" data-i18n="Plus de 5000 CHF">Plus de 5000 CHF</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message détaillé <span class="required">*</span></label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." required=""></textarea>
+                        <label for="message" data-i18n-html="form_message">Message détaillé <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." data-i18n="Décrivez votre projet, vos besoins, vos attentes..." required=""></textarea>
                     </div>
 
                     <div id="cf-turnstile-container" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn" data-i18n="Envoyer le message">
                         Envoyer le message
                     </button>
                 </form>
