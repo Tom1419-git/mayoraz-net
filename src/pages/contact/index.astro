@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -6,7 +8,7 @@ import Layout from '../../layouts/Layout.astro';
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Me Contacter</h1>
@@ -128,7 +130,10 @@ import Layout from '../../layouts/Layout.astro';
 
 
         // Système de captcha avancé
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.addEventListener('astro:page-load', () => {
+            const contactForm = document.querySelector('.contact-form');
+            if (!contactForm) return;
+            contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
             if (!turnstileResponse) {
@@ -167,6 +172,7 @@ import Layout from '../../layouts/Layout.astro';
                 alert('Erreur de réseau. Veuillez vérifier votre connexion.');
                 submitBtn.textContent = originalBtnText;
                 submitBtn.disabled = false;
+            });
             });
         });
 
@@ -208,14 +214,27 @@ import Layout from '../../layouts/Layout.astro';
         }
 
         // Observer pour détecter quand le bouton thème est cliqué
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'data-theme') {
+        let observer;
+        
+        document.addEventListener('astro:page-load', () => {
+            if (document.getElementById('cf-turnstile-container')) {
+                // If script is already loaded
+                if (typeof turnstile !== 'undefined') {
                     renderTurnstile();
                 }
-            });
+                
+                if (!observer) {
+                    observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.attributeName === 'data-theme') {
+                                renderTurnstile();
+                            }
+                        });
+                    });
+                    observer.observe(document.documentElement, { attributes: true });
+                }
+            }
         });
-        observer.observe(document.documentElement, { attributes: true });
     </script>
     </Fragment>
 </Layout>

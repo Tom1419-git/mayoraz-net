@@ -1,6 +1,6 @@
 ﻿// media/js/particles.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     const canvas = document.getElementById('particles-bg');
     if (!canvas) return;
 

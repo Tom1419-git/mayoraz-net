@@ -1,6 +1,6 @@
 // media/js/toast.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     // Inject the toast container into the body
     const container = document.createElement('div');
     container.id = 'toast-container';
