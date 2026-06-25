@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Sites Web - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes réalisations de développement web : sites vitrines, applications et solutions digitales. Thomas Mayoraz, expert en services informatiques à Lausanne.">
+    <header style="margin-bottom: 20px;">
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <div class="avatar-fallback">TM</div>
+                </div>
+                <h1>Sites Web</h1>
+                <p class="subtitle">Mes créations digitales et expériences web</p>
+                <a class="back-nav" href="/">← Retour au Portfolio</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="intro reveal">
+                <p>Découvrez mes projets de développement web, des sites vitrines aux applications interactives. Chaque création reflète ma passion pour le web moderne et l'expérience utilisateur.</p>
+            </section>
+
+            <div class="navigation-info">
+                <h3>💡 Navigation</h3>
+                <p>Pour revenir à cette page depuis un site, rendez-vous en pied de page d'accueil de chaque site et cliquez sur le bouton de retour au portfolio.</p>
+            </div>
+
+            <div class="sites-grid">
+                <a class="site-card reveal" href="../sites-web/ctt_montriond_version_club/index.html">
+                   
+                    <div class="site-header">
+                        <span class="site-icon">🏓</span>
+                        <div>
+                            <h3 class="site-title">CTT Montriond Ouchy</h3>
+                            <p class="site-url">Projet d'apprentissage</p>
+                            <p class="project-date">Mai 2025</p>
+                        </div>
+                    </div>
+                    <p class="site-description">
+                        Site web que j'ai développé pour mon club de ping-pong, le CTT Montriond Ouchy. Interface moderne et responsive présentant les actualités du club, les équipes, les résultats des matchs et les informations pratiques pour les membres et nouveaux joueurs.
+                    </p>
+                    <div class="site-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                </a>
+
+                <a class="site-card reveal" href="/">
+                    <div class="site-header">
+                        <span class="site-icon">👨‍💻</span>
+                        <div>
+                            <h3 class="site-title">Portfolio Personnel</h3>
+                            <p class="site-url">mayoraz-net.ch</p>
+                            <p class="project-date">Juin 2026</p>
+                        </div>
+                    </div>
+                    <p class="site-description">
+                        Mon propre site web vitrine et portfolio professionnel. Conçu de A à Z pour présenter mes services informatiques, mes réalisations et faciliter la prise de contact grâce à un design moderne, réactif et optimisé.
+                    </p>
+                    <div class="site-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Turnstile</span>
+                    </div>
+                </a>
+
+                <div class="site-card reveal">
+                    <div class="site-header">
+                        <span class="site-icon">🦷</span>
+                        <div>
+                            <h3 class="site-title">Cabinet Dentaire Tivoli</h3>
+                            <p class="site-url">Plateforme de gestion</p>
+                            <p class="project-date">Février 2026</p>
+                        </div>
+                    </div>
+                    <p class="site-description">
+                        Développement d'une solution logicielle complète pour un cabinet dentaire. Réalisation d'une plateforme de gestion des patients et création d'un modèle de facturation automatisé sur mesure pour optimiser l'administration du cabinet.
+                    </p>
+                    <div class="site-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Base de données</span>
+                        <span class="tech-tag">Génération PDF</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="add-site-card">
+                    <div class="add-icon">+</div>
+                    <p class="add-text">Prochain projet en cours...</p>
+                </div>
+            </div>
+        </main>
+    
+    <Fragment slot="scripts">
+        <script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Sites Web",
+        "description": "Collection de sites web développés par Thomas Mayoraz",
+        "url": "https://mayoraz-net.ch/sites-web/",
+        "numberOfItems": 1,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "WebSite",
+                    "name": "CTT Montriond Ouchy",
+                    "url": "https://mayoraz-net.ch/sites-web/ctt_montriond_version_club/index.html"
+                }
+            }
+        ]
+    }
+    </script>
+<script is:inline>
+        // Navigation active
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+
+        // Bouton retour en haut
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animation au survol des liens
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.opacity = '0.8';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+    </Fragment>
+</Layout>

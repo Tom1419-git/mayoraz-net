@@ -1,82 +1,43 @@
-﻿<div align="center">
-  <img src="media/img/logo.webp" alt="Logo" width="100"/>
-  <h1>Portfolio & Services Informatiques - Thomas Mayoraz</h1>
-  <p>Mon portfolio personnel et vitrine de mes services informatiques en région lausannoise.</p>
-  
-  <p>
-    <a href="https://mayoraz-net.ch">🌐 Visiter le site web</a>
-    ·
-    <a href="https://github.com/Tom1419-git/mayoraz-net/issues">🐛 Signaler un bug</a>
-  </p>
-</div>
+# Astro Starter Kit: Minimal
 
-<br/>
-
-<div align="center">
-  <img src="media/img/og_banner.png?v=4" alt="Aperçu du site" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
-</div>
-
-<br/>
-
-## 🚀 À propos du projet
-
-Ce projet est le code source de mon site personnel et portfolio professionnel. Il présente mes compétences, mes projets en tant qu'Apprenti Informatique à l'ETML, ainsi que les différents services informatiques que je propose aux particuliers et entreprises de la région de Lausanne.
-
-### ✨ Fonctionnalités clés
-* **Design moderne** : Interface sombre (Dark mode), design responsive, et animations fluides.
-* **Portfolio intégré** : Présentation détaillée de mes projets personnels et scolaires.
-* **Formulaire de contact sécurisé** : Protection anti-spam propulsée par Cloudflare Turnstile intégrée au frontend, avec soumission AJAX via Web3Forms.
-* **SEO optimisé** : Balises Open Graph pour le partage sur les réseaux sociaux et sitemap XML.
-
-## 🛠️ Technologies Utilisées
-
-* **Frontend** : HTML5, CSS3 (Custom Variables, Flexbox, Grid), JavaScript (Vanilla)
-* **Polices & Icônes** : Google Fonts (Inter)
-* **Sécurité** : Cloudflare Turnstile
-* **Hébergement** : GitHub Pages
-* **Backend de messagerie** : Web3Forms
-
-## 📂 Structure du projet
-
-```text
-├── index.html              # Page d'accueil (Services & Contact)
-├── a-propos/
-│   └── index.html          # Présentation de mon parcours et CV
-├── api/
-│   └── cv.json             # Endpoint JSON (Easter Egg curl)
-├── contact/
-│   ├── index.html          # Formulaire de contact sécurisé
-│   └── merci.html          # Page de confirmation d'envoi
-├── homelab/
-│   └── index.html          # Mon infrastructure personnelle & serveur
-├── jeu/
-│   └── index.html          # Quiz informatique
-├── jeu-trex/
-│   └── index.html          # Mini-jeu caché (Admin Run)
-├── status/
-│   └── index.html          # Page de statut des services (Status Page)
-├── tutoriels/
-│   └── index.html          # Base de connaissances et tutoriels
-├── media/
-│   ├── css/                # Feuilles de style (main.css, contact.css)
-│   ├── img/                # Images, photos de profil et logos
-│   └── js/                 # Scripts (konami.js, lang.js, terminal.js)
-└── sitemap.xml             # Fichier de mapping pour les moteurs de recherche
+```sh
+npm create astro@latest -- --template minimal
 ```
 
-## 📬 Me contacter
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-* **Email professionnel** : [contact@mayoraz-net.ch](mailto:contact@mayoraz-net.ch)
-* **Site web** : [mayoraz-net.ch](https://mayoraz-net.ch)
-* **GitHub** : [@Tom1419-git](https://github.com/Tom1419-git)
+## 🚀 Project Structure
 
----
+Inside of your Astro project, you'll see the following folders and files:
 
-> [!NOTE]
-> *Ce site web et ses fonctionnalités interactives ont été développés en partie avec l'assistance d'une Intelligence Artificielle avancée.*
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
----
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-<div align="center">
-  <i>Développé avec passion par Thomas Mayoraz &copy; 2026</i>
-</div>
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

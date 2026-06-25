@@ -1,69 +1,17 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Tutoriels SysAdmin - Thomas Mayoraz</title>
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média."/>
-    <link rel="canonical" href="https://mayoraz-net.ch/tutoriels/">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://mayoraz-net.ch/tutoriels/"/>
-    <meta property="og:title" content="Tutoriels SysAdmin - Thomas Mayoraz"/>
-    <meta property="og:description" content="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média."/>
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image"/>
-    <meta property="twitter:url" content="https://mayoraz-net.ch/tutoriels/"/>
-    <meta property="twitter:title" content="Tutoriels SysAdmin - Thomas Mayoraz"/>
-    <meta property="twitter:description" content="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média."/>
-    <meta property="twitter:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
-    <link rel="icon" href="/media/img/logo.webp"/>
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-    <link rel="stylesheet" href="/media/css/main.css?v=1782221779">
-    <link rel="stylesheet" href="/media/css/toast.css">
-    <link rel="stylesheet" href="/media/css/terminal.css">
-    
-    <link rel="stylesheet" href="/media/css/tutoriels.css">
-</head>
-<body>
-  <!-- Loader -->
-    <canvas id="particles-bg"></canvas>
-
-    <nav class="main-nav">
-        <div class="nav-overlay" id="nav-overlay"></div>
-        <div class="nav-container">
-            <a class='logo' href="/">Thomas Mayoraz</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/a-propos/">À propos</a></li>
-                <li><a href="/tutoriels/">Tutoriels</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <select id="lang-select" class="lang-select" aria-label="Changer de langue">
-    <option value="FR">FR</option>
-    <option value="EN">EN</option>
-    <option value="DE">DE</option>
-</select>
-                <button id="theme-toggle" class="theme-toggle">☀️</button>
-            </ul>
-            <div class="burger" id="burger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-
-        <header style="margin-bottom: 20px;">
+<Layout title="Tutoriels SysAdmin - Thomas Mayoraz" description="Mini-guides et base de connaissances sur l'administration système, Docker, n8n, et l'automatisation média." cssFile="/media/css/tutoriels.css">
+    <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy" />
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
                     <div class="avatar-fallback">TM</div>
                 </div>
-                <h1>Tutoriels & Snippets</h1>
+                <h1>Tutoriels &amp; Snippets</h1>
                 <p class="subtitle">Ma base de connaissances et astuces techniques</p>
-                <a class='back-nav' href="/">&#x2190; Retour à l'accueil</a>
+                <a class="back-nav" href="/">← Retour à l'accueil</a>
             </div>
         </header>
 
@@ -77,7 +25,7 @@
                 <button class="accordion"><span class="tag">Docker</span> <span class="tuto-title">Le fichier docker-compose parfait pour débuter</span></button>
                 <div class="panel">
                     <p>Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.</p>
-                    <pre><code>version: "3.8"
+                    <pre is:raw><code>version: "3.8"
 services:
   app:
     image: nginx:latest
@@ -98,7 +46,7 @@ services:
                 <button class="accordion"><span class="tag">n8n</span> <span class="tuto-title">Auto-Healing : Redémarrer un conteneur crashé</span></button>
                 <div class="panel">
                     <p>Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :</p>
-                    <pre><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
+                    <pre is:raw><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
                     <p>Le système m'envoie ensuite un message sur Telegram pour m'avertir de l'incident et de sa résolution automatique.</p>
                 </div>
 
@@ -116,20 +64,20 @@ services:
                     </ol>
                 </div>
 
-                <h2 style="margin: 40px 0 20px 0; font-family: 'DM Serif Display', serif; color: var(--primary);">Snippets & Astuces</h2>
+                <h2 style="margin: 40px 0 20px 0; font-family: 'DM Serif Display', serif; color: var(--primary);">Snippets &amp; Astuces</h2>
                 
                 <!-- Snippet 1 -->
                 <button class="accordion"><span class="tag">Docker</span> <span class="tuto-title">Nettoyage Complet Docker</span></button>
                 <div class="panel">
                     <p>Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.</p>
-                    <pre><code>docker system prune -a --volumes -f</code></pre>
+                    <pre is:raw><code>docker system prune -a --volumes -f</code></pre>
                 </div>
 
                 <!-- Snippet 2 -->
                 <button class="accordion"><span class="tag">Linux</span> <span class="tuto-title">Mise à jour rapide Ubuntu (Alias)</span></button>
                 <div class="panel">
                     <p data-i18n-html="tuto_alias_1">Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.</p>
-                    <pre><code>alias updateall='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'</code></pre>
+                    <pre is:raw><code>alias updateall='sudo apt update &amp;&amp; sudo apt upgrade -y &amp;&amp; sudo apt autoremove -y &amp;&amp; sudo apt autoclean'</code></pre>
                     <p data-i18n-html="tuto_alias_2">Après l'avoir ajouté, rechargez votre terminal avec <code>source ~/.bashrc</code>.</p>
                 </div>
 
@@ -137,7 +85,7 @@ services:
                 <button class="accordion"><span class="tag">Nginx</span> <span class="tuto-title">Redirection HTTP vers HTTPS (Nginx)</span></button>
                 <div class="panel">
                     <p>Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).</p>
-                    <pre><code>server {
+                    <pre is:raw><code>server {
     listen 80 default_server;
     listen [::]:80 default_server;
     server_name _;
@@ -146,22 +94,9 @@ services:
                 </div>
             </div>
         </main>
-
-        <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
-            <nav>
-              <a href="/">Accueil</a>
-              <a href="/a-propos/">À propos</a>
-              <a href="/tutoriels/">Tutoriels</a>
-              <a href="/contact/">Contact</a>
-              <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
-            </nav>
-        </footer>
-    </div>
-
-    <button id="backToTop" aria-label="Retour en haut de page">↑</button>
-
-    <script>
+    
+    <Fragment slot="scripts">
+        <script is:inline>
         // Accordion script
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
@@ -176,14 +111,5 @@ services:
             });
         }
     </script>
-
-    <script src="/media/js/theme.js?v=1782221779"></script>
-    <script src="/media/js/particles.js?v=1782221779"></script>
-    <script src="/media/js/toast.js"></script>
-    <script src="/media/js/terminal.js"></script>
-    <script src="/media/js/konami.js"></script>
-    <script src="/media/locales/en.js?v=1782221779"></script>
-    <script src="/media/locales/de.js?v=1782221779"></script>
-    <script src="/media/js/lang.js?v=1782221779"></script>
-</body>
-</html>
+    </Fragment>
+</Layout>

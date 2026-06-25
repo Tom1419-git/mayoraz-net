@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Projets C# - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes projets de développement en C# : applications console, jeux et solutions logicielles. Thomas Mayoraz, expert en services informatiques à Lausanne.">
+    <header style="margin-bottom: 20px;">
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <div class="avatar-fallback">TM</div>
+                </div>
+                <h1>Projets C#</h1>
+                <p class="subtitle">Mes développements et applications en C#</p>
+                <a class="back-nav" href="/">← Retour au Portfolio</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="intro reveal">
+                <p>Découvrez mes projets développés en C#, des applications console aux interfaces graphiques. Chaque projet représente un défi technique relevé et une compétence acquise.</p>
+            </section>
+
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-title-section">
+                            <span class="project-icon">🔴</span>
+                            <div>
+                                <h3 class="project-title">Puissance 4</h3>
+                                <p class="project-type">Application Console</p>
+                                <p class="project-date">Octobre 2024</p>
+                            </div>
+                        </div>
+                        <div class="project-status">TERMINÉ</div>
+                    </div>
+                    <p class="project-description">
+                        Jeu de Puissance 4 classique développé en C# pour la console. Deux joueurs s'affrontent pour aligner 4 jetons de leur couleur horizontalement, verticalement ou en diagonale. Le jeu inclut une grille interactive, la détection des victoires et la gestion des tours.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Console App</span>
+                        <span class="tech-tag">Jeu</span>
+                        <span class="tech-tag">Logique</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="./puissance4/Puissance4.exe" class="download-btn" download="">
+                            📥 Télécharger .exe
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-title-section">
+                            <span class="project-icon">🎯</span>
+                            <div>
+                                <h3 class="project-title">Mastermind</h3>
+                                <p class="project-type">Application Console</p>
+                                <p class="project-date">Juin 2025</p>
+                            </div>
+                        </div>
+                        <div class="project-status">TERMINÉ</div>
+                    </div>
+                    <p class="project-description">
+                        Implémentation complète du jeu Mastermind en C#. Le joueur doit deviner une combinaison secrète de couleurs en un nombre limité d'essais. L'application fournit des indices après chaque tentative et gère différents niveaux de difficulté.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Console App</span>
+                        <span class="tech-tag">Algorithmique</span>
+                        <span class="tech-tag">Jeu</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="./mastermind/Mastermind.exe" class="download-btn" download="">
+                            📥 Télécharger .exe
+                        </a>
+                    </div>
+                </div>
+
+                <div class="add-project-card">
+                    <div class="add-icon">+</div>
+                    <p class="add-text">Prochain projet C# en développement...</p>
+                </div>
+            </div>
+        </main>
+    
+    <Fragment slot="scripts">
+        <script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Projets C#",
+        "description": "Collection de projets développés en C# par Thomas Mayoraz",
+        "url": "https://mayoraz-net.ch/projets-csharp/",
+        "numberOfItems": 2,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "Puissance 4",
+                    "applicationCategory": "Game",
+                    "operatingSystem": "Windows"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "Mastermind",
+                    "applicationCategory": "Game",
+                    "operatingSystem": "Windows"
+                }
+            }
+        ]
+    }
+    </script>
+<script is:inline>
+        // Navigation active
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+
+        // Bouton retour en haut
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+        });
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animation au survol des liens
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.opacity = '0.8';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+    </Fragment>
+</Layout>
