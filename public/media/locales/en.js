@@ -1,4 +1,4 @@
-﻿const frToEn = {
+const frToEn = {
     // Nav & Common
     "Accueil": "Home",
     "À propos": "About",
@@ -76,9 +76,9 @@
     "Redirection HTTP vers HTTPS (Nginx)": "HTTP to HTTPS Redirect (Nginx)",
     "Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).": "A minimalist server block to force all HTTP requests (port 80) from all your domains to their HTTPS equivalent (port 443).",
 
-    "Vérification des systèmes...": "Checking systems...",
+    "Vérification...": "Checking systems...",
     "Tous les systèmes opérationnels": "All systems operational",
     "Incident en cours...": "Incident ongoing...",
-    "Statut indisponible": "Status unavailable"
+    "Statut indisponible": "Status unavailable",
     "Télécharger ma VCard": "Download my VCard"
 };

@@ -36,15 +36,15 @@ import Layout from '../layouts/Layout.astro';
     <main>
       
       <section class="intro reveal">
-        <p>Spécialisé dans les <strong>services informatiques à Lausanne</strong>, je propose des solutions sur mesure pour particuliers et entreprises.</p>
-        <p>De la création de sites web au montage PC, en passant par le dépannage informatique, je suis à votre disposition pour concrétiser vos projets technologiques.</p>
+        <p>Spécialisé dans les <strong data-i18n="services informatiques à Lausanne">services informatiques à Lausanne</strong>, je propose des solutions sur mesure pour particuliers et entreprises.</p>
+        <p data-i18n="De la création de sites web au montage PC, en passant par le dépannage informatique, je suis à votre disposition pour concrétiser vos projets technologiques.">De la création de sites web au montage PC, en passant par le dépannage informatique, je suis à votre disposition pour concrétiser vos projets technologiques.</p>
       </section>
 
       <div class="cta-banner">
         <div class="cta-banner-content">
           <h2><svg style="display:inline; vertical-align:middle; margin-right:10px" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>Besoin d'un service ou d'un devis informatique ?</h2>
-          <p>Contactez-moi dès maintenant via le formulaire pour discuter de votre projet !</p>
-          <a aria-label="Contactez-moi pour vos projets informatiques" class="cta-button" href="/contact/">💬 Me Contacter Maintenant</a>
+          <p data-i18n="Contactez-moi dès maintenant via le formulaire pour discuter de votre projet !">Contactez-moi dès maintenant via le formulaire pour discuter de votre projet !</p>
+          <a aria-label="Contactez-moi pour vos projets informatiques" class="cta-button" href="/contact/" data-i18n="💬 Me Contacter Maintenant">💬 Me Contacter Maintenant</a>
         </div>
       </div>
 
@@ -53,11 +53,11 @@ import Layout from '../layouts/Layout.astro';
         <div class="services-grid">
           <a href="/sites-web/" class="service-item reveal" aria-label="Développement de sites web" style="text-decoration: none;">
             <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
-            <div>Sites Web</div>
+            <div data-i18n="Sites Web">Sites Web</div>
           </a>
           <a href="/builds-pc/" class="service-item reveal" aria-label="Montage d'ordinateurs sur mesure" style="text-decoration: none;">
             <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></span>
-            <div>Montage PC</div>
+            <div data-i18n="Montage PC">Montage PC</div>
           </a>
           <a href="/contact/" class="service-item reveal" aria-label="Dépannage informatique à domicile" style="text-decoration: none;">
             <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
@@ -169,7 +169,7 @@ import Layout from '../layouts/Layout.astro';
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
             <button class="fake-button">Voir →</button>
           </div>
-          <h3>Sites Web</h3>
+          <h3 data-i18n="Sites Web">Sites Web</h3>
           <p>Développement web professionnel à Lausanne. Sites responsives, applications web modernes et solutions digitales sur mesure pour votre entreprise.</p>
         </a>
         <a aria-label="Voir mes configurations PC" class="project-card reveal" href="/builds-pc/">
@@ -177,54 +177,54 @@ import Layout from '../layouts/Layout.astro';
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></span>
             <button class="fake-button">Voir →</button>
           </div>
-          <h3>Montage PC</h3>
-          <p>Assemblages personnalisés et configurations optimisées à Lausanne. Du choix des composants à la mise en service, explorez mes réalisations hardware.</p>
+          <h3 data-i18n="Montage PC">Montage PC</h3>
+          <p data-i18n="Assemblages personnalisés et configurations optimisées à Lausanne. Du choix des composants à la mise en service, explorez mes réalisations hardware.">Assemblages personnalisés et configurations optimisées à Lausanne. Du choix des composants à la mise en service, explorez mes réalisations hardware.</p>
         </a>
         <a aria-label="Voir mes projets divers" class="project-card reveal" href="/autres-projets/">
           <div class="project-header">
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></span>
             <button class="fake-button">Voir →</button>
           </div>
-          <h3>Projets Divers</h3>
-          <p>Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.</p>
+          <h3 data-i18n="Projets Divers">Projets Divers</h3>
+          <p data-i18n="Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.">Projets variés incluant des rapports techniques, des guides pratiques, des documentations et autres créations. Une collection de travaux diversifiés et de ressources utiles.</p>
         </a>
         <a aria-label="Petit quiz sur l\" informatique'="" class="project-card reveal" href="/jeu/">
           <div class="project-header">
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span>
             <button class="fake-button">Jouer →</button>
           </div>
-          <h3>Quiz Informatique</h3>
-          <p>Testez vos connaissances en IT avec ce quiz interactif. Défiez le classement quotidien !</p>
+          <h3 data-i18n="Quiz Informatique">Quiz Informatique</h3>
+          <p data-i18n="Testez vos connaissances en IT avec ce quiz interactif. Défiez le classement quotidien !">Testez vos connaissances en IT avec ce quiz interactif. Défiez le classement quotidien !</p>
         </a>
         <a aria-label="Mini-jeu caché Admin Run" class="project-card reveal" href="/jeu-trex/">
           <div class="project-header">
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect><path d="M12 12h.01"></path><path d="M17 12h.01"></path><path d="M7 12h.01"></path></svg></span>
             <button class="fake-button">Jouer →</button>
           </div>
-          <h3>Admin Run</h3>
-          <p>Un mini-jeu SysAdmin : évitez les pannes réseau et maintenez le serveur en ligne !</p>
+          <h3 data-i18n="Admin Run">Admin Run</h3>
+          <p data-i18n="Un mini-jeu SysAdmin : évitez les pannes réseau et maintenez le serveur en ligne !">Un mini-jeu SysAdmin : évitez les pannes réseau et maintenez le serveur en ligne !</p>
         </a>
         <a aria-label="En savoir plus sur mon parcours" class="project-card reveal" href="/a-propos/">
           <div class="project-header">
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
             <button class="fake-button">Découvrir →</button>
           </div>
-          <h3>À Propos de moi</h3>
-          <p>Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Expert en services informatiques basé à Lausanne, spécialisé dans les solutions techniques.</p>
+          <h3 data-i18n="À Propos de moi">À Propos de moi</h3>
+          <p data-i18n="Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Expert en services informatiques basé à Lausanne, spécialisé dans les solutions techniques.">Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Expert en services informatiques basé à Lausanne, spécialisé dans les solutions techniques.</p>
         </a>
         <a aria-label="Me contacter pour un projet" class="project-card reveal" href="/contact/">
           <div class="project-header">
             <span class="project-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
             <button class="fake-button">Contacter →</button>
           </div>
-          <h3>Me Contacter</h3>
-          <p>Une question, un projet ou besoin d'assistance ? N'hésitez pas à me contacter via le formulaire dédié. Je vous répondrai très rapidement.</p>
+          <h3 data-i18n="Me Contacter">Me Contacter</h3>
+          <p data-i18n="Une question, un projet ou besoin d'assistance ? N'hésitez pas à me contacter via le formulaire dédié. Je vous répondrai très rapidement.">Une question, un projet ou besoin d'assistance ? N'hésitez pas à me contacter via le formulaire dédié. Je vous répondrai très rapidement.</p>
         </a>
       </div>
     
       <!-- Section Avis Clients -->
       <section class="testimonials-section">
-        <h2>Ce que disent mes clients</h2>
+        <h2 data-i18n="Ce que disent mes clients">Ce que disent mes clients</h2>
         <div class="testimonials-grid">
           <div class="testimonial-card reveal">
             <div class="quote-icon">❝</div>
@@ -234,7 +234,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="author-avatar">M</div>
               <div class="author-info">
                 <h4>Maxime D.</h4>
-                <span>Client Montage PC</span>
+                <span data-i18n="Client Montage PC">Client Montage PC</span>
               </div>
             </div>
           </div>
@@ -247,7 +247,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="author-avatar">S</div>
               <div class="author-info">
                 <h4>Sophie L.</h4>
-                <span>Client Dépannage</span>
+                <span data-i18n="Client Dépannage">Client Dépannage</span>
               </div>
             </div>
           </div>
@@ -260,7 +260,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="author-avatar">J</div>
               <div class="author-info">
                 <h4>Julien P.</h4>
-                <span>Client Récupération de Données</span>
+                <span data-i18n="Client Récupération de Données">Client Récupération de Données</span>
               </div>
             </div>
           </div>

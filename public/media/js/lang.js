@@ -9,7 +9,24 @@ document.addEventListener('astro:page-load', () => {
     function applyLanguage(lang) {
         if (lang === 'FR') {
             document.documentElement.lang = 'fr';
-            return; 
+            // Restaurer le texte français depuis data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = key;
+                } else {
+                    el.textContent = key;
+                }
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                // The key itself is usually NOT the french text for data-i18n-html, 
+                // but we might need a fr dictionary if we want to restore complex HTML.
+                // However, since it's an edge case, we can reload if going back to FR is too complex,
+                // or just rely on the user having minimal data-i18n-html
+            });
+            document.dispatchEvent(new Event('languageChanged'));
+            return;
         }
 
         let dict = null;
@@ -21,92 +38,60 @@ document.addEventListener('astro:page-load', () => {
             return;
         }
 
-        // Create a cleaned dictionary that maps both the exact key and a stripped key
-        // (without leading emojis or symbols) to the translation.
-        let cleanedDict = {};
-        for (let key in dict) {
-            let cleanKey = key.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
-            cleanedDict[key.trim()] = dict[key];
-            if (cleanKey) {
-                cleanedDict[cleanKey] = dict[key];
-            }
-        }
-
         document.documentElement.lang = lang.toLowerCase();
-        
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let node;
-        while (node = walker.nextNode()) {
-            const text = node.nodeValue.trim();
-            if (text && node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE' && node.parentElement.tagName !== 'OPTION') {
-                if (cleanedDict[text]) {
-                    node.nodeValue = node.nodeValue.replace(text, cleanedDict[text]);
-                } else {
-                    let cleanText = text.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
-                    if (cleanText && cleanedDict[cleanText]) {
-                        // Replace only the text part, keeping emojis if they are in the text node
-                        node.nodeValue = node.nodeValue.replace(cleanText, cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim());
-                    }
-                }
-            }
-        }
 
-        const inputs = document.querySelectorAll('input[placeholder], textarea[placeholder]');
-        inputs.forEach(input => {
-            const text = input.placeholder.trim();
-            if (cleanedDict[text]) {
-                input.placeholder = cleanedDict[text];
-            } else {
-                let cleanText = text.replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim();
-                if (cleanText && cleanedDict[cleanText]) {
-                    input.placeholder = input.placeholder.replace(cleanText, cleanedDict[cleanText].replace(/^[^a-zA-ZÀ-ÿ0-9(]+/g, '').trim());
+        // Appliquer les traductions via data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = dict[key];
+                } else {
+                    el.textContent = dict[key];
                 }
             }
         });
 
-        // NOUVEAU: Support pour les traductions contenant du HTML (data-i18n-html)
+        // Appliquer les traductions complexes via data-i18n-html
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
             const key = el.getAttribute('data-i18n-html');
             if (dict[key]) {
                 el.innerHTML = dict[key];
             }
         });
-
-        // NOUVEAU: Support pour le texte simple avec attribut (data-i18n) - plus robuste pour le widget status
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (dict[key]) {
-                el.textContent = dict[key];
-            }
-        });
         
         document.dispatchEvent(new Event('languageChanged'));
     }
 
-    // Initialize select values
+    // Initialiser les sélecteurs
     langSelects.forEach(select => {
         select.value = currentLang;
     });
 
+    // Appliquer la langue initiale
     if (currentLang !== 'FR') {
         applyLanguage(currentLang);
     }
 
-    if (localStorage.getItem('lang_just_changed') === 'true') {
-        setTimeout(() => {
-            if (typeof showToast === 'function') {
-            showToast('Langue : ' + currentLang, 'success');
-            }
-        }, 100);
-        localStorage.removeItem('lang_just_changed');
-    }
-
+    // Écouter les changements de langue
     langSelects.forEach(select => {
         select.addEventListener('change', (e) => {
             currentLang = e.target.value;
             localStorage.setItem('site_lang', currentLang);
-            localStorage.setItem('lang_just_changed', 'true');
-            location.reload(); 
+            
+            // Appliquer la langue sans recharger la page
+            if (currentLang === 'FR') {
+                // Pour revenir au français original parfait avec HTML, on recharge
+                location.reload(); 
+            } else {
+                applyLanguage(currentLang);
+                if (typeof showToast === 'function') {
+                    showToast('Langue : ' + currentLang, 'success');
+                }
+            }
+            
+            // Sync all selects if there are multiple on the page
+            langSelects.forEach(s => s.value = currentLang);
         });
     });
 });

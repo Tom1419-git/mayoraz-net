@@ -1,4 +1,4 @@
-﻿const frToDe = {
+const frToDe = {
     // Nav & Common
     "Accueil": "Startseite",
     "À propos": "Über mich",
@@ -76,9 +76,9 @@
     "Redirection HTTP vers HTTPS (Nginx)": "HTTP zu HTTPS Weiterleitung (Nginx)",
     "Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).": "Ein minimalistischer Server-Block, um alle HTTP-Anfragen (Port 80) von all Ihren Domains auf ihr HTTPS-Äquivalent (Port 443) umzuleiten.",
 
-    "Vérification des systèmes...": "Systeme werden überprüft...",
+    "Vérification...": "Systeme werden überprüft...",
     "Tous les systèmes opérationnels": "Alle Systeme sind betriebsbereit",
     "Incident en cours...": "Vorfall im Gange...",
-    "Statut indisponible": "Status nicht verfügbar"
+    "Statut indisponible": "Status nicht verfügbar",
     "Télécharger ma VCard": "Meine VCard herunterladen"
 };
