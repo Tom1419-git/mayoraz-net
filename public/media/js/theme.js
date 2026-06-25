@@ -1,6 +1,6 @@
 ﻿// media/js/theme.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     // 1. Dark/Light Theme Logic
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme');
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Widget de Statut Uptime Kuma Global
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     async function updateStatus() {
         let indicator = document.getElementById('status-indicator');
         let text = document.getElementById('status-text');
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Copier l'email au clic tout en gardant l'ouverture de l'app de messagerie
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     document.querySelectorAll('a[href^="mailto:"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const email = this.getAttribute('href').replace('mailto:', '');

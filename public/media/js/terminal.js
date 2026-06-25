@@ -1,6 +1,6 @@
 // media/js/terminal.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('astro:page-load', () => {
     const terminalHtml = `
         <div id="hacker-terminal">
             <div class="terminal-header">

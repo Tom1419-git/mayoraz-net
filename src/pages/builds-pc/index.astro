@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import setup1Img from '../../assets/img/builds-pc/pc-setup1.webp';
+import setup2Img from '../../assets/img/builds-pc/pc-setup2.webp';
+import setup3Img from '../../assets/img/builds-pc/pc-setup3.webp';
+import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -6,7 +11,7 @@ import Layout from '../../layouts/Layout.astro';
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="/media/img/portrait.webp" alt="Portrait de Thomas Mayoraz" loading="lazy">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1>Mes Builds PC</h1>
@@ -25,13 +30,13 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="build-card">
                                         <div class="build-image carousel-container">
                         <div class="carousel-slide active">
-                            <img src="/media/img/builds-pc/pc-setup1.webp" alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)">
+                            <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="/media/img/builds-pc/pc-setup2.webp" alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)">
+                            <Image src={setup2Img} alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="/media/img/builds-pc/pc-setup3.webp" alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)">
+                            <Image src={setup3Img} alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)" />
                         </div>
                         <button class="carousel-btn prev-btn" aria-label="Image précédente">❮</button>
                         <button class="carousel-btn next-btn" aria-label="Image suivante">❯</button>
@@ -126,7 +131,7 @@ import Layout from '../../layouts/Layout.astro';
         });
     </script>
 <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('astro:page-load', () => {
             const slides = document.querySelectorAll('.carousel-slide');
             const dots = document.querySelectorAll('.dot');
             const prevBtn = document.querySelector('.prev-btn');
