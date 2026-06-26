@@ -3,22 +3,30 @@
 document.addEventListener('astro:page-load', () => {
     // 1. Dark/Light Theme Logic
     const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
+    let currentTheme = localStorage.getItem('theme');
 
-    // Default to dark theme if no preference is saved
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (themeToggle) {
-            themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    // Auto-detect system theme for first-time visitors (default = dark)
+    if (!currentTheme) {
+        // Check system preference; if light, apply light. Otherwise default dark.
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            currentTheme = 'light';
+        } else {
+            currentTheme = 'dark';
         }
-
-        // Initial Grafana sync
-        document.querySelectorAll('iframe').forEach(iframe => {
-            if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
-                iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + currentTheme);
-            }
-        });
+        localStorage.setItem('theme', currentTheme);
     }
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (themeToggle) {
+        themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    }
+
+    // Initial Grafana sync
+    document.querySelectorAll('iframe').forEach(iframe => {
+        if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
+            iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + currentTheme);
+        }
+    });
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -31,11 +39,8 @@ document.addEventListener('astro:page-load', () => {
             themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
 
             if (typeof showToast === 'function') {
-                let baseMsg = newTheme === 'light' ? 'Thème clair activé' : 'Thème sombre activé';
-                let msg = baseMsg;
-                let lang = localStorage.getItem('site_lang') || 'FR';
-                if (lang === 'EN' && typeof frToEn !== 'undefined' && frToEn[baseMsg]) msg = frToEn[baseMsg];
-                if (lang === 'DE' && typeof frToDe !== 'undefined' && frToDe[baseMsg]) msg = frToDe[baseMsg];
+                const baseMsg = newTheme === 'light' ? 'Thème clair activé' : 'Thème sombre activé';
+                const msg = typeof window.t === 'function' ? window.t(baseMsg) : baseMsg;
                 showToast(msg, 'success');
             }
 
@@ -173,7 +178,8 @@ document.addEventListener('astro:page-load', () => {
         // Optimistic default
         indicator.style.backgroundColor = '#2ecc71';
         indicator.style.boxShadow = '0 0 10px #2ecc71';
-        text.textContent = 'Tous les systèmes opérationnels';
+        const okMsg = typeof window.t === 'function' ? window.t('Tous les systèmes opérationnels') : 'Tous les systèmes opérationnels';
+        text.textContent = okMsg;
         text.setAttribute('data-i18n', 'Tous les systèmes opérationnels');
         
         if (typeof document.dispatchEvent === 'function') {
@@ -187,7 +193,8 @@ document.addEventListener('astro:page-load', () => {
             if(data.incident !== null) {
               indicator.style.backgroundColor = '#f39c12';
               indicator.style.boxShadow = '0 0 10px #f39c12';
-              text.textContent = 'Incident en cours...';
+              const incMsg = typeof window.t === 'function' ? window.t('Incident en cours...') : 'Incident en cours...';
+              text.textContent = incMsg;
               text.setAttribute('data-i18n', 'Incident en cours...');
               
             }

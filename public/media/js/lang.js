@@ -4,12 +4,42 @@ document.addEventListener('astro:page-load', () => {
     const langSelects = document.querySelectorAll('.lang-select');
     if (langSelects.length === 0) return;
 
-    let currentLang = localStorage.getItem('site_lang') || 'FR';
+    // --- Auto-detect browser language for first-time visitors ---
+    function detectBrowserLang() {
+        const saved = localStorage.getItem('site_lang');
+        if (saved) return saved;
+
+        const nav = (navigator.language || navigator.userLanguage || 'fr').toLowerCase();
+        if (nav.startsWith('de')) return 'DE';
+        if (nav.startsWith('en')) return 'EN';
+        return 'FR'; // default
+    }
+
+    let currentLang = detectBrowserLang();
+    // Persist immediately so next page load is consistent
+    if (!localStorage.getItem('site_lang')) {
+        localStorage.setItem('site_lang', currentLang);
+    }
+
+    // --- window.t() helper — used by quiz and dynamic JS ---
+    window.t = function(key) {
+        if (!key) return key;
+        if (currentLang === 'EN' && typeof frToEn !== 'undefined' && frToEn[key]) return frToEn[key];
+        if (currentLang === 'DE' && typeof frToDe !== 'undefined' && frToDe[key]) return frToDe[key];
+        return key; // fallback to French (the key itself)
+    };
 
     function applyLanguage(lang) {
+        currentLang = lang;
+        window.t = function(key) {
+            if (!key) return key;
+            if (lang === 'EN' && typeof frToEn !== 'undefined' && frToEn[key]) return frToEn[key];
+            if (lang === 'DE' && typeof frToDe !== 'undefined' && frToDe[key]) return frToDe[key];
+            return key;
+        };
+
         if (lang === 'FR') {
             document.documentElement.lang = 'fr';
-            // Restaurer le texte français depuis data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -18,12 +48,11 @@ document.addEventListener('astro:page-load', () => {
                     el.textContent = key;
                 }
             });
-            document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                const key = el.getAttribute('data-i18n-html');
-                // The key itself is usually NOT the french text for data-i18n-html, 
-                // but we might need a fr dictionary if we want to restore complex HTML.
-                // However, since it's an edge case, we can reload if going back to FR is too complex,
-                // or just rely on the user having minimal data-i18n-html
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                el.placeholder = el.getAttribute('data-i18n-placeholder');
+            });
+            document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                el.setAttribute('aria-label', el.getAttribute('data-i18n-aria'));
             });
             document.dispatchEvent(new Event('languageChanged'));
             return;
@@ -40,42 +69,37 @@ document.addEventListener('astro:page-load', () => {
 
         document.documentElement.lang = lang.toLowerCase();
 
-        // Appliquer les traductions via data-i18n
+        // Textes simples
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (dict[key]) {
+            const val = dict[key];
+            if (val) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = dict[key];
+                    el.placeholder = val;
                 } else {
-                    el.textContent = dict[key];
+                    el.textContent = val;
                 }
             }
         });
 
-        // Appliquer les traductions complexes via data-i18n-html
+        // HTML complexe
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
             const key = el.getAttribute('data-i18n-html');
-            if (dict[key]) {
-                el.innerHTML = dict[key];
-            }
+            if (dict[key]) el.innerHTML = dict[key];
         });
 
-        // Appliquer les traductions aria
+        // ARIA labels
         document.querySelectorAll('[data-i18n-aria]').forEach(el => {
             const key = el.getAttribute('data-i18n-aria');
-            if (dict[key]) {
-                el.setAttribute('aria-label', dict[key]);
-            }
+            if (dict[key]) el.setAttribute('aria-label', dict[key]);
         });
 
-        // Appliquer les traductions placeholder
+        // Placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
-            if (dict[key]) {
-                el.setAttribute('placeholder', dict[key]);
-            }
+            if (dict[key]) el.setAttribute('placeholder', dict[key]);
         });
-        
+
         document.dispatchEvent(new Event('languageChanged'));
     }
 
@@ -84,30 +108,27 @@ document.addEventListener('astro:page-load', () => {
         select.value = currentLang;
     });
 
-    // Appliquer la langue initiale
-    if (currentLang !== 'FR') {
-        applyLanguage(currentLang);
-    }
+    // Appliquer la langue détectée/sauvegardée
+    applyLanguage(currentLang);
 
-    // Écouter les changements de langue
+    // Écouter les changements manuels de langue
     langSelects.forEach(select => {
         select.addEventListener('change', (e) => {
             currentLang = e.target.value;
             localStorage.setItem('site_lang', currentLang);
-            
-            // Appliquer la langue sans recharger la page
+
             if (currentLang === 'FR') {
-                // Pour revenir au français original parfait avec HTML, on recharge
-                location.reload(); 
+                // Recharger pour restaurer parfaitement le HTML français
+                location.reload();
             } else {
                 applyLanguage(currentLang);
                 if (typeof showToast === 'function') {
-                    const toastText = currentLang === 'EN' ? 'Language: ' + currentLang : (currentLang === 'DE' ? 'Sprache: ' + currentLang : 'Langue : ' + currentLang);
+                    const toastText = currentLang === 'EN' ? 'Language: English 🇬🇧' : 'Sprache: Deutsch 🇩🇪';
                     showToast(toastText, 'success');
                 }
             }
-            
-            // Sync all selects if there are multiple on the page
+
+            // Sync tous les sélecteurs (si plusieurs sur la page)
             langSelects.forEach(s => s.value = currentLang);
         });
     });
