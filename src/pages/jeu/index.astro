@@ -776,10 +776,26 @@ import Layout from '../../layouts/Layout.astro';
     restartButton.addEventListener('click', redemarrerQuiz);
     showAnswersButton.addEventListener('click', afficherReponses);
 
-    // Initialiser le quiz au chargement
-    const quizContainer = document.querySelector('.quiz-container');
-    if (quizContainer) {
-        initialiserQuiz();
+    // Bouton "Commencer le Quiz"
+    const startBtn = document.getElementById('start-quiz-btn');
+    const introContainer = document.getElementById('intro-container');
+    const quizContainer = document.getElementById('quiz-container');
+
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            const pseudo = document.getElementById('pseudo-input').value.trim();
+            if (!pseudo) {
+                const msg = typeof window.t === 'function' ? window.t('Entrez votre pseudo...') : 'Entrez votre pseudo...';
+                document.getElementById('pseudo-input').placeholder = msg;
+                document.getElementById('pseudo-input').style.borderColor = 'red';
+                setTimeout(() => { document.getElementById('pseudo-input').style.borderColor = ''; }, 1500);
+                return;
+            }
+            window._quizPseudo = pseudo;
+            if (introContainer) introContainer.style.display = 'none';
+            if (quizContainer) quizContainer.style.display = 'block';
+            initialiserQuiz();
+        });
     }
 
     // Bouton retour en haut
