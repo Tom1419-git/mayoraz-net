@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import portraitImg from '../../assets/img/portrait.webp';
+---
+
+<Layout title="Mes Liens | Thomas Mayoraz" description="Retrouvez tous mes liens utiles : GitHub, LinkedIn, Instagram et Contact." cssFile="/media/css/links.css">
+    <div class="links-container reveal">
+        <div class="profile-section">
+            <div class="avatar links-avatar">
+                <Image src={portraitImg} alt="Thomas Mayoraz" loading="eager" />
+            </div>
+            <h1>Thomas Mayoraz</h1>
+            <p class="tagline">@th0m4s_stfu</p>
+        </div>
+
+        <div class="links-list">
+            <a href="https://github.com/Tom1419-git" target="_blank" rel="noopener noreferrer" class="link-btn github">
+                <span class="icon">💻</span>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/thomas-mayoraz-it/" target="_blank" rel="noopener noreferrer" class="link-btn linkedin">
+                <span class="icon">💼</span>
+                LinkedIn
+            </a>
+            <a href="https://www.instagram.com/th0m4s_stfu?igsh=MXNhMDB5eTJ5MzQxOQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="link-btn instagram">
+                <span class="icon">📸</span>
+                Instagram
+            </a>
+            <a href="/contact/" class="link-btn contact">
+                <span class="icon">✉️</span>
+                Contact
+            </a>
+        </div>
+    </div>
+</Layout>
