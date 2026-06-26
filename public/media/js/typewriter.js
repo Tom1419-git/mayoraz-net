@@ -16,6 +16,13 @@ document.addEventListener('astro:page-load', () => {
         "Hardware & PC Building Expert",
         "Web & Scripting Developer"
     ];
+
+    const phrasesDe = [
+        "Netzwerkinfrastruktur-Spezialist",
+        "IT-Techniker",
+        "Hardware- & PC-Bau-Experte",
+        "Web- & Scripting-Entwickler"
+    ];
     
     let currentPhraseIndex = 0;
     let isDeleting = false;
@@ -23,8 +30,11 @@ document.addEventListener('astro:page-load', () => {
     let typeSpeed = 100;
 
     function type() {
-        const isEn = document.documentElement.lang === 'en';
-        const activePhrases = isEn ? phrasesEn : phrasesFr;
+        const lang = document.documentElement.lang;
+        let activePhrases = phrasesFr;
+        if (lang === 'en') activePhrases = phrasesEn;
+        if (lang === 'de') activePhrases = phrasesDe;
+        
         const fullTxt = activePhrases[currentPhraseIndex];
 
         if (isDeleting) {
