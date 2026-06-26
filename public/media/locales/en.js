@@ -865,5 +865,9 @@ const frToEn = {
     "Gérer l'alimentation de l'ordinateur": "Manage the computer's power supply",
     "Permettre à des systèmes d'apprendre et s'adapter": "Allow systems to learn and adapt",
     "Créer des disques durs plus rapides": "Create faster hard drives",
-    "L'intelligence artificielle permet aux systèmes d'apprendre à partir de données pour accomplir des tâches automatiquement.": "Artificial intelligence enables systems to learn from data to perform tasks automatically."
+    "L'intelligence artificielle permet aux systèmes d'apprendre à partir de données pour accomplir des tâches automatiquement.": "Artificial intelligence enables systems to learn from data to perform tasks automatically.",
+    "API :": "API:",
+    "Media": "Media",
+    "Linux": "Linux",
+    "Nginx": "Nginx"
 };

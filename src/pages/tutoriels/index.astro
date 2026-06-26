@@ -12,19 +12,19 @@ import Layout from '../../layouts/Layout.astro';
                     <div class="avatar-fallback">TM</div>
                 </div>
                 <h1 data-i18n-html="Tutoriels &amp; Snippets" data-i18n="Tutoriels &amp; Snippets">Tutoriels &amp; Snippets</h1>
-                <p class="subtitle" data-i18n="Ma base de connaissances et astuces techniques" data-i18n="Ma base de connaissances et astuces techniques">Ma base de connaissances et astuces techniques</p>
+                <p class="subtitle" data-i18n="Ma base de connaissances et astuces techniques" >Ma base de connaissances et astuces techniques</p>
                 <a class="back-nav" href="/" data-i18n="← Retour à l'accueil">← Retour à l'accueil</a>
             </div>
         </header>
 
                 <main class="tuto-container reveal">
-            <p style="text-align: center; margin-bottom: 40px; color: var(--text-main); opacity: 0.8;" data-i18n="Voici quelques mémos techniques, bouts de code et configurations rapides basés sur mon expérience avec mon infrastructure personnelle." data-i18n="Voici quelques mémos techniques, bouts de code et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.">
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-main); opacity: 0.8;" data-i18n="Voici quelques mémos techniques, bouts de code et configurations rapides basés sur mon expérience avec mon infrastructure personnelle." >
                 Voici quelques mémos techniques, bouts de code et configurations rapides basés sur mon expérience avec mon infrastructure personnelle.
             </p>
 
             <div id="tutorials-container">
                 <!-- Tuto 1 -->
-                <button class="accordion"><span class="tag" data-i18n="Docker">Docker</span> <span class="tuto-title" data-i18n="Le fichier docker-compose parfait pour débuter" data-i18n="Le fichier docker-compose parfait pour débuter">Le fichier docker-compose parfait pour débuter</span></button>
+                <button class="accordion"><span class="tag" data-i18n="Docker">Docker</span> <span class="tuto-title" data-i18n="Le fichier docker-compose parfait pour débuter" >Le fichier docker-compose parfait pour débuter</span></button>
                 <div class="panel">
                     <p data-i18n="Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.">Pour déployer rapidement n'importe quel conteneur en gardant une trace claire des configurations, j'utilise toujours la structure YAML suivante. Elle intègre les logs rotatifs pour éviter de saturer le disque de la VM.</p>
                     <pre is:raw><code>version: "3.8"
@@ -45,7 +45,7 @@ services:
                 </div>
 
                 <!-- Tuto 2 -->
-                <button class="accordion"><span class="tag" data-i18n="n8n">n8n</span> <span class="tuto-title" data-i18n="Auto-Healing : Redémarrer un conteneur crashé" data-i18n="Auto-Healing : Redémarrer un conteneur crashé">Auto-Healing : Redémarrer un conteneur crashé</span></button>
+                <button class="accordion"><span class="tag" data-i18n="n8n">n8n</span> <span class="tuto-title" data-i18n="Auto-Healing : Redémarrer un conteneur crashé" >Auto-Healing : Redémarrer un conteneur crashé</span></button>
                 <div class="panel">
                     <p data-i18n-html="Grâce à &lt;strong data-i18n=&quot;n8n&quot;&gt;n8n&lt;/strong&gt; et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :">Grâce à <strong>n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :</p>
                     <pre is:raw><code>curl --unix-socket /var/run/docker.sock -X POST http://localhost/containers/{container_id}/restart</code></pre>
@@ -53,7 +53,7 @@ services:
                 </div>
 
                 <!-- Tuto 3 -->
-                <button class="accordion"><span class="tag">Media</span> <span class="tuto-title" data-i18n="Architecture de la Stack 'Arr'" data-i18n="Architecture de la Stack 'Arr'">Architecture de la Stack 'Arr'</span></button>
+                <button class="accordion"><span class="tag" data-i18n="Media">Media</span> <span class="tuto-title" data-i18n="Architecture de la Stack 'Arr'" >Architecture de la Stack 'Arr'</span></button>
                 <div class="panel">
                     <p data-i18n="La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :">La stack d'automatisation multimédia peut être complexe à relier. Voici le sens des flux :</p>
                     <ol style="color: var(--text-muted); line-height: 1.7; margin: 15px 0 15px 25px;">
@@ -69,14 +69,14 @@ services:
                 <h2 style="margin: 40px 0 20px 0; font-family: 'DM Serif Display', serif; color: var(--primary);" data-i18n-html="Snippets &amp; Astuces" data-i18n="Snippets &amp; Astuces">Snippets &amp; Astuces</h2>
                 
                 <!-- Snippet 1 -->
-                <button class="accordion"><span class="tag" data-i18n="Docker">Docker</span> <span class="tuto-title" data-i18n="Nettoyage Complet Docker" data-i18n="Nettoyage Complet Docker">Nettoyage Complet Docker</span></button>
+                <button class="accordion"><span class="tag" data-i18n="Docker">Docker</span> <span class="tuto-title" data-i18n="Nettoyage Complet Docker" >Nettoyage Complet Docker</span></button>
                 <div class="panel">
                     <p data-i18n="Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.">Pour faire le ménage en profondeur sur votre serveur Docker et libérer de l'espace disque en supprimant les conteneurs arrêtés, les réseaux inutilisés, les images non attachées et le cache de build.</p>
                     <pre is:raw><code>docker system prune -a --volumes -f</code></pre>
                 </div>
 
                 <!-- Snippet 2 -->
-                <button class="accordion"><span class="tag">Linux</span> <span class="tuto-title" data-i18n="Mise à jour rapide Ubuntu (Alias)" data-i18n="Mise à jour rapide Ubuntu (Alias)">Mise à jour rapide Ubuntu (Alias)</span></button>
+                <button class="accordion"><span class="tag" data-i18n="Linux">Linux</span> <span class="tuto-title" data-i18n="Mise à jour rapide Ubuntu (Alias)" >Mise à jour rapide Ubuntu (Alias)</span></button>
                 <div class="panel">
                     <p data-i18n-html="tuto_alias_1">Ajoutez cet alias dans votre fichier <code>~/.bashrc</code> pour pouvoir tout mettre à jour d'une seule commande rapide.</p>
                     <pre is:raw><code>alias updateall='sudo apt update &amp;&amp; sudo apt upgrade -y &amp;&amp; sudo apt autoremove -y &amp;&amp; sudo apt autoclean'</code></pre>
@@ -84,7 +84,7 @@ services:
                 </div>
 
                 <!-- Snippet 3 -->
-                <button class="accordion"><span class="tag">Nginx</span> <span class="tuto-title" data-i18n="Redirection HTTP vers HTTPS (Nginx)" data-i18n="Redirection HTTP vers HTTPS (Nginx)">Redirection HTTP vers HTTPS (Nginx)</span></button>
+                <button class="accordion"><span class="tag" data-i18n="Nginx">Nginx</span> <span class="tuto-title" data-i18n="Redirection HTTP vers HTTPS (Nginx)" >Redirection HTTP vers HTTPS (Nginx)</span></button>
                 <div class="panel">
                     <p data-i18n="Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).">Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).</p>
                     <pre is:raw><code>server {

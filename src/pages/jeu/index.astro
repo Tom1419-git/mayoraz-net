@@ -727,12 +727,13 @@ import Layout from '../../layouts/Layout.astro';
             }
 
             leaderboardBody.innerHTML = '';
-            toShow.forEach((player, idx) => {
+            toShow.forEach((player) => {
                 const tr = document.createElement('tr');
                 if (player.isReal) tr.style.cssText = 'background: rgba(0,212,255,0.08); font-weight: bold; color: var(--primary);';
                 if (player.separator) { tr.innerHTML = `<td colspan="3" style="text-align:center;opacity:0.4">···</td>`; leaderboardBody.appendChild(tr); return; }
                 
-                const rank = allPlayers.indexOf(player) + 1;
+                // Rang basé sur la position dans allPlayers (trié)
+                const rank = allPlayers.findIndex(p => p === player) + 1;
                 let medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}.`;
                 tr.innerHTML = `<td>${medal}</td><td>${player.pseudo}</td><td>${player.score}/15</td>`;
                 leaderboardBody.appendChild(tr);
