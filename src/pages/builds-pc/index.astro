@@ -7,22 +7,22 @@ import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes configurations PC personnalisées : gaming, workstation et home server. Thomas Mayoraz, expert en services informatiques à Lausanne.">
+<Layout title="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes configurations PC personnalisées : gaming, workstation et home server. Thomas Mayoraz, expert en services informatiques à Lausanne.">
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
                     <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
-                <h1>Mes Builds PC</h1>
-                <p class="subtitle">Configurations personnalisées et optimisées</p>
+                <h1 data-i18n="Mes Builds PC">Mes Builds PC</h1>
+                <p class="subtitle" data-i18n="Configurations personnalisées et optimisées">Configurations personnalisées et optimisées</p>
                 <a class="back-nav" href="/">← Retour au Portfolio</a>
             </div>
         </header>
 
         <main>
             <section class="intro reveal">
-                <p>Découvrez mes configurations PC personnalisées, assemblées avec soin pour différents usages : gaming, workstation et home server. Chaque build est optimisé pour son usage spécifique.</p>
+                <p data-i18n="Découvrez mes configurations PC personnalisées, assemblées avec soin pour différents usages : gaming, workstation et home server. Chaque build est optimisé pour son usage spécifique.">Découvrez mes configurations PC personnalisées, assemblées avec soin pour différents usages : gaming, workstation et home server. Chaque build est optimisé pour son usage spécifique.</p>
             </section>
             
             
@@ -30,16 +30,16 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="build-card">
                                         <div class="build-image carousel-container">
                         <div class="carousel-slide active">
-                            <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)" />
+                            <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" data-i18n="Mon Setup Actuel - Vue 1" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <Image src={setup2Img} alt="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)" />
+                            <Image src={setup2Img} alt="Mon Setup Actuel - Vue 2" data-i18n="Mon Setup Actuel - Vue 2" onclick="openModal(this.src)" />
                         </div>
                         <div class="carousel-slide">
-                            <Image src={setup3Img} alt="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)" />
+                            <Image src={setup3Img} alt="Mon Setup Actuel - Vue 3" data-i18n="Mon Setup Actuel - Vue 3" onclick="openModal(this.src)" />
                         </div>
-                        <button class="carousel-btn prev-btn" aria-label="Image précédente">❮</button>
-                        <button class="carousel-btn next-btn" aria-label="Image suivante">❯</button>
+                        <button class="carousel-btn prev-btn" aria-label="Image précédente" data-i18n-aria="Image précédente">❮</button>
+                        <button class="carousel-btn next-btn" aria-label="Image suivante" data-i18n-aria="Image suivante">❯</button>
                         <div class="carousel-dots">
                             <span class="dot active" data-slide="0"></span>
                             <span class="dot" data-slide="1"></span>
@@ -48,23 +48,23 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
                     <div class="build-content">
                         <div class="build-header">
-                            <h3 class="build-title">Mon Setup Actuel</h3>
-                            <p class="build-subtitle">Configuration personnelle</p>
-                            <span class="build-status">ACTIF</span>
+                            <h3 class="build-title" data-i18n="Mon Setup Actuel">Mon Setup Actuel</h3>
+                            <p class="build-subtitle" data-i18n="Configuration personnelle">Configuration personnelle</p>
+                            <span class="build-status" data-i18n="ACTIF">ACTIF</span>
                         </div>
-                        <p class="build-description">
+                        <p class="build-description" data-i18n="Ma machine principale quotidienne, optimisée pour le développement, la productivité et le gaming fluide. Équipée des dernières technologies AMD pour des performances optimales sans compromis.">
                             Ma machine principale quotidienne, optimisée pour le développement, la productivité et le gaming fluide. Équipée des dernières technologies AMD pour des performances optimales sans compromis.
                         </p>
                         <ul class="build-specs">
-                            <li><span class="spec-label">Boîtier</span> Hyte Y60</li>
-                            <li><span class="spec-label">Processeur</span> AMD Ryzen 7 7700X</li>
-                            <li><span class="spec-label">Carte Mère</span> Gigabyte B650E AORUS Elite X AX ICE</li>
-                            <li><span class="spec-label">Carte Graphique</span> AMD Radeon RX 6750 XT</li>
-                            <li><span class="spec-label">Mémoire Vive</span> Kingston 32GB DDR5 6000MT/s CL30</li>
-                            <li><span class="spec-label">Refroidissement</span> Lian-Li GALAHAD II 360 Trinity Perf.</li>
-                            <li><span class="spec-label">Ventilation</span> 6x Lian-Li UNI FAN SL-INF 120 ARGB</li>
-                            <li><span class="spec-label">Alimentation</span> Enermax Revo. DF2 850W 80+ Gold</li>
-                            <li><span class="spec-label">Stockage</span> 1 To NVMe SSD + 128 Go SSD</li>
+                            <li><span class="spec-label" data-i18n="Boîtier">Boîtier</span> Hyte Y60</li>
+                            <li><span class="spec-label" data-i18n="Processeur">Processeur</span> AMD Ryzen 7 7700X</li>
+                            <li><span class="spec-label" data-i18n="Carte Mère">Carte Mère</span> Gigabyte B650E AORUS Elite X AX ICE</li>
+                            <li><span class="spec-label" data-i18n="Carte Graphique">Carte Graphique</span> AMD Radeon RX 6750 XT</li>
+                            <li><span class="spec-label" data-i18n="Mémoire Vive">Mémoire Vive</span> Kingston 32GB DDR5 6000MT/s CL30</li>
+                            <li><span class="spec-label" data-i18n="Refroidissement">Refroidissement</span> Lian-Li GALAHAD II 360 Trinity Perf.</li>
+                            <li><span class="spec-label" data-i18n="Ventilation">Ventilation</span> 6x Lian-Li UNI FAN SL-INF 120 ARGB</li>
+                            <li><span class="spec-label" data-i18n="Alimentation">Alimentation</span> Enermax Revo. DF2 850W 80+ Gold</li>
+                            <li><span class="spec-label" data-i18n="Stockage">Stockage</span> 1 To NVMe SSD + 128 Go SSD</li>
                         </ul>
                     </div>
                 </div>
