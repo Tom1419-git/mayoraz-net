@@ -827,5 +827,9 @@ const frToDe = {
     "Gérer l'alimentation de l'ordinateur": "Die Stromversorgung des Computers verwalten",
     "Permettre à des systèmes d'apprendre et s'adapter": "Systemen das Lernen und Anpassen ermöglichen",
     "Créer des disques durs plus rapides": "Schnellere Festplatten erstellen",
-    "L'intelligence artificielle permet aux systèmes d'apprendre à partir de données pour accomplir des tâches automatiquement.": "Künstliche Intelligenz ermöglicht es Systemen, aus Daten zu lernen, um Aufgaben automatisch auszuführen."
+    "L'intelligence artificielle permet aux systèmes d'apprendre à partir de données pour accomplir des tâches automatiquement.": "Künstliche Intelligenz ermöglicht es Systemen, aus Daten zu lernen, um Aufgaben automatisch auszuführen.",
+    "API :": "API:",
+    "Media": "Medien",
+    "Linux": "Linux",
+    "Nginx": "Nginx"
 };
