@@ -735,7 +735,9 @@ import Layout from '../../layouts/Layout.astro';
                 // Rang basé sur la position dans allPlayers (trié)
                 const rank = allPlayers.findIndex(p => p === player) + 1;
                 let medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}.`;
-                tr.innerHTML = `<td>${medal}</td><td>${player.pseudo}</td><td>${player.score}/15</td>`;
+                const t = typeof window.t === 'function' ? window.t : text => text;
+                const displayPseudo = player.isReal ? player.pseudo : t(player.pseudo);
+                tr.innerHTML = `<td>${medal}</td><td>${displayPseudo}</td><td>${player.score}/15</td>`;
                 leaderboardBody.appendChild(tr);
             });
 

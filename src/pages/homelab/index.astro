@@ -72,53 +72,52 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="homelab-grid">
                     
                     <div class="hl-card reveal">
-                        <h3 data-i18n-html="🖥️ Hyperviseur &amp; Matériel" data-i18n="🖥️ Hyperviseur &amp; Matériel">🖥️ Hyperviseur &amp; Matériel</h3>
-                        <p>Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong data-i18n="Proxmox VE">Proxmox VE</strong>, exploitant un processeur <strong data-i18n="Intel Core i5-2400 @ 3.10GHz (4 cœurs)">Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong data-i18n="12 Go de RAM">12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong data-i18n="Ubuntu Server">Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.</p>
+                        <h3 data-i18n="🖥️ Hyperviseur &amp; Conteneurisation">🖥️ Hyperviseur &amp; Conteneurisation</h3>
+                        <p data-i18n="Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.">Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Proxmox VE">Proxmox VE</span>
-                            <span class="hl-tag" data-i18n="Intel i5-2400">Intel i5-2400</span>
-                            <span class="hl-tag" data-i18n="12GB RAM">12GB RAM</span>
-                            <span class="hl-tag" data-i18n="Ubuntu Server VM">Ubuntu Server VM</span>
+                            <span class="hl-tag">Proxmox VE</span>
+                            <span class="hl-tag">Docker</span>
+                            <span class="hl-tag" data-i18n="36 Conteneurs">36 Conteneurs</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3 data-i18n-html="💾 Stockage &amp; Pool MergerFS" data-i18n="💾 Stockage &amp; Pool MergerFS">💾 Stockage &amp; Pool MergerFS</h3>
-                        <p>Pour la VM, j'utilise un disque OS de <strong data-i18n="150 Go sur LVM">150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
+                        <h3 data-i18n="💾 Stockage &amp; Optimisation Hardlinks">💾 Stockage &amp; Optimisation Hardlinks</h3>
+                        <p data-i18n="La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.">La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="LVM (150Go)">LVM (150Go)</span>
-                            <span class="hl-tag" data-i18n="Passthrough Disks">Passthrough Disks</span>
-                            <span class="hl-tag" data-i18n="MergerFS (4To Pool)">MergerFS (4To Pool)</span>
+                            <span class="hl-tag">MergerFS (4To)</span>
+                            <span class="hl-tag">Atomic Moves</span>
+                            <span class="hl-tag">TRaSH Guides</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3 data-i18n-html="🌐 Réseau, Proxy &amp; Sécurité" data-i18n="🌐 Réseau, Proxy &amp; Sécurité">🌐 Réseau, Proxy &amp; Sécurité</h3>
-                        <p data-i18n-html="L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.">L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
+                        <h3 data-i18n="🌐 Réseau Zero-Trust &amp; Proxy">🌐 Réseau Zero-Trust &amp; Proxy</h3>
+                        <p data-i18n="L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.">L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Nginx (Interne)">Nginx (Interne)</span>
                             <span class="hl-tag">Cloudflare Tunnel</span>
-                            <span class="hl-tag" data-i18n="HTTPS/SSL">HTTPS/SSL</span>
+                            <span class="hl-tag">Nginx Proxy Manager</span>
+                            <span class="hl-tag">Zero Trust</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3 data-i18n-html="🛡️ Résilience &amp; Sauvegardes (Backups)">🛡️ Résilience &amp; Sauvegardes (Backups)</h3>
-                        <p data-i18n-html="Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.">Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
+                        <h3 data-i18n="🛡️ Résilience &amp; Infrastructure as Code">🛡️ Résilience &amp; Infrastructure as Code</h3>
+                        <p data-i18n="La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.">La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Full VM Backup">Full VM Backup</span>
-                            <span class="hl-tag">rclone</span>
-                            <span class="hl-tag" data-i18n="Google Drive">Google Drive</span>
+                            <span class="hl-tag">Ansible (IaC)</span>
+                            <span class="hl-tag">Disaster Recovery</span>
+                            <span class="hl-tag">Rclone (G-Drive)</span>
                         </div>
                     </div>
                     
                     <div class="hl-card reveal">
-                        <h3 data-i18n-html="📈 Monitoring &amp; Auto-résolution" data-i18n="📈 Monitoring &amp; Auto-résolution">📈 Monitoring &amp; Auto-résolution</h3>
-                        <p data-i18n-html="Le serveur est surveillé en temps réel par &lt;strong data-i18n=&quot;Prometheus&quot;&gt;Prometheus&lt;/strong&gt; et &lt;strong data-i18n=&quot;Grafana&quot;&gt;Grafana&lt;/strong&gt; (métriques matérielles/applicatives). Pour aller plus loin, j'utilise &lt;strong data-i18n=&quot;n8n&quot;&gt;n8n&lt;/strong&gt; (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.">Le serveur est surveillé en temps réel par <strong data-i18n="Prometheus">Prometheus</strong> et <strong data-i18n="Grafana">Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong data-i18n="n8n">n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
+                        <h3 data-i18n="📈 Monitoring &amp; Auto-résolution">📈 Monitoring &amp; Auto-résolution</h3>
+                        <p data-i18n="Le serveur est supervisé par Prometheus et Grafana. L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">Le serveur est supervisé par Prometheus et Grafana. L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Prometheus &amp; Grafana">Prometheus &amp; Grafana</span>
-                            <span class="hl-tag" data-i18n="n8n">n8n</span>
-                            <span class="hl-tag" data-i18n="Auto-Healing">Auto-Healing</span>
+                            <span class="hl-tag">Prometheus &amp; Grafana</span>
+                            <span class="hl-tag">n8n Workflow</span>
+                            <span class="hl-tag">Auto-Healing</span>
                         </div>
                     </div>
                     
