@@ -59,6 +59,14 @@ document.addEventListener('astro:page-load', () => {
                 el.innerHTML = dict[key];
             }
         });
+
+        // Appliquer les traductions aria
+        document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+            const key = el.getAttribute('data-i18n-aria');
+            if (dict[key]) {
+                el.setAttribute('aria-label', dict[key]);
+            }
+        });
         
         document.dispatchEvent(new Event('languageChanged'));
     }
@@ -86,7 +94,8 @@ document.addEventListener('astro:page-load', () => {
             } else {
                 applyLanguage(currentLang);
                 if (typeof showToast === 'function') {
-                    showToast('Langue : ' + currentLang, 'success');
+                    const toastText = currentLang === 'EN' ? 'Language: ' + currentLang : (currentLang === 'DE' ? 'Sprache: ' + currentLang : 'Langue : ' + currentLang);
+                    showToast(toastText, 'success');
                 }
             }
             

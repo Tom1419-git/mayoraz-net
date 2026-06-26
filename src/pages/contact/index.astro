@@ -47,30 +47,30 @@ import Layout from '../../layouts/Layout.astro';
                         <input type="email" id="email" name="email" required="">
                     </div>
                     <div class="form-group">
-                        <label for="telephone" data-i18n="Téléphone" data-i18n="Téléphone">Téléphone</label>
+                        <label for="telephone" data-i18n="Téléphone" data-i18n="Téléphone" data-i18n="Téléphone">Téléphone</label>
                         <input type="tel" id="telephone" name="telephone">
                     </div>
                     <div class="form-group">
                         <label for="service" data-i18n-html="form_service">Type de prestation <span class="required">*</span></label>
                         <select id="service" name="service" required="">
-                            <option value="" data-i18n="Sélectionnez un service" data-i18n="Sélectionnez un service">Sélectionnez un service</option>
-                            <option value="site-web-personnel" data-i18n="Site web personnel" data-i18n="Site web personnel">Site web personnel</option>
-                            <option value="site-web-entreprise" data-i18n="Site web d'entreprise" data-i18n="Site web d'entreprise">Site web d'entreprise</option>
-                            <option value="montage-pc" data-i18n="Configuration PC sur mesure" data-i18n="Configuration PC sur mesure">Configuration PC sur mesure</option>
-                            <option value="depannage" data-i18n="Dépannage informatique" data-i18n="Dépannage informatique">Dépannage informatique</option>
-                            <option value="conseil-technique" data-i18n="Conseil technique" data-i18n="Conseil technique">Conseil technique</option>
-                            <option value="autre" data-i18n="Autre (précisez dans le message)" data-i18n="Autre (précisez dans le message)">Autre (précisez dans le message)</option>
+                            <option value="" data-i18n="Sélectionnez un service" data-i18n="Sélectionnez un service" data-i18n="Sélectionnez un service">Sélectionnez un service</option>
+                            <option value="site-web-personnel" data-i18n="Site web personnel" data-i18n="Site web personnel" data-i18n="Site web personnel">Site web personnel</option>
+                            <option value="site-web-entreprise" data-i18n="Site web d'entreprise" data-i18n="Site web d'entreprise" data-i18n="Site web d'entreprise">Site web d'entreprise</option>
+                            <option value="montage-pc" data-i18n="Configuration PC sur mesure" data-i18n="Configuration PC sur mesure" data-i18n="Configuration PC sur mesure">Configuration PC sur mesure</option>
+                            <option value="depannage" data-i18n="Dépannage informatique" data-i18n="Dépannage informatique" data-i18n="Dépannage informatique">Dépannage informatique</option>
+                            <option value="conseil-technique" data-i18n="Conseil technique" data-i18n="Conseil technique" data-i18n="Conseil technique">Conseil technique</option>
+                            <option value="autre" data-i18n="Autre (précisez dans le message)" data-i18n="Autre (précisez dans le message)" data-i18n="Autre (précisez dans le message)">Autre (précisez dans le message)</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="budget" data-i18n="Budget approximatif (CHF)" data-i18n="Budget approximatif (CHF)">Budget approximatif (CHF)</label>
+                        <label for="budget" data-i18n="Budget approximatif (CHF)" data-i18n="Budget approximatif (CHF)" data-i18n="Budget approximatif (CHF)">Budget approximatif (CHF)</label>
                         <select id="budget" name="budget">
-                            <option value="" data-i18n="Non défini" data-i18n="Non défini">Non défini</option>
+                            <option value="" data-i18n="Non défini" data-i18n="Non défini" data-i18n="Non défini">Non défini</option>
                             <option value="0-500">0 - 500 CHF</option>
                             <option value="500-1000">500 - 1000 CHF</option>
                             <option value="1000-2000">1000 - 2000 CHF</option>
                             <option value="2000-5000">2000 - 5000 CHF</option>
-                            <option value="5000+" data-i18n="Plus de 5000 CHF" data-i18n="Plus de 5000 CHF">Plus de 5000 CHF</option>
+                            <option value="5000+" data-i18n="Plus de 5000 CHF" data-i18n="Plus de 5000 CHF" data-i18n="Plus de 5000 CHF">Plus de 5000 CHF</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -79,7 +79,7 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
 
                     <div id="cf-turnstile-container" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
-                    <button type="submit" class="submit-btn" data-i18n="Envoyer le message" data-i18n="Envoyer le message">
+                    <button type="submit" class="submit-btn" data-i18n="Envoyer le message" data-i18n="Envoyer le message" data-i18n="Envoyer le message">
                         Envoyer le message
                     </button>
                 </form>
@@ -96,11 +96,11 @@ import Layout from '../../layouts/Layout.astro';
                             <p>Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.</p>
                         </div>
                         <div class="service-item reveal">
-                            <h4>Dépannage</h4>
+                            <h4 data-i18n="Dépannage">Dépannage</h4>
                             <p>Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.</p>
                         </div>
                         <div class="service-item reveal">
-                            <h4>Conseil Technique</h4>
+                            <h4 data-i18n="Conseil Technique">Conseil Technique</h4>
                             <p>Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.</p>
                         </div>
                     </div>
