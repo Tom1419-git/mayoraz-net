@@ -679,7 +679,69 @@ import Layout from '../../layouts/Layout.astro';
         }
 
         commentElement.textContent = commentaire;
+
+        // ---- CLASSEMENT AVEC FAUX PSEUDOS ----
+        const leaderboardContainer = document.getElementById('leaderboard-container');
+        const leaderboardBody = document.getElementById('leaderboard-body');
+
+        if (leaderboardContainer && leaderboardBody) {
+            // Pool de faux joueurs drôles (pseudos savoureux avec jeux de mots)
+            const fakePlayers = [
+                { pseudo: "BitMaster3000",      score: 15 },
+                { pseudo: "KernelPanic69",       score: 14 },
+                { pseudo: "sudo rm -rf moi",     score: 14 },
+                { pseudo: "NullPointerException",score: 13 },
+                { pseudo: "ChatGPTEstMonPère",   score: 13 },
+                { pseudo: "CafféineOverflow",    score: 12 },
+                { pseudo: "git push --force",    score: 12 },
+                { pseudo: "IEUser2006",          score: 11 },
+                { pseudo: "404BrainNotFound",    score: 11 },
+                { pseudo: "printf(\"aide\");",   score: 10 },
+                { pseudo: "WiFiPassword1234",    score: 10 },
+                { pseudo: "MonPCEnFlammes🔥",   score: 9  },
+                { pseudo: "StackOverflowAddict", score: 9  },
+                { pseudo: "CSSEstUnLangage",     score: 8  },
+                { pseudo: "Reboot-Man",          score: 7  },
+                { pseudo: "LeGuyQuiLitLesTutos", score: 6  },
+                { pseudo: "BlueScreen💙",        score: 5  },
+                { pseudo: "CtrlAltDéfeat",       score: 4  },
+                { pseudo: "JavascriptHater",     score: 3  },
+                { pseudo: "JExisteEnPHP",        score: 2  },
+                { pseudo: "Windows Vista Fan",   score: 1  },
+                { pseudo: "CordovaDeveloper",    score: 0  },
+            ];
+
+            // Insérer le joueur réel au bon endroit
+            const pseudo = window._quizPseudo || 'Toi';
+            const allPlayers = [...fakePlayers, { pseudo: `⭐ ${pseudo}`, score: score, isReal: true }];
+            
+            // Trier par score décroissant, puis par pseudo pour égalité
+            allPlayers.sort((a, b) => b.score - a.score || a.pseudo.localeCompare(b.pseudo));
+
+            // Afficher seulement les 10 meilleurs + le joueur si hors top 10
+            const realIdx = allPlayers.findIndex(p => p.isReal);
+            let toShow = allPlayers.slice(0, 10);
+            if (realIdx >= 10) {
+                toShow.push({ pseudo: '...', score: '', separator: true });
+                toShow.push(allPlayers[realIdx]);
+            }
+
+            leaderboardBody.innerHTML = '';
+            toShow.forEach((player, idx) => {
+                const tr = document.createElement('tr');
+                if (player.isReal) tr.style.cssText = 'background: rgba(0,212,255,0.08); font-weight: bold; color: var(--primary);';
+                if (player.separator) { tr.innerHTML = `<td colspan="3" style="text-align:center;opacity:0.4">···</td>`; leaderboardBody.appendChild(tr); return; }
+                
+                const rank = allPlayers.indexOf(player) + 1;
+                let medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}.`;
+                tr.innerHTML = `<td>${medal}</td><td>${player.pseudo}</td><td>${player.score}/15</td>`;
+                leaderboardBody.appendChild(tr);
+            });
+
+            leaderboardContainer.style.display = 'block';
+        }
     }
+
 
     function afficherReponses() {
         const t = typeof window.t === 'function' ? window.t : text => text;
