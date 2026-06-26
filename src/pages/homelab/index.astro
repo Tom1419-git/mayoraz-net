@@ -4,28 +4,28 @@ import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et monitoring via Prometheus & Grafana." cssFile="/media/css/homelab.css?v=1782221779">
+<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et monitoring via Prometheus & Grafana." cssFile="/media/css/homelab.css?v=1782221779">
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
                     <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
                     <div class="avatar-fallback">TM</div>
                 </div>
-                <h1>Mon Homelab</h1>
-                <p class="subtitle">Infrastructure Personnelle &amp; Automatisation</p>
-                <a class="back-nav" href="/">← Retour à l'accueil</a>
+                <h1 data-i18n="Mon Homelab">Mon Homelab</h1>
+                <p class="subtitle" data-i18n-html="Infrastructure Personnelle &amp; Automatisation" data-i18n="Infrastructure Personnelle &amp; Automatisation">Infrastructure Personnelle &amp; Automatisation</p>
+                <a class="back-nav" href="/" data-i18n="← Retour à l'accueil">← Retour à l'accueil</a>
             </div>
         </header>
 
                 <main>
             <section class="intro reveal">
-                <p>En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
-                <p>Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
+                <p>En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong data-i18n="Homelab">Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
+                <p data-i18n="Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.">Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
             </section>
             
             <section class="live-stats-container reveal">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin-top:0; margin-bottom: 0;">Serveur en temps réel (Grafana)</h3>
+                    <h3 style="margin-top:0; margin-bottom: 0;" data-i18n="Serveur en temps réel (Grafana)">Serveur en temps réel (Grafana)</h3>
                     <div class="status-dot online"></div>
                 </div>
                 
@@ -42,83 +42,83 @@ import Layout from '../../layouts/Layout.astro';
             </section>
 
             <section class="diagram-container reveal">
-                <h3 style="margin-top:0;">Architecture Média Automatisée</h3>
+                <h3 style="margin-top:0;" data-i18n="Architecture Média Automatisée">Architecture Média Automatisée</h3>
                 <div class="flowchart">
                     <div class="flow-row">
-                        <div class="flow-box">👤 Utilisateur (Jellyseerr)</div>
+                        <div class="flow-box" data-i18n="👤 Utilisateur (Jellyseerr)">👤 Utilisateur (Jellyseerr)</div>
                     </div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-grid-row">
                         <div class="empty-space"></div>
-                        <div class="flow-box center-box">🎬 Radarr / Sonarr</div>
+                        <div class="flow-box center-box" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
                         <div class="flow-side-branch">
                             <div class="flow-arrow horizontal">↔</div>
-                            <div class="flow-box">🔍 Prowlarr</div>
+                            <div class="flow-box" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
                         </div>
                     </div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box">📥 qBittorrent</div>
+                        <div class="flow-box" data-i18n="📥 qBittorrent">📥 qBittorrent</div>
                     </div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box">🍿 Jellyfin</div>
+                        <div class="flow-box" data-i18n="🍿 Jellyfin">🍿 Jellyfin</div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Détails Techniques de l'Infrastructure</h2>
+                <h2 data-i18n="Détails Techniques de l'Infrastructure">Détails Techniques de l'Infrastructure</h2>
                 <div class="homelab-grid">
                     
                     <div class="hl-card reveal">
-                        <h3>🖥️ Hyperviseur &amp; Matériel</h3>
-                        <p>Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong>Proxmox VE</strong>, exploitant un processeur <strong>Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong>12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong>Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.</p>
+                        <h3 data-i18n-html="🖥️ Hyperviseur &amp; Matériel" data-i18n="🖥️ Hyperviseur &amp; Matériel">🖥️ Hyperviseur &amp; Matériel</h3>
+                        <p>Mon infrastructure physique tourne sur un hyperviseur de type 1, <strong data-i18n="Proxmox VE">Proxmox VE</strong>, exploitant un processeur <strong data-i18n="Intel Core i5-2400 @ 3.10GHz (4 cœurs)">Intel Core i5-2400 @ 3.10GHz (4 cœurs)</strong> avec <strong data-i18n="12 Go de RAM">12 Go de RAM</strong>. Ce nœud PVE me permet de virtualiser mon environnement principal : une grosse machine virtuelle <strong data-i18n="Ubuntu Server">Ubuntu Server</strong> à laquelle j'ai alloué 11 Go de RAM pour exécuter tous mes services Docker.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Proxmox VE</span>
-                            <span class="hl-tag">Intel i5-2400</span>
-                            <span class="hl-tag">12GB RAM</span>
-                            <span class="hl-tag">Ubuntu Server VM</span>
+                            <span class="hl-tag" data-i18n="Proxmox VE">Proxmox VE</span>
+                            <span class="hl-tag" data-i18n="Intel i5-2400">Intel i5-2400</span>
+                            <span class="hl-tag" data-i18n="12GB RAM">12GB RAM</span>
+                            <span class="hl-tag" data-i18n="Ubuntu Server VM">Ubuntu Server VM</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>💾 Stockage &amp; Pool MergerFS</h3>
-                        <p>Pour la VM, j'utilise un disque OS de <strong>150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
+                        <h3 data-i18n-html="💾 Stockage &amp; Pool MergerFS" data-i18n="💾 Stockage &amp; Pool MergerFS">💾 Stockage &amp; Pool MergerFS</h3>
+                        <p>Pour la VM, j'utilise un disque OS de <strong data-i18n="150 Go sur LVM">150 Go sur LVM</strong>. Pour les données, je fais du "passthrough" de 4 disques physiques (dont 2x 2To et 2x 500Go) directement vers la VM. J'utilise ensuite <strong>MergerFS</strong> pour regrouper de manière transparente l'espace, créant un <strong>pool de 4 To</strong> dédié au stockage de mes films et séries, optimisant ainsi l'espace sans complexité RAID.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="LVM (150Go)" data-i18n="LVM (150Go)">LVM (150Go)</span>
-                            <span class="hl-tag" data-i18n="Passthrough Disks" data-i18n="Passthrough Disks">Passthrough Disks</span>
-                            <span class="hl-tag" data-i18n="MergerFS (4To Pool)" data-i18n="MergerFS (4To Pool)">MergerFS (4To Pool)</span>
+                            <span class="hl-tag" data-i18n="LVM (150Go)">LVM (150Go)</span>
+                            <span class="hl-tag" data-i18n="Passthrough Disks">Passthrough Disks</span>
+                            <span class="hl-tag" data-i18n="MergerFS (4To Pool)">MergerFS (4To Pool)</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>🌐 Réseau, Proxy &amp; Sécurité</h3>
+                        <h3 data-i18n-html="🌐 Réseau, Proxy &amp; Sécurité" data-i18n="🌐 Réseau, Proxy &amp; Sécurité">🌐 Réseau, Proxy &amp; Sécurité</h3>
                         <p data-i18n-html="L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.">L'accès aux services est géré par un <strong>Reverse Proxy Nginx</strong> pour une résolution DNS locale transparente (noms de domaine internes). Pour l'accès externe de manière sécurisée sans ouvrir de ports sur mon routeur, j'utilise un <strong>Cloudflare Tunnel</strong>. Cela me garantit un accès HTTPS sécurisé de n'importe où dans le monde pour mes services exposés.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Nginx (Interne)" data-i18n="Nginx (Interne)">Nginx (Interne)</span>
+                            <span class="hl-tag" data-i18n="Nginx (Interne)">Nginx (Interne)</span>
                             <span class="hl-tag">Cloudflare Tunnel</span>
-                            <span class="hl-tag" data-i18n="HTTPS/SSL" data-i18n="HTTPS/SSL">HTTPS/SSL</span>
+                            <span class="hl-tag" data-i18n="HTTPS/SSL">HTTPS/SSL</span>
                         </div>
                     </div>
 
                     <div class="hl-card reveal">
-                        <h3>🛡️ Résilience &amp; Sauvegardes (Backups)</h3>
+                        <h3 data-i18n-html="🛡️ Résilience &amp; Sauvegardes (Backups)">🛡️ Résilience &amp; Sauvegardes (Backups)</h3>
                         <p data-i18n-html="Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.">Pour prévenir la perte de données, je réalise une <strong>sauvegarde complète de la VM</strong> une fois par semaine. Ces backups sont externalisés vers le cloud (Google Drive) via l'outil <strong>rclone</strong>. J'exclus volontairement le point de montage de 4 To (les médias) de ce backup pour ne sauvegarder que la configuration vitale (OS et configs Docker) et ne pas exploser mon quota Cloud.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag" data-i18n="Full VM Backup" data-i18n="Full VM Backup">Full VM Backup</span>
+                            <span class="hl-tag" data-i18n="Full VM Backup">Full VM Backup</span>
                             <span class="hl-tag">rclone</span>
-                            <span class="hl-tag" data-i18n="Google Drive" data-i18n="Google Drive">Google Drive</span>
+                            <span class="hl-tag" data-i18n="Google Drive">Google Drive</span>
                         </div>
                     </div>
                     
                     <div class="hl-card reveal">
-                        <h3>📈 Monitoring &amp; Auto-résolution</h3>
+                        <h3 data-i18n-html="📈 Monitoring &amp; Auto-résolution" data-i18n="📈 Monitoring &amp; Auto-résolution">📈 Monitoring &amp; Auto-résolution</h3>
                         <p data-i18n-html="Le serveur est surveillé en temps réel par &lt;strong data-i18n=&quot;Prometheus&quot;&gt;Prometheus&lt;/strong&gt; et &lt;strong data-i18n=&quot;Grafana&quot;&gt;Grafana&lt;/strong&gt; (métriques matérielles/applicatives). Pour aller plus loin, j'utilise &lt;strong data-i18n=&quot;n8n&quot;&gt;n8n&lt;/strong&gt; (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.">Le serveur est surveillé en temps réel par <strong data-i18n="Prometheus">Prometheus</strong> et <strong data-i18n="Grafana">Grafana</strong> (métriques matérielles/applicatives). Pour aller plus loin, j'utilise <strong data-i18n="n8n">n8n</strong> (outil d'automatisation). Si Prometheus détecte un conteneur qui crash ou s'emballe, n8n est capable d'interagir avec l'API Docker pour redémarrer automatiquement le service défaillant (Auto-Healing) et m'alerter.</p>
                         <div class="hl-tags">
                             <span class="hl-tag">Prometheus &amp; Grafana</span>
                             <span class="hl-tag" data-i18n="n8n">n8n</span>
-                            <span class="hl-tag" data-i18n="Auto-Healing" data-i18n="Auto-Healing">Auto-Healing</span>
+                            <span class="hl-tag" data-i18n="Auto-Healing">Auto-Healing</span>
                         </div>
                     </div>
                     
