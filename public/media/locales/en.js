@@ -869,7 +869,7 @@ const frToEn = {
     "API :": "API:",
     "Media": "Media",
     "Linux": "Linux",
-    "Nginx": "Nginx"
+    "Nginx": "Nginx",
     "Edge": "Edge",
     "L’adresse MAC est un identifiant unique attribué à une interface réseau.": "The MAC address is a unique identifier assigned to a network interface.",
     "PHP": "PHP",

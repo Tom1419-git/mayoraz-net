@@ -831,7 +831,7 @@ const frToDe = {
     "API :": "API:",
     "Media": "Medien",
     "Linux": "Linux",
-    "Nginx": "Nginx"
+    "Nginx": "Nginx",
     "Edge": "Edge",
     "L’adresse MAC est un identifiant unique attribué à une interface réseau.": "Die MAC-Adresse ist eine eindeutige Kennung, die einer Netzwerkschnittstelle zugewiesen wird.",
     "PHP": "PHP",
