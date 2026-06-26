@@ -810,16 +810,9 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     function redemarrerQuiz() {
-        // Réinitialiser l'affichage
-        document.querySelector('#progress').style.display = 'block';
-        document.querySelector('.question').style.display = 'block';
-        document.querySelector('#options-container').style.display = 'block';
-        document.querySelector('#next-btn').style.display = 'block';
-        resultsElement.style.display = 'none';
-        allAnswersElement.style.display = 'none';
-        
-        initialiserQuiz();
+        location.reload();
     }
+
 
     // Gestionnaires d'événements
     nextButton.addEventListener('click', () => {
