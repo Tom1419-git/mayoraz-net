@@ -67,6 +67,14 @@ document.addEventListener('astro:page-load', () => {
                 el.setAttribute('aria-label', dict[key]);
             }
         });
+
+        // Appliquer les traductions placeholder
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (dict[key]) {
+                el.setAttribute('placeholder', dict[key]);
+            }
+        });
         
         document.dispatchEvent(new Event('languageChanged'));
     }
