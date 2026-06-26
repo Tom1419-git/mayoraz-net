@@ -53,15 +53,8 @@ document.addEventListener('astro:page-load', () => {
         });
     }
 
-    // Active Navigation Link
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        // Supprimer la classe active de tous les liens
-        link.classList.remove('active');
-        // Ajouter la classe active si l'URL correspond (en gérant les trailing slashes)
-        if (link.href === window.location.href || link.href === window.location.href + '/') {
-            link.classList.add('active');
-        }
-    });
+
+
 
     // 2. Scroll Reveal Animations
     const reveals = document.querySelectorAll('.reveal');
