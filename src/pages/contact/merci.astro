@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Thomas Mayoraz - Merci pour votre message" data-i18n="Thomas Mayoraz - Merci pour votre message" description="Confirmation d'envoi du message. Merci de m'avoir contacté, je vous répondrai rapidement." cssFile="/media/css/contact.css">
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1 data-i18n="Merci pour votre message !">Merci pour votre message !</h1>
+        <p class="success-message" data-i18n-html="success_message">
+            Votre demande a bien été envoyée et je vous en remercie. <strong>Je vous répondrai sous 24 heures.</strong>
+        </p>
+
+        <div class="success-details" style="text-align: center; margin-bottom: 40px; padding: 20px; background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);">
+            <h3 data-i18n="⚡ Demande urgente ?">⚡ Demande urgente ?</h3>
+            <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);" data-i18n-html="success_urgency">
+                Si votre demande est très urgente, n'hésitez pas à m'appeler directement, ou à m'écrire par <strong>WhatsApp</strong> ou <strong>SMS</strong> au numéro suivant :<br>
+                <a href="tel:+41766122053" style="display: inline-block; margin: 15px 0; font-size: 1.3rem; font-weight: bold; color: var(--primary);">+41 76 612 20 53</a>
+            </p>
+            <p style="font-size: 1.1rem; color: var(--text-muted);" data-i18n-html="success_email">
+                Vous pouvez également m'écrire directement par email :<br>
+                <a href="mailto:contact@mayoraz-net.ch" style="display: inline-block; margin-top: 10px; font-weight: bold; color: var(--primary);">contact@mayoraz-net.ch</a>
+            </p>
+        </div>
+
+        <div class="action-buttons" style="display: flex; justify-content: center; margin-top: 30px;">
+            <a class="submit-btn" href="/" style="text-decoration: none; display: inline-block; width: auto; padding: 15px 40px;" data-i18n="← Retourner au site principal">&#x2190; Retourner au site principal</a>
+        </div>
+    </div>
+    
+    <Fragment slot="scripts">
+        <script is:inline>
+            document.addEventListener('astro:page-load', function() {
+                const container = document.querySelector('.success-container');
+                if(container) {
+                    container.style.opacity = '0';
+                    container.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(() => {
+                        container.style.transition = 'all 0.6s ease';
+                        container.style.opacity = '1';
+                        container.style.transform = 'translateY(0)';
+                    }, 200);
+                }
+            });
+        </script>
+    </Fragment>
+</Layout>
