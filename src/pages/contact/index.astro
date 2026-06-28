@@ -162,7 +162,7 @@ import Layout from '../../layouts/Layout.astro';
                 body: json
             }).then(response => {
                 if (response.ok) {
-                    window.location.href = 'merci.html';
+                    window.location.href = '/contact/merci/';
                 } else {
                     alert('Erreur lors de l\'envoi. Veuillez réessayer.');
                     submitBtn.textContent = originalBtnText;
