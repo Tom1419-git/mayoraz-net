@@ -9,18 +9,18 @@
    ========================================================== */
 :root {
     --bg-dark: #0A0A0A;
-    --bg-gradient: radial-gradient(ellipse at 20% 50%, #111827 0%, #0A0A0A 70%);
+    --bg-gradient: radial-gradient(circle at 10% 20%, rgba(14, 23, 44, 1) 0%, rgba(10, 10, 10, 1) 90%);
     --primary: #3A7EFF;
     --primary-dark: #2563EB;
     --secondary: #6366F1;
     --text-main: #E0E0E0;
-    --text-heading: #F0F0F0;
-    --text-muted: #7A8494;
-    --glass-bg: rgba(255, 255, 255, 0.04);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-hover: rgba(58, 126, 255, 0.35);
-    --card-bg: #1C1F24;
-    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.8);
+    --text-heading: #F8F9FA;
+    --text-muted: #8E9BAE;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-border-hover: rgba(58, 126, 255, 0.4);
+    --card-bg: rgba(28, 31, 36, 0.6);
+    --card-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9);
     --nav-height: 70px;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --border-color: rgba(255, 255, 255, 0.1);
@@ -457,6 +457,33 @@ header {
     display: none;
 }
 
+/* ==========================================================
+   26. LIVE STATUS ANIMATIONS
+   ========================================================== */
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
 .location, .tagline {
     font-size: 1rem;
     color: var(--text-muted);
@@ -481,9 +508,9 @@ main {
    8. SECTIONS (Glass panels over particles)
    ========================================================== */
 .about, .services, .portfolio, .contact-section, .intro-section {
-    background: var(--section-bg) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-radius: 24px;
     margin-bottom: 40px;
     padding: 40px;
