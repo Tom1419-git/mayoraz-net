@@ -29,11 +29,30 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Open Graph -->
+    <!-- Open Graph & Twitter -->
     <meta property="og:type" content="website"/>
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:title" content={title}/>
     <meta property="og:description" content={description}/>
     <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://mayoraz-net.ch/media/img/og_banner.png" />
+
+    <!-- JSON-LD (Schema.org) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Thomas Mayoraz",
+      "jobTitle": "Développeur & Technicien IT",
+      "url": "https://mayoraz-net.ch",
+      "sameAs": [
+        "https://github.com/Tom1419",
+        "https://linkedin.com/in/thomas-mayoraz"
+      ]
+    })}></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/media/css/main.css">
@@ -113,6 +132,7 @@ const {
     <script is:inline src="/media/locales/de.js"></script>
     <script is:inline src="/media/js/lang.js"></script>
     <script is:inline src="/media/js/konami.js" defer></script>
+    <script is:inline src="/media/js/status.js" defer></script>
     <slot name="scripts" />
 </body>
 </html>
