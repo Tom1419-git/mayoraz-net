@@ -23,18 +23,20 @@
 Ce projet est le code source de mon site personnel et portfolio professionnel. Il présente mes compétences, mes projets en tant qu'Apprenti Informatique à l'ETML, ainsi que les différents services informatiques que je propose aux particuliers et entreprises de la région de Lausanne.
 
 ### ✨ Fonctionnalités clés
-* **Design moderne** : Interface sombre (Dark mode), design responsive, et animations fluides.
-* **Portfolio intégré** : Présentation détaillée de mes projets personnels et scolaires.
+* **Design Premium** : Interface sombre (Dark mode), Glassmorphism, animations fluides et transitions natives avec Astro (`<ClientRouter />`).
+* **Statut Serveur en Direct** : Interrogation en temps réel de l'API Uptime Kuma pour afficher l'état de l'infrastructure Homelab dans le footer.
+* **Portfolio intégré** : Présentation détaillée de mes projets personnels, setups PC (avec galerie Lightbox) et travaux scolaires.
 * **Formulaire de contact sécurisé** : Protection anti-spam propulsée par Cloudflare Turnstile intégrée au frontend, avec soumission AJAX via Web3Forms.
-* **SEO optimisé** : Balises Open Graph pour le partage sur les réseaux sociaux et sitemap XML.
+* **SEO optimisé** : Génération de sitemap dynamique, intégration JSON-LD (Schema.org), et balises Open Graph/Twitter Cards.
 
 ## 🛠️ Technologies Utilisées
 
-* **Frontend** : HTML5, CSS3 (Custom Variables, Flexbox, Grid), JavaScript (Vanilla)
-* **Polices & Icônes** : Google Fonts (Inter)
-* **Sécurité** : Cloudflare Turnstile
-* **Hébergement** : GitHub Pages
-* **Backend de messagerie** : Web3Forms
+* **Framework** : Astro (SSG)
+* **Frontend** : HTML5, CSS3 (Variables, Flexbox, Grid), JavaScript Vanilla
+* **Polices & Icônes** : Google Fonts (Inter, DM Serif Display)
+* **Sécurité & Infra** : Cloudflare Turnstile, Cloudflare Zero Trust
+* **Hébergement & CI/CD** : GitHub Pages (via GitHub Actions)
+* **Backend Messagerie** : Web3Forms
 
 ## 📂 Structure du projet (Astro)
 
