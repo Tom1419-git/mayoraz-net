@@ -31,20 +31,20 @@ document.addEventListener('astro:page-load', () => {
     };
 
     const lang = document.documentElement.lang;
-    let cookieText = "> Nous utilisons le stockage local (LocalStorage) uniquement pour sauvegarder vos préférences (thème, langue, pseudo). Acceptez-vous ?";
+    let cookieText = "> Nous utilisons le stockage local (LocalStorage) pour sauvegarder vos préférences et des cookies pour les statistiques de visite anonymes (Microsoft Clarity). Acceptez-vous ?";
     let acceptText = "[Y] Accepter";
     let declineText = "[N] Refuser";
     let successToast = "Préférences enregistrées avec succès.";
     let warningToast = "Vous avez refusé. Certaines fonctionnalités (thème, quiz) pourraient ne pas être sauvegardées.";
 
     if (lang === 'en') {
-        cookieText = "> We use local storage (LocalStorage) only to save your preferences (theme, language, nickname). Do you accept?";
+        cookieText = "> We use local storage (LocalStorage) to save your preferences and cookies for anonymous visitor statistics (Microsoft Clarity). Do you accept?";
         acceptText = "[Y] Accept";
         declineText = "[N] Decline";
         successToast = "Preferences saved successfully.";
         warningToast = "You declined. Some features (theme, quiz) might not be saved.";
     } else if (lang === 'de') {
-        cookieText = "> Wir verwenden den lokalen Speicher (LocalStorage) nur zum Speichern Ihrer Einstellungen (Theme, Sprache, Spitzname). Akzeptieren Sie?";
+        cookieText = "> Wir verwenden den lokalen Speicher (LocalStorage) zum Speichern Ihrer Einstellungen und Cookies für anonyme Besucherstatistiken (Microsoft Clarity). Akzeptieren Sie?";
         acceptText = "[Y] Akzeptieren";
         declineText = "[N] Ablehnen";
         successToast = "Einstellungen erfolgreich gespeichert.";
@@ -75,6 +75,9 @@ document.addEventListener('astro:page-load', () => {
     document.getElementById('cookie-accept').addEventListener('click', () => {
         localStorage.setItem('cookies_accepted', 'true');
         cookieBanner.classList.remove('show');
+        if(typeof window.initClarity === 'function') {
+            window.initClarity();
+        }
         showToast(successToast, "success");
     });
 
@@ -92,15 +95,15 @@ document.addEventListener('astro:page-load', () => {
         if (!bannerText) return;
 
         if (newLang === 'en') {
-            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> We use local storage (LocalStorage) only to save your preferences (theme, language, nickname). Do you accept?";
+            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> We use local storage (LocalStorage) to save your preferences and cookies for anonymous visitor statistics (Microsoft Clarity). Do you accept?";
             btnAcc.textContent = "[Y] Accept";
             btnDec.textContent = "[N] Decline";
         } else if (newLang === 'de') {
-            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> Wir verwenden den lokalen Speicher (LocalStorage) nur zum Speichern Ihrer Einstellungen (Theme, Sprache, Spitzname). Akzeptieren Sie?";
+            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> Wir verwenden den lokalen Speicher (LocalStorage) zum Speichern Ihrer Einstellungen und Cookies für anonyme Besucherstatistiken (Microsoft Clarity). Akzeptieren Sie?";
             btnAcc.textContent = "[Y] Akzeptieren";
             btnDec.textContent = "[N] Ablehnen";
         } else {
-            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> Nous utilisons le stockage local (LocalStorage) uniquement pour sauvegarder vos préférences (thème, langue, pseudo). Acceptez-vous ?";
+            bannerText.innerHTML = "./check_cookies.sh --rgpd<br>> Nous utilisons le stockage local (LocalStorage) pour sauvegarder vos préférences et des cookies pour les statistiques de visite anonymes (Microsoft Clarity). Acceptez-vous ?";
             btnAcc.textContent = "[Y] Accepter";
             btnDec.textContent = "[N] Refuser";
         }
