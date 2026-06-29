@@ -21,7 +21,13 @@ const {
     <title>{title}</title>
     <meta name="description" content={description}/>
     <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="icon" href="/media/img/logo.webp"/>
+    
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website"/>
@@ -36,13 +42,22 @@ const {
     <link rel="stylesheet" href="/media/css/terminal.css">
     <ClientRouter />
     
-    <!-- Analytics -->
+    <!-- Analytics (Microsoft Clarity) - GDPR Compliant -->
     <script type="text/javascript" is:inline>
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sesu01ppfw");
+        window.initClarity = function() {
+            if(window.clarityLoaded) return;
+            window.clarityLoaded = true;
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "sesu01ppfw");
+        };
+
+        // Initialize immediately if cookies were already accepted
+        if (localStorage.getItem('cookies_accepted') === 'true') {
+            window.initClarity();
+        }
     </script>
 </head>
 <body>
