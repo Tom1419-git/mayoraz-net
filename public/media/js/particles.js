@@ -1,4 +1,4 @@
-﻿// media/js/particles.js
+// media/js/particles.js
 
 document.addEventListener('astro:page-load', () => {
     const canvas = document.getElementById('particles-bg');
@@ -68,6 +68,13 @@ document.addEventListener('astro:page-load', () => {
     function init() {
         resize();
         particles = [];
+        
+        // Disable particles on mobile to improve PageSpeed score and save battery
+        if (width < 768) {
+            ctx.clearRect(0, 0, width, height);
+            return;
+        }
+
         let particleCount = Math.floor((width * height) / 15000); // Responsive particle count
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
@@ -100,7 +107,11 @@ document.addEventListener('astro:page-load', () => {
                 }
             }
         }
-        requestAnimationFrame(animate);
+        
+        // Only request next frame if we are on desktop
+        if (width >= 768) {
+            requestAnimationFrame(animate);
+        }
     }
 
     window.addEventListener('resize', () => {
