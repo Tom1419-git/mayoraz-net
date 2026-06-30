@@ -1930,6 +1930,13 @@ footer p a:hover {
     padding: 15px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    transition: z-index 0s;
+    z-index: 1;
+}
+
+.skill-category:hover {
+    z-index: 10;
 }
 
 .skill-category h3 {
@@ -1965,6 +1972,7 @@ footer p a:hover {
 .skill-item:hover {
     background: color-mix(in srgb, var(--primary) 10%, transparent);
     transform: translateY(-3px);
+    z-index: 20;
 }
 
 .skill-icon {
@@ -2024,11 +2032,26 @@ footer p a:hover {
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     }
+    .skill-category {
+        padding-bottom: 60px; /* Espace réservé pour le texte au survol */
+    }
+    .skill-item {
+        position: static; /* Permet au tooltip de se positionner par rapport à .skill-category */
+    }
+    .skill-item:hover {
+        z-index: auto; /* Désactive le z-index local sur mobile */
+    }
     .skill-tooltip {
-        width: 140px;
+        width: 90%;
+        max-width: none;
         font-size: 0.75rem;
         white-space: normal;
         left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%) translateY(10px);
+    }
+    .skill-item:hover .skill-tooltip {
+        transform: translateX(-50%) translateY(0);
     }
 }
 
