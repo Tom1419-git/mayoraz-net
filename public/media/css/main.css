@@ -11,9 +11,12 @@
     --bg-dark: #0A0A0A;
     --bg-gradient: radial-gradient(circle at 10% 20%, rgba(14, 23, 44, 1) 0%, rgba(10, 10, 10, 1) 90%);
     --primary: #3A7EFF;
+    --primary-rgb: 58, 126, 255;
+    --primary-color: var(--primary);
     --primary-dark: #2563EB;
     --secondary: #6366F1;
     --text-main: #E0E0E0;
+    --text-primary: var(--text-main);
     --text-heading: #F8F9FA;
     --text-muted: #8E9BAE;
     --glass-bg: rgba(255, 255, 255, 0.03);
@@ -26,6 +29,7 @@
     --border-color: rgba(255, 255, 255, 0.1);
     --bg-alt: #0F1115;
     --bg-card: #1C1F24;
+    --bg-light: #F5F3EE;
     --section-bg: rgba(10, 10, 10, 0.8);
     --section-bg-alt: rgba(15, 17, 21, 0.8);
 }
@@ -37,9 +41,12 @@
     --bg-dark: #F5F3EE;
     --bg-gradient: radial-gradient(ellipse at 20% 50%, #E8E4DD 0%, #F5F3EE 70%);
     --primary: #2563EB;
+    --primary-rgb: 37, 99, 235;
+    --primary-color: var(--primary);
     --primary-dark: #1D4ED8;
     --secondary: #4F46E5;
     --text-main: #1C1F24;
+    --text-primary: var(--text-main);
     --text-heading: #0A0A0A;
     --text-muted: #64748B;
     --glass-bg: rgba(255, 255, 255, 0.75);
@@ -50,6 +57,7 @@
     --border-color: #E2E8F0;
     --bg-alt: #EDE9E3;
     --bg-card: #FFFFFF;
+    --bg-light: #F5F3EE;
     --section-bg: rgba(245, 243, 238, 0.9);
     --section-bg-alt: rgba(237, 233, 227, 0.9);
 }
@@ -61,6 +69,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -509,17 +520,17 @@ header {
 }
 
 .modal-content {
-    max-width: 90%;
+    max-width: 90vw;
     max-height: 90vh;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    animation: zoomIn 0.3s ease;
     object-fit: contain;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    animation: zoomIn 0.3s ease;
 }
 
 @keyframes zoomIn {
-    from {transform:scale(0.95); opacity:0;}
-    to {transform:scale(1); opacity:1;}
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
 }
 
 .modal-close {
@@ -1422,19 +1433,7 @@ footer p a:hover {
     opacity: 1;
 }
 
-.modal-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    animation: zoomIn 0.3s ease;
-}
 
-@keyframes zoomIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
-}
 
 .modal-close {
     position: absolute;
@@ -2056,7 +2055,7 @@ footer p a:hover {
   }
 }
 /* Caché au début */
-}
+
 body.fade-in {
     animation: fadeInPage 0.2s ease-out forwards;
 }

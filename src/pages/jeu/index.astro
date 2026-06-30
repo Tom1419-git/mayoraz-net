@@ -4,7 +4,7 @@ import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques " description="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau." cssFile="/media/css/jeu.css">
+<Layout title="Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques" description="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau." cssFile="/media/css/jeu.css">
     <header style="margin-bottom: 20px;">
             <div class="profile-section">
                 <div class="avatar">
@@ -18,15 +18,15 @@ import Layout from '../../layouts/Layout.astro';
         </header>
 
         <div id="intro-container" class="intro-box">
-    <h1 data-i18n="Prêt pour le défi ?">Prêt pour le défi ?</h1>
+    <h2 data-i18n="Prêt pour le défi ?">Prêt pour le défi ?</h2>
     <p data-i18n="15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.">15 questions techniques tirées au hasard. Un classement remis à zéro chaque minuit.</p>
-    <input type="text" id="pseudo-input" class="pseudo-input" placeholder="Entrez votre pseudo..." data-i18n-placeholder="Entrez votre pseudo..." maxlength="15">
+    <input type="text" id="pseudo-input" class="pseudo-input" placeholder="Entrez votre pseudo..." data-i18n-placeholder="Entrez votre pseudo..." maxlength="15" aria-label="Ton pseudo">
     <br>
     <button id="start-quiz-btn" class="btn-primary" style="width: 80%; display: inline-block;" data-i18n="Commencer le Quiz">Commencer le Quiz</button>
 </div>
 
 <div id="quiz-container" style="display: none;">
-    <h1 data-i18n="Quiz Tech : Testez Vos Connaissances Informatiques">Quiz Tech : Testez Vos Connaissances Informatiques</h1>
+    <h2 data-i18n="Quiz Tech : Testez Vos Connaissances Informatiques">Quiz Tech : Testez Vos Connaissances Informatiques</h2>
     <div id="progress">Question 1/15</div>
     <div class="question" id="question-text" data-i18n="Chargement des questions...">Chargement des questions...</div>
     <div class="options-container" id="options-container"></div>
@@ -565,8 +565,11 @@ import Layout from '../../layouts/Layout.astro';
         q.options.forEach((option, index) => {
             const optionElement = document.createElement('div');
             optionElement.classList.add('option');
+            optionElement.setAttribute('role', 'button');
+            optionElement.setAttribute('tabindex', '0');
             optionElement.textContent = typeof window.t === 'function' ? window.t(option) : option;
             optionElement.addEventListener('click', () => selectionnerReponse(index));
+            optionElement.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectionnerReponse(index); } });
             optionsContainer.appendChild(optionElement);
         });
         
