@@ -5,12 +5,14 @@ export interface Props {
 	title: string;
 	description?: string;
 	cssFile?: string;
+	robots?: string;
 }
 
 const { 
 	title, 
 	description = "Services informatiques professionnels à Lausanne : développement web, montage PC et dépannage.", 
-	cssFile 
+	cssFile,
+	robots = "index, follow"
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{title}</title>
     <meta name="description" content={description}/>
-    <meta name="robots" content="index, follow"/>
+    <meta name="robots" content={robots}/>
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="icon" href="/media/img/logo.webp"/>
     
