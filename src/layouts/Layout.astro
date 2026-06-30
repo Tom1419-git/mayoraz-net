@@ -14,6 +14,9 @@ const {
 	cssFile,
 	robots = "index, follow"
 } = Astro.props;
+
+// Cache-buster: string unique généré à chaque build pour forcer le rafraîchissement du cache navigateur
+const buildHash = Date.now().toString(36);
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,10 +68,10 @@ const {
     })}></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/media/css/main.css">
-    {cssFile && <link rel="stylesheet" href={cssFile} />}
-    <link rel="stylesheet" href="/media/css/toast.css">
-    <link rel="stylesheet" href="/media/css/terminal.css">
+    <link rel="stylesheet" href={`/media/css/main.css?v=${buildHash}`}>
+    {cssFile && <link rel="stylesheet" href={`${cssFile}?v=${buildHash}`} />}
+    <link rel="stylesheet" href={`/media/css/toast.css?v=${buildHash}`}>
+    <link rel="stylesheet" href={`/media/css/terminal.css?v=${buildHash}`}>
     <ClientRouter />
     
     <!-- Analytics (Microsoft Clarity) - GDPR Compliant -->
@@ -134,15 +137,15 @@ const {
 
     <button id="backToTop" aria-label="Retour en haut de page" data-i18n-aria="Retour en haut de page">&#8593;</button>
 
-    <script is:inline src="/media/js/theme.js"></script>
-    <script is:inline src="/media/js/particles.js" defer></script>
-    <script is:inline src="/media/js/toast.js" defer></script>
-    <script is:inline src="/media/js/terminal.js" defer></script>
-    <script is:inline src="/media/locales/en.js"></script>
-    <script is:inline src="/media/locales/de.js"></script>
-    <script is:inline src="/media/js/lang.js"></script>
-    <script is:inline src="/media/js/konami.js" defer></script>
-    <script is:inline src="/media/js/status.js" defer></script>
+    <script is:inline src={`/media/js/theme.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/js/particles.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/toast.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/terminal.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/locales/en.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/locales/de.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/js/lang.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/js/konami.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/status.js?v=${buildHash}`} defer></script>
     <slot name="scripts" />
 </body>
 </html>
