@@ -23,7 +23,9 @@ import Layout from '../../layouts/Layout.astro';
 
             <section class="intro reveal">
 
-                <p data-i18n="Bonjour ! Je m'appelle Thomas Mayoraz, j'ai 17 ans et je suis actuellement en 3ème année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.">Bonjour ! Je m'appelle Thomas Mayoraz, j'ai 17 ans et je suis actuellement en 3ème année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</p>
+                <p id="about-intro">
+                    <span data-i18n="Bonjour ! Je m'appelle Thomas Mayoraz, j'ai ">Bonjour ! Je m'appelle Thomas Mayoraz, j'ai </span><span id="dynamic-age">17</span><span data-i18n=" ans et je suis actuellement en "> ans et je suis actuellement en </span><span id="dynamic-year">3ème</span><span data-i18n=" année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier."> année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</span>
+                </p>
 
                 <p data-i18n="Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.">Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.</p>
 
@@ -184,6 +186,44 @@ import Layout from '../../layouts/Layout.astro';
 
     }
 
+    </script>
+    <script is:inline>
+      function updateDynamicText() {
+        const ageSpan = document.getElementById('dynamic-age');
+        const yearSpan = document.getElementById('dynamic-year');
+        if (!ageSpan || !yearSpan) return;
+
+        const birthDate = new Date('2009-01-14');
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        const startApprenticeship = new Date('2023-08-01');
+        let year = today.getFullYear() - startApprenticeship.getFullYear() + 1;
+        if (today.getMonth() < 7) { // Avant Août
+            year--;
+        }
+        if (year > 4) year = 4;
+        if (year < 1) year = 1;
+
+        const currentLang = localStorage.getItem('site_lang') || 'FR';
+
+        ageSpan.textContent = age;
+        
+        if (currentLang === 'EN') {
+            yearSpan.textContent = year === 1 ? '1st' : year === 2 ? '2nd' : year === 3 ? '3rd' : '4th';
+        } else if (currentLang === 'DE') {
+            yearSpan.textContent = year + '.';
+        } else {
+            yearSpan.textContent = year === 1 ? '1ère' : year + 'ème';
+        }
+      }
+
+      document.addEventListener('astro:page-load', updateDynamicText);
+      document.addEventListener('languageChanged', updateDynamicText);
     </script>
     </Fragment>
 </Layout>
