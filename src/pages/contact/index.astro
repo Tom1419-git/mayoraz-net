@@ -79,7 +79,7 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
 
                     <div id="cf-turnstile-container" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
-                    <button type="submit" class="submit-btn" data-i18n="Envoyer le message">
+                    <button type="submit" class="submit-btn">
                         <span data-i18n="Envoyer le message">Envoyer le message</span>
                     </button>
                 </form>
@@ -111,11 +111,11 @@ import Layout from '../../layouts/Layout.astro';
     <Fragment slot="scripts">
         <script type="application/ld+json" is:inline>
     {
-        "@context": "https://schema.org ",
+        "@context": "https://schema.org",
         "@type": "ContactPage",
         "name": "Contact Thomas Mayoraz",
         "description": "Page de contact pour les services informatiques à Lausanne",
-        "url": "https://mayoraz-net.ch/contact/ ",
+        "url": "https://mayoraz-net.ch/contact/",
         "potentialAction": {
             "@type": "ContactPoint",
             "contactType": "customer service",
@@ -137,14 +137,14 @@ import Layout from '../../layouts/Layout.astro';
             e.preventDefault();
             const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
             if (!turnstileResponse) {
-                alert('Veuillez valider le captcha Cloudflare pour prouver que vous n\'êtes pas un robot.');
+                alert(window.t ? window.t('Veuillez valider le captcha avant d\'envoyer.') : 'Veuillez valider le captcha avant d\'envoyer.');
                 return false;
             }
 
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.textContent = window.t ? window.t('Envoi en cours...') : 'Envoi en cours...';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
@@ -164,12 +164,12 @@ import Layout from '../../layouts/Layout.astro';
                 if (response.ok) {
                     window.location.href = '/contact/merci/';
                 } else {
-                    alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+                    alert(window.t ? window.t('Erreur lors de l\'envoi. Veuillez réessayer.') : 'Erreur lors de l\'envoi. Veuillez réessayer.');
                     submitBtn.textContent = originalBtnText;
                     submitBtn.disabled = false;
                 }
             }).catch(error => {
-                alert('Erreur de réseau. Veuillez vérifier votre connexion.');
+                alert(window.t ? window.t('Erreur de réseau. Vérifiez votre connexion.') : 'Erreur de réseau. Vérifiez votre connexion.');
                 submitBtn.textContent = originalBtnText;
                 submitBtn.disabled = false;
             });

@@ -22,19 +22,19 @@ async function checkHomelabStatus() {
         }
 
         if (allUp) {
-            textEl.textContent = '100% Opérationnel';
+            textEl.textContent = (window.t ? window.t('100% Opérationnel') : '100% Opérationnel');
             indicatorEl.style.backgroundColor = '#10B981';
             indicatorEl.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.6)';
             indicatorEl.style.animation = 'pulse-green 2s infinite';
         } else {
-            textEl.textContent = 'Systèmes Dégradés';
+            textEl.textContent = (window.t ? window.t('Systèmes Dégradés') : 'Systèmes Dégradés');
             indicatorEl.style.backgroundColor = '#EF4444';
             indicatorEl.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.6)';
             indicatorEl.style.animation = 'pulse-red 2s infinite';
         }
     } catch (e) {
         console.error("Impossible de récupérer le statut du serveur", e);
-        textEl.textContent = 'Statut Inconnu';
+        textEl.textContent = (window.t ? window.t('Statut Inconnu') : 'Statut Inconnu');
         indicatorEl.style.backgroundColor = '#6B7280';
         indicatorEl.style.animation = 'none';
     }
