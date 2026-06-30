@@ -115,6 +115,14 @@ document.addEventListener('astro:page-load', () => {
                 toggleTerminal();
                 break;
 
+            case 'sudo':
+                if (args.join(' ') === 'sudo rm -rf /') {
+                    await simulateSystemCrash();
+                } else {
+                    printLine(`thomas is not in the sudoers file. This incident will be reported.`);
+                }
+                break;
+
             case 'ping':
                 const target = args[1] || 'google.com';
                 await simulatePing(target);
@@ -163,5 +171,33 @@ document.addEventListener('astro:page-load', () => {
         isCommandRunning = false;
         termInput.disabled = false;
         termInput.focus();
+    }
+
+    async function simulateSystemCrash() {
+        isCommandRunning = true;
+        termInput.disabled = true;
+        printLine("Suppression du système de fichiers racine...");
+        await sleep(1500);
+        
+        const files = ['/etc/passwd', '/boot/vmlinuz-linux', '/home/thomas', '/usr/bin/bash', '/var/log/syslog', '/dev/null'];
+        for (let f of files) {
+            printLine(`rm: suppression de '${f}'`);
+            await sleep(300);
+        }
+        
+        await sleep(1000);
+        
+        // Full screen Kernel Panic
+        document.body.innerHTML = `
+            <div style="background:black; color:red; height:100vh; width:100vw; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:monospace; font-size:1.5rem; text-align:center; padding: 20px; box-sizing: border-box; z-index:999999; position:fixed; top:0; left:0;">
+                <p>KERNEL PANIC - NOT SYNCING: FATAL EXCEPTION</p>
+                <p>VFS: Unable to mount root fs on unknown-block(0,0)</p>
+                <br>
+                <p style="font-size: 1rem; color: #888;">(Fake crash - Easter Egg)</p>
+                <p>Rebooting in 5 seconds...</p>
+            </div>
+        `;
+        
+        setTimeout(() => location.reload(), 5000);
     }
 });
