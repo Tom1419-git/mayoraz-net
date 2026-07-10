@@ -182,6 +182,34 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
                 </div>
 
+                <a class="project-card reveal" href="https://facture.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="project-header">
+                        <div class="project-title-section">
+                            <span class="project-icon">🧾</span>
+                            <div>
+                                <h3 class="project-title">FactureArtisan</h3>
+                                <p class="project-type" data-i18n="SaaS Web">SaaS Web</p>
+                                <p class="project-date" data-i18n="Juillet 2026">Juillet 2026</p>
+                            </div>
+                        </div>
+                        <div class="project-status" data-i18n="EN LIGNE">EN LIGNE</div>
+                    </div>
+                    <p class="project-description" data-i18n="Générateur de factures PDF professionnel développé de A à Z. Création de factures instantanée, 3 modèles (Standard, Logo Pro, Enveloppe Suisse C5), authentification Supabase, TVA 8.1%, sauvegarde en cloud et version Pro avec Stripe.">
+                        Générateur de factures PDF professionnel développé de A à Z. Création de factures instantanée, 3 modèles (Standard, Logo Pro, Enveloppe Suisse C5), authentification Supabase, TVA 8.1%, sauvegarde en cloud et version Pro avec Stripe.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Astro</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Cloudflare Workers</span>
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag" data-i18n="Génération PDF">Génération PDF</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="download-btn" style="background: var(--glass-bg); border: 1px solid var(--glass-border); pointer-events: none;">🔗 facture.mayoraz-net.ch</span>
+                    </div>
+                </a>
+
                 <div class="add-project-card">
                     <div class="add-icon">+</div>
                     <p class="add-text" data-i18n="Nouveaux projets techniques en préparation...">Nouveaux projets techniques en préparation...</p>
@@ -197,7 +225,7 @@ import Layout from '../../layouts/Layout.astro';
         "name": "Autres Projets",
         "description": "Collection de projets techniques et guides par Thomas Mayoraz",
         "url": "https://mayoraz-net.ch/autres-projets/",
-        "numberOfItems": 5,
+        "numberOfItems": 6,
         "itemListElement": [
             {
                 "@type": "ListItem",
@@ -247,6 +275,17 @@ import Layout from '../../layouts/Layout.astro';
                     "name": "Guide Office 365",
                     "description": "Documentation complète sur Word, Excel et PowerPoint",
                     "keywords": "office 365, guide, word, excel, powerpoint"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                    "@type": "WebApplication",
+                    "name": "FactureArtisan",
+                    "url": "https://facture.mayoraz-net.ch",
+                    "description": "SaaS de génération de factures PDF pour artisans suisses",
+                    "keywords": "facture, pdf, suisse, artisan, saas, astro, supabase"
                 }
             }
         ]
