@@ -22,24 +22,6 @@ import Layout from '../../layouts/Layout.astro';
                 <p data-i18n="En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce Homelab est mon laboratoire d'apprentissage continu.">En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
                 <p data-i18n="Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.">Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
             </section>
-            
-            <section class="live-stats-container reveal">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin-top:0; margin-bottom: 0;" data-i18n="Serveur en temps réel (Grafana)">Serveur en temps réel (Grafana)</h3>
-                    <div class="status-dot online"></div>
-                </div>
-                
-                <div class="grafana-grid">
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=2" title="Grafana - Utilisation CPU" loading="lazy" style="border:none"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=3" title="Grafana - Utilisation mémoire RAM" loading="lazy" style="border:none"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=4" title="Grafana - Utilisation disque" loading="lazy" style="border:none"></iframe>
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=7" title="Grafana - Température système" loading="lazy" style="border:none"></iframe>
-                </div>
-                
-                <div class="grafana-chart">
-                    <iframe src="https://grafana.mayoraz-net.ch/d-solo/nas-glances-v4/nas-monitoring-e28094-glances-4-x?orgId=1&amp;theme=dark&amp;refresh=10s&amp;panelId=11" title="Grafana - Graphique réseau en temps réel" loading="lazy" style="border:none"></iframe>
-                </div>
-            </section>
 
             <section class="diagram-container reveal">
                 <h3 style="margin-top:0;" data-i18n="Architecture Média Automatisée">Architecture Média Automatisée</h3>
@@ -112,10 +94,9 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
                     
                     <div class="hl-card reveal">
-                        <h3 data-i18n="📈 Monitoring &amp; Auto-résolution">📈 Monitoring &amp; Auto-résolution</h3>
-                        <p data-i18n="Le serveur est supervisé par Prometheus et Grafana. L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">Le serveur est supervisé par Prometheus et Grafana. L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
+                        <h3 data-i18n="📈 Auto-résolution (n8n)">📈 Auto-résolution (n8n)</h3>
+                        <p data-i18n="L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
                         <div class="hl-tags">
-                            <span class="hl-tag">Prometheus &amp; Grafana</span>
                             <span class="hl-tag">n8n Workflow</span>
                             <span class="hl-tag">Auto-Healing</span>
                         </div>
