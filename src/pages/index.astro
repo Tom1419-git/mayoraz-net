@@ -1,7 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import portraitImg from '../assets/img/portrait.webp';
+import portraitImg from '../assets/img/portrait.webp';
 import Layout from '../layouts/Layout.astro';
+
+const buildHash = Date.now().toString(36);
 ---
 
 <Layout title="Thomas Mayoraz - Services Informatiques Lausanne | Développement Web & Montage PC" data-i18n="Thomas Mayoraz - Services Informatiques Lausanne | Développement Web & Montage PC" description="Services informatiques à Lausanne : développement web, montage PC et dépannage. Thomas Mayoraz, expert ETML. Solutions sur mesure pour particuliers et professionnels." cssFile="/media/css/index.css">
@@ -15,8 +18,8 @@ import Layout from '../layouts/Layout.astro';
       <div id="typewriter" class="typewriter-text"></div>
         <p class="subtitle" data-i18n="Services Informatiques Professionnels">Services Informatiques Professionnels</p>
         <p class="location" data-i18n="📍 Lausanne, Vaud • Apprenti Informatique ETML">📍 Lausanne, Vaud • Apprenti Informatique ETML</p>
-                <p class="tagline" data-i18n="&quot;À votre disposition pour tous vos besoins informatiques&quot;">"À votre disposition pour tous vos besoins informatiques"</p>
-        <div class="social-links" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <p class="tagline" data-i18n="&quot;À votre disposition pour tous vos besoins informatiques&quot;">"À votre disposition pour tous vos besoins informatiques"</p>
+        <div class="social-links">
             <a href="https://github.com/Tom1419-git" target="_blank" rel="noopener noreferrer" class="social-btn social-github">
                 <svg height="24" width="24" viewBox="0 0 16 16" fill="white" aria-hidden="true">
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
@@ -78,17 +81,17 @@ import Layout from '../layouts/Layout.astro';
           <h3 data-i18n="Infra & Virtualisation">Infra &amp; Virtualisation</h3>
           <div class="skills-grid">
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/proxmox" alt="Proxmox" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/proxmox" alt="Proxmox" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Proxmox">Proxmox</span>
               <div class="skill-tooltip" data-i18n="Virtualisation de mes serveurs et gestion de l'infrastructure.">Virtualisation de mes serveurs et gestion de l'infrastructure.</div>
             </div>
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/docker" alt="Docker" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/docker" alt="Docker" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Docker">Docker</span>
               <div class="skill-tooltip" data-i18n="Conteneurisation et déploiement de tous mes services.">Conteneurisation et déploiement de tous mes services.</div>
             </div>
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/ubuntu" alt="Ubuntu" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/ubuntu" alt="Ubuntu" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Ubuntu Linux">Ubuntu Linux</span>
               <div class="skill-tooltip" data-i18n="Administration serveur quotidienne en ligne de commande.">Administration serveur quotidienne en ligne de commande.</div>
             </div>
@@ -100,22 +103,12 @@ import Layout from '../layouts/Layout.astro';
           <h3 data-i18n="Monitoring & Auto.">Monitoring &amp; Auto.</h3>
           <div class="skills-grid">
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/grafana" alt="Grafana" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
-              <span class="skill-name" data-i18n="Grafana">Grafana</span>
-              <div class="skill-tooltip" data-i18n="Surveillance en temps réel des métriques système.">Surveillance en temps réel des métriques système.</div>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/prometheus" alt="Prometheus" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
-              <span class="skill-name" data-i18n="Prometheus">Prometheus</span>
-              <div class="skill-tooltip" data-i18n="Collecte et centralisation des alertes serveur.">Collecte et centralisation des alertes serveur.</div>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/n8n" alt="n8n" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/n8n" alt="n8n" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="n8n">n8n</span>
               <div class="skill-tooltip" data-i18n="Création de workflows d'auto-healing et notifications.">Création de workflows d'auto-healing et notifications.</div>
             </div>
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/git" alt="Git" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/git" alt="Git" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Git">Git</span>
               <div class="skill-tooltip" data-i18n="Versionnage de mes configurations (IaC basique).">Versionnage de mes configurations (IaC basique).</div>
             </div>
@@ -127,17 +120,17 @@ import Layout from '../layouts/Layout.astro';
           <h3 data-i18n="Services & Hébergement">Services &amp; Hébergement</h3>
           <div class="skills-grid">
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/jellyfin" alt="Jellyfin" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/jellyfin" alt="Jellyfin" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Media Server">Media Server</span>
               <div class="skill-tooltip" data-i18n="Automatisation complète de la gestion multimédia.">Automatisation complète de la gestion multimédia.</div>
             </div>
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/nginxproxymanager" alt="Nginx" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/nginxproxymanager" alt="Nginx" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Nginx Proxy">Nginx Proxy</span>
               <div class="skill-tooltip" data-i18n="Gestion des accès externes sécurisés et redirections.">Gestion des accès externes sécurisés et redirections.</div>
             </div>
             <div class="skill-item">
-              <img src="https://cdn.simpleicons.org/cloudflare" alt="Cloudflare" class="skill-icon" width="32" height="32" style="width: 32px; height: 32px;" loading="lazy">
+              <img src="https://cdn.simpleicons.org/cloudflare" alt="Cloudflare" class="skill-icon" width="32" height="32" loading="lazy">
               <span class="skill-name" data-i18n="Cloudflare">Cloudflare</span>
               <div class="skill-tooltip" data-i18n="Sécurisation DNS, cache, certificats SSL et tunnels.">Sécurisation DNS, cache, certificats SSL et tunnels.</div>
             </div>
@@ -154,7 +147,7 @@ import Layout from '../layouts/Layout.astro';
             <button class="fake-button" data-i18n="Voir →">Voir →</button>
           </div>
           <h3 data-i18n-html="Homelab &amp; Serveur" data-i18n="Homelab &amp; Serveur">Homelab &amp; Serveur</h3>
-          <p data-i18n="Mon infrastructure personnelle : Serveur Ubuntu, conteneurs Docker, automatisation média et monitoring avec Grafana.">Mon infrastructure personnelle : Serveur Ubuntu, conteneurs Docker, automatisation média et monitoring avec Grafana.</p>
+          <p data-i18n="Mon infrastructure personnelle : Serveur Ubuntu, conteneurs Docker et automatisation média.">Mon infrastructure personnelle : Serveur Ubuntu, conteneurs Docker et automatisation média.</p>
         </a>
         <a aria-label="Voir mes projets en C#" data-i18n-aria="Voir mes projets en C#" class="project-card reveal" href="/projets-csharp/">
           <div class="project-header">
@@ -302,6 +295,6 @@ import Layout from '../layouts/Layout.astro';
       }
     }
   </script>
-<script is:inline src="/media/js/typewriter.js?v=1782221779"></script>
+<script is:inline src={`/media/js/typewriter.js?v=${buildHash}`} defer></script>
     </Fragment>
 </Layout>
