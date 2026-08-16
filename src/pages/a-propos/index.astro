@@ -5,159 +5,82 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="À Propos - Thomas Mayoraz | Services Informatiques Lausanne" description="Découvrez mon parcours, mes compétences et ma passion pour l'informatique. Thomas Mayoraz, expert en services informatiques à Lausanne." cssFile="/media/css/a-propos.css">
-    <header style="margin-bottom: 20px;">
+    <div class="wm-container" style="padding-top: 60px;">
+        <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">
-                <div class="avatar">
-                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
-                    <div class="avatar-fallback">TM</div>
+                <div class="avatar" style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
                 </div>
-                <h1 data-i18n="À propos de moi">À propos de moi</h1>
-                <p class="subtitle" data-i18n="Apprenti informaticien passionné">Apprenti informaticien passionné</p>
-                <a class="back-nav" href="/" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
+                <p class="wm-section-eyebrow" data-i18n="Apprenti informaticien passionné">Apprenti informaticien passionné</p>
+                <h1 class="wm-section-title" data-i18n="À propos de moi">À propos de <span class="accent">moi</span></h1>
+                <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
             </div>
         </header>
 
-
-
         <main>
-
-            <section class="intro reveal">
-
-                <p id="about-intro">
-                    <span data-i18n="Bonjour ! Je m'appelle Thomas Mayoraz, j'ai ">Bonjour ! Je m'appelle Thomas Mayoraz, j'ai </span><span id="dynamic-age">17</span><span data-i18n=" ans et je suis actuellement en "> ans et je suis actuellement en </span><span id="dynamic-year">3ème</span><span data-i18n=" année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier."> année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</span>
+           <section class="wm-card" style="padding: 40px; max-width: 800px; margin: 0 auto 60px;">
+                <p id="about-intro" style="font-size: 1.1rem; line-height: 1.7; color: var(--text-heading); margin-bottom: 20px;">
+                    <span data-i18n="Bonjour ! Je m'appelle Thomas Mayoraz, j'ai ">Bonjour ! Je m'appelle Thomas Mayoraz, j'ai </span><span id="dynamic-age" class="accent" style="font-weight: 700;">17</span><span data-i18n=" ans et je suis actuellement en "> ans et je suis actuellement en </span><span id="dynamic-year" class="accent" style="font-weight: 700;">3ème</span><span data-i18n=" année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier."> année d'apprentissage informaticien (voie Infra avec Maturité) à l'ETML à Lausanne. Passionné par l'informatique depuis tout petit, j'ai décidé de faire de cette passion un métier.</span>
                 </p>
 
-                <p data-i18n="Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.">Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.</p>
+                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 30px;" data-i18n="Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.">Mon parcours scolaire à l'ETML m'a permis d'acquérir des bases solides en programmation, administration réseau, gestion de bases de données et montage PC. Mais ce n'est qu'un début : je continue à apprendre chaque jour grâce à mes projets personnels, mes lectures techniques et mes collaborations.</p>
 
-                <div class="info-box">
-                    <strong data-i18n="💻 Pour les curieux et les terminaux-addicts :">💻 Pour les curieux et les terminaux-addicts :</strong><br>
-                    <span data-i18n="Essayez cette commande dans votre terminal :">Essayez cette commande dans votre terminal :</span> <br>
-                    <code class="cli-code">curl https://mayoraz-net.ch/api/cv.json</code>
+                <div class="info-box" style="background: rgba(79, 143, 255, 0.08); border: 1px solid rgba(79, 143, 255, 0.2); padding: 20px; border-radius: 8px;">
+                    <strong style="color: var(--accent);" data-i18n="💻 Pour les curieux et les terminaux-addicts :">💻 Pour les curieux et les terminaux-addicts :</strong><br>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="Essayez cette commande dans votre terminal :">Essayez cette commande dans votre terminal :</span> <br>
+                    <code style="display: block; margin-top: 10px; background: #000; padding: 10px; border-radius: 4px; color: var(--text-main); border: 1px solid var(--glass-border); font-family: monospace;">curl https://mayoraz-net.ch/api/cv.json</code>
                 </div>
-
             </section>
 
-
-
-            <section class="skills">
-
-                <h2 data-i18n="Mes Compétences">Mes Compétences</h2>
-
-                                <div class="skills-container">
-
-                    <div class="skill-bar-wrapper reveal">
-
-                        <div class="skill-info">
-
-                            <span data-i18n="Administration Réseau &amp; Serveurs">Administration Réseau &amp; Serveurs</span>
-
-                            <span>90%</span>
-
-                        </div>
-
-                        <div class="skill-bar">
-
-                            <div class="skill-progress" data-width="90%"></div>
-
-                        </div>
-
+            <section class="wm-features" style="padding: 0; max-width: 800px; margin: 0 auto 60px;">
+                <p class="wm-section-eyebrow" data-i18n="// EXPERTISE">// EXPERTISE</p>
+                <h2 class="wm-section-title" data-i18n="Mes Compétences">Mes <span class="accent">Compétences</span></h2>
+                
+                <div class="wm-features-grid" style="grid-template-columns: 1fr; gap: 4px; margin-top: 40px;">
+                    <div class="wm-feature-card" style="padding: 24px 30px; display: flex; align-items: center; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 1rem;" data-i18n="Administration Réseau & Serveurs">Administration Réseau & Serveurs</h3>
+                        <span style="color: var(--accent); font-weight: 900; font-size: 1.2rem;">90%</span>
                     </div>
-
-                    
-
-                    <div class="skill-bar-wrapper reveal">
-
-                        <div class="skill-info">
-
-                            <span data-i18n="Hardware, Montage PC &amp; Dépannage">Hardware, Montage PC &amp; Dépannage</span>
-
-                            <span>95%</span>
-
-                        </div>
-
-                        <div class="skill-bar">
-
-                            <div class="skill-progress" data-width="95%"></div>
-
-                        </div>
-
+                    <div class="wm-feature-card" style="padding: 24px 30px; display: flex; align-items: center; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 1rem;" data-i18n="Hardware, Montage PC & Dépannage">Hardware, Montage PC & Dépannage</h3>
+                        <span style="color: var(--accent); font-weight: 900; font-size: 1.2rem;">95%</span>
                     </div>
-
-                    
-
-                    <div class="skill-bar-wrapper reveal">
-
-                        <div class="skill-info">
-
-                            <span data-i18n="Systèmes d'Exploitation &amp; Sécurité">Systèmes d'Exploitation &amp; Sécurité</span>
-
-                            <span>85%</span>
-
-                        </div>
-
-                        <div class="skill-bar">
-
-                            <div class="skill-progress" data-width="85%"></div>
-
-                        </div>
-
+                    <div class="wm-feature-card" style="padding: 24px 30px; display: flex; align-items: center; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 1rem;" data-i18n="Systèmes d'Exploitation & Sécurité">Systèmes d'Exploitation & Sécurité</h3>
+                        <span style="color: var(--accent); font-weight: 900; font-size: 1.2rem;">85%</span>
                     </div>
-
-                    
-
-                    <div class="skill-bar-wrapper reveal">
-
-                        <div class="skill-info">
-
-                            <span data-i18n="Scripting &amp; Développement Web">Scripting &amp; Développement Web</span>
-
-                            <span>75%</span>
-
-                        </div>
-
-                        <div class="skill-bar">
-
-                            <div class="skill-progress" data-width="75%"></div>
-
-                        </div>
-
+                    <div class="wm-feature-card" style="padding: 24px 30px; display: flex; align-items: center; justify-content: space-between;">
+                        <h3 style="margin: 0; font-size: 1rem;" data-i18n="Scripting & Développement Web">Scripting & Développement Web</h3>
+                        <span style="color: var(--accent); font-weight: 900; font-size: 1.2rem;">75%</span>
                     </div>
-
                 </div>
-
             </section>
 
-
-
-            <section class="cta-banner">
-
-                <h2 data-i18n="Prêt à collaborer ?">Prêt à collaborer ?</h2>
-
-                <p data-i18n="Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.">Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.</p>
-
-                <div class="social-links-container">
-                    <a class="cta-button" href="/contact/" data-i18n="Me Contacter">Me Contacter</a>
-                    <a href="https://www.linkedin.com/in/thomas-mayoraz-it/" target="_blank" rel="noopener noreferrer" class="social-btn social-linkedin">
-                        <svg height="24" width="24" viewBox="0 0 24 24" fill="white">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
-                        </svg>
-                        <span data-i18n="Mon LinkedIn">Mon LinkedIn</span>
+            <section class="wm-bento" style="padding: 0; max-width: 800px; margin: 0 auto 60px;">
+                <div class="wm-bento-grid" style="grid-template-columns: 1fr; margin-top: 0;">
+                    <a href="/contact/" class="wm-bento-cell col-12" style="background:rgba(79,143,255,0.08);border-color:rgba(79,143,255,0.2); text-align: center; padding: 40px; align-items: center;">
+                        <div class="cell-title" style="font-size: 1.5rem; margin-bottom: 10px;" data-i18n="Prêt à collaborer ?">Prêt à collaborer ?</div>
+                        <div class="cell-desc" style="margin-bottom: 24px; max-width: 600px; text-align: center;" data-i18n="Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.">Contactez-moi dès maintenant pour discuter de votre projet informatique, que ce soit un site web, un montage PC ou une assistance technique.</div>
+                        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                            <span class="btn-accent" data-i18n="Me Contacter">Me Contacter</span>
+                            <span class="btn-outline" data-i18n="Mon LinkedIn">Mon LinkedIn</span>
+                        </div>
                     </a>
                 </div>
-
             </section>
 
-            <section class="easter-eggs reveal" style="margin-top: 60px; font-size: 0.85em; opacity: 0.7; border-top: 1px dashed var(--border-color); padding-top: 20px;">
-                <h3 style="margin-bottom: 10px; font-size: 1.1em;" data-i18n="🤫 Secrets &amp; Easter Eggs">🤫 Secrets &amp; Easter Eggs</h3>
-                <p data-i18n="Ce site cache quelques secrets pour les plus curieux :">Ce site cache quelques secrets pour les plus curieux :</p>
-                <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.6;">
-                    <li><strong data-i18n="Konami Code :">Konami Code :</strong> <span data-i18n="Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A">Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A</span></li>
-                    <li><strong data-i18n="Terminal caché :">Terminal caché :</strong> <span data-i18n="Appuyez sur Shift + F10 n'importe où sur le site">Appuyez sur <code>Shift + F10</code> n'importe où sur le site</span></li>
-                    <li><strong data-i18n="API :">API :</strong> <code>curl https://mayoraz-net.ch/api/cv.json</code></li>
+            <section class="wm-card" style="max-width: 800px; margin: 0 auto 60px; padding: 30px;">
+                <p class="wm-section-eyebrow" style="text-align: left; margin-bottom: 10px;" data-i18n="// SECRETS">// SECRETS</p>
+                <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: var(--text-heading);" data-i18n="🤫 Secrets & Easter Eggs">🤫 Secrets & Easter Eggs</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;" data-i18n="Ce site cache quelques secrets pour les plus curieux :">Ce site cache quelques secrets pour les plus curieux :</p>
+                <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li style="font-size: 0.85rem; color: var(--text-muted);"><strong style="color: var(--text-main);" data-i18n="Konami Code :">Konami Code :</strong> <span data-i18n="Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A">Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A</span></li>
+                    <li style="font-size: 0.85rem; color: var(--text-muted);"><strong style="color: var(--text-main);" data-i18n="Terminal caché :">Terminal caché :</strong> <span data-i18n="Appuyez sur Shift + F10 n'importe où sur le site">Appuyez sur <code>Shift + F10</code> n'importe où sur le site</span></li>
+                    <li style="font-size: 0.85rem; color: var(--text-muted);"><strong style="color: var(--text-main);" data-i18n="API :">API :</strong> <code style="background: #000; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--glass-border);">curl https://mayoraz-net.ch/api/cv.json</code></li>
                 </ul>
             </section>
-
         </main>
+    </div>
     
     <Fragment slot="scripts">
         <script type="application/ld+json" is:inline>

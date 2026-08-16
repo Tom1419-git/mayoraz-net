@@ -2739,20 +2739,19 @@ body.fade-out {
 }
 
 .wm-testimonials-cols {
-    columns: 1;
-    column-gap: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
     margin-top: 60px;
 }
 
-@media (min-width: 640px) { .wm-testimonials-cols { columns: 2; } }
-@media (min-width: 1024px) { .wm-testimonials-cols { columns: 3; } }
+@media (min-width: 640px) { .wm-testimonials-cols { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .wm-testimonials-cols { grid-template-columns: repeat(3, 1fr); } }
 
 .wm-testimonial-card {
-    break-inside: avoid;
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
     padding: 28px;
-    margin-bottom: 4px;
     position: relative;
     transition: background 0.25s ease, border-color 0.25s ease;
 }

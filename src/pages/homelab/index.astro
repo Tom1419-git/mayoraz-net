@@ -5,106 +5,109 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : serveur Ubuntu, Docker, automatisation média avec Jellyfin et auto-résolution." cssFile="/media/css/homelab.css?v=1782221779">
-    <header style="margin-bottom: 20px;">
+    <div class="wm-container" style="padding-top: 60px;">
+        <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">
-                <div class="avatar">
-                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
-                    <div class="avatar-fallback">TM</div>
+                <div class="avatar" style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
                 </div>
-                <h1 data-i18n="Mon Homelab">Mon Homelab</h1>
-                <p class="subtitle" data-i18n-html="Infrastructure Personnelle &amp; Automatisation" data-i18n="Infrastructure Personnelle &amp; Automatisation">Infrastructure Personnelle &amp; Automatisation</p>
-                <a class="back-nav" href="/" data-i18n="← Retour à l'accueil">← Retour à l'accueil</a>
+                <p class="wm-section-eyebrow" data-i18n="Mon Homelab">Mon Homelab</p>
+                <h1 class="wm-section-title" data-i18n-html="Infrastructure Personnelle &amp; Automatisation" data-i18n="Infrastructure Personnelle &amp; Automatisation">Infrastructure Personnelle &amp; <span class="accent">Automatisation</span></h1>
+                <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px;" data-i18n="← Retour à l'accueil">← Retour à l'accueil</a>
             </div>
         </header>
 
-                <main>
-            <section class="intro reveal">
-                <p data-i18n="En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce Homelab est mon laboratoire d'apprentissage continu.">En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong>Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
-                <p data-i18n="Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.">Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
+        <main style="max-width: 1200px; margin: 0 auto 60px;">
+            <section class="wm-card" style="padding: 30px; margin-bottom: 40px; text-align: center;">
+                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.1rem; margin-bottom: 15px;" data-i18n="En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce Homelab est mon laboratoire d'apprentissage continu.">En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong style="color: var(--accent);">Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 0;" data-i18n="Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.">Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
             </section>
 
-            <section class="diagram-container reveal">
-                <h3 style="margin-top:0;" data-i18n="Architecture Média Automatisée">Architecture Média Automatisée</h3>
-                <div class="flowchart">
+            <section class="wm-card" style="padding: 40px; margin-bottom: 40px; text-align: center; border-color: rgba(79, 143, 255, 0.3);">
+                <h3 style="margin-top:0; margin-bottom: 30px; font-size: 1.5rem; color: var(--text-heading);" data-i18n="Architecture Média Automatisée">Architecture Média Automatisée</h3>
+                <div class="flowchart" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
                     <div class="flow-row">
-                        <div class="flow-box" data-i18n="👤 Utilisateur (Jellyseerr)">👤 Utilisateur (Jellyseerr)</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="👤 Utilisateur (Jellyseerr)">👤 Utilisateur (Jellyseerr)</div>
                     </div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-grid-row">
-                        <div class="empty-space"></div>
-                        <div class="flow-box center-box" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
-                        <div class="flow-side-branch">
-                            <div class="flow-arrow horizontal">↔</div>
-                            <div class="flow-box" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
+                    <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
+                    <div class="flow-grid-row" style="display: flex; gap: 20px; align-items: center;">
+                        <div class="flow-box center-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
+                        <div class="flow-side-branch" style="display: flex; align-items: center; gap: 20px;">
+                            <div class="flow-arrow horizontal" style="color: var(--accent); font-size: 1.5rem;">↔</div>
+                            <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
                         </div>
                     </div>
-                    <div class="flow-arrow">↓</div>
+                    <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box" data-i18n="📥 qBittorrent">📥 qBittorrent</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="📥 qBittorrent">📥 qBittorrent</div>
                     </div>
-                    <div class="flow-arrow">↓</div>
+                    <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box" data-i18n="🍿 Jellyfin">🍿 Jellyfin</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600; border-color: var(--accent); color: var(--accent);" data-i18n="🍿 Jellyfin">🍿 Jellyfin</div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2 data-i18n="Détails Techniques de l'Infrastructure">Détails Techniques de l'Infrastructure</h2>
-                <div class="homelab-grid">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <p class="wm-section-eyebrow">Infrastructure</p>
+                    <h2 class="wm-section-title" data-i18n="Détails Techniques de l'Infrastructure">Détails <span class="accent">Techniques</span></h2>
+                </div>
+                
+                <div class="wm-bento-grid">
                     
-                    <div class="hl-card reveal">
-                        <h3 data-i18n="🖥️ Hyperviseur &amp; Conteneurisation">🖥️ Hyperviseur &amp; Conteneurisation</h3>
-                        <p data-i18n="Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.">Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">Proxmox VE</span>
-                            <span class="hl-tag">Docker</span>
-                            <span class="hl-tag" data-i18n="36 Conteneurs">36 Conteneurs</span>
+                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🖥️ Hyperviseur &amp; Conteneurisation">🖥️ Hyperviseur &amp; Conteneurisation</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.">Mon infrastructure repose sur l'hyperviseur Proxmox VE. L'ensemble de mon écosystème applicatif (36 services distincts) est entièrement virtualisé au sein d'une machine virtuelle Ubuntu Server via Docker. Ce choix garantit une isolation parfaite, une scalabilité optimale et un environnement facilement reproductible.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Proxmox VE</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Docker</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="36 Conteneurs">36 Conteneurs</span>
                         </div>
                     </div>
 
-                    <div class="hl-card reveal">
-                        <h3 data-i18n="💾 Stockage &amp; Optimisation Hardlinks">💾 Stockage &amp; Optimisation Hardlinks</h3>
-                        <p data-i18n="La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.">La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">MergerFS (4To)</span>
-                            <span class="hl-tag">Atomic Moves</span>
-                            <span class="hl-tag">TRaSH Guides</span>
+                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="💾 Stockage &amp; Optimisation Hardlinks">💾 Stockage &amp; Optimisation Hardlinks</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.">La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">MergerFS (4To)</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Atomic Moves</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">TRaSH Guides</span>
                         </div>
                     </div>
 
-                    <div class="hl-card reveal">
-                        <h3 data-i18n="🌐 Réseau Zero-Trust &amp; Proxy">🌐 Réseau Zero-Trust &amp; Proxy</h3>
-                        <p data-i18n="L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.">L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">Cloudflare Tunnel</span>
-                            <span class="hl-tag">Nginx Proxy Manager</span>
-                            <span class="hl-tag">Zero Trust</span>
+                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🌐 Réseau Zero-Trust &amp; Proxy">🌐 Réseau Zero-Trust &amp; Proxy</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.">L'architecture réseau est conçue autour du principe du moindre privilège (zéro port ouvert). L'exposition sur Internet est sécurisée nativement par un tunnel Cloudflare. En interne, Nginx Proxy Manager gère la résolution DNS locale, garantissant que le trafic domestique reste privé, rapide et chiffré.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Cloudflare Tunnel</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Nginx Proxy Manager</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Zero Trust</span>
                         </div>
                     </div>
 
-                    <div class="hl-card reveal">
-                        <h3 data-i18n="🛡️ Résilience &amp; Infrastructure as Code">🛡️ Résilience &amp; Infrastructure as Code</h3>
-                        <p data-i18n="La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.">La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">Ansible (IaC)</span>
-                            <span class="hl-tag">Disaster Recovery</span>
-                            <span class="hl-tag">Rclone (G-Drive)</span>
+                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🛡️ Résilience &amp; Infrastructure as Code">🛡️ Résilience &amp; Infrastructure as Code</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.">La pérennité du serveur est assurée à deux niveaux. Les données vitales sont externalisées et chiffrées vers Google Drive via rclone. En cas de sinistre majeur, l'intégralité de l'infrastructure peut être redéployée en une seule commande grâce à un Playbook Ansible (IaC) gérant automatiquement le cycle de vie de tous les conteneurs Docker.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Ansible (IaC)</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Disaster Recovery</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Rclone (G-Drive)</span>
                         </div>
                     </div>
                     
-                    <div class="hl-card reveal">
-                        <h3 data-i18n="📈 Auto-résolution (n8n)">📈 Auto-résolution (n8n)</h3>
-                        <p data-i18n="L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
-                        <div class="hl-tags">
-                            <span class="hl-tag">n8n Workflow</span>
-                            <span class="hl-tag">Auto-Healing</span>
+                    <div class="wm-bento-cell" style="grid-column: 1 / -1; display: flex; flex-direction: column;">
+                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="📈 Auto-résolution (n8n)">📈 Auto-résolution (n8n)</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">n8n Workflow</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Auto-Healing</span>
                         </div>
                     </div>
                     
                 </div>
             </section>
-
         </main>
+    </div>
     
 </Layout>
