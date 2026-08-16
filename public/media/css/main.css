@@ -8,58 +8,58 @@
    1. DESIGN TOKENS
    ========================================================== */
 :root {
-    --bg-dark: #0A0A0A;
-    --bg-gradient: radial-gradient(circle at 10% 20%, rgba(14, 23, 44, 1) 0%, rgba(10, 10, 10, 1) 90%);
-    --primary: #3A7EFF;
-    --primary-rgb: 58, 126, 255;
+    --bg-dark: #000000;
+    --bg-gradient: none;
+    --primary: #FFFFFF;
+    --primary-rgb: 255, 255, 255;
     --primary-color: var(--primary);
-    --primary-dark: #2563EB;
-    --secondary: #6366F1;
-    --text-main: #E0E0E0;
+    --primary-dark: #E2E8F0;
+    --secondary: #A1A1AA;
+    --text-main: #A1A1AA;
     --text-primary: var(--text-main);
-    --text-heading: #F8F9FA;
-    --text-muted: #8E9BAE;
+    --text-heading: #FFFFFF;
+    --text-muted: #71717A;
     --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --glass-border-hover: rgba(58, 126, 255, 0.4);
-    --card-bg: rgba(28, 31, 36, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-hover: rgba(255, 255, 255, 0.25);
+    --card-bg: rgba(9, 9, 11, 0.6);
     --card-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9);
     --nav-height: 70px;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --border-color: rgba(255, 255, 255, 0.1);
-    --bg-alt: #0F1115;
-    --bg-card: #1C1F24;
-    --bg-light: #F5F3EE;
-    --section-bg: rgba(10, 10, 10, 0.8);
-    --section-bg-alt: rgba(15, 17, 21, 0.8);
+    --bg-alt: #09090B;
+    --bg-card: #09090B;
+    --bg-light: #FAFAFA;
+    --section-bg: rgba(0, 0, 0, 0.8);
+    --section-bg-alt: rgba(9, 9, 11, 0.8);
 }
 
 /* ==========================================================
    2. LIGHT THEME TOKENS
    ========================================================== */
 :root[data-theme="light"] {
-    --bg-dark: #F5F3EE;
-    --bg-gradient: radial-gradient(ellipse at 20% 50%, #E8E4DD 0%, #F5F3EE 70%);
-    --primary: #2563EB;
-    --primary-rgb: 37, 99, 235;
+    --bg-dark: #FFFFFF;
+    --bg-gradient: none;
+    --primary: #000000;
+    --primary-rgb: 0, 0, 0;
     --primary-color: var(--primary);
-    --primary-dark: #1D4ED8;
-    --secondary: #4F46E5;
-    --text-main: #1C1F24;
+    --primary-dark: #18181B;
+    --secondary: #71717A;
+    --text-main: #71717A;
     --text-primary: var(--text-main);
-    --text-heading: #0A0A0A;
-    --text-muted: #64748B;
-    --glass-bg: rgba(255, 255, 255, 0.75);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --glass-border-hover: rgba(37, 99, 235, 0.3);
+    --text-heading: #09090B;
+    --text-muted: #A1A1AA;
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-border-hover: rgba(0, 0, 0, 0.25);
     --card-bg: #FFFFFF;
     --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.05);
-    --border-color: #E2E8F0;
-    --bg-alt: #EDE9E3;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --bg-alt: #F4F4F5;
     --bg-card: #FFFFFF;
-    --bg-light: #F5F3EE;
-    --section-bg: rgba(245, 243, 238, 0.9);
-    --section-bg-alt: rgba(237, 233, 227, 0.9);
+    --bg-light: #FAFAFA;
+    --section-bg: rgba(255, 255, 255, 0.9);
+    --section-bg-alt: rgba(244, 244, 245, 0.9);
 }
 
 /* ==========================================================
@@ -94,15 +94,16 @@ body.menu-open {
    4. TYPOGRAPHY
    ========================================================== */
 h1, h2, h3, h4, h5, h6, .logo {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.04em;
+    font-weight: 800;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: normal;
+    font-size: clamp(3rem, 6vw, 5rem);
     color: var(--text-heading);
     margin-bottom: 15px;
-    letter-spacing: -0.5px;
+    line-height: 1.1;
 }
 
 h2 {
@@ -130,8 +131,8 @@ p {
 
 .subtitle {
     font-size: 1.25rem;
-    color: var(--primary);
-    font-weight: 500;
+    color: var(--text-muted);
+    font-weight: 400;
     margin-bottom: 15px;
     font-family: 'Inter', sans-serif;
 }
@@ -144,7 +145,7 @@ p {
     top: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(10, 10, 10, 0.85);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1000;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -264,63 +265,47 @@ p {
    6. BUTTONS & LINKS
    ========================================================== */
 
-/* --- CTA Button (outline → fill on hover) --- */
+/* --- CTA Button (outline) --- */
 .cta-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--primary);
+    color: var(--text-heading);
     padding: 12px 28px;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 0; height: 100%;
-    background: var(--primary);
-    z-index: -1;
+    font-weight: 500;
+    font-size: 0.95rem;
     transition: var(--transition);
 }
 
 .cta-button:hover {
-    color: var(--bg-dark);
-}
-
-.cta-button:hover::before {
-    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.2);
 }
 
 /* --- Primary Button (solid) --- */
 .btn-primary {
     display: inline-block;
-    padding: 15px 30px;
-    background: var(--primary);
-    color: white;
+    padding: 12px 28px;
+    background: var(--text-heading);
+    color: var(--bg-dark);
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(58, 126, 255, 0.3);
     cursor: pointer;
     text-align: center;
     border: none;
 }
 
 .btn-primary:hover {
+    opacity: 0.9;
     transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(58, 126, 255, 0.5);
 }
 
 /* --- Submit Button (full-width primary) --- */
@@ -672,7 +657,7 @@ main {
     position: absolute;
     top: 0; left: -100%;
     width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
     transform: skewX(-25deg);
     transition: 0.7s;
     z-index: 1;
@@ -684,10 +669,9 @@ main {
 }
 
 .project-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px);
     border-color: var(--glass-border-hover);
-    box-shadow: 0 20px 40px -10px rgba(58, 126, 255, 0.15), 0 0 20px rgba(58, 126, 255, 0.4);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .project-header {
@@ -750,8 +734,8 @@ main {
 
 .skill-card:hover {
     border-color: var(--glass-border-hover);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px -10px rgba(58, 126, 255, 0.15);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .skill-card h4 {
@@ -791,9 +775,9 @@ main {
 }
 
 .service-item:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: var(--glass-border-hover);
-    box-shadow: 0 20px 40px -10px rgba(58, 126, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .service-item span {
@@ -2114,4 +2098,41 @@ body.fade-out {
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Status Badge Footer (Uptime Kuma) */
+.status-badge {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: color-mix(in srgb, var(--bg-dark) 50%, transparent);
+    padding: 4px 12px;
+    border-radius: 15px;
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    transition: all 0.3s ease;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.status-badge:hover {
+    background: color-mix(in srgb, var(--bg-dark) 80%, transparent);
+    border-color: var(--primary);
+}
+#status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #555;
+    transition: all 0.5s ease;
 }
