@@ -6,13 +6,15 @@ export interface Props {
 	description?: string;
 	cssFile?: string;
 	robots?: string;
+	ogImage?: string;
 }
 
 const { 
 	title, 
 	description = "Services informatiques professionnels à Lausanne : développement web, montage PC et dépannage.", 
 	cssFile,
-	robots = "index, follow"
+	robots = "index, follow",
+	ogImage = "https://mayoraz-net.ch/media/img/og_banner.png"
 } = Astro.props;
 
 // Cache-buster: string unique généré à chaque build pour forcer le rafraîchissement du cache navigateur
@@ -40,6 +42,7 @@ const buildHash = Date.now().toString(36);
     <!-- Preload Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Open Graph & Twitter -->
@@ -47,12 +50,12 @@ const buildHash = Date.now().toString(36);
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:title" content={title}/>
     <meta property="og:description" content={description}/>
-    <meta property="og:image" content="https://mayoraz-net.ch/media/img/og_banner.png"/>
+    <meta property="og:image" content={ogImage}/>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://mayoraz-net.ch/media/img/og_banner.png" />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- JSON-LD (Schema.org) -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -111,8 +114,11 @@ const buildHash = Date.now().toString(36);
                 </select>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème" data-i18n-aria="Changer le thème">☀️</button>
             </ul>
-            <div class="burger" id="burger">
-                <span></span><span></span><span></span>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <a href="/contact/" class="nav-cta" data-i18n="Me Contacter">Me Contacter</a>
+                <div class="burger" id="burger">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -121,7 +127,7 @@ const buildHash = Date.now().toString(36);
         <slot />
 
         <footer>
-            <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch/status/home" target="_blank" rel="noopener noreferrer" class="status-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--bg-dark) 50%, transparent); padding: 4px 12px; border-radius: 15px; border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); transition: all 0.3s ease; color: var(--text-main); font-size: 0.85rem; font-weight: 600; vertical-align: middle; margin-left: 5px;"><span id="status-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #555; transition: all 0.5s ease;"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
+            <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" class="status-badge"><span id="status-indicator"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
             <nav>
               <a href="/" data-i18n="Accueil">Accueil</a>
               <a href="/a-propos/" data-i18n="À propos">À propos</a>
@@ -137,13 +143,13 @@ const buildHash = Date.now().toString(36);
 
     <button id="backToTop" aria-label="Retour en haut de page" data-i18n-aria="Retour en haut de page">&#8593;</button>
 
-    <script is:inline src={`/media/js/theme.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/js/theme.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/particles.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/toast.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/terminal.js?v=${buildHash}`} defer></script>
-    <script is:inline src={`/media/locales/en.js?v=${buildHash}`}></script>
-    <script is:inline src={`/media/locales/de.js?v=${buildHash}`}></script>
-    <script is:inline src={`/media/js/lang.js?v=${buildHash}`}></script>
+    <script is:inline src={`/media/locales/en.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/locales/de.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/lang.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/konami.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/status.js?v=${buildHash}`} defer></script>
     <slot name="scripts" />
