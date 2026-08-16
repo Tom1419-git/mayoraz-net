@@ -3,18 +3,13 @@ import { Image } from 'astro:assets';
 import setup1Img from '../../assets/img/builds-pc/pc-setup1.webp';
 import setup2Img from '../../assets/img/builds-pc/pc-setup2.webp';
 import setup3Img from '../../assets/img/builds-pc/pc-setup3.webp';
-import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Builds PC - Thomas Mayoraz | Services Informatiques Lausanne" description="Mes configurations PC personnalisées : gaming, workstation et home server. Thomas Mayoraz, expert en services informatiques à Lausanne.">
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
-            <div class="profile-section">
-                <div class="avatar" style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
-                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <p class="wm-section-eyebrow" data-i18n="Mes Builds PC">Mes Builds PC</p>
+            <div class="profile-section">                <p class="wm-section-eyebrow" data-i18n="Mes Builds PC">Mes Builds PC</p>
                 <h1 class="wm-section-title" data-i18n-html="Configurations personnalisées et <span class='accent'>optimisées</span>">Configurations personnalisées et <span class="accent">optimisées</span></h1>
                 <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
             </div>
