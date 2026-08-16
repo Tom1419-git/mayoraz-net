@@ -5,17 +5,17 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="Contact - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Contact - Thomas Mayoraz | Services Informatiques Lausanne" description="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage. Thomas Mayoraz, expert en services informatiques." cssFile="/media/css/contact.css">
-    <header style="margin-bottom: 20px;">
+    <div class="wm-container" style="padding-top: 60px;">
+        <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">
-                <div class="avatar">
-                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" />
-                    <div class="avatar-fallback">TM</div>
+                <div class="avatar" style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
+                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
                 </div>
-                <h1 data-i18n="Me Contacter">Me Contacter</h1>
-                <p class="subtitle" data-i18n="Discutons de votre projet">Discutons de votre projet</p>
-                <a class="back-nav" href="/" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
-                <div style="margin-top: 15px;">
-                    <a href="/media/thomas_mayoraz.vcf" style="display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: white; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600;" download="">
+                <p class="wm-section-eyebrow" data-i18n="Me Contacter">Me Contacter</p>
+                <h1 class="wm-section-title" data-i18n="Discutons de votre projet">Discutons de votre <span class="accent">projet</span></h1>
+                <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px; margin-bottom: 20px;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
+                <div>
+                    <a href="/media/thomas_mayoraz.vcf" class="btn-accent" style="display: inline-flex; align-items: center;" download="">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                         <span data-i18n="Télécharger ma VCard">Télécharger ma VCard</span>
                     </a>
@@ -23,90 +23,97 @@ import Layout from '../../layouts/Layout.astro';
             </div>
         </header>
 
-        <main>
-            <section class="contact-intro">
-                <h2 data-i18n="Parlons de votre projet">Parlons de votre projet</h2>
-                <p data-i18n="Que ce soit pour un site web, un montage PC ou un dépannage informatique, je suis là pour vous accompagner. Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.">Que ce soit pour un site web, un montage PC ou un dépannage informatique, je suis là pour vous accompagner. Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
-            </section>
+        <main style="max-width: 900px; margin: 0 auto 60px;">
+            <section class="wm-card" style="padding: 40px; margin-bottom: 40px;">
+                <h2 style="font-size: 1.5rem; color: var(--text-heading); margin-bottom: 16px;" data-i18n="Parlons de votre projet">Parlons de votre projet</h2>
+                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 30px;" data-i18n="Que ce soit pour un site web, un montage PC ou un dépannage informatique, je suis là pour vous accompagner. Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.">Que ce soit pour un site web, un montage PC ou un dépannage informatique, je suis là pour vous accompagner. Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
 
-            <div class="contact-container">
-                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="prenom" data-i18n-html="form_prenom">Prénom <span class="required">*</span></label>
-                            <input type="text" id="prenom" name="prenom" required="">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="prenom" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n-html="form_prenom">Prénom <span style="color: var(--accent);">*</span></label>
+                            <input type="text" id="prenom" name="prenom" required="" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif;">
                         </div>
-                        <div class="form-group">
-                            <label for="nom" data-i18n-html="form_nom">Nom <span class="required">*</span></label>
-                            <input type="text" id="nom" name="nom" required="">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="nom" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n-html="form_nom">Nom <span style="color: var(--accent);">*</span></label>
+                            <input type="text" id="nom" name="nom" required="" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif;">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-i18n-html="form_email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="telephone" data-i18n="Téléphone">Téléphone</label>
-                        <input type="tel" id="telephone" name="telephone">
-                    </div>
-                    <div class="form-group">
-                        <label for="service" data-i18n-html="form_service">Type de prestation <span class="required">*</span></label>
-                        <select id="service" name="service" required="">
-                            <option value="" data-i18n="Sélectionnez un service">Sélectionnez un service</option>
-                            <option value="site-web-personnel" data-i18n="Site web personnel">Site web personnel</option>
-                            <option value="site-web-entreprise" data-i18n="Site web d'entreprise">Site web d'entreprise</option>
-                            <option value="montage-pc" data-i18n="Configuration PC sur mesure">Configuration PC sur mesure</option>
-                            <option value="depannage" data-i18n="Dépannage informatique">Dépannage informatique</option>
-                            <option value="conseil-technique" data-i18n="Conseil technique">Conseil technique</option>
-                            <option value="autre" data-i18n="Autre (précisez dans le message)">Autre (précisez dans le message)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget" data-i18n="Budget approximatif (CHF)">Budget approximatif (CHF)</label>
-                        <select id="budget" name="budget">
-                            <option value="" data-i18n="Non défini">Non défini</option>
-                            <option value="0-500" data-i18n="0 - 500 CHF">0 - 500 CHF</option>
-                            <option value="500-1000" data-i18n="500 - 1000 CHF">500 - 1000 CHF</option>
-                            <option value="1000-2000" data-i18n="1000 - 2000 CHF">1000 - 2000 CHF</option>
-                            <option value="2000-5000" data-i18n="2000 - 5000 CHF">2000 - 5000 CHF</option>
-                            <option value="5000+" data-i18n="Plus de 5000 CHF">Plus de 5000 CHF</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" data-i18n-html="form_message">Message détaillé <span class="required">*</span></label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." data-i18n="Décrivez votre projet, vos besoins, vos attentes..." required=""></textarea>
                     </div>
 
-                    <div id="cf-turnstile-container" style="margin-bottom: 20px; display: flex; justify-content: center;"></div>
-                    <button type="submit" class="submit-btn">
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="email" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n-html="form_email">Email <span style="color: var(--accent);">*</span></label>
+                        <input type="email" id="email" name="email" required="" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif;">
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="telephone" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n="Téléphone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif;">
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="service" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n-html="form_service">Type de prestation <span style="color: var(--accent);">*</span></label>
+                        <select id="service" name="service" required="" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif; appearance: none;">
+                            <option value="" style="background: var(--bg-dark);" data-i18n="Sélectionnez un service">Sélectionnez un service</option>
+                            <option value="site-web-personnel" style="background: var(--bg-dark);" data-i18n="Site web personnel">Site web personnel</option>
+                            <option value="site-web-entreprise" style="background: var(--bg-dark);" data-i18n="Site web d'entreprise">Site web d'entreprise</option>
+                            <option value="montage-pc" style="background: var(--bg-dark);" data-i18n="Configuration PC sur mesure">Configuration PC sur mesure</option>
+                            <option value="depannage" style="background: var(--bg-dark);" data-i18n="Dépannage informatique">Dépannage informatique</option>
+                            <option value="conseil-technique" style="background: var(--bg-dark);" data-i18n="Conseil technique">Conseil technique</option>
+                            <option value="autre" style="background: var(--bg-dark);" data-i18n="Autre (précisez dans le message)">Autre (précisez dans le message)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="budget" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n="Budget approximatif (CHF)">Budget approximatif (CHF)</label>
+                        <select id="budget" name="budget" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif; appearance: none;">
+                            <option value="" style="background: var(--bg-dark);" data-i18n="Non défini">Non défini</option>
+                            <option value="0-500" style="background: var(--bg-dark);" data-i18n="0 - 500 CHF">0 - 500 CHF</option>
+                            <option value="500-1000" style="background: var(--bg-dark);" data-i18n="500 - 1000 CHF">500 - 1000 CHF</option>
+                            <option value="1000-2000" style="background: var(--bg-dark);" data-i18n="1000 - 2000 CHF">1000 - 2000 CHF</option>
+                            <option value="2000-5000" style="background: var(--bg-dark);" data-i18n="2000 - 5000 CHF">2000 - 5000 CHF</option>
+                            <option value="5000+" style="background: var(--bg-dark);" data-i18n="Plus de 5000 CHF">Plus de 5000 CHF</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label for="message" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n-html="form_message">Message détaillé <span style="color: var(--accent);">*</span></label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins, vos attentes..." style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 12px 16px; border-radius: 6px; color: var(--text-main); font-family: 'Inter', sans-serif; min-height: 150px; resize: vertical;" data-i18n="Décrivez votre projet, vos besoins, vos attentes..." required=""></textarea>
+                    </div>
+
+                    <div id="cf-turnstile-container" style="margin: 20px 0; display: flex; justify-content: center;"></div>
+                    
+                    <button type="submit" class="btn-accent" style="width: 100%; justify-content: center; padding: 14px; font-size: 1rem;">
                         <span data-i18n="Envoyer le message">Envoyer le message</span>
                     </button>
                 </form>
+            </section>
 
-                <div class="services-info">
-                    <h3 data-i18n="🛠️ Mes services en détail">🛠️ Mes services en détail</h3>
-                    <div class="services-grid">
-                        <div class="service-item reveal">
-                            <h4 data-i18n="Sites Web">Sites Web</h4>
-                            <p data-i18n="Création de sites personnels, portfolios, sites vitrines pour entreprises. Design moderne et responsive.">Création de sites personnels, portfolios, sites vitrines pour entreprises. Design moderne et responsive.</p>
-                        </div>
-                        <div class="service-item reveal">
-                            <h4 data-i18n="Montage PC">Montage PC</h4>
-                            <p data-i18n="Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.">Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.</p>
-                        </div>
-                        <div class="service-item reveal">
-                            <h4 data-i18n="Dépannage">Dépannage</h4>
-                            <p data-i18n="Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.">Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.</p>
-                        </div>
-                        <div class="service-item reveal">
-                            <h4 data-i18n="Conseil Technique">Conseil Technique</h4>
-                            <p data-i18n="Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.">Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.</p>
-                        </div>
+            <section class="wm-bento">
+                <p class="wm-section-eyebrow" style="text-align: left;" data-i18n="// SERVICES">// SERVICES</p>
+                <h3 style="font-size: 1.5rem; color: var(--text-heading); margin-bottom: 20px;" data-i18n="🛠️ Mes services en détail">🛠️ Mes services en détail</h3>
+                <div class="wm-bento-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 0;">
+                    <div class="wm-bento-cell" style="grid-column: span 1;">
+                        <h4 style="color: var(--text-heading); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="Sites Web">Sites Web</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" data-i18n="Création de sites personnels, portfolios, sites vitrines pour entreprises. Design moderne et responsive.">Création de sites personnels, portfolios, sites vitrines pour entreprises. Design moderne et responsive.</p>
+                    </div>
+                    <div class="wm-bento-cell" style="grid-column: span 1;">
+                        <h4 style="color: var(--text-heading); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="Montage PC">Montage PC</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" data-i18n="Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.">Configuration sur mesure selon vos besoins : gaming, bureautique, workstation. Conseil et assemblage.</p>
+                    </div>
+                    <div class="wm-bento-cell" style="grid-column: span 1;">
+                        <h4 style="color: var(--text-heading); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="Dépannage">Dépannage</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" data-i18n="Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.">Résolution de problèmes informatiques, installation de logiciels, optimisation des performances.</p>
+                    </div>
+                    <div class="wm-bento-cell" style="grid-column: span 1;">
+                        <h4 style="color: var(--text-heading); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="Conseil Technique">Conseil Technique</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" data-i18n="Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.">Accompagnement dans vos choix technologiques, recommandations matériel et logiciel.</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
+    </div>
     
     <Fragment slot="scripts">
         <script type="application/ld+json" is:inline>
