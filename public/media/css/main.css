@@ -78,8 +78,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);
-    background-image: var(--bg-gradient);
-    background-attachment: fixed;
+    background-image: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.15), transparent 60%);
     color: var(--text-main);
     line-height: 1.6;
     min-height: 100vh;
@@ -271,7 +270,7 @@ p {
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--text-heading);
+    color: var(--text-heading) !important;
     padding: 12px 28px;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
@@ -289,23 +288,24 @@ p {
 
 /* --- Primary Button (solid) --- */
 .btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 28px;
-    background: var(--text-heading);
-    color: var(--bg-dark);
+    background: var(--text-heading) !important;
+    color: var(--bg-dark) !important;
     text-decoration: none;
     border-radius: 8px;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition);
     cursor: pointer;
-    text-align: center;
     border: none;
 }
 
 .btn-primary:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
+    opacity: 0.85;
 }
 
 /* --- Submit Button (full-width primary) --- */
