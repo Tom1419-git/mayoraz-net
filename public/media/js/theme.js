@@ -1,25 +1,10 @@
 // media/js/theme.js
 
 document.addEventListener('astro:page-load', () => {
-    // 1. Dark/Light Theme Logic
-    const themeToggle = document.getElementById('theme-toggle');
-    let currentTheme = localStorage.getItem('theme');
-
-    // Auto-detect system theme for first-time visitors (default = dark)
-    if (!currentTheme) {
-        // Check system preference; if light, apply light. Otherwise default dark.
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            currentTheme = 'light';
-        } else {
-            currentTheme = 'dark';
-        }
-        localStorage.setItem('theme', currentTheme);
-    }
-
+    // 1. Dark Theme Logic
+    let currentTheme = 'dark';
+    localStorage.setItem('theme', currentTheme);
     document.documentElement.setAttribute('data-theme', currentTheme);
-    if (themeToggle) {
-        themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-    }
 
     // Initial Grafana sync
     document.querySelectorAll('iframe').forEach(iframe => {
@@ -28,30 +13,6 @@ document.addEventListener('astro:page-load', () => {
         }
     });
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            let newTheme = theme === 'light' ? 'dark' : 'light';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
-
-            if (typeof showToast === 'function') {
-                const baseMsg = newTheme === 'light' ? 'Thème clair activé' : 'Thème sombre activé';
-                const msg = typeof window.t === 'function' ? window.t(baseMsg) : baseMsg;
-                showToast(msg, 'success');
-            }
-
-            // Sync Grafana iframes
-            document.querySelectorAll('iframe').forEach(iframe => {
-                if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
-                    iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + newTheme);
-                }
-            });
-        });
-    }
 
 
 
