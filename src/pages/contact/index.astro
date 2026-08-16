@@ -1,17 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import portraitImg from '../../assets/img/portrait.webp';
 import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="Contact - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Contact - Thomas Mayoraz | Services Informatiques Lausanne" description="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage. Thomas Mayoraz, expert en services informatiques." cssFile="/media/css/contact.css">
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
-            <div class="profile-section">
-                <div class="avatar" style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
-                    <Image src={portraitImg} alt="Portrait de Thomas Mayoraz" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <p class="wm-section-eyebrow" data-i18n="Me Contacter">Me Contacter</p>
+            <div class="profile-section">                <p class="wm-section-eyebrow" data-i18n="Me Contacter">Me Contacter</p>
                 <h1 class="wm-section-title" data-i18n="Discutons de votre projet">Discutons de votre <span class="accent">projet</span></h1>
                 <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px; margin-bottom: 20px;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
                 <div>
