@@ -10,7 +10,6 @@ document.addEventListener('astro:page-load', () => {
         if (saved) return saved;
 
         const nav = (navigator.language || navigator.userLanguage || 'fr').toLowerCase();
-        if (nav.startsWith('de')) return 'DE';
         if (nav.startsWith('en')) return 'EN';
         return 'FR'; // default
     }
@@ -25,7 +24,6 @@ document.addEventListener('astro:page-load', () => {
     window.t = function(key) {
         if (!key) return key;
         if (currentLang === 'EN' && typeof frToEn !== 'undefined' && frToEn[key]) return frToEn[key];
-        if (currentLang === 'DE' && typeof frToDe !== 'undefined' && frToDe[key]) return frToDe[key];
         return key; // fallback to French (the key itself)
     };
 
@@ -34,7 +32,6 @@ document.addEventListener('astro:page-load', () => {
         window.t = function(key) {
             if (!key) return key;
             if (lang === 'EN' && typeof frToEn !== 'undefined' && frToEn[key]) return frToEn[key];
-            if (lang === 'DE' && typeof frToDe !== 'undefined' && frToDe[key]) return frToDe[key];
             return key;
         };
 
@@ -60,7 +57,6 @@ document.addEventListener('astro:page-load', () => {
 
         let dict = null;
         if (lang === 'EN') dict = typeof frToEn !== 'undefined' ? frToEn : null;
-        if (lang === 'DE') dict = typeof frToDe !== 'undefined' ? frToDe : null;
 
         if (!dict) {
             console.error('Dictionary for ' + lang + ' is not loaded.');
@@ -123,8 +119,7 @@ document.addEventListener('astro:page-load', () => {
             } else {
                 applyLanguage(currentLang);
                 if (typeof showToast === 'function') {
-                    const toastText = currentLang === 'EN' ? 'Language: English 🇬🇧' : 'Sprache: Deutsch 🇩🇪';
-                    showToast(toastText, 'success');
+                    showToast('Language: English 🇬🇧', 'success');
                 }
             }
 

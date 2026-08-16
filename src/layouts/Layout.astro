@@ -75,6 +75,7 @@ const buildHash = Date.now().toString(36);
     {cssFile && <link rel="stylesheet" href={`${cssFile}?v=${buildHash}`} />}
     <link rel="stylesheet" href={`/media/css/toast.css?v=${buildHash}`}>
     <link rel="stylesheet" href={`/media/css/terminal.css?v=${buildHash}`}>
+    <link rel="stylesheet" href={`/media/css/search.css?v=${buildHash}`}>
     <ClientRouter />
     
     <!-- Analytics (Microsoft Clarity) - GDPR Compliant -->
@@ -110,8 +111,8 @@ const buildHash = Date.now().toString(36);
                 <select id="lang-select" class="lang-select" aria-label="Changer de langue" data-i18n-aria="Changer de langue">
                     <option value="FR">FR</option>
                     <option value="EN">EN</option>
-                    <option value="DE">DE</option>
                 </select>
+                <button id="search-toggle" class="theme-toggle" aria-label="Recherche globale (Cmd+K)" data-i18n-aria="Recherche globale (Cmd+K)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 3px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème" data-i18n-aria="Changer le thème">☀️</button>
             </ul>
             <div style="display:flex; align-items:center; gap:10px;">
@@ -141,6 +142,20 @@ const buildHash = Date.now().toString(36);
         </footer>
     </div>
 
+    <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Recherche">
+        <div class="search-modal-backdrop" id="search-backdrop"></div>
+        <div class="search-modal-content">
+            <div class="search-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-input" placeholder="Rechercher (Projets, Contact, Homelab...)" autocomplete="off" />
+                <span class="search-kbd">ESC</span>
+            </div>
+            <ul id="search-results" class="search-results">
+                <!-- Results will be populated by search.js -->
+            </ul>
+        </div>
+    </div>
+
     <button id="backToTop" aria-label="Retour en haut de page" data-i18n-aria="Retour en haut de page">&#8593;</button>
 
     <script is:inline src={`/media/js/theme.js?v=${buildHash}`} defer></script>
@@ -148,10 +163,10 @@ const buildHash = Date.now().toString(36);
     <script is:inline src={`/media/js/toast.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/terminal.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/locales/en.js?v=${buildHash}`} defer></script>
-    <script is:inline src={`/media/locales/de.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/lang.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/konami.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/status.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/search.js?v=${buildHash}`} defer></script>
     <slot name="scripts" />
 </body>
 </html>

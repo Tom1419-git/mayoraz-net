@@ -1446,4 +1446,28 @@ const frToEn = {
     "Permettre à des systèmes d’apprendre et s’adapter": "Allow systems to learn and adapt",
     "Créer des disques durs plus rapides": "Create faster hard drives",
     "L’intelligence artificielle permet aux systèmes d’apprendre à partir de données pour accomplir des tâches automatiquement.": "Artificial intelligence enables systems to learn from data to perform tasks automatically."
+,
+    // Automatically appended missing translations
+    "// EXPERTISE": "// EXPERTISE",
+    "// SECRETS": "// SECRETS",
+    "// SERVICES": "// SERVICES",
+    "Administration Réseau & Serveurs": "Network & Server Administration",
+    "EN LIGNE": "ONLINE",
+    "Grâce à &lt;strong data-i18n=&quot;n8n&quot;&gt;n8n&lt;/strong&gt; et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "Thanks to &lt;strong data-i18n=&quot;n8n&quot;&gt;n8n&lt;/strong&gt; and the local Docker API, I created a workflow that listens to Prometheus webhook alerts. If a container crashes, n8n runs this command via SSH or Socket:",
+    "Générateur de factures PDF professionnel développé de A à Z. Création de factures instantanée, 3 modèles (Standard, Logo Pro, Enveloppe Suisse C5), authentification Supabase, TVA 8.1%, sauvegarde en cloud et version Pro avec Stripe.": "Professional PDF invoice generator developed from scratch. Instant invoice creation, 3 templates (Standard, Pro Logo, Swiss C5 Envelope), Supabase authentication, 8.1% VAT, cloud backup, and Pro version with Stripe.",
+    "Générateur de factures PDF professionnel pour artisans et indépendants suisses. Gratuit pour les 3 premières factures, avec logo personnalisable, format enveloppe suisse (C5) et TVA 8.1% intégrée. Version Pro disponible.": "Professional PDF invoice generator for Swiss craftsmen and freelancers. Free for the first 3 invoices, with customizable logo, Swiss envelope format (C5), and integrated 8.1% VAT. Pro version available.",
+    "Hardware, Montage PC & Dépannage": "Hardware, PC Building & Troubleshooting",
+    "Juillet 2026": "July 2026",
+    "L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.": "Automation is pushed to its limits with n8n: in case of an anomaly detected on the server, automated workflows (Auto-Healing) communicate with the Docker API to autonomously restart or reconfigure failing services.",
+    "Recherche globale (Cmd+K)": "Global Search (Cmd+K)",
+    "SaaS Web": "Web SaaS",
+    "Scripting & Développement Web": "Scripting & Web Development",
+    "Systèmes d'Exploitation & Sécurité": "Operating Systems & Security",
+    "Virtualisation Win11 &amp; Ubuntu": "Win11 & Ubuntu Virtualization",
+    "🌐 Réseau Zero-Trust &amp; Proxy": "🌐 Zero-Trust Network & Proxy",
+    "💾 Stockage &amp; Optimisation Hardlinks": "💾 Storage & Hardlinks Optimization",
+    "📈 Auto-résolution (n8n)": "📈 Auto-resolution (n8n)",
+    "🖥️ Hyperviseur &amp; Conteneurisation": "🖥️ Hypervisor & Containerization",
+    "🛡️ Résilience &amp; Infrastructure as Code": "🛡️ Resilience & Infrastructure as Code",
+    "🤫 Secrets & Easter Eggs": "🤫 Secrets & Easter Eggs"
 };
