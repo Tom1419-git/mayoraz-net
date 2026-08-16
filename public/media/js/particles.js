@@ -11,6 +11,7 @@ document.addEventListener('astro:page-load', () => {
     
     // Mouse tracking for interaction
     let mouse = { x: null, y: null, radius: 200 };
+    let animId = null;
 
     function resize() {
         const dpr = window.devicePixelRatio || 1;
@@ -72,6 +73,10 @@ document.addEventListener('astro:page-load', () => {
         // Disable particles on mobile to improve PageSpeed score and save battery
         if (width < 768) {
             ctx.clearRect(0, 0, width, height);
+            if (animId) {
+                cancelAnimationFrame(animId);
+                animId = null;
+            }
             return;
         }
 
@@ -110,13 +115,18 @@ document.addEventListener('astro:page-load', () => {
         
         // Only request next frame if we are on desktop
         if (width >= 768) {
-            requestAnimationFrame(animate);
+            animId = requestAnimationFrame(animate);
+        } else {
+            animId = null;
         }
     }
 
     window.addEventListener('resize', () => {
         resize();
         init();
+        if (width >= 768 && !animId) {
+            animate();
+        }
     });
 
     // Track mouse

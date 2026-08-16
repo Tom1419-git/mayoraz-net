@@ -5,7 +5,7 @@ async function checkHomelabStatus() {
     if (!textEl || !indicatorEl) return;
 
     try {
-        const res = await fetch('https://status.mayoraz-net.ch/api/status-page/home');
+        const res = await fetch('https://status.mayoraz-net.ch/api/status-page/default');
         const data = await res.json();
         
         let allUp = true;
