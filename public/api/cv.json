@@ -1,0 +1,54 @@
+{
+  "name": "Thomas Mayoraz",
+  "age": 17,
+  "role": "Apprenti Informaticien (Voie Infra avec Maturité)",
+  "location": "Lausanne, VD, CH",
+  "school": {
+    "name": "ETML (École technique - École des métiers de Lausanne)",
+    "year": "3ème année",
+    "started": "2023-08-01",
+    "diploma_expected": "2027 — CFC Informaticien + Maturité Professionnelle"
+  },
+  "contact": {
+    "email": "contact@mayoraz-net.ch",
+    "website": "https://mayoraz-net.ch",
+    "github": "https://github.com/Tom1419-git",
+    "linkedin": "https://www.linkedin.com/in/thomas-mayoraz-it/"
+  },
+  "skills": {
+    "systems": ["Ubuntu Server", "Windows Server", "Proxmox", "Debian", "Raspberry Pi OS"],
+    "networking": ["TCP/IP", "DNS", "DHCP", "NetBird VPN", "Pi-hole", "Cloudflare Tunnels"],
+    "automation_and_containers": ["Docker", "Docker Compose", "n8n", "Stack Arr (Radarr, Sonarr...)", "Keepalived HA"],
+    "monitoring": ["Prometheus", "Grafana", "Uptime Kuma", "Netdata"],
+    "development": ["HTML/CSS/JS", "Python", "C#", "Bash", "PowerShell", "Astro"],
+    "hardware": ["Montage PC sur mesure", "Dépannage matériel", "Câblage réseau"]
+  },
+  "languages": {
+    "french": "Native",
+    "english": "Technical / B2"
+  },
+  "projects": [
+    {
+      "name": "Site Portfolio",
+      "url": "https://mayoraz-net.ch",
+      "tech": ["Astro", "CSS Vanilla", "GitHub Actions"],
+      "description": "Portfolio professionnel avec glassmorphism, i18n FR/EN/DE, animations"
+    },
+    {
+      "name": "Homelab",
+      "tech": ["Proxmox", "Docker", "Prometheus", "Grafana", "NetBird", "n8n"],
+      "description": "Infrastructure self-hosted: Jellyfin, monitoring, automatisation, VPN mesh"
+    },
+    {
+      "name": "CTT Montriond Ouchy",
+      "tech": ["HTML5", "CSS3", "JavaScript"],
+      "description": "Site web du club de ping-pong CTT Montriond Ouchy"
+    }
+  ],
+  "easter_egg": {
+    "coffee_consumption": "Critical",
+    "favorite_editor": "VS Code",
+    "secret_skill": "Peut réparer un PC juste en le fixant intensément",
+    "message": "Félicitations, vous avez trouvé mon API cachée ! Si vous lisez ceci, on devrait probablement discuter de tech ensemble. 🚀"
+  }
+}

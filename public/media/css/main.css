@@ -2739,14 +2739,38 @@ body.fade-out {
 }
 
 .wm-testimonials-cols {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
     gap: 16px;
     margin-top: 60px;
+    overflow-x: auto;
+    padding-bottom: 20px; /* For scrollbar */
+    scroll-snap-type: x mandatory;
 }
 
-@media (min-width: 640px) { .wm-testimonials-cols { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .wm-testimonials-cols { grid-template-columns: repeat(3, 1fr); } }
+.wm-testimonials-cols::-webkit-scrollbar {
+    height: 8px;
+}
+.wm-testimonials-cols::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.wm-testimonials-cols::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+.wm-testimonials-cols::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.wm-testimonial-card {
+    flex: 0 0 calc(100% - 32px);
+    scroll-snap-align: center;
+}
+
+@media (min-width: 640px) { .wm-testimonial-card { flex: 0 0 calc(50% - 16px); } }
+@media (min-width: 1024px) { .wm-testimonial-card { flex: 0 0 calc(33.333% - 16px); } }
+
 
 .wm-testimonial-card {
     background: var(--card-bg);

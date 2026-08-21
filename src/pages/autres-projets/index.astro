@@ -3,18 +3,21 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Autres Projets - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Autres Projets - Thomas Mayoraz | Services Informatiques Lausanne" description="Découvrez mes autres projets : virtualisation, scripts PowerShell, MQTT et guides techniques. Thomas Mayoraz, expert en services informatiques à Lausanne.">
-    <header style="margin-bottom: 20px;">
-            <div class="profile-section">                <h1 data-i18n="Autres Projets">Autres Projets</h1>
-                <p class="subtitle" data-i18n="Virtualisation, Scripts &amp; Guides Techniques">Virtualisation, Scripts &amp; Guides Techniques</p>
-                <a class="back-nav" href="/" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
+    <div class="wm-container" style="padding-top: 60px;">
+        <header style="margin-bottom: 40px; text-align: center;">
+            <div class="profile-section">
+                <p class="wm-section-eyebrow" data-i18n="// PROJETS TECHNIQUES">// PROJETS TECHNIQUES</p>
+                <h1 class="wm-section-title" data-i18n-html="Autres <span class='accent'>Projets</span>">Autres <span class="accent">Projets</span></h1>
+                <p style="color: var(--text-muted); margin: 10px auto 20px; max-width: 600px;" data-i18n="Virtualisation, Scripts & Guides Techniques">Virtualisation, Scripts &amp; Guides Techniques</p>
+                <a class="btn-outline" href="/" style="display: inline-flex;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
             </div>
         </header>
 
         <main>
-            <section class="intro reveal">
-                <p data-i18n="Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.">Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.</p>
+            <section class="wm-card" style="padding: 30px; margin-bottom: 40px; text-align: center;">
+                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.05rem; margin: 0;" data-i18n="Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.">Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.</p>
             </section>
+
 
             <div class="projects-grid">
                 <div class="project-card reveal">
@@ -210,8 +213,10 @@ import Layout from '../../layouts/Layout.astro';
                 </div>
             </div>
         </main>
+    </div>
     
     <Fragment slot="scripts">
+
         <script type="application/ld+json" is:inline>
     {
         "@context": "https://schema.org",
