@@ -328,32 +328,24 @@ import Layout from '../../layouts/Layout.astro';
 
             const formData = new FormData(form);
             formData.delete('cf-turnstile-response');
-            // Supprimer les champs File (non supportés en JSON sur le plan gratuit Web3Forms)
-            for (const [key, val] of [...formData.entries()]) {
-                if (val instanceof File) formData.delete(key);
-            }
 
-            // Web3Forms attend "name" — on combine prénom + nom
+            // On combine prénom + nom
             const prenom = (formData.get('prenom') || '').trim();
             const nom    = (formData.get('nom') || '').trim();
             formData.set('name', [prenom, nom].filter(Boolean).join(' '));
             formData.delete('prenom');
             formData.delete('nom');
 
-            // Convertir en objet JSON (sûr : plus de File)
-            const object = Object.fromEntries(formData);
+            // Note: pour n8n on peut envoyer en FormData (multipart) si on a des fichiers joints !
+            // On laisse donc fetch gérer le multipart tout seul.
 
-            fetch(form.action, {
+            fetch('https://n8n.mayoraz-net.ch/webhook/contact-form', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(object)
+                body: formData
             }).then(res => {
                 if (res.ok) { window.location.href = '/contact/merci/'; }
                 else {
-                    res.json().then(data => {
-                        console.error('Web3Forms error:', data);
-                        alert((data && data.message) || (window.t ? window.t('Erreur lors de l\'envoi. Veuillez réessayer.') : 'Erreur lors de l\'envoi. Veuillez réessayer.'));
-                    }).catch(() => alert('Erreur lors de l\'envoi.'));
+                    alert(window.t ? window.t('Erreur lors de l\'envoi via n8n. Veuillez réessayer.') : 'Erreur lors de l\'envoi via n8n. Veuillez réessayer.');
                     submitBtn.innerHTML = origHTML;
                     submitBtn.disabled  = false;
                 }
