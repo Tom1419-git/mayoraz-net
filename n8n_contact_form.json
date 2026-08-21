@@ -1,0 +1,68 @@
+{
+  "name": "Mayoraz-Net Contact Form",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "name": "Webhook Contact",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "contact-form"
+    },
+    {
+      "parameters": {
+        "fromEmail": "contact@mayoraz-net.ch",
+        "toEmail": "contact@mayoraz-net.ch",
+        "subject": "={{ '🚨 Nouveau message de ' + $json.body.name }}",
+        "text": "={{ 'Nouveau contact depuis le site web !\\n\\nNom : ' + $json.body.name + '\\nEmail : ' + $json.body.email + '\\nTéléphone : ' + $json.body.telephone + '\\nPréférence : ' + $json.body.contact_pref + '\\n\\nService : ' + $json.body.service + '\\nLocalité : ' + $json.body.commune + '\\nUrgence : ' + $json.body.urgence + '\\nBudget : ' + $json.body.budget + '\\nSource : ' + $json.body.source + '\\n\\nMessage :\\n' + $json.body.message }}",
+        "options": {}
+      },
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": true,\n  \"message\": \"Message bien reçu\"\n}",
+        "options": {}
+      },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [740, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Contact": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {}
+}
