@@ -1,1 +1,366 @@
-/* Les styles ont été unifiés et migrés vers main.css */
+/* ====================================================
+   CONTACT PAGE — CSS complet
+   ==================================================== */
+
+/* Header centré */
+.contact-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+.contact-intro {
+    color: var(--text-muted);
+    margin: 12px auto 16px;
+    max-width: 560px;
+    line-height: 1.6;
+}
+
+/* Layout 2 colonnes */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; }
+}
+
+/* Carte formulaire */
+.contact-form-card { padding: 36px; }
+
+.contact-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.contact-form-header h2 {
+    font-size: 1.25rem;
+    color: var(--text-heading);
+    margin: 0;
+}
+.btn-vcard {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    white-space: nowrap;
+}
+
+/* Formulaire */
+.contact-form { display: flex; flex-direction: column; gap: 22px; }
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.required { color: var(--accent); }
+.label-optional {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+    text-transform: none;
+    margin-left: 6px;
+}
+
+/* Inputs / Select / Textarea */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 11px 16px;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(79, 143, 255, 0.06);
+    box-shadow: 0 0 0 3px rgba(79, 143, 255, 0.12);
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Select wrapper avec flèche custom */
+.select-wrapper {
+    position: relative;
+}
+.select-wrapper select {
+    appearance: none;
+    padding-right: 36px;
+    cursor: pointer;
+}
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-muted);
+}
+
+/* Compteur caractères */
+.char-counter {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    text-align: right;
+    margin-top: 2px;
+}
+
+/* Chips (budget + urgence) */
+.chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chip {
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(79, 143, 255, 0.08);
+}
+.chip.active {
+    border-color: var(--accent);
+    background: rgba(79, 143, 255, 0.15);
+    color: var(--accent);
+    font-weight: 600;
+}
+.chip-urgent {
+    border-color: rgba(255, 80, 80, 0.4);
+    color: #ff6060;
+}
+.chip-urgent:hover, .chip-urgent.active {
+    border-color: #ff4444;
+    background: rgba(255, 68, 68, 0.12);
+    color: #ff4444;
+}
+
+/* Radio pills (préférence de contact) */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.radio-pill input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.radio-pill span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+}
+.radio-pill span:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.radio-pill input[type="radio"]:checked + span {
+    border-color: var(--accent);
+    background: rgba(79, 143, 255, 0.15);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Zone de dépôt de fichier */
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 22px;
+    border: 2px dashed var(--glass-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    color: var(--text-muted);
+}
+.file-upload-label:hover,
+.file-upload-label.dragover {
+    border-color: var(--accent);
+    background: rgba(79, 143, 255, 0.06);
+    color: var(--accent);
+}
+.file-input { display: none; }
+.file-upload-text { font-size: 0.9rem; }
+.file-upload-hint { font-size: 0.75rem; opacity: 0.5; }
+.file-name {
+    font-size: 0.82rem;
+    color: var(--accent);
+    margin-top: 4px;
+    display: block;
+}
+
+/* Turnstile */
+.turnstile-container {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0;
+}
+
+/* Bouton submit */
+.btn-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 1rem;
+    gap: 10px;
+    border-radius: 8px;
+}
+
+/* ====== Colonne droite — infos ====== */
+.contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 90px;
+}
+.contact-info-card {
+    padding: 24px;
+}
+.contact-info-card h3 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.contact-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.contact-info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(79, 143, 255, 0.1);
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.contact-info-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+.contact-info-value {
+    font-size: 0.92rem;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+a.contact-info-value:hover { color: var(--accent); }
+
+/* Disponibilité */
+.contact-availability {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 24px;
+}
+.availability-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    flex-shrink: 0;
+    animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.08); }
+}
+.availability-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-heading);
+    margin: 0;
+}
+.availability-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+}
