@@ -40,8 +40,8 @@
       "parameters": {
         "operation": "sendDocument",
         "chatId": "",
-        "file": "attachment",
-        "binaryProperty": "attachment",
+        "sendBinaryData": true,
+        "binaryPropertyName": "attachment",
         "additionalFields": {}
       },
       "name": "Send Attachment",
