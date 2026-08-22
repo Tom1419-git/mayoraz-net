@@ -1,5 +1,5 @@
 {
-  "name": "Mayoraz-Net Contact Form",
+  "name": "Mayoraz-Net Contact Form (Telegram)",
   "nodes": [
     {
       "parameters": {
@@ -11,21 +11,49 @@
       "name": "Webhook Contact",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [240, 300],
+      "position": [100, 300],
       "webhookId": "contact-form"
     },
     {
       "parameters": {
-        "fromEmail": "contact@mayoraz-net.ch",
-        "toEmail": "contact@mayoraz-net.ch",
-        "subject": "={{ '🚨 Nouveau message de ' + $json.body.name }}",
-        "text": "={{ 'Nouveau contact depuis le site web !\\n\\nNom : ' + $json.body.name + '\\nEmail : ' + $json.body.email + '\\nTéléphone : ' + $json.body.telephone + '\\nPréférence : ' + $json.body.contact_pref + '\\n\\nService : ' + $json.body.service + '\\nLocalité : ' + $json.body.commune + '\\nUrgence : ' + $json.body.urgence + '\\nBudget : ' + $json.body.budget + '\\nSource : ' + $json.body.source + '\\n\\nMessage :\\n' + $json.body.message }}",
-        "options": {}
+        "chatId": "",
+        "text": "={{ '🚨 *Nouveau message du site web !*\\n\\n👤 *Nom:* ' + $json.body.name + '\\n📧 *Email:* ' + $json.body.email + '\\n📞 *Tél:* ' + $json.body.telephone + '\\n📱 *Préférence:* ' + $json.body.contact_pref + '\\n\\n🛠 *Service:* ' + $json.body.service + '\\n📍 *Lieu:* ' + $json.body.commune + '\\n🔥 *Délai:* ' + $json.body.urgence + '\\n💰 *Budget:* ' + $json.body.budget + '\\n🔍 *Source:* ' + $json.body.source + '\\n\\n💬 *Message:*\\n' + $json.body.message }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
-      "name": "Send Email",
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2,
-      "position": [500, 300]
+      "name": "Send Telegram Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [340, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $binary.attachment ? true : false }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "Has Attachment?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [560, 300]
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "",
+        "binaryProperty": "attachment",
+        "additionalFields": {}
+      },
+      "name": "Send Attachment",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [800, 200]
     },
     {
       "parameters": {
@@ -36,7 +64,7 @@
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
-      "position": [740, 300]
+      "position": [1060, 300]
     }
   ],
   "connections": {
@@ -44,14 +72,43 @@
       "main": [
         [
           {
-            "node": "Send Email",
+            "node": "Send Telegram Message",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Send Email": {
+    "Send Telegram Message": {
+      "main": [
+        [
+          {
+            "node": "Has Attachment?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Attachment?": {
+      "main": [
+        [
+          {
+            "node": "Send Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Attachment": {
       "main": [
         [
           {
