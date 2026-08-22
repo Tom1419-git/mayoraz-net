@@ -331,6 +331,12 @@ import Layout from '../../layouts/Layout.astro';
             const formData = new FormData(form);
             formData.delete('cf-turnstile-response');
 
+            // Supprimer la pièce jointe vide si l'utilisateur n'a rien sélectionné
+            const fileInput = document.getElementById('attachment');
+            if (fileInput && fileInput.files.length === 0) {
+                formData.delete('attachment');
+            }
+
             // On combine prénom + nom
             const prenom = (formData.get('prenom') || '').trim();
             const nom    = (formData.get('nom') || '').trim();
