@@ -6,7 +6,16 @@
         "httpMethod": "POST",
         "path": "contact-form",
         "responseMode": "lastNode",
-        "options": {}
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        }
       },
       "name": "Webhook Contact",
       "type": "n8n-nodes-base.webhook",
@@ -59,7 +68,16 @@
       "parameters": {
         "respondWith": "json",
         "responseBody": "{\n  \"success\": true,\n  \"message\": \"Message bien reçu\"\n}",
-        "options": {}
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        }
       },
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
