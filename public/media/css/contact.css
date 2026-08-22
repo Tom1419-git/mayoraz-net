@@ -364,3 +364,7 @@ a.contact-info-value:hover { color: var(--accent); }
     color: var(--text-muted);
     margin: 2px 0 0;
 }
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
