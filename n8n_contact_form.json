@@ -5,19 +5,7 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "contact-form",
-        "responseMode": "lastNode",
-        "options": {}
-      },
-      "name": "Webhook Contact",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [100, 300],
-      "webhookId": "contact-form"
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "{\n  \"success\": true,\n  \"message\": \"Message bien reçu\"\n}",
+        "responseMode": "onReceived",
         "options": {
           "responseHeaders": {
             "entries": [
@@ -29,10 +17,11 @@
           }
         }
       },
-      "name": "Respond to Webhook",
-      "type": "n8n-nodes-base.respondToWebhook",
+      "name": "Webhook Contact",
+      "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [320, 300]
+      "position": [100, 300],
+      "webhookId": "contact-form"
     },
     {
       "parameters": {
@@ -45,50 +34,27 @@
       "name": "Send Telegram Message",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.1,
-      "position": [540, 300]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ Object.keys($binary || {}).length > 0 ? 'yes' : 'no' }}",
-              "value2": "yes"
-            }
-          ]
-        }
-      },
-      "name": "Has Attachment?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [760, 300]
+      "position": [360, 300]
     },
     {
       "parameters": {
         "operation": "sendDocument",
         "chatId": "",
+        "file": "attachment",
         "binaryProperty": "attachment",
         "additionalFields": {}
       },
       "name": "Send Attachment",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.1,
-      "position": [1000, 300]
+      "position": [600, 300],
+      "settings": {
+        "continueOnFail": true
+      }
     }
   ],
   "connections": {
     "Webhook Contact": {
-      "main": [
-        [
-          {
-            "node": "Respond to Webhook",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Respond to Webhook": {
       "main": [
         [
           {
@@ -100,17 +66,6 @@
       ]
     },
     "Send Telegram Message": {
-      "main": [
-        [
-          {
-            "node": "Has Attachment?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Has Attachment?": {
       "main": [
         [
           {
