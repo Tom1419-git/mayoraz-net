@@ -6,63 +6,13 @@
         "httpMethod": "POST",
         "path": "contact-form",
         "responseMode": "lastNode",
-        "options": {
-          "responseHeaders": {
-            "entries": [
-              {
-                "name": "Access-Control-Allow-Origin",
-                "value": "*"
-              }
-            ]
-          }
-        }
+        "options": {}
       },
       "name": "Webhook Contact",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [100, 300],
       "webhookId": "contact-form"
-    },
-    {
-      "parameters": {
-        "chatId": "",
-        "text": "={{ '🚨 *Nouveau message du site web !*\\n\\n👤 *Nom:* ' + $json.body.name + '\\n📧 *Email:* ' + $json.body.email + '\\n📞 *Tél:* ' + $json.body.telephone + '\\n📱 *Préférence:* ' + $json.body.contact_pref + '\\n\\n🛠 *Service:* ' + $json.body.service + '\\n📍 *Lieu:* ' + $json.body.commune + '\\n🔥 *Délai:* ' + $json.body.urgence + '\\n💰 *Budget:* ' + $json.body.budget + '\\n🔍 *Source:* ' + $json.body.source + '\\n\\n💬 *Message:*\\n' + $json.body.message }}",
-        "additionalFields": {
-          "parse_mode": "Markdown"
-        }
-      },
-      "name": "Send Telegram Message",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.1,
-      "position": [340, 300]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "boolean": [
-            {
-              "value1": "={{ $binary.attachment ? true : false }}",
-              "value2": true
-            }
-          ]
-        }
-      },
-      "name": "Has Attachment?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [560, 300]
-    },
-    {
-      "parameters": {
-        "operation": "sendDocument",
-        "chatId": "",
-        "binaryProperty": "attachment",
-        "additionalFields": {}
-      },
-      "name": "Send Attachment",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.1,
-      "position": [800, 200]
     },
     {
       "parameters": {
@@ -82,11 +32,63 @@
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
-      "position": [1060, 300]
+      "position": [320, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "",
+        "text": "={{ '🚨 *Nouveau message du site web !*\\n\\n👤 *Nom:* ' + $json.body.name + '\\n📧 *Email:* ' + $json.body.email + '\\n📞 *Tél:* ' + $json.body.telephone + '\\n📱 *Préférence:* ' + $json.body.contact_pref + '\\n\\n🛠 *Service:* ' + $json.body.service + '\\n📍 *Lieu:* ' + $json.body.commune + '\\n🔥 *Délai:* ' + $json.body.urgence + '\\n💰 *Budget:* ' + $json.body.budget + '\\n🔍 *Source:* ' + $json.body.source + '\\n\\n💬 *Message:*\\n' + $json.body.message }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "name": "Send Telegram Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [540, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ Object.keys($binary || {}).length > 0 ? 'yes' : 'no' }}",
+              "value2": "yes"
+            }
+          ]
+        }
+      },
+      "name": "Has Attachment?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [760, 300]
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "",
+        "binaryProperty": "attachment",
+        "additionalFields": {}
+      },
+      "name": "Send Attachment",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [1000, 300]
     }
   ],
   "connections": {
     "Webhook Contact": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
       "main": [
         [
           {
@@ -113,24 +115,6 @@
         [
           {
             "node": "Send Attachment",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Respond to Webhook",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Send Attachment": {
-      "main": [
-        [
-          {
-            "node": "Respond to Webhook",
             "type": "main",
             "index": 0
           }
