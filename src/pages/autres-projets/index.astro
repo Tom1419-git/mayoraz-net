@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 ---
 
+<Layout title="Autres Projets - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Autres Projets - Thomas Mayoraz | Services Informatiques Lausanne" description="Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés.">
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">
@@ -13,282 +14,161 @@ import Layout from '../../layouts/Layout.astro';
             </div>
         </header>
 
-        <main>
+        <main style="max-width: 1000px; margin: 0 auto 60px;">
             <section class="wm-card" style="padding: 30px; margin-bottom: 40px; text-align: center;">
-                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.05rem; margin: 0;" data-i18n="Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.">Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.</p>
+                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.1rem; margin-bottom: 0;" data-i18n="Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.">Découvrez mes projets techniques incluant des rapports de virtualisation, scripts PowerShell, implémentations MQTT et guides détaillés. Chaque projet est documenté avec soin et disponible en téléchargement.</p>
             </section>
 
-
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">🖥️</span>
-                            <div>
-                                <h3 class="project-title" data-i18n="Virtualisation Win11 &amp; Ubuntu">Virtualisation Win11 &amp; Ubuntu</h3>
-                                <p class="project-type" data-i18n="Projet de Virtualisation">Projet de Virtualisation</p>
-                                <p class="project-date" data-i18n="Janvier 2025">Janvier 2025</p>
-                            </div>
+            <div class="wm-bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">🦷</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Cabinet Dentaire Tivoli">Cabinet Dentaire Tivoli</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="Plateforme de gestion">Plateforme de gestion</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Février 2026">Février 2026</p>
                         </div>
-                        <div class="project-status" data-i18n="TERMINÉ">TERMINÉ</div>
                     </div>
-                    <p class="project-description" data-i18n="Rapport complet sur la création et configuration de deux machines virtuelles (Windows 11 et Ubuntu) avec VirtualBox. Guide détaillé d'installation, configuration réseau, partage de fichiers et optimisation des performances.">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Développement d'une solution logicielle complète pour un cabinet dentaire. Réalisation d'une plateforme de gestion des patients et création d'un modèle de facturation automatisé sur mesure pour optimiser l'administration du cabinet.">
+                        Développement d'une solution logicielle complète pour un cabinet dentaire. Réalisation d'une plateforme de gestion des patients et création d'un modèle de facturation automatisé sur mesure pour optimiser l'administration du cabinet.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">C#</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Base de données">Base de données</span>
+                    </div>
+                </div>
+
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">🖥️</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Virtualisation Win11 & Ubuntu">Virtualisation Win11 & Ubuntu</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="Projet de Virtualisation">Projet de Virtualisation</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Janvier 2025">Janvier 2025</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Rapport complet sur la création et configuration de deux machines virtuelles (Windows 11 et Ubuntu) avec VirtualBox. Guide détaillé d'installation, configuration réseau, partage de fichiers et optimisation des performances.">
                         Rapport complet sur la création et configuration de deux machines virtuelles (Windows 11 et Ubuntu) avec VirtualBox. Guide détaillé d'installation, configuration réseau, partage de fichiers et optimisation des performances.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">VirtualBox</span>
-                        <span class="tech-tag">Windows 11</span>
-                        <span class="tech-tag">Ubuntu</span>
-                        <span class="tech-tag" data-i18n="Virtualisation">Virtualisation</span>
-                        <span class="tech-tag" data-i18n="Réseau">Réseau</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">VirtualBox</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Windows 11</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Ubuntu</span>
                     </div>
-                    <div class="project-actions">
-                        <a href="media/X_SYS-187_ThomasMayoraz_RapportFinal.pdf" class="download-btn" download="" data-i18n="📄 Télécharger le Rapport">
-                            📄 Télécharger le Rapport
-                        </a>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="media/X_SYS-187_ThomasMayoraz_RapportFinal.pdf" download="" style="display: inline-block; padding: 6px 12px; background: rgba(79, 143, 255, 0.1); border: 1px solid rgba(79, 143, 255, 0.3); border-radius: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📄 Télécharger le Rapport">📄 Télécharger le Rapport</a>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">💻</span>
-                            <div>
-                                <h3 class="project-title" data-i18n="Script PowerShell de Collecte">Script PowerShell de Collecte</h3>
-                                <p class="project-type" data-i18n="Automatisation">Automatisation</p>
-                                <p class="project-date" data-i18n="Juin 2025">Juin 2025</p>
-                            </div>
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">💻</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Script PowerShell de Collecte">Script PowerShell de Collecte</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="Automatisation">Automatisation</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Juin 2025">Juin 2025</p>
                         </div>
-                        <div class="project-status" data-i18n="TERMINÉ">TERMINÉ</div>
                     </div>
-                    <p class="project-description" data-i18n="Script PowerShell avancé permettant la collecte de données système sur plusieurs machines via le remoting. Fonctionnalités incluant la génération de rapports, l'export en CSV et la détection d'anomalies. Documentation complète incluse.">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Script PowerShell avancé permettant la collecte de données système sur plusieurs machines via le remoting. Fonctionnalités incluant la génération de rapports, l'export en CSV et la détection d'anomalies. Documentation complète incluse.">
                         Script PowerShell avancé permettant la collecte de données système sur plusieurs machines via le remoting. Fonctionnalités incluant la génération de rapports, l'export en CSV et la détection d'anomalies. Documentation complète incluse.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">PowerShell</span>
-                        <span class="tech-tag">Remoting</span>
-                        <span class="tech-tag" data-i18n="Collecte de données">Collecte de données</span>
-                        <span class="tech-tag" data-i18n="Automatisation">Automatisation</span>
-                        <span class="tech-tag" data-i18n="Rapports">Rapports</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">PowerShell</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Remoting</span>
                     </div>
-                    <div class="cote">
-                    <div class="project-actions">
-                        <a href="media/122-Script_Projet_InfoLogger.ps1" class="download-btn" download="" data-i18n="📦 Télécharger le Script">
-                            📦 Télécharger le Script
-                        </a>
-                    </div>
-                    <div class="project-actions">
-                    <a href="media/R-122-ervlemqadem-thomayoraz-Rapport_Pscript_Sysinfologger.docx" class="download-btn" download="" data-i18n="📄 Télécharger le Rapport">
-                            📄 Télécharger le Rapport
-                    </a>
-                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="media/122-Script_Projet_InfoLogger.ps1" download="" style="display: inline-block; padding: 6px 12px; background: rgba(79, 143, 255, 0.1); border: 1px solid rgba(79, 143, 255, 0.3); border-radius: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📦 Télécharger le Script">📦 Télécharger le Script</a>
+                        <a href="media/R-122-ervlemqadem-thomayoraz-Rapport_Pscript_Sysinfologger.docx" download="" style="display: inline-block; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 6px; color: var(--text-main); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📄 Télécharger le Rapport">📄 Télécharger le Rapport</a>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">📶</span>
-                            <div>
-                                <h3 class="project-title" data-i18n="Projet MQTT sur VM">Projet MQTT sur VM</h3>
-                                <p class="project-type" data-i18n="IoT &amp; Messagerie">IoT &amp; Messagerie</p>
-                                <p class="project-date" data-i18n="Avril 2025">Avril 2025</p>
-                            </div>
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">📶</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Projet MQTT sur VM">Projet MQTT sur VM</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="IoT & Messagerie">IoT &amp; Messagerie</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Avril 2025">Avril 2025</p>
                         </div>
-                        <div class="project-status" data-i18n="TERMINÉ">TERMINÉ</div>
                     </div>
-                    <p class="project-description" data-i18n="Implémentation d'un système de messagerie MQTT entre plusieurs machines virtuelles. Rapport détaillant l'installation de Mosquitto MQTT, la configuration des brokers/clients, la sécurité et des cas d'utilisation pratiques avec exemples de code.">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Implémentation d'un système de messagerie MQTT entre plusieurs machines virtuelles. Rapport détaillant l'installation de Mosquitto MQTT, la configuration des brokers/clients, la sécurité et des cas d'utilisation pratiques avec exemples de code.">
                         Implémentation d'un système de messagerie MQTT entre plusieurs machines virtuelles. Rapport détaillant l'installation de Mosquitto MQTT, la configuration des brokers/clients, la sécurité et des cas d'utilisation pratiques avec exemples de code.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MQTT</span>
-                        <span class="tech-tag">Mosquitto</span>
-                        <span class="tech-tag">IoT</span>
-                        <span class="tech-tag" data-i18n="Virtualisation">Virtualisation</span>
-                        <span class="tech-tag" data-i18n="Réseau">Réseau</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">MQTT</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Mosquitto</span>
                     </div>
-                    <div class="project-actions">
-                        <a href="media/R-216-thomayoraz-Rapport_Projet_MQTT.docx" class="download-btn" download="" data-i18n="📄 Rapport Technique">
-                            📄 Rapport Technique
-                        </a>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="media/R-216-thomayoraz-Rapport_Projet_MQTT.docx" download="" style="display: inline-block; padding: 6px 12px; background: rgba(79, 143, 255, 0.1); border: 1px solid rgba(79, 143, 255, 0.3); border-radius: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📄 Rapport Technique">📄 Rapport Technique</a>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">📊</span>
-                            <div>
-                                <h3 class="project-title" data-i18n="Guide VirtualBox">Guide VirtualBox</h3>
-                                <p class="project-type" data-i18n="Présentation">Présentation</p>
-                                <p class="project-date" data-i18n="Décembre 2024">Décembre 2024</p>
-                            </div>
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">📊</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Guide VirtualBox">Guide VirtualBox</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="Présentation">Présentation</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Décembre 2024">Décembre 2024</p>
                         </div>
-                        <div class="project-status" data-i18n="TERMINÉ">TERMINÉ</div>
                     </div>
-                    <p class="project-description" data-i18n="Présentation PowerPoint complète guidant pas à pas l'installation et la configuration de VirtualBox. Contenu visuel avec captures d'écran, astuces d'optimisation et bonnes pratiques. Parfait pour former des débutants à la virtualisation.">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Présentation PowerPoint complète guidant pas à pas l'installation et la configuration de VirtualBox. Contenu visuel avec captures d'écran, astuces d'optimisation et bonnes pratiques. Parfait pour former des débutants à la virtualisation.">
                         Présentation PowerPoint complète guidant pas à pas l'installation et la configuration de VirtualBox. Contenu visuel avec captures d'écran, astuces d'optimisation et bonnes pratiques. Parfait pour former des débutants à la virtualisation.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">VirtualBox</span>
-                        <span class="tech-tag">PowerPoint</span>
-                        <span class="tech-tag" data-i18n="Guide">Guide</span>
-                        <span class="tech-tag" data-i18n="Formation">Formation</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">VirtualBox</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">PowerPoint</span>
                     </div>
-                    <div class="project-actions">
-                        <a href="media/P-187-thomayoraz-GuideInstalationVM.pptx" class="download-btn" download="" data-i18n="📊 Télécharger la Présentation">
-                            📊 Télécharger la Présentation
-                        </a>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="media/P-187-thomayoraz-GuideInstalationVM.pptx" download="" style="display: inline-block; padding: 6px 12px; background: rgba(79, 143, 255, 0.1); border: 1px solid rgba(79, 143, 255, 0.3); border-radius: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📊 Télécharger la Présentation">📊 Télécharger la Présentation</a>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">📝</span>
-                            <div>
-                                <h3 class="project-title" data-i18n="Guide Office 365">Guide Office 365</h3>
-                                <p class="project-type" data-i18n="Documentation">Documentation</p>
-                                <p class="project-date" data-i18n="Janvier 2025">Janvier 2025</p>
-                            </div>
+                <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">📝</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;" data-i18n="Guide Office 365">Guide Office 365</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;" data-i18n="Documentation">Documentation</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Janvier 2025">Janvier 2025</p>
                         </div>
-                        <div class="project-status" data-i18n="TERMINÉ">TERMINÉ</div>
                     </div>
-                    <p class="project-description" data-i18n="Documentation complète sur Word, Excel, Outlook et PowerPoint incluant des guides détaillés, astuces et bonnes pratiques. Le fichier ZIP contient des exemples pratiques, des modèles réutilisables et des démonstrations étape par étape.">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Documentation complète sur Word, Excel, Outlook et PowerPoint incluant des guides détaillés, astuces et bonnes pratiques. Le fichier ZIP contient des exemples pratiques, des modèles réutilisables et des démonstrations étape par étape.">
                         Documentation complète sur Word, Excel, Outlook et PowerPoint incluant des guides détaillés, astuces et bonnes pratiques. Le fichier ZIP contient des exemples pratiques, des modèles réutilisables et des démonstrations étape par étape.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Office 365</span>
-                        <span class="tech-tag">Word</span>
-                        <span class="tech-tag">Excel</span>
-                        <span class="tech-tag">PowerPoint</span>
-                        <span class="tech-tag">Outlook</span>
-                        <span class="tech-tag" data-i18n="Guide">Guide</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Office 365</span>
                     </div>
-                    <div class="cote">
-                    <div class="project-actions">
-                        <a href="media/Guide_Office_ThomasMayoraz.7z" class="download-btn" download="" data-i18n="📦 Télécharger le dossier ZIP">
-                            📦 Télécharger le dossier ZIP
-                        </a>
-                    </div>
-                     <div class="project-actions">
-                        <a href="media/ThomasMayoraz_Guide_Office.docx" class="download-btn" download="" data-i18n="📄 Télécharger le Rapport">
-                            📄 Télécharger le Rapport
-                        </a>
-                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="media/Guide_Office_ThomasMayoraz.7z" download="" style="display: inline-block; padding: 6px 12px; background: rgba(79, 143, 255, 0.1); border: 1px solid rgba(79, 143, 255, 0.3); border-radius: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📦 Dossier ZIP">📦 Dossier ZIP</a>
+                        <a href="media/ThomasMayoraz_Guide_Office.docx" download="" style="display: inline-block; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 6px; color: var(--text-main); font-size: 0.85rem; font-weight: 500; text-decoration: none;" data-i18n="📄 Rapport">📄 Rapport</a>
                     </div>
                 </div>
 
-                <a class="project-card reveal" href="https://facture.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                    <div class="project-header">
-                        <div class="project-title-section">
-                            <span class="project-icon">🧾</span>
-                            <div>
-                                <h3 class="project-title">FactureArtisan</h3>
-                                <p class="project-type" data-i18n="SaaS Web">SaaS Web</p>
-                                <p class="project-date" data-i18n="Juillet 2026">Juillet 2026</p>
-                            </div>
+                <a class="wm-bento-cell" href="https://facture.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">🧾</span>
+                        <div>
+                            <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 4px 0;">FactureArtisan</h3>
+                            <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin: 0;">facture.mayoraz-net.ch</p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;" data-i18n="Juillet 2026">Juillet 2026</p>
                         </div>
-                        <div class="project-status" data-i18n="EN LIGNE">EN LIGNE</div>
                     </div>
-                    <p class="project-description" data-i18n="Générateur de factures PDF professionnel développé de A à Z. Création de factures instantanée, 3 modèles (Standard, Logo Pro, Enveloppe Suisse C5), authentification Supabase, TVA 8.1%, sauvegarde en cloud et version Pro avec Stripe.">
-                        Générateur de factures PDF professionnel développé de A à Z. Création de factures instantanée, 3 modèles (Standard, Logo Pro, Enveloppe Suisse C5), authentification Supabase, TVA 8.1%, sauvegarde en cloud et version Pro avec Stripe.
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Générateur de factures PDF professionnel pour artisans et indépendants suisses. Gratuit pour les 3 premières factures, avec logo personnalisable, format enveloppe suisse (C5) et TVA 8.1% intégrée. Version Pro disponible.">
+                        Générateur de factures PDF professionnel pour artisans et indépendants suisses. Gratuit pour les 3 premières factures, avec logo personnalisable, format enveloppe suisse (C5) et TVA 8.1% intégrée. Version Pro disponible.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Astro</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Supabase</span>
-                        <span class="tech-tag">Cloudflare Workers</span>
-                        <span class="tech-tag">Stripe</span>
-                        <span class="tech-tag" data-i18n="Génération PDF">Génération PDF</span>
-                    </div>
-                    <div class="project-actions">
-                        <span class="download-btn" style="background: var(--glass-bg); border: 1px solid var(--glass-border); pointer-events: none;">🔗 facture.mayoraz-net.ch</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Astro</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Supabase</span>
                     </div>
                 </a>
 
-                <div class="add-project-card">
-                    <div class="add-icon">+</div>
-                    <p class="add-text" data-i18n="Nouveaux projets techniques en préparation...">Nouveaux projets techniques en préparation...</p>
+                <div class="wm-bento-cell" style="display: flex; align-items: center; justify-content: center; min-height: 200px; border: 1px dashed rgba(255,255,255,0.2); background: transparent;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem; font-style: italic; margin: 0;" data-i18n="Nouveaux projets techniques en préparation...">Nouveaux projets techniques en préparation...</p>
                 </div>
+
             </div>
         </main>
     </div>
-    
-    <Fragment slot="scripts">
-
-        <script type="application/ld+json" is:inline>
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Autres Projets",
-        "description": "Collection de projets techniques et guides par Thomas Mayoraz",
-        "url": "https://mayoraz-net.ch/autres-projets/",
-        "numberOfItems": 6,
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "TechArticle",
-                    "name": "Projet de Virtualisation Win11/Ubuntu",
-                    "description": "Guide complet d'installation de deux machines virtuelles",
-                    "keywords": "virtualisation, windows 11, ubuntu, virtualbox"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "TechArticle",
-                    "name": "Script PowerShell pour la Collecte de Données",
-                    "description": "Script avancé utilisant le remoting PowerShell",
-                    "keywords": "powershell, remoting, collecte données, automatisation"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                    "@type": "TechArticle",
-                    "name": "Projet MQTT sur Machines Virtuelles",
-                    "description": "Implémentation d'un système de messagerie MQTT",
-                    "keywords": "mqtt, iot, virtualisation, messagerie"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "item": {
-                    "@type": "TechArticle",
-                    "name": "Guide d'Installation VirtualBox",
-                    "description": "Présentation PowerPoint complète pour VirtualBox",
-                    "keywords": "virtualbox, guide, installation, présentation"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 5,
-                "item": {
-                    "@type": "TechArticle",
-                    "name": "Guide Office 365",
-                    "description": "Documentation complète sur Word, Excel et PowerPoint",
-                    "keywords": "office 365, guide, word, excel, powerpoint"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 6,
-                "item": {
-                    "@type": "WebApplication",
-                    "name": "FactureArtisan",
-                    "url": "https://facture.mayoraz-net.ch",
-                    "description": "SaaS de génération de factures PDF pour artisans suisses",
-                    "keywords": "facture, pdf, suisse, artisan, saas, astro, supabase"
-                }
-            }
-        ]
-    }
-    </script>
-    </Fragment>
 </Layout>
