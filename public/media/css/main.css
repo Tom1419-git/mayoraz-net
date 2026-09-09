@@ -2843,12 +2843,8 @@ body.fade-out {
 /* --- Responsive bento --- */
 @media (max-width: 768px) {
     .wm-bento-grid { grid-template-columns: 1fr; gap: 4px; }
-    .wm-bento-cell.col-8,
-    .wm-bento-cell.col-4,
-    .wm-bento-cell.col-5,
-    .wm-bento-cell.col-7,
-    .wm-bento-cell.col-6,
-    .wm-bento-cell.col-3 { grid-column: span 1; }
+    /* Reset robuste : tout col-N (y compris col-12, absent de l'ancienne liste) repasse à 1 colonne */
+    .wm-bento-grid > [class*="col-"] { grid-column: span 1; }
 
     .wm-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .wm-features-grid { grid-template-columns: 1fr; }
