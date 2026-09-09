@@ -27,6 +27,12 @@ import Layout from '../../layouts/Layout.astro';
                 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
 
+                    <!-- Honeypot anti-spam : champ invisible, les bots le remplissent, pas les humains -->
+                    <div class="hp-field" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                        <label for="website">Ne pas remplir ce champ</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="prenom" data-i18n-html="form_prenom">Prénom <span class="required">*</span></label>
@@ -292,9 +298,21 @@ import Layout from '../../layouts/Layout.astro';
         const fileNameEl = document.getElementById('file-name');
         const fileLabel  = document.querySelector('.file-upload-label');
         if (fileInput && fileNameEl) {
+            const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 Mo
+            const checkFileSize = (file) => {
+                if (file && file.size > MAX_FILE_SIZE) {
+                    const sizeMo = (file.size / 1024 / 1024).toFixed(1);
+                    alert(window.t ? window.t('Fichier trop lourd (' + sizeMo + ' Mo). Maximum : 10 Mo.') : 'Fichier trop lourd (' + sizeMo + ' Mo). Maximum : 10 Mo.');
+                    fileInput.value = '';
+                    fileNameEl.textContent = '';
+                    return false;
+                }
+                return true;
+            };
             fileInput.addEventListener('change', () => {
                 const f = fileInput.files[0];
-                fileNameEl.textContent = f ? '✓ ' + f.name : '';
+                if (!checkFileSize(f)) return;
+                fileNameEl.textContent = f ? '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)' : '';
             });
         }
         if (fileLabel) {
@@ -304,8 +322,13 @@ import Layout from '../../layouts/Layout.astro';
                 e.preventDefault();
                 fileLabel.classList.remove('dragover');
                 if (e.dataTransfer.files.length && fileInput) {
+                    const f = e.dataTransfer.files[0];
+                    if (f.size > 10 * 1024 * 1024) {
+                        alert(window.t ? window.t('Fichier trop lourd (' + (f.size / 1024 / 1024).toFixed(1) + ' Mo). Maximum : 10 Mo.') : 'Fichier trop lourd (' + (f.size / 1024 / 1024).toFixed(1) + ' Mo). Maximum : 10 Mo.');
+                        return;
+                    }
                     fileInput.files = e.dataTransfer.files;
-                    fileNameEl.textContent = '✓ ' + e.dataTransfer.files[0].name;
+                    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)';
                 }
             });
         }
@@ -329,7 +352,9 @@ import Layout from '../../layouts/Layout.astro';
             submitBtn.style.cursor = 'not-allowed';
 
             const formData = new FormData(form);
-            formData.delete('cf-turnstile-response');
+            formData.delete('cf-turnstile-response-empty');
+            // Note : le token Turnstile EST envoyé au webhook pour vérification
+            // serveur future (siteverify) dès que la clé secrète sera configurée dans n8n
 
             // Supprimer la pièce jointe vide si l'utilisateur n'a rien sélectionné
             const fileInput = document.getElementById('attachment');

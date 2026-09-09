@@ -34,21 +34,21 @@ document.addEventListener('astro:page-load', () => {
     let cookieText = "> Nous utilisons le stockage local (LocalStorage) pour sauvegarder vos préférences et des cookies pour les statistiques de visite anonymes (Microsoft Clarity). Acceptez-vous ?";
     let acceptText = "[Y] Accepter";
     let declineText = "[N] Refuser";
-    let successToast = "Préférences enregistrées avec succès.";
-    let warningToast = "Vous avez refusé. Certaines fonctionnalités (thème, quiz) pourraient ne pas être sauvegardées.";
+    let successToast = "Préférences enregistrées. Merci !";
+    let warningToast = "Aucun souci : seules les statistiques anonymes sont désactivées, tout le reste du site fonctionne normalement.";
 
     if (lang === 'en') {
         cookieText = "> We use local storage (LocalStorage) to save your preferences and cookies for anonymous visitor statistics (Microsoft Clarity). Do you accept?";
         acceptText = "[Y] Accept";
         declineText = "[N] Decline";
-        successToast = "Preferences saved successfully.";
-        warningToast = "You declined. Some features (theme, quiz) might not be saved.";
+        successToast = "Preferences saved. Thank you!";
+        warningToast = "No worries: only anonymous statistics are disabled — everything else on the site works normally.";
     } else if (lang === 'de') {
         cookieText = "> Wir verwenden den lokalen Speicher (LocalStorage) zum Speichern Ihrer Einstellungen und Cookies für anonyme Besucherstatistiken (Microsoft Clarity). Akzeptieren Sie?";
         acceptText = "[Y] Akzeptieren";
         declineText = "[N] Ablehnen";
-        successToast = "Einstellungen erfolgreich gespeichert.";
-        warningToast = "Sie haben abgelehnt. Einige Funktionen (Theme, Quiz) werden möglicherweise nicht gespeichert.";
+        successToast = "Einstellungen gespeichert. Danke!";
+        warningToast = "Kein Problem: nur die anonyme Statistik ist deaktiviert — alles andere funktioniert normal.";
     }
 
     // Inject Cookie Banner

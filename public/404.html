@@ -116,6 +116,24 @@
 
     <script src="/media/js/theme.js?v=1782221779"></script>
     <script src="/media/js/particles.js?v=1782221779"></script>
+    <script>
+        // La 404 est une page statique hors Astro : astro:page-load ne fire jamais,
+        // theme.js n'initialise donc pas son IntersectionObserver ici.
+        // On active les .reveal manuellement, sinon tout reste invisible (opacity:0).
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(function (el) { el.classList.add('active'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            els.forEach(function (el) { io.observe(el); });
+        })();
+    </script>
 
     <script src="/media/js/toast.js"></script>
     <script src="/media/js/terminal.js"></script>
