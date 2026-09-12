@@ -22,7 +22,7 @@ import Layout from '../../layouts/Layout.astro';
             
             <div style="display: grid; grid-template-columns: 1fr; gap: 40px;">
                 <div class="wm-card" style="display: grid; grid-template-columns: 1fr; gap: 0; padding: 0; overflow: hidden;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 0;">
+                    <div class="build-card-grid">
                         <div class="build-image carousel-container">
                             <div class="carousel-slide active">
                                 <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" data-i18n="Mon Setup Actuel - Vue 1" loading="eager" fetchpriority="high" />
@@ -52,7 +52,7 @@ import Layout from '../../layouts/Layout.astro';
                             <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 30px;" data-i18n="Ma machine principale quotidienne, optimisée pour le développement, la productivité et le gaming fluide. Équipée des dernières technologies AMD pour des performances optimales sans compromis.">
                                 Ma machine principale quotidienne, optimisée pour le développement, la productivité et le gaming fluide. Équipée des dernières technologies AMD pour des performances optimales sans compromis.
                             </p>
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <ul class="build-specs-list">
                                 <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;"><span style="color: var(--text-muted); font-weight: 600;" data-i18n="Boîtier">Boîtier</span> <span style="color: var(--text-main); text-align: right;">Hyte Y60</span></li>
                                 <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;"><span style="color: var(--text-muted); font-weight: 600;" data-i18n="Processeur">Processeur</span> <span style="color: var(--text-main); text-align: right;">AMD Ryzen 7 7700X</span></li>
                                 <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;"><span style="color: var(--text-muted); font-weight: 600;" data-i18n="Carte Mère">Carte Mère</span> <span style="color: var(--text-main); text-align: right;">Gigabyte B650E AORUS Elite X AX ICE</span></li>
