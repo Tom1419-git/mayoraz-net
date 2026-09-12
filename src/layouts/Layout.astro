@@ -42,7 +42,7 @@ const buildHash = Date.now().toString(36);
     <!-- Preload Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
     <!-- Open Graph & Twitter -->
     <meta property="og:type" content="website"/>
@@ -72,9 +72,6 @@ const buildHash = Date.now().toString(36);
     <!-- CSS -->
     <link rel="stylesheet" href={`/media/css/main.css?v=${buildHash}`}>
     {cssFile && <link rel="stylesheet" href={`${cssFile}?v=${buildHash}`} />}
-    <link rel="stylesheet" href={`/media/css/toast.css?v=${buildHash}`}>
-    <link rel="stylesheet" href={`/media/css/terminal.css?v=${buildHash}`}>
-    <link rel="stylesheet" href={`/media/css/search.css?v=${buildHash}`}>
     <ClientRouter />
     
     <!-- Analytics (Microsoft Clarity) - GDPR Compliant -->
