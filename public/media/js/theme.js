@@ -150,37 +150,8 @@ document.addEventListener('astro:page-load', () => {
     }
 });
 
-// Widget de Statut Uptime Kuma Global
-document.addEventListener('astro:page-load', () => {
-    async function updateStatus() {
-        let indicator = document.getElementById('status-indicator');
-        let text = document.getElementById('status-text');
-        
-        if (!indicator || !text) return; // Si le widget n'est pas sur la page, on ignore
-        
-        // Optimistic default
-        indicator.style.backgroundColor = '#2ecc71';
-        indicator.style.boxShadow = '0 0 10px #2ecc71';
-        const okMsg = typeof window.t === 'function' ? window.t('Tous les systèmes opérationnels') : 'Tous les systèmes opérationnels';
-        text.textContent = okMsg;
-        text.setAttribute('data-i18n', 'Tous les systèmes opérationnels');
-        
-        // Sonde d'image vers Uptime Kuma : pas de CORS, pas d'erreur console.
-        // status.mayoraz-net.ch repond 200 tant que le service est up.
-        const probe = new Image();
-        probe.onerror = () => {
-            // Kuma injoignable -> incident affiche
-            indicator.style.backgroundColor = '#f39c12';
-            indicator.style.boxShadow = '0 0 10px #f39c12';
-            const incMsg = typeof window.t === 'function' ? window.t('Incident en cours...') : 'Incident en cours...';
-            text.textContent = incMsg;
-            text.setAttribute('data-i18n', 'Incident en cours...');
-        };
-        probe.src = 'https://status.mayoraz-net.ch/icon.svg?_=' + Date.now();
-    }
-    updateStatus();
-    setInterval(updateStatus, 60000);
-});
+// Widget de Statut Uptime Kuma : géré uniquement par status.js (sonde
+// d'image sans CORS) — le doublon ici causait des courses d'écriture.
 
 // Copier l'email au clic tout en gardant l'ouverture de l'app de messagerie
 document.addEventListener('astro:page-load', () => {
