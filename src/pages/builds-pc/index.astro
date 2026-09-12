@@ -26,13 +26,13 @@ import ContactCta from '../../components/ContactCta.astro';
                     <div class="build-card-grid">
                         <div class="build-image carousel-container">
                             <div class="carousel-slide active">
-                                <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" data-i18n="Mon Setup Actuel - Vue 1" loading="eager" fetchpriority="high" />
+                                <Image src={setup1Img} alt="Mon Setup Actuel - Vue 1" data-i18n="Mon Setup Actuel - Vue 1" loading="eager" fetchpriority="high" layout="constrained" width={1120} />
                             </div>
                             <div class="carousel-slide">
-                                <Image src={setup2Img} alt="Mon Setup Actuel - Vue 2" data-i18n="Mon Setup Actuel - Vue 2" loading="lazy" />
+                                <Image src={setup2Img} alt="Mon Setup Actuel - Vue 2" data-i18n="Mon Setup Actuel - Vue 2" loading="lazy" layout="constrained" width={1120} />
                             </div>
                             <div class="carousel-slide">
-                                <Image src={setup3Img} alt="Mon Setup Actuel - Vue 3" data-i18n="Mon Setup Actuel - Vue 3" loading="lazy" />
+                                <Image src={setup3Img} alt="Mon Setup Actuel - Vue 3" data-i18n="Mon Setup Actuel - Vue 3" loading="lazy" layout="constrained" width={760} />
                             </div>
                             <button class="carousel-btn prev-btn" aria-label="Image précédente" data-i18n-aria="Image précédente">❮</button>
                             <button class="carousel-btn next-btn" aria-label="Image suivante" data-i18n-aria="Image suivante">❯</button>
