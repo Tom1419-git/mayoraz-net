@@ -90,7 +90,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     background-color: var(--bg-dark);
     /* Subtle grid lines */
     background-image:
@@ -132,7 +132,7 @@ body.menu-open {
    4. TYPOGRAPHY
    ========================================================== */
 h1, h2, h3, h4, h5, h6, .logo {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     letter-spacing: -0.04em;
     font-weight: 800;
     color: var(--text-heading);
@@ -177,7 +177,7 @@ p {
     color: var(--text-muted);
     font-weight: 400;
     margin-bottom: 15px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
 }
 
 /* ==========================================================
@@ -228,7 +228,7 @@ p {
 .nav-links a {
     color: var(--text-main);
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
@@ -439,7 +439,7 @@ p {
     color: #fff !important;
     text-decoration: none;
     border-radius: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition);
@@ -460,7 +460,7 @@ p {
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
@@ -481,7 +481,7 @@ p {
     color: #fff !important;
     text-decoration: none;
     border-radius: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition);
@@ -576,7 +576,7 @@ p {
     padding: 18px;
     border: none;
     border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
@@ -600,7 +600,7 @@ p {
     border: 1px solid var(--border-color);
     color: var(--text-main);
     border-radius: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 500;
     text-decoration: none;
     transition: var(--transition);
@@ -949,7 +949,7 @@ main {
     background: transparent;
     border: none;
     color: var(--primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -1048,7 +1048,7 @@ main {
 }
 
 .service-item div, .service-item h4 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1.2rem;
     color: var(--text-main);
@@ -1368,7 +1368,7 @@ main {
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     letter-spacing: 0.5px;
     font-weight: bold;
 }
@@ -1441,7 +1441,7 @@ main {
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-size: 1rem;
     transition: var(--transition);
 }
@@ -2210,7 +2210,7 @@ footer p a:hover {
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 500;
     cursor: pointer;
     outline: none;
@@ -2625,7 +2625,7 @@ body.fade-out {
     font-size: 0.7rem;
     color: var(--text-muted);
     line-height: 1.5;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
 }
 
 .wm-gallery-card .card-title {
@@ -2855,7 +2855,7 @@ body.fade-out {
     text-transform: uppercase;
     color: var(--text-heading);
     margin-bottom: 12px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
 }
 
 .wm-feature-card p {
@@ -2933,7 +2933,7 @@ body.fade-out {
     font-weight: 700;
     color: var(--text-heading);
     letter-spacing: -0.03em;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
 }
 
 .wm-bento-cell .cell-desc {
