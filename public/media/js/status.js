@@ -1,44 +1,39 @@
-async function checkHomelabStatus() {
-    const textEl = document.getElementById('status-text');
-    const indicatorEl = document.getElementById('status-indicator');
-    
-    if (!textEl || !indicatorEl) return;
+// Widget de statut du footer : sonde d'image vers Uptime Kuma.
+// Pas de fetch cross-origin (pas de CORS, pas d'erreur console) : l'icône
+// du status page répond 200 tant que le service est joignable.
+(function () {
+    const KUMA_ICON = 'https://status.mayoraz-net.ch/icon.svg';
 
-    try {
-        const res = await fetch('https://status.mayoraz-net.ch/api/status-page/default');
-        const data = await res.json();
-        
-        let allUp = true;
-        
-        if (data.publicGroupList) {
-            for (const group of data.publicGroupList) {
-                for (const monitor of group.monitorList) {
-                    if (monitor.status !== 1 && monitor.status !== 3) { 
-                        allUp = false;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (allUp) {
-            textEl.textContent = (window.t ? window.t('100% Opérationnel') : '100% Opérationnel');
-            indicatorEl.style.backgroundColor = '#10B981';
-            indicatorEl.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.6)';
-            indicatorEl.style.animation = 'pulse-green 2s infinite';
-        } else {
-            textEl.textContent = (window.t ? window.t('Systèmes Dégradés') : 'Systèmes Dégradés');
-            indicatorEl.style.backgroundColor = '#EF4444';
-            indicatorEl.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.6)';
-            indicatorEl.style.animation = 'pulse-red 2s infinite';
-        }
-    } catch (e) {
-        console.error("Impossible de récupérer le statut du serveur", e);
-        textEl.textContent = (window.t ? window.t('Statut Inconnu') : 'Statut Inconnu');
-        indicatorEl.style.backgroundColor = '#6B7280';
-        indicatorEl.style.animation = 'none';
+    function setStatus(color, shadow, msgKey, fallback, animation) {
+        const textEl = document.getElementById('status-text');
+        const indicatorEl = document.getElementById('status-indicator');
+        if (!textEl || !indicatorEl) return;
+        textEl.textContent = (window.t ? window.t(msgKey) : fallback);
+        textEl.setAttribute('data-i18n', msgKey);
+        indicatorEl.style.backgroundColor = color;
+        indicatorEl.style.boxShadow = shadow;
+        indicatorEl.style.animation = animation;
     }
-}
 
-checkHomelabStatus();
-document.addEventListener('astro:page-load', checkHomelabStatus);
+    function checkHomelabStatus() {
+        const textEl = document.getElementById('status-text');
+        const indicatorEl = document.getElementById('status-indicator');
+        if (!textEl || !indicatorEl) return;
+
+        // Statut optimiste vert en attendant la sonde
+        setStatus('#10B981', '0 0 10px rgba(16, 185, 129, 0.6)', 'Tous les systèmes opérationnels', 'Tous les systèmes opérationnels', 'pulse-green 2s infinite');
+
+        const probe = new Image();
+        probe.onerror = () => {
+            setStatus('#EF4444', '0 0 10px rgba(239, 68, 68, 0.6)', 'Systèmes Dégradés', 'Systèmes Dégradés', 'pulse-red 2s infinite');
+        };
+        probe.src = KUMA_ICON + '?_=' + Date.now();
+    }
+
+    document.addEventListener('astro:page-load', () => {
+        checkHomelabStatus();
+        // Garde anti-stack : un seul intervalle, même après plusieurs navigations VT
+        if (window.__statusTimer) clearInterval(window.__statusTimer);
+        window.__statusTimer = setInterval(checkHomelabStatus, 60000);
+    });
+})();

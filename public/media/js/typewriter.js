@@ -61,5 +61,12 @@ document.addEventListener('astro:page-load', () => {
         setTimeout(type, delta);
     }
 
-    type();
+    // Peindre la première phrase complète immédiatement : le LCP (ce texte)
+    // est verrouillé au premier frame au lieu de croître lettre par lettre.
+    const lang0 = document.documentElement.lang;
+    const phrases0 = lang0 === 'en' ? phrasesEn : (lang0 === 'de' ? phrasesDe : phrasesFr);
+    txt = phrases0[0];
+    isDeleting = true; // le cycle reprend en suppression après la pause initiale
+    typewriterElement.innerHTML = `<span class="wrap">${txt}</span><span class="cursor">|</span>`;
+    setTimeout(type, 2200);
 });
