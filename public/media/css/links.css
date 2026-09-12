@@ -90,18 +90,6 @@
     color: white;
 }
 
-/* Produit phare : FactureArtisan — mis en avant en premier */
-.link-btn.facture {
-    background: color-mix(in srgb, #10b981 14%, transparent);
-    border-color: #10b981;
-}
-
-.link-btn.facture:hover {
-    background: #10b981;
-    border-color: #10b981;
-    color: white;
-}
-
 .link-btn.quiz:hover {
     background: #8b5cf6;
     border-color: #8b5cf6;
