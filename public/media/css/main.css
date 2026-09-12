@@ -1425,6 +1425,46 @@ footer p a:hover {
     }
 }
 
+.build-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+/* Fiche technique du build (anciens styles inline, migrés ici pour rester
+   surchargeables par les media queries ci-dessous) */
+.build-specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 769px) {
+    .build-card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    }
+}
+
+/* Plein écran desktop (≥1400px) : 50/50. Les photos du setup sont PORTRAIT
+   (2160×2880, ratio 0.75) : une colonne image ~559px pour ~717px de haut
+   (ratio 0.78) les affiche presque sans recadrage. La fiche technique dicte
+   la hauteur de la carte, l'image la remplit (object-fit: cover). */
+@media (min-width: 1400px) {
+    .build-card-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .build-image.carousel-container {
+        aspect-ratio: none;
+        min-height: 400px;
+        max-height: none;
+        align-self: stretch;
+    }
+}
+
 /* Les slides du carousel pilotent leur propre hauteur (pas le 250px global) */
 .build-image.carousel-container img {
     width: 100%;
