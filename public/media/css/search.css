@@ -109,10 +109,33 @@
     opacity: 1;
 }
 
+.res-path {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    opacity: 0.75;
+    margin-bottom: 3px;
+}
+
 .res-title {
     font-weight: 600;
     color: var(--text-heading);
     margin-bottom: 4px;
+}
+
+.search-results mark {
+    background: rgba(79, 143, 255, 0.28);
+    color: var(--text-heading);
+    border-radius: 3px;
+    padding: 0 1px;
+}
+
+.search-status {
+    padding: 24px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .res-desc {
