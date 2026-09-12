@@ -267,11 +267,27 @@ import Layout from '../../layouts/Layout.astro';
         }
     }
     </script>
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=onloadTurnstileCallback" async="" defer=""></script>
 <script is:inline src={`/media/js/contact-form.js?v=${buildHash}`} defer></script>
 
 <script is:inline>
+        // Turnstile chargé À LA DEMANDE (au premier focus du formulaire) : les 9+ requêtes
+        // challenges.cloudflare.com ne tirent plus sur la chargement initial (LCP/TBT).
+        // Le rendu du widget reste prêt avant le submit (l'utilisateur remplit le form).
         let turnstileWidgetId = null;
+        let turnstileLoaded = false;
+        let turnstileLoading = false;
+
+        function loadTurnstile() {
+            if (turnstileLoaded || turnstileLoading) return;
+            turnstileLoading = true;
+            const s = document.createElement('script');
+            s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback';
+            s.async = true;
+            s.onload = () => { turnstileLoading = false; turnstileLoaded = true; };
+            s.onerror = () => { turnstileLoading = false; };
+            document.head.appendChild(s);
+        }
+        window.loadTurnstile = loadTurnstile;
 
         window.onloadTurnstileCallback = function () {
             renderTurnstile();
@@ -296,9 +312,16 @@ import Layout from '../../layouts/Layout.astro';
         let observer;
         
         document.addEventListener('astro:page-load', () => {
-            if (document.getElementById('cf-turnstile-container')) {
-                // If script is already loaded
-                if (typeof turnstile !== 'undefined') {
+            const container = document.getElementById('cf-turnstile-container');
+            if (container) {
+                // Chargement au premier focus/interaction dans le formulaire
+                const form = container.closest('form');
+                if (form) {
+                    const trigger = () => loadTurnstile();
+                    form.addEventListener('focusin', trigger, { once: false, capture: true });
+                    form.addEventListener('pointerdown', trigger, { once: false, capture: true });
+                }
+                if (typeof turnstile !== 'undefined' && turnstileLoaded) {
                     renderTurnstile();
                 }
                 
@@ -306,7 +329,7 @@ import Layout from '../../layouts/Layout.astro';
                     observer = new MutationObserver((mutations) => {
                         mutations.forEach((mutation) => {
                             if (mutation.attributeName === 'data-theme') {
-                                renderTurnstile();
+                                if (turnstileLoaded) renderTurnstile();
                             }
                         });
                     });
