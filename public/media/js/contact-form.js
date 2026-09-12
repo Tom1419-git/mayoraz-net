@@ -70,6 +70,9 @@ document.addEventListener('astro:page-load', () => {
             e.preventDefault();
             const turnstileInput = document.querySelector('[name="cf-turnstile-response"]');
             if (!turnstileInput || !turnstileInput.value) {
+                // Widget pas encore rendu (chargement à la demande) : on le déclenche
+                // et on laisse l'utilisateur revalider — pas d'envoi sans token.
+                if (typeof window.loadTurnstile === 'function') window.loadTurnstile();
                 alert(window.t ? window.t('Veuillez valider le captcha avant d\'envoyer.') : 'Veuillez valider le captcha avant d\'envoyer.');
                 return;
             }
