@@ -1448,11 +1448,11 @@ footer p a:hover {
     }
 }
 
-/* Plein écran desktop (≥1400px) : 50/50. Les photos du setup sont PORTRAIT
-   (2160×2880, ratio 0.75) : une colonne image ~559px pour ~717px de haut
-   (ratio 0.78) les affiche presque sans recadrage. La fiche technique dicte
-   la hauteur de la carte, l'image la remplit (object-fit: cover). */
-@media (min-width: 1400px) {
+/* Desktop large (≥1100px) : 50/50. Les photos du setup sont PORTRAIT
+   (2160×2880, ratio 0.75) : l'image reste à gauche et s'étire sur TOUTE la
+   hauteur de la carte (la fiche technique à droite dicte cette hauteur,
+   object-fit: cover recadre sans déformer) — plus aucun vide. */
+@media (min-width: 1100px) {
     .build-card-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
