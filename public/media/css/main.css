@@ -1398,6 +1398,48 @@ footer p a:hover {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Variante grande image (page builds-pc) : hauteur fluide, tactile-friendly.
+   En desktop (grille 2 colonnes) le conteneur s'étire à la hauteur de la fiche
+   technique ; en mobile il suit un ratio 4/3. touch-action garde le scroll
+   vertical natif tout en laissant les swipes horizontaux au JS. */
+.build-image.carousel-container {
+    height: auto;
+    min-height: 250px;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border-bottom: none;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 769px) {
+    .build-image.carousel-container {
+        aspect-ratio: auto;
+        min-height: 400px;
+        /* La colonne specs peut être très haute aux largeurs intermédiaires
+           (769-1100px) : on plafonne l'image et on la centre au lieu de
+           l'étirer en format portrait absurde. */
+        max-height: 620px;
+        align-self: center;
+    }
+}
+
+/* Les slides du carousel pilotent leur propre hauteur (pas le 250px global) */
+.build-image.carousel-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: none;
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-slide {
+        transition: none;
+    }
+}
+
 .carousel-slide {
     position: absolute;
     top: 0;
