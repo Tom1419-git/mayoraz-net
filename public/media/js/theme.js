@@ -58,6 +58,35 @@ document.addEventListener('astro:page-load', () => {
     const navLinks = document.getElementById('nav-links');
     const navOverlay = document.getElementById('nav-overlay');
 
+    // 4b. Dropdown "Projets" (clic/tactile ; le hover est géré en CSS desktop)
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+        const btn = dd.querySelector('.nav-dropbtn');
+        if (!btn) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dd.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+            if (!dd.contains(e.target)) {
+                dd.classList.remove('open');
+                const b = dd.querySelector('.nav-dropbtn');
+                if (b) b.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+                dd.classList.remove('open');
+                const b = dd.querySelector('.nav-dropbtn');
+                if (b) b.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
     if (burger && navLinks && navOverlay) {
         function toggleMenu() {
             burger.classList.toggle('active');

@@ -106,6 +106,16 @@ const buildHash = Date.now().toString(36);
             <ul class="nav-links" id="nav-links">
                 <li><a href="/" data-i18n="Accueil">Accueil</a></li>
                 <li><a href='/a-propos/' data-i18n="À propos">À propos</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="Projets">Projets</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/sites-web/" data-i18n="Sites Web">Sites Web</a></li>
+                        <li><a href="/projets-csharp/" data-i18n="Projets C#">Projets C#</a></li>
+                        <li><a href="/autres-projets/" data-i18n="Autres Projets">Autres Projets</a></li>
+                        <li><a href="/builds-pc/" data-i18n="Builds PC">Builds PC</a></li>
+                        <li><a href="/homelab/" data-i18n="Homelab">Homelab</a></li>
+                    </ul>
+                </li>
                 <li><a href="/tutoriels/" data-i18n="Tutoriels">Tutoriels</a></li>
                 <li><a href='/contact/' data-i18n="Contact">Contact</a></li>
                 <select id="lang-select" class="lang-select" aria-label="Changer de langue" data-i18n-aria="Changer de langue">

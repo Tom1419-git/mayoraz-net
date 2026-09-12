@@ -1,0 +1,15 @@
+---
+// Bannière CTA de conversion — fin des pages projet / jeu / tutoriels.
+// Invites le visiteur séduit par un projet à prendre contact.
+const {
+    title = "Un projet similaire en tête ?",
+    text = "Je conçois des sites web, des PC sur mesure et des infrastructures homelab. Parlons du vôtre.",
+} = Astro.props;
+---
+<section class="cta-banner" aria-label="Appel à l'action : me contacter">
+    <div class="cta-banner-content">
+        <h2 data-i18n={title}>{title}</h2>
+        <p data-i18n={text}>{text}</p>
+    </div>
+    <a href="/contact/" class="cta-banner-btn" data-i18n="Me contacter →">Me contacter →</a>
+</section>

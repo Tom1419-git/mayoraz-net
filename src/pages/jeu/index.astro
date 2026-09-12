@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+import ContactCta from '../../components/ContactCta.astro';
 ---
 
 <Layout title="Thomas Mayoraz - Quiz Tech | Testez vos connaissances informatiques" description="Quiz interactif sur l'informatique avec Thomas Mayoraz. Testez vos connaissances en programmation, sécurité, hardware et technologies web. 15 questions techniques pour évaluer votre niveau." cssFile="/media/css/jeu.css">
@@ -54,6 +55,8 @@ import Layout from '../../layouts/Layout.astro';
 
     <div id="all-answers"></div>
 </div>
+
+    <ContactCta title="Un projet ou un défi tech ?" text="Après le quiz, passez à la pratique : je développe des sites web, des applications et des infrastructures homelab. Discutons du vôtre." />
     
     <Fragment slot="scripts">
         <script type="application/ld+json" is:inline>
