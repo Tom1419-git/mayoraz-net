@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import '@fontsource-variable/inter';
 
 export interface Props {
 	title: string;
@@ -40,9 +41,7 @@ const buildHash = Date.now().toString(36);
     <link rel="icon" href="/media/img/logo.webp"/>
     
     <!-- Preload Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+
 
     <!-- Open Graph & Twitter -->
     <meta property="og:type" content="website"/>
