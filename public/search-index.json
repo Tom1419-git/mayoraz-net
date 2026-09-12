@@ -1,0 +1,15 @@
+{
+  "pages": [
+    { "url": "/", "title": "Accueil", "kind": "page" },
+    { "url": "/a-propos/", "title": "À propos", "kind": "page" },
+    { "url": "/sites-web/", "title": "Sites Web", "kind": "projects" },
+    { "url": "/projets-csharp/", "title": "Projets C#", "kind": "projects" },
+    { "url": "/autres-projets/", "title": "Autres Projets", "kind": "projects" },
+    { "url": "/builds-pc/", "title": "Builds PC", "kind": "projects" },
+    { "url": "/homelab/", "title": "Homelab & Serveur", "kind": "projects" },
+    { "url": "/tutoriels/", "title": "Tutoriels", "kind": "docs" },
+    { "url": "/contact/", "title": "Contact", "kind": "page" },
+    { "url": "/jeu/", "title": "Quiz Informatique", "kind": "fun" },
+    { "url": "/jeu-trex/", "title": "Jeu T-Rex", "kind": "fun" }
+  ]
+}
