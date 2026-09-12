@@ -165,26 +165,18 @@ document.addEventListener('astro:page-load', () => {
         text.textContent = okMsg;
         text.setAttribute('data-i18n', 'Tous les systèmes opérationnels');
         
-        if (typeof document.dispatchEvent === 'function') {
-           
-        }
-
-        try {
-          let res = await fetch('/api/status-kuma/home');
-          if(res.ok) {
-            let data = await res.json();
-            if(data.incident !== null) {
-              indicator.style.backgroundColor = '#f39c12';
-              indicator.style.boxShadow = '0 0 10px #f39c12';
-              const incMsg = typeof window.t === 'function' ? window.t('Incident en cours...') : 'Incident en cours...';
-              text.textContent = incMsg;
-              text.setAttribute('data-i18n', 'Incident en cours...');
-              
-            }
-          }
-        } catch(e) {
-          console.log("Widget status: Fallback sur statut optimiste.");
-        }
+        // Sonde d'image vers Uptime Kuma : pas de CORS, pas d'erreur console.
+        // status.mayoraz-net.ch repond 200 tant que le service est up.
+        const probe = new Image();
+        probe.onerror = () => {
+            // Kuma injoignable -> incident affiche
+            indicator.style.backgroundColor = '#f39c12';
+            indicator.style.boxShadow = '0 0 10px #f39c12';
+            const incMsg = typeof window.t === 'function' ? window.t('Incident en cours...') : 'Incident en cours...';
+            text.textContent = incMsg;
+            text.setAttribute('data-i18n', 'Incident en cours...');
+        };
+        probe.src = 'https://status.mayoraz-net.ch/icon.svg?_=' + Date.now();
     }
     updateStatus();
     setInterval(updateStatus, 60000);
