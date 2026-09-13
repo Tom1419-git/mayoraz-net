@@ -1,5 +1,27 @@
 // media/js/lang.js
 
+// --- Chargement paresseux du dictionnaire EN (~145KB) ---
+// Le site est en français par défaut : en.js n'est injecté que si un
+// visiteur utilise (ou choisit) l'anglais. Une fois chargé, le binding
+// global `frToEn` persiste pour toute la session (View Transitions OK).
+let enDictPromise = null;
+
+function loadEnDict() {
+    if (typeof frToEn !== 'undefined') return Promise.resolve();
+    if (!enDictPromise) {
+        enDictPromise = new Promise((resolve, reject) => {
+            const themeScript = document.querySelector('script[src*="/media/js/theme.js"]');
+            const version = themeScript ? themeScript.src.split('?')[1] : '';
+            const s = document.createElement('script');
+            s.src = '/media/locales/en.js' + (version ? '?' + version : '');
+            s.onload = resolve;
+            s.onerror = () => { enDictPromise = null; reject(new Error('Dictionnaire EN introuvable')); };
+            document.head.appendChild(s);
+        });
+    }
+    return enDictPromise;
+}
+
 document.addEventListener('astro:page-load', () => {
     const langSelects = document.querySelectorAll('.lang-select');
     if (langSelects.length === 0) return;
@@ -27,7 +49,7 @@ document.addEventListener('astro:page-load', () => {
         return key; // fallback to French (the key itself)
     };
 
-    function applyLanguage(lang) {
+    async function applyLanguage(lang) {
         currentLang = lang;
         window.t = function(key) {
             if (!key) return key;
@@ -56,7 +78,15 @@ document.addEventListener('astro:page-load', () => {
         }
 
         let dict = null;
-        if (lang === 'EN') dict = typeof frToEn !== 'undefined' ? frToEn : null;
+        if (lang === 'EN') {
+            try {
+                await loadEnDict();
+            } catch (e) {
+                console.error(e.message);
+                return;
+            }
+            dict = typeof frToEn !== 'undefined' ? frToEn : null;
+        }
 
         if (!dict) {
             console.error('Dictionary for ' + lang + ' is not loaded.');
@@ -93,7 +123,7 @@ document.addEventListener('astro:page-load', () => {
         // Placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
-            if (dict[key]) el.setAttribute('placeholder', dict[key]);
+            el.setAttribute('placeholder', dict[key]);
         });
 
         document.dispatchEvent(new Event('languageChanged'));
