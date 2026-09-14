@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ContactCta from '../../components/ContactCta.astro';
 ---
 
-<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : virtualisation Proxmox, conteneurs Docker, réseau zero-trust et automatisation complète." cssFile="/media/css/homelab.css?v=1782221779">
+<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : virtualisation Proxmox, conteneurs Docker, réseau zero-trust et automatisation complète." cssFile="/media/css/homelab.css?v=20260914">
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">                <p class="wm-section-eyebrow" data-i18n="Mon Homelab">Mon Homelab</p>
@@ -26,12 +26,10 @@ import ContactCta from '../../components/ContactCta.astro';
                         <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="👤 Utilisateur (Jellyseerr)">👤 Utilisateur (Jellyseerr)</div>
                     </div>
                     <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
-                    <div class="flow-grid-row" style="display: flex; gap: 20px; align-items: center;">
-                        <div class="flow-box center-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
-                        <div class="flow-side-branch" style="display: flex; align-items: center; gap: 20px;">
-                            <div class="flow-arrow horizontal" style="color: var(--accent); font-size: 1.5rem;">↔</div>
-                            <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
-                        </div>
+                    <div class="flow-row">
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
+                        <div class="flow-arrow horizontal" style="color: var(--accent); font-size: 1.5rem;">↔</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
                     </div>
                     <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
                     <div class="flow-row">
@@ -52,7 +50,7 @@ import ContactCta from '../../components/ContactCta.astro';
                 
                 <div class="wm-bento-grid">
                     
-                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
                         <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🖥️ Hyperviseur &amp; Conteneurisation">🖥️ Hyperviseur &amp; Conteneurisation</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Mon infrastructure repose sur l'hyperviseur Proxmox VE : chaque famille de services tourne dans son propre conteneur LXC dédié (média, téléchargements, automatisation, bases de données, sécurité), virtualisé avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.">Mon infrastructure repose sur l'hyperviseur Proxmox VE : chaque famille de services tourne dans son propre conteneur LXC dédié (média, téléchargements, automatisation, bases de données, sécurité), virtualisé avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -62,7 +60,7 @@ import ContactCta from '../../components/ContactCta.astro';
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
                         <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="💾 Stockage &amp; Optimisation Hardlinks">💾 Stockage &amp; Optimisation Hardlinks</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.">La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -72,7 +70,7 @@ import ContactCta from '../../components/ContactCta.astro';
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
                         <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🌐 Réseau Zero-Trust &amp; Proxy">🌐 Réseau Zero-Trust &amp; Proxy</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="L'architecture réseau applique le principe du moindre privilège : zéro port ouvert sur la box, exposition Internet uniquement via tunnel Cloudflare, et filtrage par pare-feu au niveau de chaque conteneur. Le DNS du réseau local passe par des résolveurs redondants avec blocage de publicités (Pi-hole), et l'accès aux interfaces d'administration est protégé par une authentification à deux facteurs (Authelia + TOTP). L'administration distance se fait par réseau privé virtuel (NetBird), jamais par port exposé.">L'architecture réseau applique le principe du moindre privilège : zéro port ouvert sur la box, exposition Internet uniquement via tunnel Cloudflare, et filtrage par pare-feu au niveau de chaque conteneur. Le DNS du réseau local passe par des résolveurs redondants avec blocage de publicités (Pi-hole), et l'accès aux interfaces d'administration est protégé par une authentification à deux facteurs (Authelia + TOTP). L'administration distance se fait par réseau privé virtuel (NetBird), jamais par port exposé.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -85,7 +83,7 @@ import ContactCta from '../../components/ContactCta.astro';
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell" style="display: flex; flex-direction: column;">
+                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
                         <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🛡️ Résilience &amp; Infrastructure as Code">🛡️ Résilience &amp; Infrastructure as Code</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La pérennité repose sur la règle 3-2-1 : copies locales sur un pool redondant, copies chiffrées côté client vers le cloud (rclone crypt), et vérifications automatiques quotidiennes qui alertent sur Telegram si un backup échoue ou qu'une machine ne répond plus (dead man's switch). L'exposition publique est en plus défendue par une détection d'intrusion collaborative (CrowdSec) qui bloque les IP malveillantes avant qu'elles n'atteignent les services.">La pérennité repose sur la règle 3-2-1 : copies locales sur un pool redondant, copies chiffrées côté client vers le cloud (rclone crypt), et vérifications automatiques quotidiennes qui alertent sur Telegram si un backup échoue ou qu'une machine ne répond plus (dead man's switch). L'exposition publique est en plus défendue par une détection d'intrusion collaborative (CrowdSec) qui bloque les IP malveillantes avant qu'elles n'atteignent les services.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
