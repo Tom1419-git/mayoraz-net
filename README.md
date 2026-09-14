@@ -50,14 +50,20 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 ├── src/
 │   ├── pages/                  # 13 pages : accueil, services, projets, homelab,
 │   │                           #   tutoriels, builds PC, jeux, contact…
-│   ├── components/             # Composants Astro réutilisables
+│   ├── components/ContactCta.astro  # Bannière CTA contact réutilisable
 │   ├── layouts/Layout.astro    # Layout principal (Header, Footer)
+│   └── assets/img/             # Images optimisées par Astro (builds PC)
 ├── public/
-│   └── media/
-│       ├── css/                # Styles globaux et par page
-│       ├── img/                # Images & logos
-│       └── js/                 # Scripts
-└── .github/workflows/          # CI/CD déploiement
+│   ├── media/
+│   │   ├── css/                # Styles globaux et par page
+│   │   ├── img/                # Images & logos
+│   │   ├── js/                 # Scripts (recherche, carrousel, i18n, thème…)
+│   │   └── locales/en.js       # i18n : dictionnaire EN chargé à la demande
+│   ├── api/cv.json             # Données structurées du CV
+│   ├── search-index.json       # Index de la recherche plein-texte
+│   ├── 404.html · robots.txt   # Erreur & SEO
+│   └── CNAME                   # Domaine GitHub Pages
+└── .github/workflows/deploy.yml  # CI : build + déploiement GitHub Pages
 ```
 
 ## 📬 Contact
