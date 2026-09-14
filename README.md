@@ -1,3 +1,7 @@
+[![CI Deploy](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/deploy.yml/badge.svg)](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Astro](https://img.shields.io/badge/Astro-7.x-BC52EE?logo=astro&logoColor=white)](https://astro.build)
+
 <div align="center">
   <img src="public/media/img/logo.webp" alt="Logo" width="100"/>
   <h1>Portfolio & Services Informatiques — Thomas Mayoraz</h1>
@@ -38,18 +42,16 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 - **Infra & Sécurité** : Cloudflare Turnstile, Cloudflare Zero Trust, n8n (self-hosted)
 - **Déploiement** : GitHub Actions → GitHub Pages
 - **Notifications** : Bot Telegram via n8n
+- **Licence** : [MIT](LICENSE) — code réutilisable avec attribution
 
 ## 📂 Structure
 
 ```
 ├── src/
+│   ├── pages/                  # 13 pages : accueil, services, projets, homelab,
+│   │                           #   tutoriels, builds PC, jeux, contact…
+│   ├── components/             # Composants Astro réutilisables
 │   ├── layouts/Layout.astro    # Layout principal (Header, Footer)
-│   └── pages/                  # Pages du site
-│       ├── index.astro         # Accueil / Services
-│       ├── a-propos/           # À propos & CV
-│       ├── contact/            # Formulaire de contact
-│       ├── homelab/            # Infrastructure homelab
-│       └── ...
 ├── public/
 │   └── media/
 │       ├── css/                # Styles globaux et par page
@@ -60,13 +62,14 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 
 ## 📬 Contact
 
-- **Email** : [contact@mayoraz-net.ch](mailto:contact@mayoraz-net.ch)
 - **Site** : [mayoraz-net.ch](https://mayoraz-net.ch)
+- **Email** : [contact@mayoraz-net.ch](mailto:contact@mayoraz-net.ch)
 - **GitHub** : [@Tom1419-git](https://github.com/Tom1419-git)
 
 ---
 
 > [!NOTE]
-> *Ce projet a été développé avec l'assistance d'une IA (Google Gemini / Antigravity).*
+> *Développé avec l'assistance d'outils d'IA (Google Gemini / Antigravity), piloté et maintenu par Thomas Mayoraz.*
 
 <div align="center"><i>Développé avec passion par Thomas Mayoraz &copy; 2026</i></div>
+
