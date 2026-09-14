@@ -210,6 +210,13 @@
         animation: bounce-arrow-vertical 2s infinite ease-in-out;
         transform: rotate(90deg);
     }
+    /* Flèche horizontale seule dans une .flow-row : ligne pleine, pointe vers le bas */
+    .flow-row > .flow-arrow.horizontal {
+        width: 100%;
+        justify-content: center;
+        transform: rotate(90deg);
+        animation: bounce-arrow-vertical 2s infinite ease-in-out;
+    }
 }
 
 /* Reduced motion */
