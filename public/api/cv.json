@@ -6,9 +6,10 @@
   "school": {
     "name": "ETML (École technique - École des métiers de Lausanne)",
     "year": "3ème année",
-    "started": "2023-08-01",
-    "diploma_expected": "2027 — CFC Informaticien + Maturité Professionnelle"
+    "started": "2024-08-01",
+    "diploma_expected": "2028 — CFC Informaticien + Maturité Professionnelle"
   },
+  "generated_note": "Champs datés calculables à la volée (âge, année scolaire) : la logique canonique est dans src/pages/a-propos/index.astro — né le 2009-01-14, apprentissage commencé en août 2024, 4 ans (CFC 2028).",
   "contact": {
     "email": "contact@mayoraz-net.ch",
     "website": "https://mayoraz-net.ch",
@@ -17,7 +18,7 @@
   },
   "skills": {
     "systems": ["Ubuntu Server", "Windows Server", "Proxmox", "Debian", "Raspberry Pi OS"],
-    "networking": ["TCP/IP", "DNS", "DHCP", "NetBird VPN", "Pi-hole", "Cloudflare Tunnels"],
+    "networking": ["TCP/IP", "DNS", "DHCP", "NetBird VPN", "Pi-hole", "Caddy"],
     "automation_and_containers": ["Docker", "Docker Compose", "n8n", "Stack Arr (Radarr, Sonarr...)", "Keepalived HA"],
     "monitoring": ["Prometheus", "Grafana", "Uptime Kuma", "Netdata"],
     "development": ["HTML/CSS/JS", "Python", "C#", "Bash", "PowerShell", "Astro"],
@@ -25,19 +26,19 @@
   },
   "languages": {
     "french": "Native",
-    "english": "Technical / B2"
+    "english": "Professional / B2"
   },
   "projects": [
     {
       "name": "Site Portfolio",
       "url": "https://mayoraz-net.ch",
       "tech": ["Astro", "CSS Vanilla", "GitHub Actions"],
-      "description": "Portfolio professionnel avec glassmorphism, i18n FR/EN/DE, animations"
+      "description": "Portfolio professionnel avec glassmorphism, i18n FR/EN, animations"
     },
     {
       "name": "Homelab",
       "tech": ["Proxmox", "Docker", "Prometheus", "Grafana", "NetBird", "n8n"],
-      "description": "Infrastructure self-hosted: Jellyfin, monitoring, automatisation, VPN mesh"
+      "description": "Infrastructure self-hosted 24/7 : Jellyfin, monitoring, automatisation, VPN mesh, sauvegardes chiffrées S3"
     },
     {
       "name": "CTT Montriond Ouchy",
