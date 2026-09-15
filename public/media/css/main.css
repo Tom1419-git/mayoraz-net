@@ -28,7 +28,7 @@
     --text-main: #A1A1AA;
     --text-primary: var(--text-main);
     --text-heading: #FFFFFF;
-    --text-muted: #71717A;
+    --text-muted: #8B8B93;
     /* Glass */
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -64,7 +64,7 @@
     --text-main: #52525B;
     --text-primary: var(--text-main);
     --text-heading: #09090B;
-    --text-muted: #A1A1AA;
+    --text-muted: #6B6B74;
     --glass-bg: rgba(0, 0, 0, 0.02);
     --glass-border: rgba(0, 0, 0, 0.08);
     --glass-border-hover: rgba(0, 0, 0, 0.18);
