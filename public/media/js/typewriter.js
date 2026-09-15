@@ -30,6 +30,9 @@ document.addEventListener('astro:page-load', () => {
     let typeSpeed = 100;
 
     function type() {
+        // Garde-fou à chaque tick : si la préférence « réduire le mouvement »
+        // est activée en cours de visite, le cycle s'arrête net.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const lang = document.documentElement.lang;
         let activePhrases = phrasesFr;
         if (lang === 'en') activePhrases = phrasesEn;
@@ -68,5 +71,25 @@ document.addEventListener('astro:page-load', () => {
     txt = phrases0[0];
     isDeleting = true; // le cycle reprend en suppression après la pause initiale
     typewriterElement.innerHTML = `<span class="wrap">${txt}</span><span class="cursor">|</span>`;
-    setTimeout(type, 2200);
+
+    // prefers-reduced-motion : aucune animation cyclique. La première phrase
+    // reste affichée telle quelle (déjà peinte ci-dessus, donc LCP intact) —
+    // plus aucune mutation du DOM après le premier frame : le Speed Index
+    // cesse d'être pénalisé par les changements visuels continus.
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // Si l'utilisateur change la préférence en cours de session, on s'adapte
+    // dans les deux sens : démarrage du cycle si le motion redevient acceptable.
+    let cycleStarted = false;
+    const startCycle = () => {
+        if (cycleStarted) return;
+        cycleStarted = true;
+        type();
+    };
+    reducedMotion.addEventListener?.('change', (e) => {
+        if (!e.matches) startCycle();
+    });
+    if (reducedMotion.matches) return; // phrase statique déjà peinte, cycle jamais démarré
+    // Le cycle complet ne démarre qu'après la pause initiale (2,2 s),
+    // uniquement si l'utilisateur accepte le mouvement.
+    setTimeout(startCycle, 2200);
 });
