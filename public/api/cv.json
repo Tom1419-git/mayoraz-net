@@ -7,7 +7,7 @@
     "name": "ETML (École technique - École des métiers de Lausanne)",
     "year": "3ème année",
     "started": "2024-08-01",
-    "diploma_expected": "2028 — CFC Informaticien + Maturité Professionnelle"
+    "diploma_expected": "2028 : CFC Informaticien + Maturité Professionnelle"
   },
   "generated_note": "Champs datés calculables à la volée (âge, année scolaire) : la logique canonique est dans src/pages/a-propos/index.astro — né le 2009-01-14, apprentissage commencé en août 2024, 4 ans (CFC 2028).",
   "contact": {
