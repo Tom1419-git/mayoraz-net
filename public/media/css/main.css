@@ -3666,3 +3666,16 @@ body.fade-out {
         white-space: nowrap;
     }
 }
+
+/* ── Nav : items select langue + recherche dans des <li> valides ── */
+.nav-lang-item,
+.nav-search-item { display: flex; align-items: center; }
+.nav-search-item .theme-toggle { margin-left: 0; }
+
+/* ── a11y : contraste AA sur les boutons bleus (blanc → 4.5:1) ── */
+.nav-cta,
+.btn-accent,
+.cta-banner-btn { background: var(--accent-strong, #316FE5); }
+
+/* ── main landmark : neutre (le .container gère déjà la mise en page) ── */
+main { display: block; }
