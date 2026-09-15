@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+    title="Politique de confidentialité | Thomas Mayoraz"
+    description="Politique de confidentialité de mayoraz-net.ch : données collectées, finalités, bases légales, durées de conservation et vos droits selon le RGPD et la nLPD suisse."
+>
+<main class="legal-page">
+    <div class="container">
+        <h1>Politique de confidentialité</h1>
+        <p class="legal-updated">Dernière mise à jour : 15 septembre 2026</p>
+
+        <p>La présente politique décrit comment <strong>mayoraz-net.ch</strong>, exploité par Thomas Mayoraz (Lausanne, Suisse), traite les données personnelles, conformément au Règlement général sur la protection des données (RGPD) et à la nouvelle loi fédérale suisse sur la protection des données (nLPD, art. 19).</p>
+
+        <h2>1. Responsable du traitement</h2>
+        <p>Thomas Mayoraz, exploitant du site mayoraz-net.ch.<br>
+        Contact : <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a></p>
+
+        <h2>2. Données collectées</h2>
+
+        <h3>2.1 Navigation (mesure d'audience)</h3>
+        <p>Le site utilise Microsoft Clarity, un outil de mesure d'audience sans cookie, configuré sans collecte de données personnelles. Sont enregistrés de manière anonymisée : pages vues, type d'appareil, pays approximatif, interactions de navigation. Aucune adresse IP complète n'est stockée à des fins d'analyse. Vous pouvez bloquer cet outil via n'importe quel bloqueur de contenu sans altérer le site.</p>
+
+        <h3>2.2 Formulaire de contact</h3>
+        <p>Le formulaire collecte exclusivement : nom, adresse e-mail, et le contenu du message (une pièce jointe facultative peut être ajoutée). Ces données servent uniquement à répondre à votre demande. Elles sont transmises de façon chiffrée (HTTPS) vers un service d'automatisation auto-hébergé qui les délivre à la boîte de réception du responsable. Elles ne sont ni revendues, ni partagées, ni utilisées à des fins publicitaires.</p>
+
+        <h3>2.3 Journaux techniques</h3>
+        <p>L'hébergement traite des journaux d'accès techniques (adresse IP tronquée, horodatage, page demandée) pour la sécurité et le bon fonctionnement du service. Ces journaux sont conservés au maximum 30 jours puis supprimés.</p>
+
+        <h2>3. Finalités et bases légales</h2>
+        <table class="legal-table">
+            <thead><tr><th>Finalité</th><th>Données</th><th>Base légale</th><th>Conservation</th></tr></thead>
+            <tbody>
+                <tr><td>Répondre aux demandes de contact</td><td>Nom, e-mail, message, pièce jointe</td><td>Intérêt légitime / mesures précontractuelles (art. 6.1.b et 6.1.f RGPD ; art. 31 nLPD)</td><td>24 mois après le dernier échange</td></tr>
+                <tr><td>Mesure d'audience anonymisée</td><td>Données de navigation sans identifiant</td><td>Intérêt légitime (art. 6.1.f RGPD)</td><td>90 jours</td></tr>
+                <tr><td>Sécurité et disponibilité</td><td>Journaux techniques</td><td>Intérêt légitime (art. 6.1.f RGPD)</td><td>30 jours</td></tr>
+            </tbody>
+        </table>
+
+        <h2>4. Sous-traitants et transferts</h2>
+        <p>Le site s'appuie sur deux prestataires techniques :</p>
+        <ul>
+            <li><strong>Cloudflare</strong> (protection et diffusion) : traite les adresses IP pour la sécurité et le cache. Politique de confidentialité : cloudflare.com/privacypolicy</li>
+            <li><strong>Microsoft Clarity</strong> (mesure d'audience anonymisée) : clarity.microsoft.com (données traitées aux États-Unis dans le cadre du Data Privacy Framework UE-États-Unis)</li>
+        </ul>
+        <p>Aucun autre transfert vers un pays tiers n'est effectué. Les infrastructures principales (traitement du formulaire) sont auto-hébergées en Suisse.</p>
+
+        <h2>5. Vos droits</h2>
+        <p>Vous disposez des droits suivants : accès (art. 15 RGPD ; art. 28 nLPD), rectification (art. 16), effacement (art. 17), limitation (art. 18), opposition (art. 21) et portabilité (art. 20). Selon la nLPD, vous pouvez également demander des informations sur le traitement et faire rectifier des données inexactes.</p>
+        <p>Pour exercer ces droits : <a href="mailto:contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>. Une réponse vous sera apportée sous 30 jours. Vous avez également le droit d'introduire une réclamation auprès d'une autorité de contrôle (en Suisse : <a href="https://www.edoeb.admin.ch" rel="noopener noreferrer" target="_blank">Préposé fédéral à la protection des données</a> ; en France : <a href="https://www.cnil.fr" rel="noopener noreferrer" target="_blank">CNIL</a>).</p>
+
+        <h2>6. Cookies</h2>
+        <p>Le site ne dépose <strong>aucun cookie de suivi ni cookie publicitaire</strong>. Seule une préférence d'affichage (thème clair ou sombre) est mémorisée localement dans votre navigateur (stockage local, non transmis). Aucun bandeau de consentement n'est nécessaire puisque aucun traceur soumis à consentement n'est utilisé.</p>
+
+        <h2>7. Sécurité</h2>
+        <p>Le site est servi exclusivement en HTTPS (chiffrement TLS), protégé par un pare-feu applicatif et des règles de sécurité au niveau du serveur. Les données du formulaire sont stockées sur des infrastructures à accès restreint.</p>
+
+        <h2>8. Modifications</h2>
+        <p>La présente politique peut être adaptée pour refléter des évolutions du site. La version en vigueur est toujours publiée sur cette page, avec sa date de mise à jour.</p>
+
+        <p class="legal-back"><a href="/">← Retour à l'accueil</a></p>
+    </div>
+</main>
+</Layout>
