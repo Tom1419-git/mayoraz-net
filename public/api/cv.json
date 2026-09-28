@@ -17,11 +17,11 @@
     "linkedin": "https://www.linkedin.com/in/thomas-mayoraz-it/"
   },
   "skills": {
-    "systems": ["Ubuntu Server", "Windows Server", "Proxmox", "Debian", "Raspberry Pi OS"],
-    "networking": ["TCP/IP", "DNS", "DHCP", "NetBird VPN", "Pi-hole", "Caddy"],
-    "automation_and_containers": ["Docker", "Docker Compose", "n8n", "Stack Arr (Radarr, Sonarr...)", "Keepalived HA"],
-    "monitoring": ["Prometheus", "Grafana", "Uptime Kuma", "Netdata"],
-    "development": ["HTML/CSS/JS", "Python", "C#", "Bash", "PowerShell", "Astro"],
+    "systems": ["Proxmox VE", "Debian (LXC)", "Ubuntu Server", "Windows Server", "Raspberry Pi OS"],
+    "networking": ["DNS (Pi-hole, unbound, DoH)", "DHCP", "NetBird VPN", "Cloudflare Tunnel", "Caddy", "SSO Authelia"],
+    "automation_and_containers": ["Docker", "Docker Compose", "CI/CD (GitHub Actions)", "systemd timers", "Stack Arr (Radarr, Sonarr...)"],
+    "monitoring": ["Prometheus", "Grafana", "Loki", "Healthchecks (heartbeats)", "Uptime Kuma"],
+    "development": ["Python", "Bash", "pytest", "HTML/CSS/JS", "Astro", "C#", "GraphQL", "PowerShell"],
     "hardware": ["Montage PC sur mesure", "Dépannage matériel", "Câblage réseau"]
   },
   "languages": {
@@ -30,18 +30,32 @@
   },
   "projects": [
     {
+      "name": "Vektor",
+      "url": "https://github.com/Tom1419-git/vektor",
+      "tech": ["Python", "Telegram Bot API", "PostgreSQL + pgvector", "Docker", "GitHub Actions", "pytest"],
+      "description": "Assistant d'exploitation IA pour mon homelab : actions système en langage naturel avec double confirmation obligatoire (whitelist SSH forced-command), gestionnaire d'updates Docker, mémoire vectorielle, 157 tests en CI et déploiement automatique par watcher"
+    },
+    {
+      "name": "Homelab",
+      "url": "https://mayoraz-net.ch/homelab/",
+      "tech": ["Proxmox", "Docker", "SSO Authelia", "Cloudflare Tunnel", "Prometheus", "Grafana", "Loki"],
+      "description": "Infrastructure de production 24/7 : 11 LXC dédiés, SSO 2FA, backups chiffrés 3-2-1 (RTO ~12 min drillé), auto-réparation (auto-healing, watchdog DNS), tunnel Cloudflare failover 16 vhosts, VPS edge chez Mystral.ch"
+    },
+    {
+      "name": "bitmagnet (indexeur DHT)",
+      "url": "https://mayoraz-net.ch/homelab/",
+      "tech": ["Docker", "PostgreSQL", "GraphQL", "Python", "systemd"],
+      "description": "Indexeur self-hosted ~200 000 torrents via crawler DHT, exposé en Torznab pour la stack média, avec taggage automatique quotidien (langue, films/séries) et supervision par heartbeat"
+    },
+    {
       "name": "Site Portfolio",
       "url": "https://mayoraz-net.ch",
       "tech": ["Astro", "CSS Vanilla", "GitHub Actions"],
       "description": "Portfolio professionnel avec glassmorphism, i18n FR/EN, animations"
     },
     {
-      "name": "Homelab",
-      "tech": ["Proxmox", "Docker", "Prometheus", "Grafana", "NetBird", "n8n"],
-      "description": "Infrastructure self-hosted 24/7 : Jellyfin, monitoring, automatisation, VPN mesh, sauvegardes chiffrées S3"
-    },
-    {
       "name": "CTT Montriond Ouchy",
+      "url": "https://mayoraz-net.ch/sites-web/ctt_montriond_version_club/",
       "tech": ["HTML5", "CSS3", "JavaScript"],
       "description": "Site web du club de ping-pong CTT Montriond Ouchy"
     }
