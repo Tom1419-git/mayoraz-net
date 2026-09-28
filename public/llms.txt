@@ -1,0 +1,28 @@
+# Thomas Mayoraz
+
+> Apprenti informaticien (voie infrastructure, maturité pro) à l'ETML Lausanne, Suisse. Conceveur et exploitant d'un homelab de niveau production (Proxmox, 11 conteneurs LXC) supervisé par Vektor, un assistant d'exploitation IA qu'il a développé. Portfolio : https://mayoraz-net.ch
+
+## Pages principales
+
+- [Accueil](https://mayoraz-net.ch/): services informatiques à Lausanne — développement web, montage PC, dépannage.
+- [Homelab](https://mayoraz-net.ch/homelab/): infrastructure de production — Proxmox, assistant IA Vektor, SSO Authelia, failover Cloudflare (16 vhosts), indexeur DHT bitmagnet (~200 000 torrents), observabilité Prometheus/Grafana/Loki, backups chiffrés 3-2-1 (RTO ~12 min, restaurations drillées).
+- [À propos](https://mayoraz-net.ch/a-propos/): parcours, compétences systèmes/sécurité/haute disponibilité et développement.
+- [Sites web](https://mayoraz-net.ch/sites-web/): réalisations web (vitrines et applications).
+- [Projets C#](https://mayoraz-net.ch/projets-csharp/): applications desktop et outils en C#.
+- [Autres projets](https://mayoraz-net.ch/autres-projets/): scripts, outils et expérimentations.
+- [Builds PC](https://mayoraz-net.ch/builds-pc/): configurations PC sur mesure documentées.
+
+## Données structurées (JSON, lisibles par machine)
+
+- [cv.json](https://mayoraz-net.ch/api/cv.json): CV complet au format JSON — formation (ETML, CFC 2028 + maturité pro), compétences (Proxmox, Docker, CI/CD, Python, PostgreSQL/pgvector…), langues, projets détaillés avec stacks techniques.
+
+## Projets open source
+
+- [Vektor](https://github.com/Tom1419-git/vektor): assistant d'exploitation IA pour homelab (bot Telegram), actions système en langage naturel avec double confirmation obligatoire (whitelist SSH forced-command), mémoire vectorielle PostgreSQL + pgvector, gestionnaire d'updates Docker, 157 tests automatisés en CI.
+
+## Contact
+
+- Email : contact@mayoraz-net.ch
+- GitHub : https://github.com/Tom1419-git
+- LinkedIn : https://www.linkedin.com/in/thomas-mayoraz-it/
+- Status des services : https://status.mayoraz-net.ch
