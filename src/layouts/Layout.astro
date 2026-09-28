@@ -56,9 +56,10 @@ const buildHash = Date.now().toString(36);
     <meta name="twitter:image" content={ogImage} />
 
     <!-- JSON-LD (Schema.org) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script type="application/ld+json" set:html={JSON.stringify([{
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://mayoraz-net.ch/#person",
       "name": "Thomas Mayoraz",
       "jobTitle": "Développeur & Technicien IT",
       "url": "https://mayoraz-net.ch",
@@ -66,7 +67,15 @@ const buildHash = Date.now().toString(36);
         "https://github.com/Tom1419-git",
         "https://www.linkedin.com/in/thomas-mayoraz-it"
       ]
-    })}></script>
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mayoraz-net.ch/#website",
+      "url": "https://mayoraz-net.ch",
+      "name": "Thomas Mayoraz — Portfolio",
+      "inLanguage": "fr",
+      "publisher": { "@id": "https://mayoraz-net.ch/#person" }
+    }])}></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href={`/media/css/main.css?v=${buildHash}`}>

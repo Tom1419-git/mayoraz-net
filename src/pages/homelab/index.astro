@@ -2,9 +2,49 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import ContactCta from '../../components/ContactCta.astro';
+
+// JSON-LD dédié à la page homelab (le Layout émet déjà un Person global)
+const homelabSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mayoraz-net.ch/homelab/#webpage",
+      "url": "https://mayoraz-net.ch/homelab/",
+      "name": "Homelab & Infrastructure - Thomas Mayoraz",
+      "description": "Infrastructure personnelle de niveau production : Proxmox, assistant IA d'exploitation (Vektor), indexeur DHT self-hosted, SSO, failover Cloudflare, backups chiffrés et observabilité complète.",
+      "inLanguage": "fr",
+      "isPartOf": { "@id": "https://mayoraz-net.ch/#website" },
+      "about": { "@id": "https://mayoraz-net.ch/#person" },
+      "breadcrumb": { "@id": "https://mayoraz-net.ch/homelab/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mayoraz-net.ch/homelab/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://mayoraz-net.ch/" },
+        { "@type": "ListItem", "position": 2, "name": "Homelab", "item": "https://mayoraz-net.ch/homelab/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Composants de l'infrastructure",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Vektor — assistant d'exploitation IA", "url": "https://github.com/Tom1419-git/vektor" },
+        { "@type": "ListItem", "position": 2, "name": "Proxmox VE — 11 conteneurs LXC" },
+        { "@type": "ListItem", "position": 3, "name": "SSO Authelia (2FA)" },
+        { "@type": "ListItem", "position": 4, "name": "Failover Cloudflare Tunnel — 16 vhosts" },
+        { "@type": "ListItem", "position": 5, "name": "bitmagnet — indexeur DHT (~200 000 torrents)" },
+        { "@type": "ListItem", "position": 6, "name": "Observabilité — Prometheus, Grafana, Loki" },
+        { "@type": "ListItem", "position": 7, "name": "Backups chiffrés 3-2-1 — RTO ~12 min" }
+      ]
+    }
+  ]
+};
 ---
 
-<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Infrastructure personnelle de niveau production : Proxmox, assistant IA d'exploitation (Vektor), indexeur DHT self-hosted, SSO, failover Cloudflare, backups chiffrés et observabilité complète." cssFile="/media/css/homelab.css?v=20260928">
+<Layout title="Homelab & Infrastructure - Thomas Mayoraz" description="Infrastructure personnelle de niveau production : Proxmox, assistant IA d'exploitation (Vektor), indexeur DHT self-hosted, SSO, failover Cloudflare, backups chiffrés et observabilité complète." cssFile="/media/css/homelab.css">
+    <script type="application/ld+json" set:html={JSON.stringify(homelabSchema)} />
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">                <p class="wm-section-eyebrow" data-i18n="Mon Homelab">Mon Homelab</p>
