@@ -4,19 +4,19 @@ import Layout from '../../layouts/Layout.astro';
 import ContactCta from '../../components/ContactCta.astro';
 ---
 
-<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Découvrez mon infrastructure personnelle : virtualisation Proxmox, conteneurs Docker, réseau zero-trust et automatisation complète." cssFile="/media/css/homelab.css?v=20260914">
+<Layout title="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" data-i18n="Mon Homelab - Thomas Mayoraz | Infrastructure & Automatisation" description="Infrastructure personnelle de niveau production : Proxmox, assistant IA d'exploitation (Vektor), indexeur DHT self-hosted, SSO, failover Cloudflare, backups chiffrés et observabilité complète." cssFile="/media/css/homelab.css?v=20260928">
     <div class="wm-container" style="padding-top: 60px;">
         <header style="margin-bottom: 40px; text-align: center;">
             <div class="profile-section">                <p class="wm-section-eyebrow" data-i18n="Mon Homelab">Mon Homelab</p>
-                <h1 class="wm-section-title" data-i18n-html="Infrastructure Personnelle &amp; Automatisation" data-i18n="Infrastructure Personnelle &amp; Automatisation">Infrastructure Personnelle &amp; <span class="accent">Automatisation</span></h1>
+                <h1 class="wm-section-title" data-i18n-html="Infrastructure de Production &amp; Exploitation Assistée par IA" data-i18n="Infrastructure de Production &amp; Exploitation Assistée par IA">Infrastructure de Production &amp; <span class="accent">Exploitation Assistée par IA</span></h1>
                 <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 10px;" data-i18n="← Retour à l'accueil">← Retour à l'accueil</a>
             </div>
         </header>
 
         <main style="max-width: 1200px; margin: 0 auto 60px;">
             <section class="wm-card" style="padding: 30px; margin-bottom: 40px; text-align: center;">
-                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.1rem; margin-bottom: 15px;" data-i18n-html="En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong style='color: var(--accent);'>Homelab</strong> est mon laboratoire d'apprentissage continu.">En tant que passionné par l'administration système et réseau, j'héberge et je maintiens ma propre infrastructure à domicile. Ce <strong style="color: var(--accent);">Homelab</strong> est mon laboratoire d'apprentissage continu.</p>
-                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 0;" data-i18n="Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.">Tout mon environnement tourne de manière optimisée et isolée, me permettant d'explorer les technologies d'entreprise comme la virtualisation avec Proxmox, la conteneurisation, le monitoring avancé et l'automatisation de processus.</p>
+                <p style="color: var(--text-heading); line-height: 1.7; font-size: 1.1rem; margin-bottom: 15px;" data-i18n-html="Mon homelab est géré comme un environnement de production : monitoring complet, backups chiffrés testés par des restaurations réelles, procédures de reprise documentées et <strong style='color: var(--accent);'>auto-réparation</strong>. L'exploitation quotidienne est déléguée à Vektor, un assistant IA que j'ai développé, pilotable en langage naturel depuis Telegram.">Mon homelab est géré comme un environnement de production : monitoring complet, backups chiffrés testés par des restaurations réelles, procédures de reprise documentées et <strong style="color: var(--accent);">auto-réparation</strong>. L'exploitation quotidienne est déléguée à Vektor, un assistant IA que j'ai développé, pilotable en langage naturel depuis Telegram.</p>
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 0;" data-i18n="L'infrastructure combine un hyperviseur Proxmox hébergeant 11 conteneurs LXC dédiés, un VPS en edge (Caddy + apps publiques) hébergé chez Mystral.ch, un Raspberry Pi pour le DNS/DHCP du LAN et un réseau mesh NetBird pour l'administration. La haute disponibilité est prise au sérieux : tunnel Cloudflare de secours prêt à basculer 16 vhosts, watchdogs auto-réparants, et chaîne d'alerte Telegram sans spam.">L'infrastructure combine un hyperviseur Proxmox hébergeant 11 conteneurs LXC dédiés, un VPS en edge (Caddy + apps publiques) hébergé chez Mystral.ch, un Raspberry Pi pour le DNS/DHCP du LAN et un réseau mesh NetBird pour l'administration. La haute disponibilité est prise au sérieux : tunnel Cloudflare de secours prêt à basculer 16 vhosts, watchdogs auto-réparants, et chaîne d'alerte Telegram sans spam.</p>
             </section>
 
             <section class="wm-card" style="padding: 40px; margin-bottom: 40px; text-align: center; border-color: rgba(79, 143, 255, 0.3);">
@@ -29,84 +29,160 @@ import ContactCta from '../../components/ContactCta.astro';
                     <div class="flow-row">
                         <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🎬 Radarr / Sonarr">🎬 Radarr / Sonarr</div>
                         <div class="flow-arrow horizontal" style="color: var(--accent); font-size: 1.5rem;">↔</div>
-                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🔍 Prowlarr">🔍 Prowlarr</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="🔍 Prowlarr + bitmagnet (DHT)">🔍 Prowlarr + bitmagnet (DHT)</div>
                     </div>
                     <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="📥 qBittorrent">📥 qBittorrent</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600;" data-i18n="📥 qBittorrent (suspendu si streaming)">📥 qBittorrent (suspendu si streaming)</div>
                     </div>
                     <div class="flow-arrow" style="color: var(--accent); font-size: 1.5rem;">↓</div>
                     <div class="flow-row">
-                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600; border-color: var(--accent); color: var(--accent);" data-i18n="🍿 Jellyfin">🍿 Jellyfin</div>
+                        <div class="flow-box" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 15px 25px; border-radius: 8px; font-weight: 600; border-color: var(--accent); color: var(--accent);" data-i18n="🍿 Jellyfin (transcodage GPU VAAPI)">🍿 Jellyfin (transcodage GPU VAAPI)</div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <p class="wm-section-eyebrow" data-i18n="Infrastructure">Infrastructure</p>
-                    <h2 class="wm-section-title" data-i18n="Détails Techniques de l'Infrastructure">Détails <span class="accent">Techniques</span></h2>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <p class="wm-section-eyebrow" data-i18n="Le projet phare">Le projet phare</p>
+                    <h2 class="wm-section-title" data-i18n="Vektor — l'exploitation en langage naturel">Vektor — l'exploitation en <span class="accent">langage naturel</span></h2>
                 </div>
-                
-                <div class="wm-bento-grid">
-                    
-                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
-                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🖥️ Hyperviseur &amp; Conteneurisation">🖥️ Hyperviseur &amp; Conteneurisation</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="Mon infrastructure repose sur l'hyperviseur Proxmox VE : chaque famille de services tourne dans son propre conteneur LXC dédié (média, téléchargements, automatisation, bases de données, sécurité), virtualisé avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.">Mon infrastructure repose sur l'hyperviseur Proxmox VE : chaque famille de services tourne dans son propre conteneur LXC dédié (média, téléchargements, automatisation, bases de données, sécurité), virtualisé avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Proxmox VE</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Docker</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Conteneurs LXC dédiés">Conteneurs LXC dédiés</span>
+
+                <div class="wm-card" style="padding: 40px; margin-bottom: 40px;">
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 20px;" data-i18n-html="Vektor est un <strong style='color: var(--accent);'>assistant d'exploitation IA</strong> que j'ai conçu et développé : un bot Telegram connecté à toute l'infrastructure, qui comprend le langage naturel et exécute des opérations réelles — redémarrer un service, diagnostiquer une panne, gérer les mises à jour des conteneurs, produire un rapport matinal complet (backups, santé, conformité, enrichissement de l'indexeur).">Vektor est un <strong style="color: var(--accent);">assistant d'exploitation IA</strong> que j'ai conçu et développé : un bot Telegram connecté à toute l'infrastructure, qui comprend le langage naturel et exécute des opérations réelles — redémarrer un service, diagnostiquer une panne, gérer les mises à jour des conteneurs, produire un rapport matinal complet (backups, santé, conformité, enrichissement de l'indexeur).</p>
+
+                    <div class="wm-bento-grid" style="margin-top: 30px;">
+                        <div class="wm-bento-cell col-6">
+                            <span class="cell-icon">🔐</span>
+                            <span class="cell-title" data-i18n="Sécurité par conception">Sécurité par conception</span>
+                            <span class="cell-desc" data-i18n="Toute action d'écriture passe par une double confirmation obligatoire et une whitelist stricte validée côté serveur (SSH à commande forcée). Aucune commande libre : l'IA propose, l'humain confirme.">Toute action d'écriture passe par une double confirmation obligatoire et une whitelist stricte validée côté serveur (SSH à commande forcée). Aucune commande libre : l'IA propose, l'humain confirme.</span>
+                        </div>
+                        <div class="wm-bento-cell col-6">
+                            <span class="cell-icon">🧠</span>
+                            <span class="cell-title" data-i18n="Mémoire vectorielle">Mémoire vectorielle</span>
+                            <span class="cell-desc" data-i18n="Conversations et connaissances d'exploitation stockées dans PostgreSQL + pgvector : Vektor se souvient du contexte technique de l'infrastructure et apprend de chaque incident.">Conversations et connaissances d'exploitation stockées dans PostgreSQL + pgvector : Vektor se souvient du contexte technique de l'infrastructure et apprend de chaque incident.</span>
+                        </div>
+                        <div class="wm-bento-cell col-6">
+                            <span class="cell-icon">📦</span>
+                            <span class="cell-title" data-i18n="Gestionnaire d'updates Docker">Gestionnaire d'updates Docker</span>
+                            <span class="cell-desc" data-i18n="Scan des mises à jour disponibles par stack compose, proposition, confirmation, puis application en live avec rapport détaillé par conteneur — sans jamais toucher aux services critiques (blacklist).">Scan des mises à jour disponibles par stack compose, proposition, confirmation, puis application en live avec rapport détaillé par conteneur — sans jamais toucher aux services critiques (blacklist).</span>
+                        </div>
+                        <div class="wm-bento-cell col-6">
+                            <span class="cell-icon">🚀</span>
+                            <span class="cell-title" data-i18n="CI/CD complet">CI/CD complet</span>
+                            <span class="cell-desc" data-i18n="157 tests automatisés verts en CI, releases versionnées, et déploiement en production automatique par watcher à chaque tag. Le bot se déploie lui-même, comme une vraie app SaaS.">157 tests automatisés verts en CI, releases versionnées, et déploiement en production automatique par watcher à chaque tag. Le bot se déploie lui-même, comme une vraie app SaaS.</span>
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
-                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="💾 Stockage &amp; Optimisation Hardlinks">💾 Stockage &amp; Optimisation Hardlinks</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.">La gestion du stockage exploite MergerFS pour fusionner plusieurs disques physiques en un pool unique de 4 To. L'architecture de mes volumes Docker est strictement alignée sur les standards de l'industrie (TRaSH Guides), permettant l'utilisation de Hardlinks : les transferts entre les outils de téléchargement et la librairie média (Jellyfin) sont instantanés et ne dupliquent aucune donnée.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px;">
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Python</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Telegram Bot API</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">PostgreSQL + pgvector</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Docker Compose</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">GitHub Actions</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">pytest</span>
+                        <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">SSH forced-command</span>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <a class="btn-outline" href="https://github.com/Tom1419-git/vektor" target="_blank" rel="noopener noreferrer" style="display: inline-flex;" data-i18n="→ Code source sur GitHub">→ Code source sur GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <p class="wm-section-eyebrow" data-i18n="Infrastructure">Infrastructure</p>
+                    <h2 class="wm-section-title" data-i18n="Détails Techniques">Détails <span class="accent">Techniques</span></h2>
+                </div>
+
+                <div class="wm-bento-grid">
+
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">🖥️</span>
+                        <span class="cell-title" data-i18n="Hyperviseur &amp; Conteneurisation">Hyperviseur &amp; Conteneurisation</span>
+                        <span class="cell-desc" data-i18n="Proxmox VE héberge 11 conteneurs LXC dédiés (média, téléchargements, DNS, bases de données, sécurité, indexeur), avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.">Proxmox VE héberge 11 conteneurs LXC dédiés (média, téléchargements, DNS, bases de données, sécurité, indexeur), avec Docker à l'intérieur. Ce cloisonnement limite la propagation d'un problème et rend chaque brique sauvegardable et remplaçable indépendamment.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Proxmox VE</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Docker</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="11 LXC dédiés">11 LXC dédiés</span>
+                        </div>
+                    </div>
+
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">🌐</span>
+                        <span class="cell-title" data-i18n="Edge &amp; Haute Disponibilité">Edge &amp; Haute Disponibilité</span>
+                        <span class="cell-desc" data-i18n="Les services publics passent par un VPS (hébergé chez Mystral.ch) derrière Cloudflare. Un tunnel Cloudflare de secours est armé en permanence : 16 vhosts (SSO inclus) peuvent basculer vers le homelab en un clic. Lors d'une panne datacenter réelle du VPS, le homelab est resté opérationnel de bout en bout.">Les services publics passent par un VPS (hébergé chez Mystral.ch) derrière Cloudflare. Un tunnel Cloudflare de secours est armé en permanence : 16 vhosts (SSO inclus) peuvent basculer vers le homelab en un clic. Lors d'une panne datacenter réelle du VPS, le homelab est resté opérationnel de bout en bout.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Cloudflare Tunnel</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Caddy</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Mystral.ch</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="16 vhosts failover">16 vhosts failover</span>
+                        </div>
+                    </div>
+
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">🛡️</span>
+                        <span class="cell-title" data-i18n="Sécurité &amp; SSO">Sécurité &amp; SSO</span>
+                        <span class="cell-desc" data-i18n="Zéro port ouvert sur la box : exposition uniquement via Cloudflare, filtrage par pare-feu par conteneur, administration à distance par réseau mesh NetBird. Tous les services sensibles sont derrière un SSO Authelia (2FA TOTP) via forward_auth, et l'exposition publique est défendue par une détection d'intrusion collaborative (CrowdSec). Audit de conformité CIS-L1 automatisé.">Zéro port ouvert sur la box : exposition uniquement via Cloudflare, filtrage par pare-feu par conteneur, administration à distance par réseau mesh NetBird. Tous les services sensibles sont derrière un SSO Authelia (2FA TOTP) via forward_auth, et l'exposition publique est défendue par une détection d'intrusion collaborative (CrowdSec). Audit de conformité CIS-L1 automatisé.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="SSO Authelia 2FA">SSO Authelia 2FA</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">NetBird</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">CrowdSec</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">CIS-L1</span>
+                        </div>
+                    </div>
+
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">💾</span>
+                        <span class="cell-title" data-i18n="Stockage &amp; Optimisation Hardlinks">Stockage &amp; Optimisation Hardlinks</span>
+                        <span class="cell-desc" data-i18n="MergerFS fusionne plusieurs disques en un pool unique de 4 To. Les volumes Docker suivent les standards de l'industrie (TRaSH Guides) : les transferts entre téléchargement et librairie média sont des hardlinks — instantanés et sans duplication.">MergerFS fusionne plusieurs disques en un pool unique de 4 To. Les volumes Docker suivent les standards de l'industrie (TRaSH Guides) : les transferts entre téléchargement et librairie média sont des hardlinks — instantanés et sans duplication.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
                             <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">MergerFS (4To)</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Atomic Moves</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Atomic Moves">Atomic Moves</span>
                             <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">TRaSH Guides</span>
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
-                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🌐 Réseau Zero-Trust &amp; Proxy">🌐 Réseau Zero-Trust &amp; Proxy</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="L'architecture réseau applique le principe du moindre privilège : zéro port ouvert sur la box, exposition Internet uniquement via tunnel Cloudflare, et filtrage par pare-feu au niveau de chaque conteneur. Le DNS du réseau local passe par des résolveurs redondants avec blocage de publicités (Pi-hole), et l'accès aux interfaces d'administration est protégé par une authentification à deux facteurs (Authelia + TOTP). L'administration distance se fait par réseau privé virtuel (NetBird), jamais par port exposé.">L'architecture réseau applique le principe du moindre privilège : zéro port ouvert sur la box, exposition Internet uniquement via tunnel Cloudflare, et filtrage par pare-feu au niveau de chaque conteneur. Le DNS du réseau local passe par des résolveurs redondants avec blocage de publicités (Pi-hole), et l'accès aux interfaces d'administration est protégé par une authentification à deux facteurs (Authelia + TOTP). L'administration distance se fait par réseau privé virtuel (NetBird), jamais par port exposé.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Cloudflare Tunnel</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Caddy</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Pi-hole</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="2FA Authelia">2FA Authelia</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">NetBird</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Pare-feu par conteneur">Pare-feu par conteneur</span>
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">🔁</span>
+                        <span class="cell-title" data-i18n="Résilience &amp; Auto-réparation">Résilience &amp; Auto-réparation</span>
+                        <span class="cell-desc" data-i18n="Auto-healing des conteneurs avec garde anti-crash-loop, watchdog DNS qui redémarre seul les résolveurs dégradés (anti-flap 30 min), protection de bande passante (le streaming suspend les téléchargements). Chaque intervention est notifiée sur Telegram, avec dédoublonnage anti-spam.">Auto-healing des conteneurs avec garde anti-crash-loop, watchdog DNS qui redémarre seul les résolveurs dégradés (anti-flap 30 min), protection de bande passante (le streaming suspend les téléchargements). Chaque intervention est notifiée sur Telegram, avec dédoublonnage anti-spam.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Auto-healing</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Watchdog DNS">Watchdog DNS</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">systemd timers</span>
                         </div>
                     </div>
 
-                    <div class="wm-bento-cell col-6" style="display: flex; flex-direction: column;">
-                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="🛡️ Résilience &amp; Infrastructure as Code">🛡️ Résilience &amp; Infrastructure as Code</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="La pérennité repose sur la règle 3-2-1 : copies locales sur un pool redondant, copies chiffrées côté client vers le cloud (rclone crypt), et vérifications automatiques quotidiennes qui alertent sur Telegram si un backup échoue ou qu'une machine ne répond plus (dead man's switch). L'exposition publique est en plus défendue par une détection d'intrusion collaborative (CrowdSec) qui bloque les IP malveillantes avant qu'elles n'atteignent les services.">La pérennité repose sur la règle 3-2-1 : copies locales sur un pool redondant, copies chiffrées côté client vers le cloud (rclone crypt), et vérifications automatiques quotidiennes qui alertent sur Telegram si un backup échoue ou qu'une machine ne répond plus (dead man's switch). L'exposition publique est en plus défendue par une détection d'intrusion collaborative (CrowdSec) qui bloque les IP malveillantes avant qu'elles n'atteignent les services.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="wm-bento-cell col-6">
+                        <span class="cell-icon">💾</span>
+                        <span class="cell-title" data-i18n="Backups &amp; Disaster Recovery">Backups &amp; Disaster Recovery</span>
+                        <span class="cell-desc" data-i18n="Règle 3-2-1 : copies locales redondantes + miroir cloud chiffré côté client (rclone crypt). La chaîne est supervisée par des heartbeats (dead man's switch) et la restauration est drillée : RTO mesuré à ~12 minutes pour un conteneur. Runbook de reprise documenté.">Règle 3-2-1 : copies locales redondantes + miroir cloud chiffré côté client (rclone crypt). La chaîne est supervisée par des heartbeats (dead man's switch) et la restauration est drillée : RTO mesuré à ~12 minutes pour un conteneur. Runbook de reprise documenté.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
                             <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Backups chiffrés 3-2-1">Backups chiffrés 3-2-1</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="Dead man's switch">Dead man's switch</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Grafana · Loki</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">CrowdSec</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="RTO ~12 min (drillé)">RTO ~12 min (drillé)</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);" data-i18n="19 jobs supervisés">19 jobs supervisés</span>
                         </div>
                     </div>
-                    
-                    <div class="wm-bento-cell" style="grid-column: 1 / -1; display: flex; flex-direction: column;">
-                        <h3 style="color: var(--text-heading); font-size: 1.2rem; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;" data-i18n="📈 Observabilité & Auto-résolution (n8n)">📈 Observabilité &amp; Auto-résolution (n8n)</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.">L'automatisation est poussée à son paroxysme avec n8n : en cas d'anomalie détectée sur le serveur, des workflows automatisés (Auto-Healing) communiquent avec l'API Docker pour redémarrer ou reconfigurer les services défaillants de manière autonome.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">n8n Workflow</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Auto-Healing</span>
+
+                    <div class="wm-bento-cell" style="grid-column: 1 / -1;">
+                        <span class="cell-icon">📈</span>
+                        <span class="cell-title" data-i18n="Observabilité &amp; Indexation DHT">Observabilité &amp; Indexation DHT</span>
+                        <span class="cell-desc" data-i18n="Prometheus + Grafana + Loki (logs centralisés) + alerting actionnable sans spam. Côté contenu : un crawler DHT self-hosted (bitmagnet) indexe ~200 000 torrents, les enrichit automatiquement et les expose comme indexer Torznab pour la stack média — avec classification automatique par tags (langue, films/séries) tournée chaque nuit.">Prometheus + Grafana + Loki (logs centralisés) + alerting actionnable sans spam. Côté contenu : un crawler DHT self-hosted (bitmagnet) indexe ~200 000 torrents, les enrichit automatiquement et les expose comme indexer Torznab pour la stack média — avec classification automatique par tags (langue, films/séries) tournée chaque nuit.</span>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Prometheus</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Grafana</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">Loki</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">bitmagnet (DHT)</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: var(--text-main);">GraphQL</span>
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
             <ContactCta />
         </main>
     </div>
-    
+
 </Layout>
