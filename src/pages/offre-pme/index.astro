@@ -164,12 +164,12 @@ const buildHash = Date.now().toString(36);
                         <input type="text" id="website_hp" name="website" tabindex="-1" autocomplete="off">
                     </div>
                     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
-                        <input type="text" name="entreprise" placeholder="Nom de votre entreprise *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                        <input type="text" name="ville" placeholder="Ville / commune *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
+                        <input type="text" name="entreprise" data-i18n="Nom de votre entreprise *" placeholder="Nom de votre entreprise *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
+                        <input type="text" name="ville" data-i18n="Ville / commune *" placeholder="Ville / commune *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
                     </div>
                     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
-                        <input type="email" name="email" placeholder="Votre email *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                        <input type="tel" name="telephone" placeholder="Téléphone (optionnel)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
+                        <input type="email" name="email" data-i18n="Votre email *" placeholder="Votre email *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
+                        <input type="tel" name="telephone" data-i18n="Téléphone (optionnel)" placeholder="Téléphone (optionnel)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
                     </div>
                     <div class="select-wrapper" style="position:relative;">
                         <select name="forfait" style="width:100%; padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit; appearance:none;">
@@ -181,10 +181,10 @@ const buildHash = Date.now().toString(36);
                         </select>
                         <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); pointer-events:none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
-                    <textarea name="message" rows="4" placeholder="Votre site actuel (si vous en avez un), ce que vous aimeriez changer..." style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit; resize:vertical;"></textarea>
+                    <textarea name="message" rows="4" data-i18n="Votre site actuel (si vous en avez un), ce que vous aimeriez changer..." placeholder="Votre site actuel (si vous en avez un), ce que vous aimeriez changer..." style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit; resize:vertical;"></textarea>
                     <button type="submit" class="btn-outline" style="justify-content:center; padding: 13px 20px; font-size: 1rem;" data-i18n="Recevoir ma maquette gratuite sous 48 h">Recevoir ma maquette gratuite sous 48 h</button>
-                    <p style="color: var(--text-muted); font-size:0.75rem; text-align:center; margin:0;" data-i18n="Vos données servent uniquement à vous répondre. Aucun newsletter, aucune revente. Voir la page confidentialité.">
-                        Vos données servent uniquement à vous répondre. Aucun newsletter, aucune revente. Voir la page confidentialité.
+                    <p style="color: var(--text-muted); font-size:0.75rem; text-align:center; margin:0;" data-i18n="Vos données servent uniquement à vous répondre. Pas de newsletter, pas de revente. Voir la page confidentialité.">
+                        Vos données servent uniquement à vous répondre. Pas de newsletter, pas de revente. Voir la page confidentialité.
                     </p>
                 </form>
             </section>
