@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const buildHash = Date.now().toString(36);
 ---
 
 <Layout title="Refonte site PME : Thomas Mayoraz | Sites rapides et modernes pour votre commerce"
@@ -154,11 +155,10 @@ import Layout from '../../layouts/Layout.astro';
                 <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:22px;" data-i18n="Je regarde votre site actuel (ou votre fiche Maps), je prépare un avant/après de votre page d'accueil, et je vous l'envoie sous 48 h. Aucun engagement.">
                     Je regarde votre site actuel (ou votre fiche Maps), je prépare un avant/après de votre page d'accueil, et je vous l'envoie sous 48 h. Aucun engagement.
                 </p>
-                <form action="https://api.web3forms.com/submit" method="POST" style="display:grid; gap:14px;">
+                <form id="offre-pme-form" action="https://api.web3forms.com/submit" method="POST" style="display:grid; gap:14px;">
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
                     <input type="hidden" name="subject" value="Demande maquette gratuite : offre PME">
                     <input type="hidden" name="from_name" value="Site PME">
-                    <input type="hidden" name="redirect" value="https://mayoraz-net.ch/offre-pme/merci/">
                     <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
                         <label for="website_hp">Ne pas remplir</label>
                         <input type="text" id="website_hp" name="website" tabindex="-1" autocomplete="off">
@@ -191,3 +191,4 @@ import Layout from '../../layouts/Layout.astro';
         </main>
     </div>
 </Layout>
+<script is:inline src={`/media/js/offre-pme-form.js?v=${buildHash}`}></script>
