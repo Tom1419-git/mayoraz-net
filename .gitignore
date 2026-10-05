@@ -16,6 +16,8 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+vektor/.env
+vektor/secrets/
 
 # macOS-specific files
 .DS_Store
@@ -25,4 +27,5 @@ pnpm-debug.log*
 AGENTS.md
 CLAUDE.md
 agy.md
+agy.md*
 DR-RUNBOOK.md
