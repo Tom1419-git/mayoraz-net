@@ -2779,6 +2779,8 @@ body.fade-out {
 }
 
 .wm-stat-card:hover { background: rgba(255,255,255,0.04); }
+  a.wm-stat-card { text-decoration: none; color: inherit; display: block; cursor: pointer; }
+  a.wm-stat-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .wm-stat-icon {
     font-size: 1.4rem;
