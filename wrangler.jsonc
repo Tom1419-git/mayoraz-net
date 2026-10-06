@@ -1,0 +1,13 @@
+// Deploiement Cloudflare Workers en mode "assets uniquement" : site 100% statique,
+// aucune fonction Worker executee (les requetes assets sont gratuites et illimitees).
+// html_handling reproduit le comportement Pages : /offre-pme -> /offre-pme/ 301.
+// not_found_handling sert /404.html pour les chemins inconnus.
+{
+  "name": "mayoraz-net",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

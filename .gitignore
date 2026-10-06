@@ -29,3 +29,5 @@ CLAUDE.md
 agy.md
 agy.md*
 DR-RUNBOOK.md
+.wrangler/
+.dev.vars
