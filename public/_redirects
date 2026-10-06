@@ -1,4 +1,4 @@
-﻿# Redirections suite à la restructuration du portfolio et aux URLs propres (Clean URLs)
+# Redirections suite à la restructuration du portfolio et aux URLs propres (Clean URLs)
 
 # Redirection des anciens fichiers HTML du portfolio (avant qu'ils ne deviennent des dossiers /index.html)
 /a-propos/a-propos.html /a-propos/ 301
