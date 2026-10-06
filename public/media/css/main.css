@@ -2833,6 +2833,8 @@ body.fade-out {
 }
 
 .wm-feature-card:hover { background: rgba(255,255,255,0.04); }
+  a.wm-feature-card { text-decoration: none; color: inherit; display: block; cursor: pointer; }
+  a.wm-feature-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .wm-feature-icon {
     font-size: 1.4rem;
