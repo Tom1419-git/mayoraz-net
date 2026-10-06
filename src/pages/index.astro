@@ -42,14 +42,14 @@ const buildHash = Date.now().toString(36);
     <h2 class="wm-section-title" data-i18n-html="Tout ce qu'il faut pour <span class='accent'>réussir</span>">Tout ce qu'il faut pour <span class="accent">réussir</span></h2>
     <p class="wm-section-subtitle" data-i18n="Des services complets, une passion réelle pour la tech, et un engagement total envers chaque projet.">Des services complets, une passion réelle pour la tech, et un engagement total envers chaque projet.</p>
     <div class="wm-stats-grid">
-      <div class="wm-stat-card"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="wm-stat-number">3+</div><div class="wm-stat-label" data-i18n="SITES WEB">SITES WEB</div></div>
-      <div class="wm-stat-card">
+      <a class="wm-stat-card" href="/sites-web/"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><div class="wm-stat-number">3+</div><div class="wm-stat-label" data-i18n="SITES WEB">SITES WEB</div></a>
+      <a class="wm-stat-card" href="/contact/">
         <span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
         <div class="wm-stat-number">100%</div>
         <div class="wm-stat-label" data-i18n="CONSEIL & SUPPORT">CONSEIL & SUPPORT</div>
-      </div>
-      <div class="wm-stat-card"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></span><div class="wm-stat-number">99.9%</div><div class="wm-stat-label" data-i18n="UPTIME SERVEURS">UPTIME SERVEURS</div></div>
-      <div class="wm-stat-card"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><div class="wm-stat-number">100%</div><div class="wm-stat-label" data-i18n="SATISFACTION">SATISFACTION</div></div>
+      </a>
+      <a class="wm-stat-card" href="/homelab/"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></span><div class="wm-stat-number">99.9%</div><div class="wm-stat-label" data-i18n="UPTIME SERVEURS">UPTIME SERVEURS</div></a>
+      <a class="wm-stat-card" href="#temoignages"><span class="wm-stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><div class="wm-stat-number">100%</div><div class="wm-stat-label" data-i18n="SATISFACTION">SATISFACTION</div></a>
     </div>
   </section>
 
@@ -90,7 +90,7 @@ const buildHash = Date.now().toString(36);
     </div>
   </section>
 
-  <section class="wm-testimonials">
+  <section class="wm-testimonials" id="temoignages">
     <p class="wm-section-eyebrow" data-i18n="// AVIS CLIENTS">// AVIS CLIENTS</p>
     <h2 class="wm-section-title" data-i18n-html="Ce que disent <span class='accent'>mes clients</span>">Ce que disent <span class="accent">mes clients</span></h2>
     <div class="wm-testimonials-cols">
