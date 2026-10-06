@@ -1761,5 +1761,19 @@ const frToEn = {
     "Versionnage de mes configurations.": "Versioning of my configurations.",
     "Voir le projet →": "View project →",
     "● 99.9% uptime": "● 99.9% uptime",
-    "★★★★★ Client satisfait": "★★★★★ Satisfied client"
+    "★★★★★ Client satisfait": "★★★★★ Satisfied client",
+
+    // --- Renvoi offre PME depuis accueil, sites-web et landing (06/10) ---
+    "Pour le demander, un seul formulaire : celui de la page contact. Tout arrive au même endroit, rien ne se perd.": "To request it, there is a single form: the one on the contact page. Everything lands in the same place, nothing gets lost.",
+    "Demander ma maquette sur la page contact": "Request my mockup on the contact page",
+    "Vous avez un commerce ?": "You run a business?",
+    "Maquette gratuite de votre futur site sous 48 h, sans engagement.": "A free mockup of your future website within 48 h, no strings attached.",
+    "Voir l’offre PME →": "See the SME offer →",
+    "Offre PME : votre site vitrine": "SME offer: your showcase website",
+    "Pour commerces et PME": "For shops and small businesses",
+    "Offre dédiée aux commerces : forfaits fixes, maquette gratuite sous 48 h, mise en ligne rapide. Vous savez exactement ce que vous payez avant de commencer.": "An offer dedicated to local businesses: fixed packages, free mockup within 48 h, fast launch. You know exactly what you pay before we start.",
+    "Forfaits fixes": "Fixed packages",
+    "Maquette 48 h": "48 h mockup",
+    "Suisse romande": "French-speaking Switzerland",
+    "NOUVEAU": "NEW",
 };
