@@ -12,7 +12,7 @@ const buildHash = Date.now().toString(36);
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 640px; margin: 0 auto 18px;" data-i18n="Aujourd'hui, le client qui vous cherche sur Google se fait une opinion en 30 secondes. S'il ne trouve rien (ou tombe sur une page lente, cassée sur mobile), c'est le concurrent d'à côté qui gagne le client. Je refais des sites pour des PME de toute la Suisse romande : rapide, moderne, bien référencé, à prix fixe connu d'avance.">
                 Aujourd'hui, le client qui vous cherche sur Google se fait une opinion en 30 secondes. S'il ne trouve rien (ou tombe sur une page lente, cassée sur mobile), c'est le concurrent d'à côté qui gagne le client. Je refais des sites pour des PME de toute la Suisse romande : rapide, moderne, bien référencé, à prix fixe connu d'avance.
             </p>
-            <a href="#devis" class="btn-outline" style="display:inline-flex; padding: 12px 26px; font-size: 1rem;" data-i18n="Obtenir ma maquette gratuite">Obtenir ma maquette gratuite</a>
+            <a href="/contact/" class="btn-outline" style="display:inline-flex; padding: 12px 26px; font-size: 1rem;" data-i18n="Obtenir ma maquette gratuite">Obtenir ma maquette gratuite</a>
         </header>
 
         <main style="max-width: 1000px; margin: 0 auto 60px;">
@@ -58,7 +58,7 @@ const buildHash = Date.now().toString(36);
                             <li data-i18n="Formulaire de contact + horaires + plan">Formulaire de contact + horaires + plan</li>
                             <li data-i18n="En ligne en 1 à 2 semaines">En ligne en 1 à 2 semaines</li>
                         </ul>
-                        <a href="#devis" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine">Choisir Vitrine</a>
+                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine">Choisir Vitrine</a>
                     </div>
                     <div class="wm-card" style="padding:28px; display:flex; flex-direction:column; border:1px solid var(--accent); position:relative;">
                         <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#0b0e13; font-size:0.72rem; font-weight:700; padding:3px 12px; border-radius:99px;" data-i18n="LE PLUS CHOISI">LE PLUS CHOISI</span>
@@ -72,7 +72,7 @@ const buildHash = Date.now().toString(36);
                             <li data-i18n="Statistiques de visites simples et lisibles">Statistiques de visites simples et lisibles</li>
                             <li data-i18n="1 mois de modifications incluses après la mise en ligne">1 mois de modifications incluses après la mise en ligne</li>
                         </ul>
-                        <a href="#devis" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine +">Choisir Vitrine +</a>
+                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine +">Choisir Vitrine +</a>
                     </div>
                     <div class="wm-card" style="padding:28px; display:flex; flex-direction:column;">
                         <h3 style="color: var(--text-heading); margin:0 0 6px; font-size:1.15rem;" data-i18n="Boutique en ligne">Boutique en ligne</h3>
@@ -85,7 +85,7 @@ const buildHash = Date.now().toString(36);
                             <li data-i18n="Formation à la prise en main incluse">Formation à la prise en main incluse</li>
                             <li data-i18n="En ligne en 3 à 4 semaines">En ligne en 3 à 4 semaines</li>
                         </ul>
-                        <a href="#devis" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Boutique">Choisir Boutique</a>
+                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Boutique">Choisir Boutique</a>
                     </div>
                 </div>
                 <p style="text-align:center; color: var(--text-muted); font-size:0.85rem; margin-top:14px;" data-i18n="Besoin d'autre chose (réservation en ligne, multi-langue, refonte logo) ? On en parle : si ce n'est pas mon métier, je vous le dis franchement.">
@@ -150,45 +150,16 @@ const buildHash = Date.now().toString(36);
                 </div>
             </section>
 
-            <section class="wm-card" id="devis" style="padding:30px; max-width:720px; margin:0 auto 60px;">
+            <section class="wm-card" id="devis" style="padding:30px; max-width:720px; margin:0 auto 60px; text-align:center;">
                 <h2 style="color: var(--text-heading); font-size:1.3rem; margin:0 0 8px;" data-i18n="Votre maquette gratuite en 2 minutes">Votre maquette gratuite en 2 minutes</h2>
-                <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:22px;" data-i18n="Je regarde votre site actuel (ou votre fiche Maps), je prépare un avant/après de votre page d'accueil, et je vous l'envoie sous 48 h. Aucun engagement.">
-                    Je regarde votre site actuel (ou votre fiche Maps), je prépare un avant/après de votre page d'accueil, et je vous l'envoie sous 48 h. Aucun engagement.
+                <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:18px;">
+                    Je regarde votre site actuel (ou votre fiche Maps), je prépare un avant/après de votre page d’accueil, et je vous l’envoie sous 48 h. Aucun engagement.
                 </p>
-                <form id="offre-pme-form" action="https://api.web3forms.com/submit" method="POST" style="display:grid; gap:14px;">
-                    <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
-                    <input type="hidden" name="subject" value="Demande maquette gratuite : offre PME">
-                    <input type="hidden" name="from_name" value="Site PME">
-                    <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-                        <label for="website_hp">Ne pas remplir</label>
-                        <input type="text" id="website_hp" name="website" tabindex="-1" autocomplete="off">
-                    </div>
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
-                        <input type="text" name="entreprise" data-i18n="Nom de votre entreprise *" placeholder="Nom de votre entreprise *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                        <input type="text" name="ville" data-i18n="Ville / commune *" placeholder="Ville / commune *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                    </div>
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;">
-                        <input type="email" name="email" data-i18n="Votre email *" placeholder="Votre email *" required style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                        <input type="tel" name="telephone" data-i18n="Téléphone (optionnel)" placeholder="Téléphone (optionnel)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit;">
-                    </div>
-                    <div class="select-wrapper" style="position:relative;">
-                        <select name="forfait" style="width:100%; padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit; appearance:none;">
-                            <option value="a-voir" data-i18n="Forfait : je ne sais pas encore, montrez-moi la maquette">Forfait : je ne sais pas encore, montrez-moi la maquette</option>
-                            <option value="vitrine" data-i18n="Vitrine (dès 990 CHF)">Vitrine (dès 990 CHF)</option>
-                            <option value="vitrine-plus" data-i18n="Vitrine + (dès 1 590 CHF)">Vitrine + (dès 1 590 CHF)</option>
-                            <option value="boutique" data-i18n="Boutique en ligne (dès 2 490 CHF)">Boutique en ligne (dès 2 490 CHF)</option>
-                            <option value="autre" data-i18n="Autre besoin (dites-moi tout)">Autre besoin (dites-moi tout)</option>
-                        </select>
-                        <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); pointer-events:none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </div>
-                    <textarea name="message" rows="4" data-i18n="Votre site actuel (si vous en avez un), ce que vous aimeriez changer..." placeholder="Votre site actuel (si vous en avez un), ce que vous aimeriez changer..." style="padding:12px 14px; border-radius:8px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); color: var(--text-main); font: inherit; resize:vertical;"></textarea>
-                    <button type="submit" class="btn-outline" style="justify-content:center; padding: 13px 20px; font-size: 1rem;" data-i18n="Recevoir ma maquette gratuite sous 48 h">Recevoir ma maquette gratuite sous 48 h</button>
-                    <p style="color: var(--text-muted); font-size:0.75rem; text-align:center; margin:0;" data-i18n="Vos données servent uniquement à vous répondre. Pas de newsletter, pas de revente. Voir la page confidentialité.">
-                        Vos données servent uniquement à vous répondre. Pas de newsletter, pas de revente. Voir la page confidentialité.
-                    </p>
-                </form>
+                <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:22px;" data-i18n="Pour le demander, un seul formulaire : celui de la page contact. Tout arrive au même endroit, rien ne se perd.">
+                    Pour le demander, un seul formulaire : celui de la page contact. Tout arrive au même endroit, rien ne se perd.
+                </p>
+                <a href="/contact/" class="btn-outline" style="display:inline-flex; padding: 13px 26px; font-size: 1rem;" data-i18n="Demander ma maquette sur la page contact">Demander ma maquette sur la page contact</a>
             </section>
         </main>
     </div>
 </Layout>
-<script is:inline src={`/media/js/offre-pme-form.js?v=${buildHash}`}></script>
