@@ -161,7 +161,6 @@ const frToEn = {
     "Aller à l'image 3": "Go to image 3",
     "Builds PC": "PC Builds",
     "Autres <span class='accent'>Projets</span>": "Other <span class='accent'>Projects</span>",
-    "Conçu avec curiosité & <span style='color:var(--accent)'>IA</span> · Astro · CSS Vanilla · GitHub Pages": "Crafted with curiosity & <span style='color:var(--accent)'>AI</span> · Astro · Vanilla CSS · GitHub Pages",
     "Discutons de votre <span class='accent'>projet</span>": "Let's discuss your <span class='accent'>project</span>",
     "Découvrez mes projets techniques incluant de la virtualisation, des scripts PowerShell, des implémentations MQTT et des guides détaillés. Chaque projet est présenté ici en résumé — la documentation complète est disponible sur simple demande.": "Discover my technical projects including virtualization, PowerShell scripts, MQTT implementations and detailed guides. Each project is summarized here — full documentation available on request.",
     "Grâce à <strong data-i18n=\"n8n\">n8n</strong> et l'API Docker locale, j'ai créé un workflow qui écoute les alertes webhook de Prometheus. Si un conteneur tombe, n8n lance cette commande via SSH ou Socket :": "Using <strong data-i18n=\"n8n\">n8n</strong> and the local Docker API, I built a workflow that listens to Prometheus webhook alerts. If a container goes down, n8n runs this command over SSH or Socket:",
