@@ -1,4 +1,4 @@
-[![CI Deploy](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/deploy.yml/badge.svg)](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/deploy.yml)
+[![CI & Deploy Cloudflare](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/ci.yml/badge.svg)](https://github.com/Tom1419-git/mayoraz-net/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Astro](https://img.shields.io/badge/Astro-7.x-BC52EE?logo=astro&logoColor=white)](https://astro.build)
 
@@ -40,7 +40,7 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 - **Framework** : [Astro](https://astro.build) (SSG)
 - **Frontend** : HTML5, CSS3 Vanilla (Variables, Flexbox, Grid), JavaScript Vanilla
 - **Infra & Sécurité** : Cloudflare Turnstile, Cloudflare Zero Trust, n8n (self-hosted)
-- **Déploiement** : GitHub Actions → GitHub Pages
+- **Déploiement** : GitHub Actions → Cloudflare Workers (assets statiques)
 - **Notifications** : Bot Telegram via n8n
 - **Licence** : [MIT](LICENSE) — code réutilisable avec attribution
 
@@ -62,8 +62,8 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 │   ├── api/cv.json             # Données structurées du CV
 │   ├── search-index.json       # Index de la recherche plein-texte
 │   ├── 404.html · robots.txt   # Erreur & SEO
-│   └── CNAME                   # Domaine GitHub Pages
-└── .github/workflows/deploy.yml  # CI : build + déploiement GitHub Pages
+│   └── _redirects              # Redirections 301 (Cloudflare Workers)
+└── .github/workflows/ci.yml    # CI : build check + déploiement Cloudflare
 ```
 
 ## 📬 Contact
