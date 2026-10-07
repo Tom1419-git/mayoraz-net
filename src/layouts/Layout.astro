@@ -143,7 +143,7 @@ const buildHash = Date.now().toString(36);
         </main>
 
         <footer>
-            <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" class="status-badge"><span id="status-indicator"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a></p>
+            <p>&copy; {new Date().getFullYear()} Thomas Mayoraz | <a href="https://status.mayoraz-net.ch" target="_blank" rel="noopener noreferrer" class="status-badge"><span id="status-indicator"></span><span id="status-text" data-i18n="Vérification...">Vérification...</span></a> <a href="/build.json" target="_blank" rel="noopener noreferrer" class="status-badge deploy-badge" id="deploy-badge" style="display: none;"><span id="deploy-indicator" aria-hidden="true"></span><span id="deploy-text" data-i18n="Déploiement réussi">Déploiement réussi</span></a></p>
             <nav>
               <a href="/" data-i18n="Accueil">Accueil</a>
               <a href="/a-propos/" data-i18n="À propos">À propos</a>
@@ -183,6 +183,7 @@ const buildHash = Date.now().toString(36);
     <script is:inline src={`/media/js/lang.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/konami.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/status.js?v=${buildHash}`} defer></script>
+    <script is:inline src={`/media/js/buildinfo.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/search.js?v=${buildHash}`} defer></script>
     <slot name="scripts" />
 </body>

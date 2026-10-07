@@ -307,6 +307,10 @@ const frToEn = {
     "Un bloc serveur minimaliste pour forcer toutes les requêtes HTTP (port 80) de tous vos domaines vers leur équivalent HTTPS (port 443).": "A minimalist server block to force all HTTP requests (port 80) from all your domains to their HTTPS equivalent (port 443).",
 
     "Vérification...": "Checking systems...",
+    // Badge deploy footer (CI -> Cloudflare Workers)
+    "Déploiement réussi": "Successful deployment",
+    "Déploiement ancien": "Old deployment",
+    "Déploiement dégradé": "Degraded deployment",
     "Tous les systèmes opérationnels": "All systems operational",
     "Incident en cours...": "Incident ongoing...",
     "Statut indisponible": "Status unavailable",

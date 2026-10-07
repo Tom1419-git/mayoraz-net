@@ -43,6 +43,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Write build info
+        run: node scripts/write-build-info.mjs
+
       - name: Deploy to Cloudflare Workers
         run: npx wrangler@4.148.0 deploy --config wrangler.jsonc
         env:
