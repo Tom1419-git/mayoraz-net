@@ -311,6 +311,8 @@ const frToEn = {
     "Déploiement ancien": "Old deployment",
     "Déploiement dégradé": "Degraded deployment",
     "Tous les systèmes opérationnels": "All systems operational",
+    "Site en ligne": "Site online",
+    "Site indisponible": "Site unavailable",
     "Incident en cours...": "Incident ongoing...",
     "Statut indisponible": "Status unavailable",
     "100% Opérationnel": "100% Operational",
