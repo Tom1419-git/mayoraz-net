@@ -1567,6 +1567,22 @@ footer p a:hover {
     transform: translateY(-1px);
 }
 
+/* Badge de deploy (footer) : dernier deploy reussi par la CI + date de mise
+   a jour. Alimente par /build.json au moment du deploiement Workers. La puce
+   est coloree en JS (vert = frais, orange = ancien, ambre = info incomplete). */
+#deploy-badge {
+    margin-left: 8px;
+}
+
+#deploy-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
 /* ==========================================================
    14. CAROUSEL
    ========================================================== */
@@ -2067,6 +2083,12 @@ footer p a:hover {
 :root[data-theme="light"] footer {
     color: var(--text-main);
     border-top: 1px solid var(--glass-border);
+}
+
+/* Badge de deploy du footer en theme clair. */
+:root[data-theme="light"] #deploy-badge {
+    background: color-mix(in srgb, var(--primary) 7%, #FFFFFF);
+    border-color: color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 /* Form inputs */
