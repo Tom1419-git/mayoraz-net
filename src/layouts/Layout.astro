@@ -99,6 +99,16 @@ const buildHash = Date.now().toString(36);
             window.initClarity();
         }
     </script>
+
+    <!-- Micro-tracker conversions/CTA (aucun cookie, compatible consentement) -->
+    <script is:inline src={`/media/js/mm-tracker.js?v=${buildHash}`}></script>
+
+    <!-- Cloudflare Web Analytics : vues + sources, sans cookie, sans consentement.
+         Token injecté au build via PUBLIC_CF_BEACON_TOKEN ; absent = script non chargé. -->
+    {import.meta.env.PUBLIC_CF_BEACON_TOKEN && (
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: import.meta.env.PUBLIC_CF_BEACON_TOKEN })} is:inline></script>
+    )}
 </head>
 <body>
     <canvas id="particles-bg"></canvas>

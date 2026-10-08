@@ -2,6 +2,37 @@
 const buildHash = Date.now().toString(36);
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+
+// SEO local : ProfessionalService avec zone desservie (recherches « création site web Lausanne » etc.)
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://mayoraz-net.ch/#service",
+  name: "Thomas Mayoraz : services informatiques",
+  description: "Création de sites web pour PME et commerces, dépannage informatique et montage PC sur mesure, en Suisse romande.",
+  url: "https://mayoraz-net.ch",
+  telephone: "+41 76 612 20 53",
+  email: "contact@mayoraz-net.ch",
+  priceRange: "CHF",
+  areaServed: [
+    { "@type": "City", name: "Lausanne" },
+    { "@type": "AdministrativeArea", name: "Canton de Vaud" },
+    { "@type": "AdministrativeArea", name: "Suisse romande" }
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lausanne",
+    addressRegion: "VD",
+    addressCountry: "CH"
+  },
+  founder: { "@id": "https://mayoraz-net.ch/#person" },
+  makesOffer: [
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de site web vitrine pour PME et commerces" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Refonte de site web" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Montage PC sur mesure" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dépannage informatique" } }
+  ]
+};
 ---
 
 <Layout title="Contact - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Contact - Thomas Mayoraz | Services Informatiques Lausanne" description="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage. Thomas Mayoraz, expert en services informatiques." cssFile="/media/css/contact.css">
@@ -339,4 +370,5 @@ import Layout from '../../layouts/Layout.astro';
         });
     </script>
     </Fragment>
+    <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
 </Layout>
