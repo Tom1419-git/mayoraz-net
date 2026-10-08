@@ -14,22 +14,27 @@ import argparse, base64, json, os, re, subprocess, sys, tempfile, time, urllib.r
 def b64url(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b"=").decode()
 
-def fetch_sitemap(url: str) -> list:
-    # anti-bot CF : passer par curl avec UA navigateur (leçon du 08/10 : urllib nu => 403)
-    out = subprocess.run(
-        ["curl", "-s", "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", url],
-        capture_output=True, text=True, timeout=30).stdout
+def fetch_sitemap(source: str) -> list:
+    """Lit le sitemap d'un fichier local (ex: dist/sitemap-0.xml généré par le build
+    CI) ou d'une URL (curl + UA navigateur, anti-bot CF leçon du 08/10 : urllib nu => 403)."""
+    if os.path.isfile(source):
+        out = open(source, encoding="utf-8").read()
+    else:
+        out = subprocess.run(
+            ["curl", "-s", "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", source],
+            capture_output=True, text=True, timeout=30).stdout
     urls = re.findall(r"<loc>([^<]+)</loc>", out)
     if not urls:
-        sys.exit(f"sitemap vide ou illisible: {url}")
+        sys.exit(f"sitemap vide ou illisible: {source}")
     return urls
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("sa_json", nargs="?", help="chemin du JSON du service account (hors repo)")
     ap.add_argument("--sa-b64-env", help="nom de la variable d'env contenant le JSON du SA en base64 (mode CI)")
-    ap.add_argument("--sitemap", default="https://mayoraz-net.ch/sitemap-0.xml")
+    ap.add_argument("--sitemap", default="dist/sitemap-0.xml",
+                    help="fichier local (généré par le build CI) ou URL")
     ap.add_argument("--type", default="URL_UPDATED", choices=["URL_UPDATED", "URL_DELETED"])
     args = ap.parse_args()
 
