@@ -50,3 +50,17 @@ jobs:
         run: npx wrangler@4.148.0 deploy --config wrangler.jsonc
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+  notify-google:
+    needs: deploy-cloudflare
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Notifier Google (Indexing API, URL_UPDATED sur le sitemap)
+        continue-on-error: true
+        run: python3 scripts/notify-google.py --sa-b64-env GCLOUD_INDEXING_SA
+        env:
+          GCLOUD_INDEXING_SA: ${{ secrets.GCLOUD_INDEXING_SA }}
