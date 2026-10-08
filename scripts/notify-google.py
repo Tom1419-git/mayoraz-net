@@ -100,8 +100,11 @@ def main():
                 resp = json.loads(r.read())
                 print(f"  200 {u}  (notify: {resp.get('urlNotificationMetadata', {}).get('latestUpdate', {}).get('notifyTime', '?')})")
                 ok += 1
-        except urllib.error.HTTPError as e:
-            print(f"  {e.code} {u}  {e.read()[:120]}")
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError) as e:
+            # HTTPError = refus Google (quota/URL invalide) ; URLError/Timeout = réseau
+            # éphémère du runner : le job est continue-on-error, on logue et on continue.
+            body = getattr(e, "read", lambda: b"")()[:120]
+            print(f"  ECHEC {u}  {type(e).__name__}: {getattr(e, 'code', '')} {body}")
             fail += 1
         time.sleep(0.5)
     print(f"Résumé: {ok} OK, {fail} échec(s)")
