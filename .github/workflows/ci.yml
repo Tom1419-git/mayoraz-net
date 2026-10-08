@@ -59,6 +59,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site (génère dist/sitemap-0.xml lu localement par le notifier)
+        run: npm run build
+
       - name: Notifier Google (Indexing API, URL_UPDATED sur le sitemap)
         continue-on-error: true
         run: python3 scripts/notify-google.py --sa-b64-env GCLOUD_INDEXING_SA
