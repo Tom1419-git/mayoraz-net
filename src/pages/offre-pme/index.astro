@@ -1,6 +1,43 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 const buildHash = Date.now().toString(36);
+
+// FAQ locale : textes affichés dans la section visible #faq en bas de page
+const faq = [
+  {
+    q: "Combien coûte un site vitrine pour un commerce ?",
+    a: "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la première année, l'entretien simple coûte 69 CHF/an."
+  },
+  {
+    q: "En combien de temps le site est-il en ligne ?",
+    a: "Une vitrine simple part en général en une à deux semaines après réception de vos textes et photos. La maquette gratuite vous donne un aperçu concret avant de commencer, sans engagement."
+  },
+  {
+    q: "La maquette gratuite engage à quoi ?",
+    a: "À rien. Je prépare un avant/après de votre page d'accueil sous 48 h. Si elle ne vous plaît pas, vous ne devez rien et le dossier s'arrête là."
+  },
+  {
+    q: "Qui s'occupe de l'hébergement et du nom de domaine ?",
+    a: "Tout est mis à votre nom : le domaine, l'hébergement et le code. Vous restez propriétaire de tout, même si nous arrêtons de travailler ensemble."
+  },
+  {
+    q: "Intervenez-vous en dehors de Lausanne ?",
+    a: "Oui : tout le canton de Vaud et la Suisse romande (Genève, Fribourg, Valais, Neuchâtel). Tout se fait à distance par mail et téléphone, avec un seul interlocuteur du premier mail à la mise en ligne."
+  },
+  {
+    q: "Et après la mise en ligne ?",
+    a: "Maintenance simple en option (25-45 CHF/mois selon le forfait) : mises à jour, sauvegardes, petites modifications. Ou autonomie complète si vous préférez, le code est le vôtre."
+  }
+];
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(f => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a }
+  }))
+};
 ---
 
 <Layout title="Refonte site PME : Thomas Mayoraz | Sites rapides et modernes pour votre commerce"
@@ -160,6 +197,17 @@ const buildHash = Date.now().toString(36);
                 </p>
                 <a href="/contact/" class="btn-outline" style="display:inline-flex; padding: 13px 26px; font-size: 1rem;" data-i18n="Demander ma maquette sur la page contact">Demander ma maquette sur la page contact</a>
             </section>
+
+            <section class="wm-card" id="faq" style="padding:30px; max-width:720px; margin:0 auto 60px;">
+                <h2 style="color: var(--text-heading); font-size:1.3rem; margin:0 0 18px; text-align:center;" data-i18n="Questions fréquentes">Questions fréquentes</h2>
+                {faq.map((f, i) => (
+                    <details style="border-bottom:1px solid var(--glass-border); padding:10px 0;" open={i === 0}>
+                        <summary style="cursor:pointer; font-weight:600; color:var(--text-heading); font-size:0.98rem;">{f.q}</summary>
+                        <p style="color:var(--text-main); font-size:0.92rem; line-height:1.7; margin:10px 0 4px;">{f.a}</p>
+                    </details>
+                ))}
+            </section>
         </main>
     </div>
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </Layout>
