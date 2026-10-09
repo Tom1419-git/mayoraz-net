@@ -76,3 +76,9 @@ jobs:
         run: python3 scripts/notify-google.py --sa-b64-env GCLOUD_INDEXING_SA
         env:
           GCLOUD_INDEXING_SA: ${{ secrets.GCLOUD_INDEXING_SA }}
+
+      - name: Re-soumettre le sitemap GSC (canal de découverte passif)
+        continue-on-error: true
+        run: python3 scripts/gsc_sitemaps.py --sa-b64-env GCLOUD_INDEXING_SA
+        env:
+          GCLOUD_INDEXING_SA: ${{ secrets.GCLOUD_INDEXING_SA }}
