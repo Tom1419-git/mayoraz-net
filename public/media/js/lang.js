@@ -36,6 +36,7 @@ document.addEventListener('astro:page-load', () => {
         return 'FR'; // default
     }
 
+    const hadSavedLang = !!localStorage.getItem('site_lang');
     let currentLang = detectBrowserLang();
     // Persist immediately so next page load is consistent
     if (!localStorage.getItem('site_lang')) {
@@ -134,8 +135,17 @@ document.addEventListener('astro:page-load', () => {
         select.value = currentLang;
     });
 
-    // Appliquer la langue détectée/sauvegardée
-    applyLanguage(currentLang);
+    // Appliquer la langue détectée/sauvegardée. Une langue seulement *détectée*
+    // (visiteur anglophone sans préférence enregistrée) attend l'inactivité du
+    // navigateur : le dictionnaire EN pèse 169 Ko et n'a pas à retarder le
+    // premier rendu. Une préférence enregistrée s'applique tout de suite, et le
+    // français est le HTML d'origine, donc rien à faire.
+    if (hadSavedLang || currentLang === 'FR') {
+        applyLanguage(currentLang);
+    } else {
+        const whenIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 600));
+        whenIdle(() => applyLanguage(currentLang), { timeout: 2500 });
+    }
 
     // Écouter les changements manuels de langue
     langSelects.forEach(select => {

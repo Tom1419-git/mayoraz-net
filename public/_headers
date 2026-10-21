@@ -1,0 +1,5 @@
+# Assets fingerprintés par Astro : le nom contient le hash du contenu, donc
+# servis un an sans revalidation. Sans cette règle, Cloudflare renvoie
+# « max-age=0, must-revalidate » et chaque page revalide la police (48 Ko).
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
