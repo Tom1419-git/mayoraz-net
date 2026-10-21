@@ -77,6 +77,11 @@ const buildHash = Date.now().toString(36);
       "publisher": { "@id": "https://mayoraz-net.ch/#person" }
     }])}></script>
 
+    <!-- Le badge de statut du footer interroge ce domaine : sans preconnect, la
+         connexion TLS se paie au premier rendu (mesuré 330 ms par Lighthouse). -->
+    <link rel="preconnect" href="https://status.mayoraz-net.ch">
+    <link rel="dns-prefetch" href="https://status.mayoraz-net.ch">
+
     <!-- CSS -->
     <link rel="stylesheet" href={`/media/css/main.css?v=${buildHash}`}>
     {cssFile && <link rel="stylesheet" href={`${cssFile}?v=${buildHash}`} />}
