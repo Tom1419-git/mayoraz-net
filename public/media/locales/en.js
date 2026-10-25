@@ -228,7 +228,6 @@ const frToEn = {
     "Projets": "Projects",
     "Tutoriels": "Tutorials",
     "Contact": "Contact",
-    "Liens": "Links",
     "Confidentialité": "Privacy",
     "CGU": "Terms",
     "Un projet similaire en tête ?": "A similar project in mind?",

@@ -9,14 +9,15 @@ Stdlib uniquement : JWT signé à la main (RS256 via openssl en subprocess), pas
 Note : l'API est officiellement pour JobPosting/BroadcastEvent ; usage toléré
 pour d'autres pages, rester raisonnable (pages réellement nouvelles/modifiées).
 """
-import argparse, base64, json, os, re, subprocess, sys, tempfile, time, urllib.request, urllib.error
+import argparse, base64, datetime, json, os, re, subprocess, sys, tempfile, time, urllib.parse, urllib.request, urllib.error
 
 def b64url(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b"=").decode()
 
 def fetch_sitemap(source: str) -> list:
     """Lit le sitemap d'un fichier local (ex: dist/sitemap-0.xml généré par le build
-    CI) ou d'une URL (curl + UA navigateur, anti-bot CF leçon du 08/10 : urllib nu => 403)."""
+    CI) ou d'une URL (curl + UA navigateur, anti-bot CF leçon du 08/10 : urllib nu => 403).
+    Renvoie une liste de (url, lastmod ou None)."""
     if os.path.isfile(source):
         out = open(source, encoding="utf-8").read()
     else:
@@ -24,10 +25,68 @@ def fetch_sitemap(source: str) -> list:
             ["curl", "-s", "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
              "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", source],
             capture_output=True, text=True, timeout=30).stdout
-    urls = re.findall(r"<loc>([^<]+)</loc>", out)
-    if not urls:
+    entries = re.findall(r"<loc>([^<]+)</loc>(?:\s*<lastmod>([^<]+)</lastmod>)?", out)
+    if not entries:
         sys.exit(f"sitemap vide ou illisible: {source}")
+    return [(u, d or None) for u, d in entries]
+
+
+def parse_date(value: str):
+    """ISO 8601 (sitemap : « 2026-10-25T18:45:57.000Z ») -> datetime UTC, ou None."""
+    if not value:
+        return None
+    txt = value.strip().replace("Z", "+00:00")
+    try:
+        dt = datetime.datetime.fromisoformat(txt)
+    except ValueError:
+        return None
+    return dt if dt.tzinfo else dt.replace(tzinfo=datetime.timezone.utc)
+
+
+def changed_urls(entries: list, since_sha: str) -> list:
+    """URLs dont le lastmod est postérieur au commit précédent ce déploiement.
+
+    Le sitemap porte la date du dernier commit qui a touché la page (et ses
+    composants). Tout ce qui est plus récent que le commit d'avant a donc changé
+    dans ce push. Sans commit de référence exploitable, on renvoie tout.
+    """
+    if not since_sha or set(since_sha) == {"0"}:
+        print("pas de commit de référence : notification de toutes les URLs")
+        return [u for u, _ in entries]
+    try:
+        since = subprocess.run(
+            ["git", "show", "-s", "--format=%cI", since_sha],
+            capture_output=True, text=True, timeout=20)
+    except (OSError, subprocess.SubprocessError):
+        since = None
+    ref = parse_date(since.stdout.strip()) if since and since.returncode == 0 else None
+    if ref is None:
+        print(f"commit de référence {since_sha[:8]} illisible : notification de toutes les URLs")
+        return [u for u, _ in entries]
+    urls = [u for u, d in entries if (parse_date(d) or ref) > ref]
+    print(f"pages touchées depuis {since_sha[:8]} ({ref.isoformat()}) : {len(urls)}/{len(entries)}")
     return urls
+
+
+def ping_indexnow(urls: list, key: str, host: str) -> None:
+    """IndexNow : Bing, Yandex, Seznam, Naver. Officiellement supporté pour
+    toutes les pages, contrairement à l'API Indexing de Google."""
+    if not urls:
+        print("IndexNow : rien à envoyer")
+        return
+    payload = {"host": host, "key": key, "keyLocation": f"https://{host}/{key}.txt",
+               "urlList": urls}
+    req = urllib.request.Request(
+        "https://api.indexnow.org/indexnow",
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json; charset=utf-8"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            print(f"IndexNow : HTTP {r.status} pour {len(urls)} URL(s)")
+    except urllib.error.HTTPError as e:
+        print(f"IndexNow : HTTP {e.code} — {e.read()[:160]!r}")
+    except (urllib.error.URLError, TimeoutError, OSError) as e:
+        print(f"IndexNow : échec réseau {type(e).__name__}: {e}")
 
 def main():
     ap = argparse.ArgumentParser()
@@ -36,6 +95,12 @@ def main():
     ap.add_argument("--sitemap", default="dist/sitemap-0.xml",
                     help="fichier local (généré par le build CI) ou URL")
     ap.add_argument("--type", default="URL_UPDATED", choices=["URL_UPDATED", "URL_DELETED"])
+    ap.add_argument("--since-sha", default="",
+                    help="commit déployé avant celui-ci : seules les pages modifiées depuis sont notifiées")
+    ap.add_argument("--all", action="store_true", help="ignorer --since-sha et notifier tout le sitemap")
+    ap.add_argument("--indexnow-key", default="", help="clé IndexNow (fichier public <clé>.txt)")
+    ap.add_argument("--indexnow-host", default="mayoraz-net.ch")
+    ap.add_argument("--dry-run", action="store_true", help="afficher les URLs sans rien envoyer")
     args = ap.parse_args()
 
     if args.sa_b64_env:
@@ -86,8 +151,14 @@ def main():
         token = json.loads(r.read())["access_token"]
     print("token OK")
 
-    urls = fetch_sitemap(args.sitemap)
-    print(f"{len(urls)} URLs à soumettre en {args.type}")
+    entries = fetch_sitemap(args.sitemap)
+    urls = [u for u, _ in entries] if args.all else changed_urls(entries, args.since_sha)
+    if args.dry_run:
+        print("DRY-RUN — aucune requête envoyée")
+        for u in urls:
+            print("  ", u)
+        return
+    print(f"{len(urls)} URL(s) à soumettre en {args.type} (sitemap : {len(entries)})")
     ok = fail = 0
     for u in urls:
         req = urllib.request.Request(
@@ -108,6 +179,13 @@ def main():
             fail += 1
         time.sleep(0.5)
     print(f"Résumé: {ok} OK, {fail} échec(s)")
+    # Échec total (secret absent, JWT refusé, Google injoignable) : on casse le job
+    # pour que la panne se voie. Un ou deux refus isolés restent de simples logs.
+    if urls and ok == 0:
+        sys.exit(f"Aucune notification acceptée sur {len(urls)} URL(s) — voir les erreurs ci-dessus")
+
+    if args.indexnow_key:
+        ping_indexnow(urls, args.indexnow_key, args.indexnow_host)
 
 if __name__ == "__main__":
     main()
