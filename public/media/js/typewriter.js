@@ -3,25 +3,27 @@ document.addEventListener('astro:page-load', () => {
     const typewriterElement = document.getElementById('typewriter');
     if (!typewriterElement) return;
 
+    // Les phrases reprennent la promesse de l'accueil : trois services clairs
+    // et un quatrième axe qui différencie (l'interlocuteur unique).
     const phrasesFr = [
-        "Spécialiste Infrastructure Réseau",
-        "Technicien Informatique (IT)",
-        "Expert Hardware & Montage PC",
-        "Développeur Web & Scripting"
+        "Création de sites web",
+        "Dépannage informatique",
+        "Montage PC sur mesure",
+        "Un interlocuteur unique"
     ];
 
     const phrasesEn = [
-        "Network Infrastructure Specialist",
-        "IT Technician",
-        "Hardware & PC Building Expert",
-        "Web & Scripting Developer"
+        "Website creation",
+        "IT troubleshooting",
+        "Custom PC building",
+        "A single point of contact"
     ];
 
     const phrasesDe = [
-        "Netzwerkinfrastruktur-Spezialist",
-        "IT-Techniker",
-        "Hardware- & PC-Bau-Experte",
-        "Web- & Scripting-Entwickler"
+        "Website-Erstellung",
+        "IT-Support",
+        "PC nach Mass",
+        "Ein einziger Ansprechpartner"
     ];
     
     let currentPhraseIndex = 0;

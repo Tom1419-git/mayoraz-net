@@ -56,7 +56,7 @@ const serviceLd = {
                     </a>
                 </div>
 
-                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <form class="contact-form" action="https://n8n.mayoraz-net.ch/webhook/contact-form" method="POST">
                     <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
 
                     <!-- Honeypot anti-spam : champ invisible, les bots le remplissent, pas les humains -->
@@ -205,6 +205,11 @@ const serviceLd = {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                         <span data-i18n="Envoyer le message">Envoyer le message</span>
                     </button>
+
+                    <p class="form-note" data-i18n="Je vous réponds généralement sous 24 heures ouvrées. Vos coordonnées servent uniquement à vous répondre.">
+                        Je vous réponds généralement sous 24 heures ouvrées. Vos coordonnées servent uniquement à vous répondre.
+                    </p>
+                    <p class="form-error" id="form-error" role="alert" hidden></p>
                 </form>
             </section>
 

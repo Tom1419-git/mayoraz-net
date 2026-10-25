@@ -1,20 +1,17 @@
 /**
  * mm-tracker.js : micro-tracker de conversion (site mayoraz-net.ch).
- * - window.mmTrack(event, detail) : log console + Clarity (si chargé).
+ * - window.mmTrack(event, detail) : trace locale en console des conversions.
  * - Cloudflare Web Analytics mesure vues/sources sans cookie (beacon séparé dans Layout).
  * - Les clics CTA (tel, WhatsApp, maquette) et les pages /merci/ appellent mmTrack.
- * Aucun cookie, aucune donnée personnelle : compatible avec le toast de consentement.
+ * Aucun cookie, aucune donnée personnelle, aucun consentement à demander.
  */
 (function () {
   'use strict';
   window.mmTrack = function (event, detail) {
     detail = detail || {};
     try {
-      if (window.clarity && typeof window.clarity === 'function') {
-        window.clarity('event', event);
-      }
       // CF Web Analytics ne gère pas les events custom côté beacon gratuit :
-      // le log console sert de trace locale et Clarity de mesure comportementale.
+      // le log console reste la seule trace locale, sans aucun cookie.
       if (window.console && location.hostname !== 'localhost') {
         console.debug('[mm]', event, detail);
       }

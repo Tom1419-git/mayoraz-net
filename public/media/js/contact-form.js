@@ -66,14 +66,40 @@ document.addEventListener('astro:page-load', () => {
         // ── Soumission du formulaire ──────────────────────────────────────
         const contactForm = document.querySelector('.contact-form');
         if (!contactForm) return;
+
+        // Erreurs affichées dans la page plutôt qu'en alert() : le visiteur garde
+        // ses champs sous les yeux et un canal de secours (email) toujours visible.
+        const errorBox = document.getElementById('form-error');
+        function showFormError(message, withEmail) {
+            const text = window.t ? window.t(message) : message;
+            if (!errorBox) {
+                alert(text);
+                return;
+            }
+            // textContent + lien construit à la main : aucune injection HTML.
+            errorBox.textContent = text;
+            if (withEmail) {
+                const link = document.createElement('a');
+                link.href = 'mailto:contact@mayoraz-net.ch';
+                link.textContent = ' contact@mayoraz-net.ch';
+                errorBox.appendChild(link);
+            }
+            errorBox.hidden = false;
+            errorBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+        function hideFormError() {
+            if (errorBox) errorBox.hidden = true;
+        }
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            hideFormError();
             const turnstileInput = document.querySelector('[name="cf-turnstile-response"]');
             if (!turnstileInput || !turnstileInput.value) {
                 // Widget pas encore rendu (chargement à la demande) : on le déclenche
                 // et on laisse l'utilisateur revalider — pas d'envoi sans token.
                 if (typeof window.loadTurnstile === 'function') window.loadTurnstile();
-                alert(window.t ? window.t('Veuillez valider le captcha avant d\'envoyer.') : 'Veuillez valider le captcha avant d\'envoyer.');
+                showFormError('Veuillez valider le captcha avant d\'envoyer.');
                 return;
             }
             const form      = this;
@@ -111,14 +137,14 @@ document.addEventListener('astro:page-load', () => {
             }).then(res => {
                 if (res.ok) { window.location.href = '/contact/merci/'; }
                 else {
-                    alert(window.t ? window.t('Erreur lors de l\'envoi via n8n. Veuillez réessayer.') : 'Erreur lors de l\'envoi via n8n. Veuillez réessayer.');
+                    showFormError('L\'envoi n\'a pas abouti (erreur serveur). Réessayez ou écrivez-moi à', true);
                     submitBtn.innerHTML = origHTML;
                     submitBtn.disabled  = false;
                     submitBtn.style.opacity = '1';
                     submitBtn.style.cursor = 'pointer';
                 }
             }).catch(() => {
-                alert(window.t ? window.t('Erreur de réseau. Vérifiez votre connexion.') : 'Erreur de réseau. Vérifiez votre connexion.');
+                showFormError('Connexion interrompue. Vérifiez votre réseau, ou écrivez-moi à', true);
                 submitBtn.innerHTML = origHTML;
                 submitBtn.disabled  = false;
                 submitBtn.style.opacity = '1';

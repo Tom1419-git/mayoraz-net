@@ -1,0 +1,86 @@
+---
+// Hero de l'accueil : promesse commerciale d'abord, preuves techniques ensuite.
+// Le badge, la typewriter et la galerie gardent l'identité terminal/homelab.
+// La première phrase de la typewriter est écrite en dur dans le HTML : sans JS
+// (ou si le script échoue) le visiteur lit quand même une phrase lisible.
+---
+
+<div class="wm-hero">
+  <a href="/contact/" class="wm-hero-badge">
+    <span class="badge-dot"></span>
+    <span data-i18n="Disponible à Lausanne">Disponible à Lausanne</span>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+
+  <h1 data-i18n-html="Sites web rapides,<br/><span class='accent'>informatique fiable</span>">
+    Sites web rapides,<br/><span class="accent">informatique fiable</span>
+  </h1>
+
+  <div id="typewriter" class="typewriter-text">Création de sites web</div>
+
+  <p class="wm-hero-subtitle" data-i18n-html="Pour les PME et particuliers de Lausanne : je crée votre site, assemble votre PC et résous vos problèmes informatiques — <strong>avec un interlocuteur unique</strong>.">
+    Pour les PME et particuliers de Lausanne : je crée votre site, assemble votre PC et résous vos problèmes informatiques — <strong>avec un interlocuteur unique</strong>.
+  </p>
+
+  <div class="wm-hero-ctas">
+    <a href="/contact/" class="btn-accent" data-i18n="Parler de mon projet">
+      Parler de mon projet
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a href="#realisations" class="btn-outline" data-i18n="Voir mes réalisations">Voir mes réalisations</a>
+    <a href="https://github.com/Tom1419-git" target="_blank" rel="noopener" class="wm-hero-ghost" aria-label="GitHub (nouvel onglet)">
+      <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+
+  <div class="wm-hero-gallery">
+    <div class="wm-gallery-card">
+      <div class="card-bar"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <div class="card-body">
+        <div class="card-tag">HOMELAB</div>
+        <div class="card-title">Serveur Ubuntu</div>
+        <div>Docker · Proxmox · NetBird</div>
+        <div style="margin-top:8px;color:var(--accent)" data-i18n="● 99.9% uptime infrastructure perso">● 99.9% uptime infrastructure perso</div>
+      </div>
+    </div>
+    <div class="wm-gallery-card">
+      <div class="card-bar"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span><span class="card-bar-label">mayoraz-net</span></div>
+      <div class="card-body">
+        <div class="card-tag">PORTFOLIO</div>
+        <div class="card-title">mayoraz-net</div>
+        <div>Astro · CSS Vanilla · Cloudflare Workers</div>
+        <div class="card-tags">
+          <span class="card-chip accent">PERF A+</span>
+          <span class="card-chip green">SEO 100</span>
+        </div>
+      </div>
+    </div>
+    <div class="wm-gallery-card">
+      <div class="card-bar"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <div class="card-body">
+        <div class="card-tag">BUILD PC</div>
+        <div class="card-title">Gaming Setup</div>
+        <div>RX 6750 XT · Ryzen 7 · 32GB DDR5</div>
+        <div style="margin-top:8px;color:#febc2e" data-i18n="★★★★★ Client satisfait">★★★★★ Client satisfait</div>
+      </div>
+    </div>
+    <div class="wm-gallery-card">
+      <div class="card-bar"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <div class="card-body">
+        <div class="card-tag">N8N</div>
+        <div class="card-title" data-i18n="Automatisation">Automatisation</div>
+        <div>Workflows · Telegram Bot · AI</div>
+      </div>
+    </div>
+    <div class="wm-gallery-card">
+      <div class="card-bar"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <div class="card-body">
+        <div class="card-tag">C#</div>
+        <div class="card-title" data-i18n="Projets C#">Projets C#</div>
+        <div data-i18n="Applications console · WinForms">Applications console · WinForms</div>
+      </div>
+    </div>
+    <div class="wm-gallery-fade"></div>
+  </div>
+</div>

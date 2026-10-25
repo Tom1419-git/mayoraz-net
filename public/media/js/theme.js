@@ -88,23 +88,32 @@ document.addEventListener('astro:page-load', () => {
     });
 
     if (burger && navLinks && navOverlay) {
+        // État exposé aux lecteurs d'écran : le bouton annonce s'il ouvre ou ferme.
+        function setMenuState(open) {
+            burger.classList.toggle('active', open);
+            navLinks.classList.toggle('active', open);
+            navOverlay.classList.toggle('active', open);
+            document.body.classList.toggle('menu-open', open);
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        }
+
         function toggleMenu() {
-            burger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            setMenuState(!navLinks.classList.contains('active'));
         }
 
         burger.addEventListener('click', toggleMenu);
         navOverlay.addEventListener('click', toggleMenu);
-        
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                setMenuState(false);
+                burger.focus();
+            }
+        });
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                navLinks.classList.remove('active');
-                navOverlay.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
+            link.addEventListener('click', () => setMenuState(false));
         });
     }
 

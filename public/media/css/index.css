@@ -1,1 +1,336 @@
-/* Les styles ont été unifiés et migrés vers main.css */
+/* Styles de la page d'accueil.
+   Les styles communs (hero, sections, cartes, avis, stack) sont dans main.css.
+   Ici : uniquement les blocs propres à l'accueil commercial (services, études de
+   cas, méthode, liens projets) et les finitions du hero. */
+
+/* ── Hero : CTA tertiaire + finitions des cartes de la galerie ───────────── */
+
+.wm-hero-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 10px 4px;
+    transition: color var(--transition);
+}
+
+.wm-hero-ghost:hover {
+    color: var(--text-heading);
+}
+
+.card-bar-label {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+}
+
+.card-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+}
+
+.card-chip {
+    background: rgba(79, 143, 255, 0.15);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.card-chip.green {
+    background: rgba(40, 200, 64, 0.15);
+    color: #28c840;
+}
+
+/* ── Services : trois cartes strictement égales ──────────────────────────── */
+
+.wm-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.service-list {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-main);
+}
+
+.service-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ── Réalisations : études de cas ────────────────────────────────────────── */
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.case-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 30px;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.case-card:hover {
+    border-color: var(--glass-border-hover);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.case-card--homelab {
+    grid-column: 1 / -1;
+    background: rgba(79, 143, 255, 0.06);
+    border-color: rgba(79, 143, 255, 0.22);
+}
+
+.case-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.case-title {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    color: var(--text-heading);
+}
+
+.case-sub,
+.case-desc {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+.case-date {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(79, 143, 255, 0.3);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+
+.case-body {
+    margin: 0 0 18px;
+    display: grid;
+    gap: 4px;
+}
+
+.case-body dt {
+    margin-top: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-heading);
+}
+
+.case-body dt:first-child {
+    margin-top: 0;
+}
+
+.case-body dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.case-tags span {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    color: var(--text-main);
+}
+
+.case-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.case-link:hover {
+    text-decoration: underline;
+}
+
+.case-link--muted {
+    color: var(--text-muted);
+    margin-left: 18px;
+}
+
+.case-actions {
+    margin-top: 16px;
+}
+
+.case-actions .case-link {
+    margin-top: 0;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.project-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--glass-border-hover);
+}
+
+.project-links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── Méthode en trois étapes ─────────────────────────────────────────────── */
+
+.wm-method {
+    padding: 90px 0;
+}
+
+.method-grid {
+    list-style: none;
+    margin: 50px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.method-step {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 28px;
+}
+
+.method-num {
+    display: block;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+}
+
+.method-step h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: var(--text-heading);
+}
+
+.method-step p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .wm-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Le H1 commercial est plus long qu'un titre de portfolio : on le ramène
+       à 3 lignes pour que les deux CTA restent au-dessus de la ligne de flottaison. */
+    .wm-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .wm-hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .wm-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card {
+        padding: 24px;
+    }
+
+    .case-head {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .wm-method {
+        padding: 70px 0;
+    }
+
+    .case-link--muted {
+        margin-left: 14px;
+    }
+}

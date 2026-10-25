@@ -70,8 +70,10 @@ document.addEventListener('astro:page-load', () => {
         resize();
         particles = [];
         
-        // Disable particles on mobile to improve PageSpeed score and save battery
-        if (width < 768) {
+        // Disable particles on mobile to improve PageSpeed score and save battery,
+        // and when the visitor asked for reduced motion (a11y: le canvas ignore
+        // les règles CSS `animation-duration`, il faut couper la boucle ici).
+        if (width < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             ctx.clearRect(0, 0, width, height);
             if (animId) {
                 cancelAnimationFrame(animId);
