@@ -31,3 +31,50 @@ agy.md*
 DR-RUNBOOK.md
 .wrangler/
 .dev.vars
+
+# Documents d'infrastructure interne : jamais publics (IP reelles, liste des vhosts,
+# plans d'attaque). HOMELAB.md et audits/ ne doivent JAMAIS entrer dans un repo public.
+HOMELAB.md
+audits/
+
+# Pipeline de prospection : c'est un dépôt PRIVE dédié (github.com/Tom1419-git/prospex),
+# avec ses propres données et secrets. Il ne doit jamais entrer dans ce dépôt public —
+# sans cette ligne, un `git add -A` enregistrerait le sous-dépôt comme un lien cassé.
+prospection/
+PHOENIX-SPEC.md
+
+# Client dentaire (Cabinet Dentaire Tivoli) : documents commerciaux, sauvegardes,
+# audit technique et données de production. Infra réelle + données de santé —
+# jamais dans ce dépôt public. Règle : `.codebuff/skills/homelab-memory.md` § 3bis.
+dentiste-backup/
+AUDIT-DENTISTE-TIVOLI-2026-10-17.md
+ACCORD-CABINET-DENTAIRE-30H.md
+DEVIS-CABINET-DENTAIRE-2026-10-17.md
+SUIVI-HEURES-CABINET.md
+
+# staging de déploiement (scripts avec IP réelles)
+.deploy-local/
+
+# Projets clients et projets tiers : ils vivent hors de ce dépôt (~/clients, ~/vektor,
+# ~/mac-remote, ~/presentation-p182, ~/kylie-birthday, ~/signatures). Ces règles sont une
+# ceinture de sécurité : un `git add -A` ne doit jamais les aspirer dans le repo public.
+client-sites/
+charles-jenny-signatures/
+thomas-signature/
+vektor/
+mac-remote/
+presentation-p182/
+kylie-birthday/
+captures/
+assets-readme/
+site-web-divers/
+
+# Documents d'exploitation du site : ils vivent dans ~/homelab-ops/import-site-web/
+# (site-prod.md, n8n_watchdog.py, services_watchdog.py, bounce_report.py).
+docs/superpowers/
+n8n_watchdog.py
+services_watchdog.py
+status/
+
+# Artefacts d'outils
+.freebuff/

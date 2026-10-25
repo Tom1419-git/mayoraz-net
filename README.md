@@ -66,6 +66,19 @@ Développé en tant qu'**Apprenti Informaticien 3ème année** à l'ETML.
 └── .github/workflows/ci.yml    # CI : build check + déploiement Cloudflare
 ```
 
+## 📂 Ce qui ne vit pas dans ce dépôt
+
+Ce dépôt public ne contient **que le site** (`src/`, `public/`, `scripts/`, CI). Tout le reste vit dans son propre dossier, à côté :
+
+| Contenu | Emplacement |
+|---|---|
+| Sites clients (Garage Darbellay, GECI, Veltha, Morgese…) | `~/clients/` |
+| Documentation d'exploitation (hébergement, watchdogs, runbooks) | `~/homelab-ops/import-site-web/` |
+| Projets tiers (vektor, mac-remote, présentation P182) | leurs dépôts respectifs |
+| Documents commerciaux et clients | hors dépôt, jamais public |
+
+La règle : une IP réelle, un devis, une donnée client ou un projet tiers n'entre jamais dans ce dépôt — il est public.
+
 ## 📬 Contact
 
 - **Site** : [mayoraz-net.ch](https://mayoraz-net.ch)
