@@ -33,6 +33,8 @@ import urllib.request
 DEFAULT_SITEMAP = "https://mayoraz-net.ch/sitemap-0.xml"
 DEFAULT_GSC_SITE = "sc-domain:mayoraz-net.ch"
 DEFAULT_BING_SITE = "https://mayoraz-net.ch"
+# Domaine dont on veut savoir s'il est comptabilisé parmi les liens entrants.
+WATCHED_BACKLINK = "garage-darbellay"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126 Safari/537.36")
 
@@ -125,6 +127,48 @@ def bing_info(key: str, site: str, url: str) -> dict:
         return {"state": f"ERR:{type(e).__name__}", "crawl": "—"}
 
 
+def bing_links(key: str, site: str, max_pages: int = 5) -> dict:
+    """Liens entrants connus de Bing (GetLinkCounts puis GetUrlLinks)."""
+
+    def call(ep: str, **params):
+        query = urllib.parse.urlencode({"apikey": key, **params})
+        req = urllib.request.Request(
+            f"https://ssl.bing.com/webmaster/api.svc/json/{ep}?{query}",
+            headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read()).get("d")
+
+    out = {"pages": 0, "links": 0, "sources": [], "error": ""}
+    try:
+        data = call("GetLinkCounts", siteUrl=site, page="1") or {}
+        items = list(data.get("Links") or [])
+        for p in range(2, min(int(data.get("TotalPages") or 0), max_pages) + 1):
+            more = call("GetLinkCounts", siteUrl=site, page=str(p)) or {}
+            items += list(more.get("Links") or [])
+        out["pages"] = len(items)
+        out["links"] = sum(int(i.get("Count") or 1) for i in items)
+
+        # Détail des sources : une requête par page cible, tolérante à l'échec.
+        for item in items[:max_pages]:
+            url = item.get("Url")
+            if not url:
+                continue
+            try:
+                for link in call("GetUrlLinks", siteUrl=site, url=url, page="1") or []:
+                    ref = link.get("Url") or link.get("ReferrerUrl") or ""
+                    if ref:
+                        out["sources"].append(ref)
+            except urllib.error.HTTPError as e:
+                out["error"] = f"sources HTTP{e.code}"
+            except (urllib.error.URLError, TimeoutError, OSError):
+                out["error"] = "sources inaccessibles"
+    except urllib.error.HTTPError as e:
+        out["error"] = f"HTTP{e.code}"
+    except (urllib.error.URLError, TimeoutError, OSError) as e:
+        out["error"] = f"ERR:{type(e).__name__}"
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("sa_json", nargs="?", help="JSON du service account (hors CI)")
@@ -186,9 +230,29 @@ def main() -> int:
         if args.bing_key:
             line += f" {('✅ indexée' if b['state'] == 'indexée' else '⏳ ' + b['state'])} |"
         lines.append(line)
+    if args.bing_key:
+        bl = bing_links(args.bing_key, args.bing_site)
+        tracked = any(WATCHED_BACKLINK in s for s in bl["sources"])
+        lines += ["", "### Liens entrants (Bing)", ""]
+        if bl["error"] and bl["pages"] == 0:
+            lines.append(f"**Relevé indisponible : {bl['error']}.**")
+        elif bl["pages"] == 0:
+            lines.append("**Aucun lien entrant connu de Bing à ce jour.**")
+        else:
+            lines.append(f"**{bl['links']} lien(s) entrant(s) sur "
+                         f"{bl['pages']} page(s).**")
+            for src in sorted(set(bl["sources"]))[:10]:
+                lines.append(f"- {src}")
+            if bl["error"]:
+                lines.append(f"_{bl['error']}_")
+        lines += ["", f"Lien {WATCHED_BACKLINK} : "
+                  f"{'✅ comptabilisé' if tracked else '⏳ pas encore comptabilisé'}"]
+
     lines.append("")
     lines.append("_Relevé automatique hebdomadaire. Google : API URL Inspection ; "
-                 "Bing : API Webmaster._")
+                 "Bing : API Webmaster (indexation et liens entrants). "
+                 "Le rapport Liens de Search Console n'a pas d'API : il reste à "
+                 "consulter à la main._")
 
     report = "\n".join(lines)
     print(report)
