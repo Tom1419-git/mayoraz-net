@@ -1851,6 +1851,7 @@ const frToEn = {
     "Je mets en ligne, je configure, je vérifie avec vous — et je reste joignable après la livraison.": "I publish, configure and check everything with you — and stay reachable after delivery.",
     "Je vous réponds généralement sous 24 heures ouvrées. Vos coordonnées servent uniquement à vous répondre.": "I usually reply within 24 business hours. Your details are only used to answer you.",
     "Offre PME": "SME offer",
+    "SEO local": "Local SEO",
     "Services": "Services",
     "Un projet en tête ?": "Got a project in mind?",
     "Site web, dépannage ou PC sur mesure : décrivez-moi votre besoin, je vous réponds sous 24 h avec une proposition claire.": "Website, repair or custom PC: tell me what you need and I’ll reply within 24 h with a clear proposal.",
