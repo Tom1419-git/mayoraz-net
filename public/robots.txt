@@ -6,7 +6,7 @@
 #   • entraînement de modèles : refusé, sauf mention explicite ci-dessous.
 
 User-agent: *
-Content-Signal: search=yes,ai-input=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=no,use=reference
 Allow: /
 
 # Recherche assistée par IA — autorisée pour apparaître dans les réponses.
