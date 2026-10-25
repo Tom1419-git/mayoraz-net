@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Historique complet : le sitemap calcule le lastmod de chaque page
+          # depuis la date de son dernier commit (clone superficiel = pas de dates).
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,6 +34,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Historique complet : le sitemap calcule le lastmod de chaque page
+          # depuis la date de son dernier commit (clone superficiel = pas de dates).
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -58,6 +66,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Historique complet : le sitemap calcule le lastmod de chaque page
+          # depuis la date de son dernier commit (clone superficiel = pas de dates).
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

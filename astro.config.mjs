@@ -1,6 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { createLastmodResolver } from './scripts/sitemap-lastmod.mjs';
+
+// lastmod réel par page : date du dernier commit touchant la page ou l'un de ses
+// composants. Sans historique git disponible, la fonction renvoie null et la
+// balise lastmod est simplement omise (aucune date inventée).
+const lastmodFor = createLastmodResolver();
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +18,9 @@ export default defineConfig({
     filter: (page) => !page.includes('/offre-pme/merci/')
                      && !page.includes('/contact/merci/')
                      && !page.includes('/jeu-trex/'),
+    serialize: (item) => {
+      const lastmod = lastmodFor(item.url);
+      return lastmod ? { ...item, lastmod } : item;
+    },
   })],
 });
