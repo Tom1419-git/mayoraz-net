@@ -114,6 +114,18 @@
     border-color: rgba(79, 143, 255, 0.22);
 }
 
+.case-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 788;
+    object-fit: cover;
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    margin: 0 0 18px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
 .case-head {
     display: flex;
     align-items: flex-start;

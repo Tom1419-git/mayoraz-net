@@ -57,7 +57,6 @@ const serviceLd = {
                 </div>
 
                 <form class="contact-form" action="https://n8n.mayoraz-net.ch/webhook/contact-form" method="POST">
-                    <input type="hidden" name="access_key" value="eb846c13-ea8a-428d-be1f-9db1c7cf55e5">
 
                     <!-- Honeypot anti-spam : champ invisible, les bots le remplissent, pas les humains -->
                     <div class="hp-field" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
@@ -164,8 +163,8 @@ const serviceLd = {
 
                     <!-- Message -->
                     <div class="form-group">
-                        <label for="message" data-i18n-html="form_message">Décris ton projet <span class="required">*</span></label>
-                        <textarea id="message" name="message" data-i18n="Dis-moi ce que tu veux faire, tes contraintes, tes délais... Plus c'est précis, mieux je peux t'aider !" placeholder="Dis-moi ce que tu veux faire, tes contraintes, tes délais... Plus c'est précis, mieux je peux t'aider !" required></textarea>
+                        <label for="message" data-i18n-html="form_message">Décrivez votre projet <span class="required">*</span></label>
+                        <textarea id="message" name="message" data-i18n="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." placeholder="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." required></textarea>
                         <span class="char-counter"><span id="char-count">0</span> / 1000</span>
                     </div>
 
@@ -175,7 +174,7 @@ const serviceLd = {
                         <label class="file-upload-label" for="attachment">
                             <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip" class="file-input">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                            <span class="file-upload-text" data-i18n="Glisse un fichier ou clique pour choisir">Glisse un fichier ou clique pour choisir</span>
+                            <span class="file-upload-text" data-i18n="Glissez un fichier ou cliquez pour le sélectionner">Glissez un fichier ou cliquez pour le sélectionner</span>
                             <span class="file-upload-hint">PDF, Word, image, ZIP : max 10 Mo</span>
                         </label>
                         <span class="file-name" id="file-name"></span>
@@ -183,7 +182,7 @@ const serviceLd = {
 
                     <!-- C : Source -->
                     <div class="form-group">
-                        <label for="source" data-i18n="Comment tu m'as trouvé ?">Comment tu m'as trouvé ?</label>
+                        <label for="source" data-i18n="Comment m'avez-vous trouvé ?">Comment m'avez-vous trouvé ?</label>
                         <div class="select-wrapper">
                             <select id="source" name="source">
                                 <option value="" data-i18n="Je ne sais plus...">Je ne sais plus...</option>
@@ -277,7 +276,7 @@ const serviceLd = {
                     <div class="availability-dot"></div>
                     <div>
                         <p class="availability-title" data-i18n="Disponible à Lausanne">Disponible à Lausanne</p>
-                        <p class="availability-sub" data-i18n="Réponse sous 24–48h">Réponse sous 24–48h</p>
+                        <p class="availability-sub" data-i18n="Réponse sous 24 heures ouvrées">Réponse sous 24 heures ouvrées</p>
                     </div>
                 </div>
             </aside>

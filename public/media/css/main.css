@@ -3610,3 +3610,18 @@ body.fade-out {
 
 /* ── main landmark : neutre (le .container gère déjà la mise en page) ── */
 main { display: block; }
+
+/* ── Comparatif des formules de suivi (/offre-pme/) ─────────────────────── */
+.plan-table th,
+.plan-table td {
+    border-color: var(--glass-border);
+}
+
+@media (max-width: 560px) {
+    .plan-table th,
+    .plan-table td {
+        padding: 8px 6px !important;
+        font-size: 0.8rem !important;
+        line-height: 1.35;
+    }
+}

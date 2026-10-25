@@ -6,7 +6,7 @@ const buildHash = Date.now().toString(36);
 const faq = [
   {
     q: "Combien coûte un site vitrine pour un commerce ?",
-    a: "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la première année, l'entretien simple coûte 69 CHF/an."
+    a: "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la mise en ligne, le suivi coûte soit 69 CHF/an (forfait technique essentiel), soit 24,49 CHF/mois (maintenance active)."
   },
   {
     q: "En combien de temps le site est-il en ligne ?",
@@ -26,7 +26,11 @@ const faq = [
   },
   {
     q: "Et après la mise en ligne ?",
-    a: "Maintenance simple en option (25-45 CHF/mois selon le forfait) : mises à jour, sauvegardes, petites modifications. Ou autonomie complète si vous préférez, le code est le vôtre."
+    a: "Vous choisissez votre niveau de suivi. Le forfait technique essentiel à 69 CHF/an maintient le domaine, le HTTPS et les vérifications de base : c'est la formule du client autonome, sans modification de contenu incluse. La maintenance active à 24,49 CHF/mois ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité."
+  },
+  {
+    q: "Quelle est la différence entre les deux formules de suivi ?",
+    a: "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,49 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom."
   }
 ];
 const faqLd = {
@@ -68,8 +72,8 @@ const faqLd = {
                     <p style="color: var(--text-muted); font-size:0.9rem;" data-i18n="Tout se fait à distance (visio ou téléphone), où que vous soyez, de Genève à Sion">Tout se fait à distance (visio ou téléphone), où que vous soyez, de Genève à Sion</p>
                 </div>
                 <div class="wm-card" style="padding:22px; text-align:center;">
-                    <p style="color: var(--accent); font-size:2rem; font-weight:700; margin:0;">10/10</p>
-                    <p style="color: var(--text-muted); font-size:0.9rem;" data-i18n="Score de délivrabilité et performances web mesurées : j'utilise les mêmes standards que les grandes agences">Score de délivrabilité et performances web mesurées : j'utilise les mêmes standards que les grandes agences</p>
+                    <p style="color: var(--accent); font-size:2rem; font-weight:700; margin:0;" data-i18n="Site statique">Site statique</p>
+                    <p style="color: var(--text-muted); font-size:0.9rem;" data-i18n="Astro, images optimisées, hébergement Cloudflare : pas de CMS lourd à maintenir ni de mise à jour surprise">Astro, images optimisées, hébergement Cloudflare : pas de CMS lourd à maintenir ni de mise à jour surprise</p>
                 </div>
                 <div class="wm-card" style="padding:22px; text-align:center;">
                     <p style="color: var(--accent); font-size:2rem; font-weight:700; margin:0;" data-i18n="Satisfait ou rien">Satisfait ou rien</p>
@@ -130,6 +134,70 @@ const faqLd = {
                 </p>
             </section>
 
+            <section style="margin-bottom: 55px;" id="suivi">
+                <h2 class="wm-section-title" style="font-size:1.5rem; margin-bottom: 8px; text-align:center;" data-i18n-html="Deux façons de <span class='accent'>suivre</span> votre site après la livraison">Deux façons de <span class="accent">suivre</span> votre site après la livraison</h2>
+                <p style="text-align:center; color: var(--text-muted); font-size:0.92rem; margin-bottom:24px; max-width:640px; margin-left:auto; margin-right:auto;" data-i18n="Vous restez propriétaire du domaine, de l'hébergement et du code dans les deux cas. La différence se joue sur ce qui est pris en charge pour vous.">
+                    Vous restez propriétaire du domaine, de l'hébergement et du code dans les deux cas. La différence se joue sur ce qui est pris en charge pour vous.
+                </p>
+                <div class="wm-card" style="padding:8px; overflow-x:auto;">
+                    <table class="plan-table" style="width:100%; border-collapse:collapse; font-size:0.86rem; color:var(--text-main); table-layout:fixed;">
+                        <colgroup><col style="width:44%"><col style="width:28%"><col style="width:28%"></colgroup>
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="col" style="text-align:left; padding:12px; color:var(--text-muted); font-weight:600; font-size:0.82rem; text-transform:uppercase; letter-spacing:1px;" data-i18n="Élément">Élément</th>
+                                <th scope="col" style="text-align:left; padding:12px; color:var(--text-heading); font-weight:700;" data-i18n="Essentiel">Essentiel</th>
+                                <th scope="col" style="text-align:left; padding:12px; color:var(--accent); font-weight:700;" data-i18n="Maintenance active">Maintenance active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;">Prix</th>
+                                <td style="padding:12px; font-weight:700; color:var(--text-heading);">69 CHF/an</td>
+                                <td style="padding:12px; font-weight:700; color:var(--accent);">24,49 CHF/mois</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Domaine et certificat HTTPS">Domaine et certificat HTTPS</th>
+                                <td style="padding:12px;" data-i18n="Vérifiés">Vérifiés</td>
+                                <td style="padding:12px;" data-i18n="Vérifiés">Vérifiés</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Mises à jour techniques">Mises à jour techniques</th>
+                                <td style="padding:12px; color:var(--text-muted);">—</td>
+                                <td style="padding:12px;" data-i18n="Incluses">Incluses</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Sauvegardes">Sauvegardes</th>
+                                <td style="padding:12px; color:var(--text-muted);">—</td>
+                                <td style="padding:12px;" data-i18n="Incluses">Incluses</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Contrôle de disponibilité">Contrôle de disponibilité</th>
+                                <td style="padding:12px; color:var(--text-muted);">—</td>
+                                <td style="padding:12px;" data-i18n="Inclus">Inclus</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Réponse sous 24 heures ouvrées">Réponse sous 24 heures ouvrées</th>
+                                <td style="padding:12px; color:var(--text-muted);" data-i18n="Standard">Standard</td>
+                                <td style="padding:12px;" data-i18n="Prioritaire">Prioritaire</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border);">
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Modifications de contenu">Modifications de contenu</th>
+                                <td style="padding:12px; color:var(--text-muted);" data-i18n="Sur demande, hors forfait">Sur demande, hors forfait</td>
+                                <td style="padding:12px;" data-i18n="Sur demande, hors forfait">Sur demande, hors forfait</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Code, domaine et contenus à votre nom">Code, domaine et contenus à votre nom</th>
+                                <td style="padding:12px;" data-i18n="Oui">Oui</td>
+                                <td style="padding:12px;" data-i18n="Oui">Oui</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="text-align:center; color: var(--text-muted); font-size:0.82rem; margin-top:12px;" data-i18n="Les deux formules sont sans engagement de durée : vous pouvez passer de l'une à l'autre ou arrêter le suivi.">
+                    Les deux formules sont sans engagement de durée : vous pouvez passer de l'une à l'autre ou arrêter le suivi.
+                </p>
+            </section>
+
             <section style="margin-bottom: 55px;">
                 <h2 class="wm-section-title" style="font-size:1.5rem; margin-bottom: 8px; text-align:center;" data-i18n-html="Ce que ça <span class='accent'>change</span> vraiment">Ce que ça <span class="accent">change</span> vraiment</h2>
                 <p style="text-align:center; color: var(--text-muted); font-size:0.92rem; margin-bottom:24px;" data-i18n="Mesures réelles prises sur des sites de commerces de la région, avant et après une refonte comme celle que je propose.">
@@ -182,7 +250,7 @@ const faqLd = {
                         <li data-i18n="Réponse à votre mail sous 24 h ouvrées">Réponse à votre mail sous 24 h ouvrées</li>
                         <li data-i18n="Un seul interlocuteur du premier mail à la mise en ligne">Un seul interlocuteur du premier mail à la mise en ligne</li>
                         <li data-i18n="Code propre, hébergement à votre nom, vous restez propriétaire de tout">Code propre, hébergement à votre nom, vous restez propriétaire de tout</li>
-                        <li data-i18n="Après la mise en ligne : maintenance simple en option (25-45 CHF/mois)">Après la mise en ligne : maintenance simple en option (25-45 CHF/mois)</li>
+                        <li data-i18n="Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,49 CHF/mois">Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,49 CHF/mois</li>
                     </ul>
                 </div>
             </section>
@@ -202,8 +270,8 @@ const faqLd = {
                 <h2 style="color: var(--text-heading); font-size:1.3rem; margin:0 0 18px; text-align:center;" data-i18n="Questions fréquentes">Questions fréquentes</h2>
                 {faq.map((f, i) => (
                     <details style="border-bottom:1px solid var(--glass-border); padding:10px 0;" open={i === 0}>
-                        <summary style="cursor:pointer; font-weight:600; color:var(--text-heading); font-size:0.98rem;">{f.q}</summary>
-                        <p style="color:var(--text-main); font-size:0.92rem; line-height:1.7; margin:10px 0 4px;">{f.a}</p>
+                        <summary style="cursor:pointer; font-weight:600; color:var(--text-heading); font-size:0.98rem;" data-i18n={f.q}>{f.q}</summary>
+                        <p style="color:var(--text-main); font-size:0.92rem; line-height:1.7; margin:10px 0 4px;" data-i18n={f.a}>{f.a}</p>
                     </details>
                 ))}
             </section>
