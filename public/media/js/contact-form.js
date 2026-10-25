@@ -112,8 +112,8 @@ document.addEventListener('astro:page-load', () => {
 
             const formData = new FormData(form);
             formData.delete('cf-turnstile-response-empty');
-            // Note : le token Turnstile EST envoyé au webhook pour vérification
-            // serveur future (siteverify) dès que la clé secrète sera configurée dans n8n
+            // Le token Turnstile part avec le formulaire : le webhook n8n le fait
+            // vérifier par Cloudflare (siteverify) avant d'envoyer quoi que ce soit.
 
             // Supprimer la pièce jointe vide si l'utilisateur n'a rien sélectionné
             const fileInput = document.getElementById('attachment');
@@ -137,7 +137,18 @@ document.addEventListener('astro:page-load', () => {
             }).then(res => {
                 if (res.ok) { window.location.href = '/contact/merci/'; }
                 else {
-                    showFormError('L\'envoi n\'a pas abouti (erreur serveur). Réessayez ou écrivez-moi à', true);
+                    if (res.status === 403) {
+                        // Le serveur a refusé le token Turnstile : on redonne un token
+                        // neuf au visiteur au lieu de le laisser buter sur le même.
+                        if (window.turnstile && typeof window.turnstile.reset === 'function') {
+                            try { window.turnstile.reset(); } catch (e) {}
+                        }
+                        showFormError('Vérification anti-robot échouée. Rechargez la page et réessayez, ou écrivez-moi à', true);
+                    } else if (res.status === 429) {
+                        showFormError('Trop de messages envoyés depuis cet appareil. Réessayez plus tard, ou écrivez-moi à', true);
+                    } else {
+                        showFormError('L\'envoi n\'a pas abouti (erreur serveur). Réessayez ou écrivez-moi à', true);
+                    }
                     submitBtn.innerHTML = origHTML;
                     submitBtn.disabled  = false;
                     submitBtn.style.opacity = '1';

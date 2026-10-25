@@ -1898,6 +1898,8 @@ const frToEn = {
     "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,49 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom.": "The essential plan (CHF 69/year) includes no updates, no backups and no priority support: it only guarantees that the domain, the HTTPS certificate and the site stay technically in order. Active maintenance (CHF 24.49/month) includes updates, backups and uptime monitoring, with priority replies within 24 business hours. In both cases, the domain, hosting and code stay in your name.",
 
     "Questions fréquentes": "Frequently asked questions",
+    "Vérification anti-robot échouée. Rechargez la page et réessayez, ou écrivez-moi à": "Anti-robot check failed. Reload the page and try again, or email me at",
+    "Trop de messages envoyés depuis cet appareil. Réessayez plus tard, ou écrivez-moi à": "Too many messages sent from this device. Try again later, or email me at",
     // --- Erreurs du formulaire de contact ---
     "L'envoi n'a pas abouti (erreur serveur). Réessayez ou écrivez-moi à": "The message could not be sent (server error). Try again or email me at",
     "Connexion interrompue. Vérifiez votre réseau, ou écrivez-moi à": "Connection interrupted. Check your network, or email me at",
