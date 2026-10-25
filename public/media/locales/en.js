@@ -3,7 +3,7 @@ const frToEn = {
     // --- Offre PME + page merci (05/10) ---
     "1 mois de modifications incluses après la mise en ligne": "1 month of tweaks included after launch",
     "APRÈS : objectif de la refonte": "AFTER: redesign target",
-    "Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,49 CHF/mois": "After launch: essential plan at CHF 69/year or active maintenance at CHF 24.49/month",
+    "Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,50 CHF/mois": "After launch: essential plan at CHF 69/year or active maintenance at CHF 24.50/month",
     "Aujourd'hui, le client qui vous cherche sur Google se fait une opinion en 30 secondes. S'il ne trouve rien (ou tombe sur une page lente, cassée sur mobile), c'est le concurrent d'à côté qui gagne le client. Je refais des sites pour des PME de toute la Suisse romande : rapide, moderne, bien référencé, à prix fixe connu d'avance.": "Today, customers who look you up on Google make up their mind in 30 seconds. If they find nothing (or land on a slow page that breaks on mobile), the shop next door gets the customer. I rebuild websites for small businesses across French-speaking Switzerland: fast, modern, well ranked, at a fixed price agreed upfront.",
     "Autre besoin (dites-moi tout)": "Something else (tell me everything)",
     "AVANT : cas typique constaté": "BEFORE: typical real-world case",
@@ -1883,7 +1883,7 @@ const frToEn = {
 
     // --- Offre PME : FAQ bilingue (25/10) ---
     "Combien coûte un site vitrine pour un commerce ?": "How much does a showcase website for a business cost?",
-    "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la mise en ligne, le suivi coûte soit 69 CHF/an (forfait technique essentiel), soit 24,49 CHF/mois (maintenance active).": "Packages are fixed and shown on this page: Showcase, Showcase + and Online store. No endless quotes: 50% on order and 50% on delivery. After launch, monitoring costs either CHF 69/year (essential technical plan) or CHF 24.49/month (active maintenance).",
+    "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la mise en ligne, le suivi coûte soit 69 CHF/an (forfait technique essentiel), soit 24,50 CHF/mois (maintenance active).": "Packages are fixed and shown on this page: Showcase, Showcase + and Online store. No endless quotes: 50% on order and 50% on delivery. After launch, monitoring costs either CHF 69/year (essential technical plan) or CHF 24.50/month (active maintenance).",
     "En combien de temps le site est-il en ligne ?": "How long until the site goes live?",
     "Une vitrine simple part en général en une à deux semaines après réception de vos textes et photos. La maquette gratuite vous donne un aperçu concret avant de commencer, sans engagement.": "A simple showcase usually goes live within one to two weeks of receiving your texts and photos. The free mockup gives you a concrete preview before we start, with no commitment.",
     "La maquette gratuite engage à quoi ?": "What does the free mockup commit me to?",
@@ -1893,13 +1893,22 @@ const frToEn = {
     "Intervenez-vous en dehors de Lausanne ?": "Do you work outside Lausanne?",
     "Oui : tout le canton de Vaud et la Suisse romande (Genève, Fribourg, Valais, Neuchâtel). Tout se fait à distance par mail et téléphone, avec un seul interlocuteur du premier mail à la mise en ligne.": "Yes: the whole canton of Vaud and French-speaking Switzerland (Geneva, Fribourg, Valais, Neuchatel). Everything happens remotely by email and phone, with a single point of contact from the first email to launch.",
     "Et après la mise en ligne ?": "And after launch?",
-    "Vous choisissez votre niveau de suivi. Le forfait technique essentiel à 69 CHF/an maintient le domaine, le HTTPS et les vérifications de base : c'est la formule du client autonome, sans modification de contenu incluse. La maintenance active à 24,49 CHF/mois ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité.": "You choose your level of monitoring. The essential technical plan at CHF 69/year keeps the domain, HTTPS and basic checks running: it is the self-sufficient option, with no content changes included. Active maintenance at CHF 24.49/month adds updates, backups and uptime monitoring.",
+    "Vous choisissez votre niveau de suivi. Le forfait technique essentiel à 69 CHF/an maintient le domaine, le HTTPS et les vérifications de base : c'est la formule du client autonome, sans modification de contenu incluse. La maintenance active à 24,50 CHF/mois ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité.": "You choose your level of monitoring. The essential technical plan at CHF 69/year keeps the domain, HTTPS and basic checks running: it is the self-sufficient option, with no content changes included. Active maintenance at CHF 24.50/month adds updates, backups and uptime monitoring.",
     "Quelle est la différence entre les deux formules de suivi ?": "What is the difference between the two monitoring plans?",
-    "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,49 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom.": "The essential plan (CHF 69/year) includes no updates, no backups and no priority support: it only guarantees that the domain, the HTTPS certificate and the site stay technically in order. Active maintenance (CHF 24.49/month) includes updates, backups and uptime monitoring, with priority replies within 24 business hours. In both cases, the domain, hosting and code stay in your name.",
+    "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,50 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom.": "The essential plan (CHF 69/year) includes no updates, no backups and no priority support: it only guarantees that the domain, the HTTPS certificate and the site stay technically in order. Active maintenance (CHF 24.50/month) includes updates, backups and uptime monitoring, with priority replies within 24 business hours. In both cases, the domain, hosting and code stay in your name.",
 
     "Questions fréquentes": "Frequently asked questions",
     "Vérification anti-robot échouée. Rechargez la page et réessayez, ou écrivez-moi à": "Anti-robot check failed. Reload the page and try again, or email me at",
     "Trop de messages envoyés depuis cet appareil. Réessayez plus tard, ou écrivez-moi à": "Too many messages sent from this device. Try again later, or email me at",
+    "Maquette gratuite pour mon commerce": "Free mockup for my business",
+    "Réalisations & <span class='accent'>preuves techniques</span>": "Work & <span class='accent'>technical proof</span>",
+    "Réalisations &amp; <span class='accent'>preuves techniques</span>": "Work &amp; <span class='accent'>technical proof</span>",
+    "Projet client": "Client project",
+    "Prix": "Price",
+    "Projet personnel": "Personal project",
+    "Ajouter des détails (téléphone, budget, fichier…)": "Add details (phone, budget, file…)",
+    "Masquer les détails": "Hide details",
+    "Montage · tests de stabilité": "Assembly · stability tests",
     // --- Erreurs du formulaire de contact ---
     "L'envoi n'a pas abouti (erreur serveur). Réessayez ou écrivez-moi à": "The message could not be sent (server error). Try again or email me at",
     "Connexion interrompue. Vérifiez votre réseau, ou écrivez-moi à": "Connection interrupted. Check your network, or email me at",

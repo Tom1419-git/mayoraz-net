@@ -414,3 +414,44 @@ a.contact-info-value:hover { color: var(--accent); }
 .form-error[hidden] {
     display: none;
 }
+
+/* ── Formulaire court : détails facultatifs repliés ──────────────────────── */
+.form-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed var(--glass-border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    margin: 4px 0 14px;
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-toggle:hover {
+    color: var(--text-main);
+    border-color: var(--glass-border-hover);
+}
+
+.form-toggle svg {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.form-toggle.open svg {
+    transform: rotate(180deg);
+}
+
+.form-extra[hidden] {
+    display: none;
+}
+
+.form-extra {
+    margin-bottom: 6px;
+}

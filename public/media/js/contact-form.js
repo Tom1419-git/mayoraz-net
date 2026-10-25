@@ -12,6 +12,49 @@ document.addEventListener('astro:page-load', () => {
             });
         });
 
+        // ── Détails facultatifs (téléphone, budget, fichier…) ─────────────
+        const extraToggle = document.getElementById('toggle-extra');
+        const extraBlock  = document.getElementById('form-extra');
+        if (extraToggle && extraBlock) {
+            const label      = document.getElementById('toggle-extra-label');
+            const moreLabel  = label ? (label.dataset.i18n || label.textContent) : '';
+            const lessLabel  = 'Masquer les détails';
+            extraToggle.addEventListener('click', () => {
+                const vaOuvrir = extraBlock.hidden;
+                extraBlock.hidden = !vaOuvrir;
+                extraToggle.setAttribute('aria-expanded', vaOuvrir ? 'true' : 'false');
+                extraToggle.classList.toggle('open', vaOuvrir);
+                if (label) {
+                    const txt = vaOuvrir ? lessLabel : moreLabel;
+                    label.textContent = window.t ? window.t(txt) : txt;
+                }
+            });
+        }
+
+        // ── Intention conservée depuis une offre (?offre=vitrine…) ────────
+        // Les boutons de /offre-pme/ arrivent avec ?offre=… : on présélectionne
+        // le service et on garde l'offre d'origine dans la demande reçue.
+        const offre = new URLSearchParams(location.search).get('offre');
+        const serviceSelect = document.getElementById('service');
+        if (offre && serviceSelect) {
+            const correspondance = {
+                'maquette': 'maquette-gratuite',
+                'vitrine': 'site-web-entreprise',
+                'vitrine-plus': 'site-web-entreprise',
+                'boutique': 'site-web-entreprise'
+            };
+            const valeur = correspondance[offre];
+            if (valeur) {
+                serviceSelect.value = valeur;
+                serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            const champOffre = document.createElement('input');
+            champOffre.type = 'hidden';
+            champOffre.name = 'offre';
+            champOffre.value = offre;
+            serviceSelect.form.appendChild(champOffre);
+        }
+
         // ── Compteur de caractères ────────────────────────────────────────
         const textarea  = document.getElementById('message');
         const charCount = document.getElementById('char-count');

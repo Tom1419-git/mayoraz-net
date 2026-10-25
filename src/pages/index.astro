@@ -6,7 +6,6 @@ import TrustBar from '../components/home/TrustBar.astro';
 import Services from '../components/home/Services.astro';
 import CaseStudies from '../components/home/CaseStudies.astro';
 import Method from '../components/home/Method.astro';
-import Testimonials from '../components/home/Testimonials.astro';
 import Stack from '../components/home/Stack.astro';
 
 const buildHash = Date.now().toString(36);
@@ -21,12 +20,11 @@ const buildHash = Date.now().toString(36);
   <Services />
   <CaseStudies />
   <Method />
-  <Testimonials />
-  <Stack />
   <ContactCta
     title="Un projet en tête ?"
     text="Site web, dépannage ou PC sur mesure : décrivez-moi votre besoin, je vous réponds sous 24 h avec une proposition claire."
   />
+  <Stack />
 
   <Fragment slot="scripts">
     <script is:inline src={`/media/js/typewriter.js?v=${buildHash}`} defer></script>

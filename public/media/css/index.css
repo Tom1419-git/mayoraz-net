@@ -346,3 +346,28 @@
         margin-left: 14px;
     }
 }
+
+/* ── Statut des réalisations : client ou personnel ───────────────────────── */
+.case-status {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 1px solid var(--glass-border);
+}
+
+.case-status--client {
+    color: #3fb26f;
+    border-color: rgba(63, 178, 111, 0.35);
+    background: rgba(63, 178, 111, 0.10);
+}
+
+.case-status--perso {
+    color: var(--accent);
+    border-color: rgba(79, 143, 255, 0.35);
+    background: rgba(79, 143, 255, 0.10);
+}

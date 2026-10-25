@@ -3625,3 +3625,12 @@ main { display: block; }
         line-height: 1.35;
     }
 }
+
+/* ── Logo : tenir sur une ligne dans la barre de navigation mobile ────────── */
+@media (max-width: 520px) {
+    .logo {
+        font-size: 1.12rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+}

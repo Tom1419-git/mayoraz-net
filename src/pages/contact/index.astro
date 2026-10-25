@@ -81,17 +81,11 @@ const serviceLd = {
                             <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="telephone" data-i18n="Téléphone">Téléphone</label>
-                            <input type="tel" id="telephone" name="telephone" placeholder="+41 79 000 00 00">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
                             <label for="service" data-i18n-html="form_service">Service <span class="required">*</span></label>
                             <div class="select-wrapper">
                                 <select id="service" name="service" required>
                                     <option value="" data-i18n="Sélectionnez...">Sélectionnez...</option>
+                                    <option value="maquette-gratuite" data-i18n="Maquette gratuite pour mon commerce">Maquette gratuite pour mon commerce</option>
                                     <option value="site-web-personnel" data-i18n="Site web personnel">Site web personnel</option>
                                     <option value="site-web-entreprise" data-i18n="Site web entreprise">Site web entreprise</option>
                                     <option value="montage-pc" data-i18n="Montage PC sur mesure">Montage PC sur mesure</option>
@@ -102,11 +96,31 @@ const serviceLd = {
                                 <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="commune" data-i18n="Commune / Ville">Commune / Ville</label>
-                            <input type="text" id="commune" name="commune" placeholder="Lausanne, Morges, Renens...">
-                        </div>
                     </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message" data-i18n-html="form_message">Décrivez votre projet <span class="required">*</span></label>
+                        <textarea id="message" name="message" data-i18n="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." placeholder="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." required></textarea>
+                        <span class="char-counter"><span id="char-count">0</span> / 1000</span>
+                    </div>
+
+                    <button type="button" class="form-toggle" id="toggle-extra" aria-expanded="false" aria-controls="form-extra">
+                        <span id="toggle-extra-label" data-i18n="Ajouter des détails (téléphone, budget, fichier…)">Ajouter des détails (téléphone, budget, fichier…)</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+
+                    <div class="form-extra" id="form-extra" hidden>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telephone" data-i18n="Téléphone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" placeholder="+41 79 000 00 00">
+                            </div>
+                            <div class="form-group">
+                                <label for="commune" data-i18n="Commune / Ville">Commune / Ville</label>
+                                <input type="text" id="commune" name="commune" placeholder="Lausanne, Morges, Renens...">
+                            </div>
+                        </div>
 
                     <!-- A : Urgence -->
                     <div class="form-group">
@@ -161,13 +175,6 @@ const serviceLd = {
                         </div>
                     </div>
 
-                    <!-- Message -->
-                    <div class="form-group">
-                        <label for="message" data-i18n-html="form_message">Décrivez votre projet <span class="required">*</span></label>
-                        <textarea id="message" name="message" data-i18n="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." placeholder="Décrivez votre besoin, vos contraintes et vos délais. Plus votre demande est précise, mieux je pourrai vous aider." required></textarea>
-                        <span class="char-counter"><span id="char-count">0</span> / 1000</span>
-                    </div>
-
                     <!-- D : Pièce jointe -->
                     <div class="form-group">
                         <label for="attachment" data-i18n="Pièce jointe (optionnel)">Pièce jointe <span class="label-optional" data-i18n="optionnel">optionnel</span></label>
@@ -198,7 +205,9 @@ const serviceLd = {
                         </div>
                     </div>
 
-                    <div id="cf-turnstile-container" class="turnstile-container"></div>
+                    </div>
+
+                                        <div id="cf-turnstile-container" class="turnstile-container"></div>
 
                     <button type="submit" class="btn-accent btn-submit">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>

@@ -6,7 +6,7 @@ const buildHash = Date.now().toString(36);
 const faq = [
   {
     q: "Combien coûte un site vitrine pour un commerce ?",
-    a: "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la mise en ligne, le suivi coûte soit 69 CHF/an (forfait technique essentiel), soit 24,49 CHF/mois (maintenance active)."
+    a: "Les forfaits sont fixes et affichés sur cette page : Vitrine, Vitrine + et Boutique en ligne. Pas de devis à rallonge, 50 % à la commande et 50 % à la livraison. Après la mise en ligne, le suivi coûte soit 69 CHF/an (forfait technique essentiel), soit 24,50 CHF/mois (maintenance active)."
   },
   {
     q: "En combien de temps le site est-il en ligne ?",
@@ -26,11 +26,11 @@ const faq = [
   },
   {
     q: "Et après la mise en ligne ?",
-    a: "Vous choisissez votre niveau de suivi. Le forfait technique essentiel à 69 CHF/an maintient le domaine, le HTTPS et les vérifications de base : c'est la formule du client autonome, sans modification de contenu incluse. La maintenance active à 24,49 CHF/mois ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité."
+    a: "Vous choisissez votre niveau de suivi. Le forfait technique essentiel à 69 CHF/an maintient le domaine, le HTTPS et les vérifications de base : c'est la formule du client autonome, sans modification de contenu incluse. La maintenance active à 24,50 CHF/mois ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité."
   },
   {
     q: "Quelle est la différence entre les deux formules de suivi ?",
-    a: "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,49 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom."
+    a: "Le forfait essentiel (69 CHF/an) ne comprend ni mises à jour, ni sauvegardes, ni intervention prioritaire : il garantit seulement que le domaine, le certificat HTTPS et le site restent techniquement en état. La maintenance active (24,50 CHF/mois) comprend les mises à jour, les sauvegardes et le contrôle de disponibilité, avec une réponse prioritaire sous 24 heures ouvrées. Dans les deux cas, le domaine, l'hébergement et le code restent à votre nom."
   }
 ];
 const faqLd = {
@@ -53,7 +53,7 @@ const faqLd = {
             <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 640px; margin: 0 auto 18px;" data-i18n="Aujourd'hui, le client qui vous cherche sur Google se fait une opinion en 30 secondes. S'il ne trouve rien (ou tombe sur une page lente, cassée sur mobile), c'est le concurrent d'à côté qui gagne le client. Je refais des sites pour des PME de toute la Suisse romande : rapide, moderne, bien référencé, à prix fixe connu d'avance.">
                 Aujourd'hui, le client qui vous cherche sur Google se fait une opinion en 30 secondes. S'il ne trouve rien (ou tombe sur une page lente, cassée sur mobile), c'est le concurrent d'à côté qui gagne le client. Je refais des sites pour des PME de toute la Suisse romande : rapide, moderne, bien référencé, à prix fixe connu d'avance.
             </p>
-            <a href="/contact/" class="btn-outline" style="display:inline-flex; padding: 12px 26px; font-size: 1rem;" data-i18n="Obtenir ma maquette gratuite">Obtenir ma maquette gratuite</a>
+            <a href="/contact/?offre=maquette" class="btn-outline" style="display:inline-flex; padding: 12px 26px; font-size: 1rem;" data-i18n="Obtenir ma maquette gratuite">Obtenir ma maquette gratuite</a>
         </header>
 
         <main style="max-width: 1000px; margin: 0 auto 60px;">
@@ -99,7 +99,7 @@ const faqLd = {
                             <li data-i18n="Formulaire de contact + horaires + plan">Formulaire de contact + horaires + plan</li>
                             <li data-i18n="En ligne en 1 à 2 semaines">En ligne en 1 à 2 semaines</li>
                         </ul>
-                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine">Choisir Vitrine</a>
+                        <a href="/contact/?offre=vitrine" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine">Choisir Vitrine</a>
                     </div>
                     <div class="wm-card" style="padding:28px; display:flex; flex-direction:column; border:1px solid var(--accent); position:relative;">
                         <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#0b0e13; font-size:0.72rem; font-weight:700; padding:3px 12px; border-radius:99px;" data-i18n="LE PLUS CHOISI">LE PLUS CHOISI</span>
@@ -113,7 +113,7 @@ const faqLd = {
                             <li data-i18n="Statistiques de visites simples et lisibles">Statistiques de visites simples et lisibles</li>
                             <li data-i18n="1 mois de modifications incluses après la mise en ligne">1 mois de modifications incluses après la mise en ligne</li>
                         </ul>
-                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine +">Choisir Vitrine +</a>
+                        <a href="/contact/?offre=vitrine-plus" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Vitrine +">Choisir Vitrine +</a>
                     </div>
                     <div class="wm-card" style="padding:28px; display:flex; flex-direction:column;">
                         <h3 style="color: var(--text-heading); margin:0 0 6px; font-size:1.15rem;" data-i18n="Boutique en ligne">Boutique en ligne</h3>
@@ -126,7 +126,7 @@ const faqLd = {
                             <li data-i18n="Formation à la prise en main incluse">Formation à la prise en main incluse</li>
                             <li data-i18n="En ligne en 3 à 4 semaines">En ligne en 3 à 4 semaines</li>
                         </ul>
-                        <a href="/contact/" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Boutique">Choisir Boutique</a>
+                        <a href="/contact/?offre=boutique" class="btn-outline" style="justify-content:center;" data-i18n="Choisir Boutique">Choisir Boutique</a>
                     </div>
                 </div>
                 <p style="text-align:center; color: var(--text-muted); font-size:0.85rem; margin-top:14px;" data-i18n="Besoin d'autre chose (réservation en ligne, multi-langue, refonte logo) ? On en parle : si ce n'est pas mon métier, je vous le dis franchement.">
@@ -151,9 +151,9 @@ const faqLd = {
                         </thead>
                         <tbody>
                             <tr style="border-bottom:1px solid var(--glass-border);">
-                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;">Prix</th>
+                                <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Prix">Prix</th>
                                 <td style="padding:12px; font-weight:700; color:var(--text-heading);">69 CHF/an</td>
-                                <td style="padding:12px; font-weight:700; color:var(--accent);">24,49 CHF/mois</td>
+                                <td style="padding:12px; font-weight:700; color:var(--accent);">24,50 CHF/mois</td>
                             </tr>
                             <tr style="border-bottom:1px solid var(--glass-border);">
                                 <th scope="row" style="text-align:left; padding:12px; font-weight:500;" data-i18n="Domaine et certificat HTTPS">Domaine et certificat HTTPS</th>
@@ -250,7 +250,7 @@ const faqLd = {
                         <li data-i18n="Réponse à votre mail sous 24 h ouvrées">Réponse à votre mail sous 24 h ouvrées</li>
                         <li data-i18n="Un seul interlocuteur du premier mail à la mise en ligne">Un seul interlocuteur du premier mail à la mise en ligne</li>
                         <li data-i18n="Code propre, hébergement à votre nom, vous restez propriétaire de tout">Code propre, hébergement à votre nom, vous restez propriétaire de tout</li>
-                        <li data-i18n="Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,49 CHF/mois">Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,49 CHF/mois</li>
+                        <li data-i18n="Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,50 CHF/mois">Après la mise en ligne : forfait essentiel à 69 CHF/an ou maintenance active à 24,50 CHF/mois</li>
                     </ul>
                 </div>
             </section>
@@ -263,7 +263,7 @@ const faqLd = {
                 <p style="color: var(--text-muted); font-size:0.9rem; margin-bottom:22px;" data-i18n="Pour le demander, un seul formulaire : celui de la page contact. Tout arrive au même endroit, rien ne se perd.">
                     Pour le demander, un seul formulaire : celui de la page contact. Tout arrive au même endroit, rien ne se perd.
                 </p>
-                <a href="/contact/" class="btn-outline" style="display:inline-flex; padding: 13px 26px; font-size: 1rem;" data-i18n="Demander ma maquette sur la page contact">Demander ma maquette sur la page contact</a>
+                <a href="/contact/?offre=maquette" class="btn-outline" style="display:inline-flex; padding: 13px 26px; font-size: 1rem;" data-i18n="Demander ma maquette sur la page contact">Demander ma maquette sur la page contact</a>
             </section>
 
             <section class="wm-card" id="faq" style="padding:30px; max-width:720px; margin:0 auto 60px;">
