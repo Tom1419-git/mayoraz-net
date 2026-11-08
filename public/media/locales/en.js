@@ -42,7 +42,6 @@ const frToEn = {
     "Les comptes tiers (Google, TWINT, WhatsApp Business) restent à votre nom : leur ouverture, leurs conditions et leurs éventuels frais vous appartiennent. Je les configure avec vos accès.": "Third-party accounts (Google, TWINT, WhatsApp Business) stay in your name: opening them, their terms and any fees are yours. I set them up using your access.",
     "Ordres de grandeur d'un cas typique de commerce de la région avant refonte, et objectif visé après. Ce ne sont pas des garanties pour votre projet : les chiffres réels dépendent de votre site et de vos contenus.": "Typical ranges for a local business before a redesign, and the target afterwards. These are not guarantees for your project: actual figures depend on your site and content.",
     "de poids de page visés par rapport à l'existant": "page weight targeted versus the current site",
-    "Urgence ou dépannage ? <a href='tel:+41766122053'>Appelez le +41 76 612 20 53</a>": "Urgent repair? <a href='tel:+41766122053'>Call +41 76 612 20 53</a>",
     "Les modifications de contenu ne sont incluses dans aucune des deux formules : elles sont chiffrées séparément, sur devis. L'essentiel couvre uniquement la survie technique du site (domaine, certificat, vérifications de base) ; la maintenance active y ajoute les mises à jour, les sauvegardes et le contrôle de disponibilité.": "Content changes are not included in either plan: they are quoted separately. The essential plan only keeps the site technically alive (domain, certificate, basic checks); active maintenance adds updates, backups and uptime monitoring.",
     "Maquette gratuite livrée en 48 h : vous voyez le résultat avant de décider": "Free mockup delivered in 48 h: you see the result before you decide",
     "Même contenu, même hébergeur : site statique moderne, images optimisées, fiche Maps complète avec photos et horaires. Le client trouve, reste et appelle.": "Same content, same host: modern static site, optimized images, complete Maps listing with photos and hours. Customers find you, stay and call.",
@@ -88,7 +87,6 @@ const frToEn = {
     "Votre site est votre <span class='accent'>premier vendeur</span>": "Your website is your <span class='accent'>best salesperson</span>",
     "Vous recevez un premier retour concret sous 24 heures ouvrées": "You get a first concrete answer within 24 business hours",
     "← Retour au site": "← Back to the site",
-    "+41 76 612 20 53": "+41 76 612 20 53",
     "// DEMANDE REÇUE": "// REQUEST RECEIVED",
     "// OFFRE PME": "// SMALL BUSINESS OFFER",
     // --- Complement 28/09 (csharp download sans emoji) ---

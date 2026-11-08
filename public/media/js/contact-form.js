@@ -1,13 +1,6 @@
 document.addEventListener('astro:page-load', () => {
-        // ── Bouton d'appel : le numéro n'est pas écrit en clair dans le HTML
-        // (data-call contient sa version base64), pour ne pas l'offrir aux
-        // robots qui moissonnent les numéros affichés sur les pages de contact.
-        // Ce sont des <a> et non des <button> : iOS Safari rend les boutons avec
-        // son style natif (fond blanc, bordure grise) et ignore une partie du CSS.
-        // Le href est posé ici, une fois le numéro décodé.
-        document.querySelectorAll('[data-call]').forEach(el => {
-            el.setAttribute('href', 'tel:' + atob(el.dataset.call));
-        });
+        // Les boutons d'appel sont traités par /media/js/call.js, partagé avec
+        // les pages de remerciement.
 
         // ── Chips génériques (budget + urgence) ──────────────────────────
         document.querySelectorAll('.chip-group').forEach(group => {

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const buildHash = Date.now().toString(36);
 ---
 
 <Layout title="Merci ! Thomas Mayoraz | Votre maquette gratuite arrive sous 48 h"
@@ -28,7 +29,7 @@ import Layout from '../../layouts/Layout.astro';
                 </p>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px;">
-                    <a class="btn-outline" href="tel:+41766122053" style="display: inline-flex;" data-i18n="+41 76 612 20 53">+41 76 612 20 53</a>
+                    <a class="btn-outline" data-call="KzQxNzY2MTIyMDUz" style="display: inline-flex;" data-i18n="Appeler">Appeler</a>
                     <a class="btn-outline" href="mailto:contact@mayoraz-net.ch" style="display: inline-flex;" data-i18n="contact@mayoraz-net.ch">contact@mayoraz-net.ch</a>
                 </div>
 
@@ -40,4 +41,8 @@ import Layout from '../../layouts/Layout.astro';
             </p>
         </main>
     </div>
+
+    <Fragment slot="scripts">
+        <script is:inline src={`/media/js/call.js?v=${buildHash}`} defer></script>
+    </Fragment>
 </Layout>
