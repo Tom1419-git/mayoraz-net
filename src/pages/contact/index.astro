@@ -37,7 +37,7 @@ const serviceLd = {
 <Layout title="Contact - Thomas Mayoraz | Services Informatiques Lausanne" data-i18n="Contact - Thomas Mayoraz | Services Informatiques Lausanne" description="Contactez-moi pour vos projets informatiques à Lausanne : développement web, montage PC, dépannage. Thomas Mayoraz, expert en services informatiques." cssFile="/media/css/contact.css">
     <div class="wm-container" style="padding-top: 60px;">
         <header class="contact-header">
-            <p class="wm-section-eyebrow" data-i18n="// CONTACT">// CONTACT</p>
+            <p class="wm-section-eyebrow" data-i18n="Contact">Contact</p>
             <h1 class="wm-section-title" data-i18n-html="Discutons de votre <span class='accent'>projet</span>">Discutons de votre <span class="accent">projet</span></h1>
             <p class="contact-intro" data-i18n="Que ce soit pour un site web, un montage PC ou un dépannage, je vous réponds rapidement.">Que ce soit pour un site web, un montage PC ou un dépannage, je vous réponds rapidement.</p>
             <!-- Le numéro n'est jamais écrit en clair : data-call est le numéro encodé en
@@ -347,15 +347,14 @@ const serviceLd = {
 
         function renderTurnstile() {
             if (typeof turnstile === 'undefined') return;
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            
+            // Le site n'a plus qu'un thème sombre : le widget reste sur 'dark'.
             if (turnstileWidgetId !== null) {
                 turnstile.remove(turnstileWidgetId);
             }
-            
+
             turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
                 sitekey: '0x4AAAAAADhc2UTooOzxGXSX',
-                theme: currentTheme,
+                theme: 'dark',
                 size: 'flexible'
             });
         }
@@ -377,16 +376,7 @@ const serviceLd = {
                     renderTurnstile();
                 }
                 
-                if (!observer) {
-                    observer = new MutationObserver((mutations) => {
-                        mutations.forEach((mutation) => {
-                            if (mutation.attributeName === 'data-theme') {
-                                if (turnstileLoaded) renderTurnstile();
-                            }
-                        });
-                    });
-                    observer.observe(document.documentElement, { attributes: true });
-                }
+
             }
         });
     </script>

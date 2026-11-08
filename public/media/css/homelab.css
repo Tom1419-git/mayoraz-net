@@ -172,15 +172,6 @@
 }
 
 /* Light mode */
-:root[data-theme="light"] .hl-card {
-    background: rgba(255, 255, 255, 0.7);
-}
-
-
-
-:root[data-theme="light"] .hl-card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
 
 /* Responsive */
 @media (max-width: 640px) {
@@ -221,7 +212,6 @@
         transform: none !important;
     }
 }
-
 
 /* Live Stats */
 .live-stats-container {

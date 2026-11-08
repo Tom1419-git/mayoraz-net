@@ -4,8 +4,9 @@
 
 /* Header centré */
 .contact-header {
-    text-align: center;
-    margin-bottom: 48px;
+    padding: 0 0 10px;
+    max-width: 760px;
+    margin: 0 auto 36px;
 }
 .contact-intro {
     color: var(--text-muted);
@@ -113,8 +114,8 @@
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--accent);
-    background: rgba(79, 143, 255, 0.06);
-    box-shadow: 0 0 0 3px rgba(79, 143, 255, 0.12);
+    background: rgba(217, 165, 102, 0.05);
+    box-shadow: 0 0 0 3px rgba(217, 165, 102, 0.10);
 }
 
 .contact-form textarea {
@@ -171,11 +172,11 @@
 .chip:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(79, 143, 255, 0.08);
+    background: rgba(217, 165, 102, 0.07);
 }
 .chip.active {
     border-color: var(--accent);
-    background: rgba(79, 143, 255, 0.15);
+    background: rgba(217, 165, 102, 0.12);
     color: var(--accent);
     font-weight: 600;
 }
@@ -221,7 +222,7 @@
 }
 .radio-pill input[type="radio"]:checked + span {
     border-color: var(--accent);
-    background: rgba(79, 143, 255, 0.15);
+    background: rgba(217, 165, 102, 0.12);
     color: var(--accent);
     font-weight: 600;
 }
@@ -244,7 +245,7 @@
 .file-upload-label:hover,
 .file-upload-label.dragover {
     border-color: var(--accent);
-    background: rgba(79, 143, 255, 0.06);
+    background: rgba(217, 165, 102, 0.05);
     color: var(--accent);
 }
 .file-input { display: none; }
@@ -312,7 +313,7 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: rgba(79, 143, 255, 0.1);
+    background: rgba(217, 165, 102, 0.08);
     color: var(--accent);
     flex-shrink: 0;
     margin-top: 2px;
@@ -342,7 +343,7 @@ a.contact-info-value:hover { color: var(--accent); }
     padding: 5px 12px;
     border: 1px solid var(--glass-border);
     border-radius: 999px;
-    background: rgba(79, 143, 255, 0.08);
+    background: rgba(217, 165, 102, 0.07);
     color: var(--accent);
     font-family: inherit;
     font-size: 0.85rem;
@@ -358,7 +359,7 @@ a.contact-info-value:hover { color: var(--accent); }
 }
 .btn-call:hover {
     border-color: var(--accent);
-    background: rgba(79, 143, 255, 0.15);
+    background: rgba(217, 165, 102, 0.12);
 }
 .btn-call svg { flex-shrink: 0; }
 

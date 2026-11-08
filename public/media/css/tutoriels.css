@@ -107,33 +107,6 @@
 }
 
 /* Light mode */
-:root[data-theme="light"] .panel {
-    background: rgba(241, 245, 249, 0.8);
-}
-
-:root[data-theme="light"] .panel pre {
-    background: #1e293b;
-    color: #e2e8f0;
-    border-color: #334155;
-}
-
-:root[data-theme="light"] .panel pre code {
-    color: #64ffda;
-}
-
-:root[data-theme="light"] .panel code {
-    background: color-mix(in srgb, var(--primary) 10%, transparent);
-    color: var(--primary);
-}
-
-:root[data-theme="light"] .accordion {
-    background: rgba(255, 255, 255, 0.7);
-}
-
-:root[data-theme="light"] .accordion.active,
-:root[data-theme="light"] .accordion:hover {
-    background: color-mix(in srgb, var(--primary) 8%, transparent);
-}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

@@ -15,7 +15,7 @@ const {
 	description = "Services informatiques professionnels à Lausanne : développement web, montage PC et dépannage.", 
 	cssFile,
 	robots = "index, follow",
-	ogImage = "https://mayoraz-net.ch/media/img/og_banner.png"
+	ogImage = "https://mayoraz-net.ch/media/img/og-atelier.jpg"
 } = Astro.props;
 
 // Cache-buster: string unique généré à chaque build pour forcer le rafraîchissement du cache navigateur
@@ -25,14 +25,6 @@ const buildHash = Date.now().toString(36);
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <script is:inline>
-  (function() {
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', theme);
-  })();
-</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{title}</title>
     <meta name="description" content={description}/>
@@ -49,11 +41,15 @@ const buildHash = Date.now().toString(36);
     <meta property="og:title" content={title}/>
     <meta property="og:description" content={description}/>
     <meta property="og:image" content={ogImage}/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="Thomas Mayoraz — sites web rapides, informatique fiable"/>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Thomas Mayoraz — sites web rapides, informatique fiable" />
 
     <!-- JSON-LD (Schema.org) -->
     <script type="application/ld+json" set:html={JSON.stringify([{
@@ -98,8 +94,6 @@ const buildHash = Date.now().toString(36);
     )}
 </head>
 <body>
-    <canvas id="particles-bg"></canvas>
-
     <nav class="main-nav">
         <div class="nav-overlay" id="nav-overlay"></div>
         <div class="nav-container">
@@ -175,7 +169,6 @@ const buildHash = Date.now().toString(36);
     <button id="backToTop" aria-label="Retour en haut de page" data-i18n-aria="Retour en haut de page">&#8593;</button>
 
     <script is:inline src={`/media/js/theme.js?v=${buildHash}`} defer></script>
-    <script is:inline src={`/media/js/particles.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/toast.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/terminal.js?v=${buildHash}`} defer></script>
     <script is:inline src={`/media/js/lang.js?v=${buildHash}`} defer></script>

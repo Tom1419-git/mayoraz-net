@@ -1,21 +1,12 @@
 // media/js/theme.js
 
 document.addEventListener('astro:page-load', () => {
-    // 1. Dark Theme Logic
-    let currentTheme = 'dark';
-    localStorage.setItem('theme', currentTheme);
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    // Initial Grafana sync
+    // 1. Grafana : l'embed reste sur le thème sombre, comme le reste du site.
     document.querySelectorAll('iframe').forEach(iframe => {
         if (iframe.src.includes('grafana') && iframe.src.includes('theme=')) {
-            iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=' + currentTheme);
+            iframe.src = iframe.src.replace(/theme=[^&]+/, 'theme=dark');
         }
     });
-
-
-
-
 
     // 2. Scroll Reveal Animations
     const reveals = document.querySelectorAll('.reveal');

@@ -122,14 +122,6 @@
 }
 
 /* Light mode */
-:root[data-theme="light"] .status-item {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: var(--glass-border);
-}
-
-:root[data-theme="light"] .status-item:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
 
 /* Responsive */
 @media (max-width: 600px) {

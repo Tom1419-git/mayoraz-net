@@ -23,14 +23,6 @@ function activateMatrixMode() {
         showToast('Wake up, Neo... 🐇', 'success');
     }
 
-    // Force dark mode
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.body.classList.add('dark-mode');
-    document.body.classList.remove('light-mode');
-    localStorage.setItem('theme', 'dark');
-    const themeBtn = document.getElementById('theme-toggle');
-    if (themeBtn) themeBtn.innerText = '🌙';
-
     const canvas = document.createElement('canvas');
     canvas.id = 'matrix-canvas';
     canvas.style.position = 'fixed';
