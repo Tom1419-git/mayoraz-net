@@ -1,4 +1,14 @@
 document.addEventListener('astro:page-load', () => {
+        // ── Bouton d'appel : le numéro n'est pas écrit en clair dans le HTML
+        // (data-call contient sa version base64), pour ne pas l'offrir aux
+        // robots qui moissonnent les numéros affichés sur les pages de contact.
+        // Ce sont des <a> et non des <button> : iOS Safari rend les boutons avec
+        // son style natif (fond blanc, bordure grise) et ignore une partie du CSS.
+        // Le href est posé ici, une fois le numéro décodé.
+        document.querySelectorAll('[data-call]').forEach(el => {
+            el.setAttribute('href', 'tel:' + atob(el.dataset.call));
+        });
+
         // ── Chips génériques (budget + urgence) ──────────────────────────
         document.querySelectorAll('.chip-group').forEach(group => {
             const hidden = group.querySelector('input[type="hidden"]');
@@ -66,52 +76,9 @@ document.addEventListener('astro:page-load', () => {
             });
         }
 
-        // ── Fichier joint — affichage du nom + drag&drop ─────────────────
-        const fileInput  = document.getElementById('attachment');
-        const fileNameEl = document.getElementById('file-name');
-        const fileLabel  = document.querySelector('.file-upload-label');
-        if (fileInput && fileNameEl) {
-            const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 Mo
-            const checkFileSize = (file) => {
-                if (file && file.size > MAX_FILE_SIZE) {
-                    const sizeMo = (file.size / 1024 / 1024).toFixed(1);
-                    alert(window.t ? window.t('Fichier trop lourd (' + sizeMo + ' Mo). Maximum : 10 Mo.') : 'Fichier trop lourd (' + sizeMo + ' Mo). Maximum : 10 Mo.');
-                    fileInput.value = '';
-                    fileNameEl.textContent = '';
-                    return false;
-                }
-                return true;
-            };
-            fileInput.addEventListener('change', () => {
-                const f = fileInput.files[0];
-                if (!checkFileSize(f)) return;
-                fileNameEl.textContent = f ? '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)' : '';
-            });
-        }
-        if (fileLabel) {
-            fileLabel.addEventListener('dragover', e => { e.preventDefault(); fileLabel.classList.add('dragover'); });
-            fileLabel.addEventListener('dragleave', () => fileLabel.classList.remove('dragover'));
-            fileLabel.addEventListener('drop', e => {
-                e.preventDefault();
-                fileLabel.classList.remove('dragover');
-                if (e.dataTransfer.files.length && fileInput) {
-                    const f = e.dataTransfer.files[0];
-                    if (f.size > 10 * 1024 * 1024) {
-                        alert(window.t ? window.t('Fichier trop lourd (' + (f.size / 1024 / 1024).toFixed(1) + ' Mo). Maximum : 10 Mo.') : 'Fichier trop lourd (' + (f.size / 1024 / 1024).toFixed(1) + ' Mo). Maximum : 10 Mo.');
-                        return;
-                    }
-                    fileInput.files = e.dataTransfer.files;
-                    fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)';
-                }
-            });
-        }
-
-        // ── Soumission du formulaire ──────────────────────────────────────
-        const contactForm = document.querySelector('.contact-form');
-        if (!contactForm) return;
-
-        // Erreurs affichées dans la page plutôt qu'en alert() : le visiteur garde
-        // ses champs sous les yeux et un canal de secours (email) toujours visible.
+        // ── Erreurs affichées dans la page plutôt qu'en alert() ────────────
+        // Déclarées avant les gestionnaires de fichier : un fichier trop lourd
+        // s'affiche au même endroit que les autres erreurs du formulaire.
         const errorBox = document.getElementById('form-error');
         function showFormError(message, withEmail) {
             const text = window.t ? window.t(message) : message;
@@ -133,6 +100,55 @@ document.addEventListener('astro:page-load', () => {
         function hideFormError() {
             if (errorBox) errorBox.hidden = true;
         }
+
+        // ── Fichier joint — plafond, affichage du nom + drag&drop ─────────
+        const fileInput  = document.getElementById('attachment');
+        const fileNameEl = document.getElementById('file-name');
+        const fileLabel  = document.querySelector('.file-upload-label');
+        const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 Mo
+        let fileErrorShown = false;
+
+        const checkFileSize = (file) => {
+            if (file && file.size > MAX_FILE_SIZE) {
+                const sizeMo = (file.size / 1024 / 1024).toFixed(1);
+                const tpl = 'Fichier trop lourd ({taille} Mo). Maximum : 10 Mo.';
+                fileErrorShown = true;
+                showFormError((window.t ? window.t(tpl) : tpl).replace('{taille}', sizeMo));
+                if (fileInput) fileInput.value = '';
+                if (fileNameEl) fileNameEl.textContent = '';
+                return false;
+            }
+            // Le message de taille disparaît dès qu'un fichier valide est choisi,
+            // sans effacer une erreur d'envoi éventuelle.
+            if (fileErrorShown) { hideFormError(); fileErrorShown = false; }
+            return true;
+        };
+
+        if (fileInput && fileNameEl) {
+            fileInput.addEventListener('change', () => {
+                const f = fileInput.files[0];
+                if (!checkFileSize(f)) return;
+                fileNameEl.textContent = f ? '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)' : '';
+            });
+        }
+        if (fileLabel) {
+            fileLabel.addEventListener('dragover', e => { e.preventDefault(); fileLabel.classList.add('dragover'); });
+            fileLabel.addEventListener('dragleave', () => fileLabel.classList.remove('dragover'));
+            fileLabel.addEventListener('drop', e => {
+                e.preventDefault();
+                fileLabel.classList.remove('dragover');
+                if (e.dataTransfer.files.length && fileInput) {
+                    const f = e.dataTransfer.files[0];
+                    if (!checkFileSize(f)) return;
+                    fileInput.files = e.dataTransfer.files;
+                    if (fileNameEl) fileNameEl.textContent = '✓ ' + f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' Mo)';
+                }
+            });
+        }
+
+        // ── Soumission du formulaire ──────────────────────────────────────
+        const contactForm = document.querySelector('.contact-form');
+        if (!contactForm) return;
 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();

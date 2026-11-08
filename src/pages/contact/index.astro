@@ -41,7 +41,15 @@ const serviceLd = {
             <p class="wm-section-eyebrow" data-i18n="// CONTACT">// CONTACT</p>
             <h1 class="wm-section-title" data-i18n-html="Discutons de votre <span class='accent'>projet</span>">Discutons de votre <span class="accent">projet</span></h1>
             <p class="contact-intro" data-i18n="Que ce soit pour un site web, un montage PC ou un dépannage, je vous réponds rapidement.">Que ce soit pour un site web, un montage PC ou un dépannage, je vous réponds rapidement.</p>
-            <p class="contact-appel" style="margin: 10px 0 0; font-size:0.95rem;" data-i18n-html="Urgence ou dépannage ? <a href='tel:+41766122053'>Appelez le +41 76 612 20 53</a>">Urgence ou dépannage ? <a href="tel:+41766122053">Appelez le +41 76 612 20 53</a></p>
+            <!-- Le numéro n'est jamais écrit en clair : data-call est le numéro encodé en
+                 base64, contact-form.js reconstruit le lien tel: au chargement. -->
+            <p class="contact-appel" style="margin: 10px 0 0; font-size:0.95rem;">
+                <span data-i18n="Urgence ou dépannage ?">Urgence ou dépannage ?</span>
+                <a class="btn-call" data-call="KzQxNzY2MTIyMDUz" data-i18n-aria="Appeler">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span data-i18n="Appeler">Appeler</span>
+                </a>
+            </p>
             <a class="btn-outline" href="/" style="display: inline-flex; margin-top: 8px;" data-i18n="← Retour au Portfolio">← Retour au Portfolio</a>
         </header>
 
@@ -243,7 +251,7 @@ const serviceLd = {
                             </span>
                             <div>
                                 <span class="contact-info-label" data-i18n="Téléphone">Téléphone</span>
-                                <a href="tel:+41766122053" class="contact-info-value">+41 76 612 20 53</a>
+                                <a class="contact-info-value contact-info-call" data-call="KzQxNzY2MTIyMDUz"><span data-i18n="Appeler">Appeler</span></a>
                             </div>
                         </li>
                         <li>
